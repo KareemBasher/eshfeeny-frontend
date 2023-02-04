@@ -1,7 +1,13 @@
-import React from 'react'
+import './App.css'
 
-export const App = () => {
+function App() {
+
   return (
-    <div></div>
+    <div>
+      asdasdds
+      <Component/>
+    </div>
   )
 }
+
+export default App
