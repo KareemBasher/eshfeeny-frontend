@@ -1,8 +1,9 @@
 import './App.css'
+import Favourites from './components/pages/Favourites'
 
 function App() {
   return (
-    <div></div>
+    <Favourites />
   )
 }
 
