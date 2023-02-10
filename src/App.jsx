@@ -1,7 +1,9 @@
 import './App.css'
 
 function App() {
-  return <div>asdasdds</div>
+  return (
+    <div></div>
+  )
 }
 
 export default App
