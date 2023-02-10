@@ -1,7 +1,10 @@
 import './App.css'
+import Favourites from './components/pages/Favourites'
 
 function App() {
-  return <div>asdasdds</div>
+  return (
+    <Favourites />
+  )
 }
 
 export default App
