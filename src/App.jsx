@@ -1,9 +1,11 @@
 import './App.css'
-import Favourites from './components/pages/Favourites'
+import LandingPage from './components/pages/landingPage/index.jsx'
 
 function App() {
   return (
-    <Favourites />
+    <div dir="rtl">
+      <LandingPage />
+    </div>
   )
 }
 
