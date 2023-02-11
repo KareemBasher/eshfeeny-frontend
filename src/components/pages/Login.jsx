@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import logo from '../../assets/common/logo.svg'
+import Logo from '../../assets/common/Logo.svg'
 import CredentialsInput from '../common/CredentialsInput'
 import LoginVector from '../../assets/common/LoginVector.svg'
 import WideButton from '../common/WideButton'
@@ -21,7 +21,7 @@ const Login = ({ changeLoggedUSer }) => {
   return (
     <div>
       <div className="flex h-[25vh] items-center justify-center">
-        <img src={logo} className="mx-5 w-[44px]" alt="logo" />
+        <img src={Logo} className="mx-5 w-[44px]" alt="Logo" />
         <span className="text-[24px]">مرحبا بك في تطبيق أشفينى </span>
       </div>
 
