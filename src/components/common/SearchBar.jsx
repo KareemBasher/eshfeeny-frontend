@@ -3,10 +3,10 @@ import SearchLogo from '../../assets/common/SearchIcon.svg'
 
 const SearchBar = ({ onGetData }) => {
   return (
-    <div className="flex justify-start bg-[#F7F7F7] rounded-full w-96 shadow-md">
+    <div className="flex justify-start bg-[#F7F7F7] rounded-full w-full shadow-md">
       <img className="px-5 py-3" src={SearchLogo} alt="Search Logo" />
       <input
-        className="bg-[#F7F7F7] outline-none w-auto"
+        className="bg-[#F7F7F7] outline-none w-auto rounded-full"
         dir="rtl"
         type="text"
         placeholder="ما الذي تبحت عنه؟"
