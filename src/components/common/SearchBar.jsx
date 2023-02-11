@@ -13,6 +13,7 @@ const SearchBar = ({ onGetData }) => {
         onChange={onGetData}
       />
     </div>
+
   )
 }
 
