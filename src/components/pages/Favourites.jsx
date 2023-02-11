@@ -15,10 +15,10 @@ const Favourites = () => {
   return (
     <div className="flex">
       <SearchBar onGetData={searchResult} />
-      <RoundButton onGetLogo={HeartDark} onGetText="المفضلة" />
-      <RoundButton onGetLogo={Location} onGetText="أقرب صيدلية" />
-      <RoundButton onGetLogo={Cart} onGetText="العربة" />
-      <RoundButton onGetLogo={Person} onGetText="حسابي" />
+      <RoundButton onGetLogo={HeartDark} onGetText="المفضلة" onGetPath="/favorites" />
+      <RoundButton onGetLogo={Location} onGetText="أقرب صيدلية" onGetPath="/location" />
+      <RoundButton onGetLogo={Cart} onGetText="العربة" onGetPath="/cart" />
+      <RoundButton onGetLogo={Person} onGetText="حسابي" onGetPath="/profile" />
     </div>
   )
 }
