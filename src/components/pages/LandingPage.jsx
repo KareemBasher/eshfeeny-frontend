@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../../assets/common/logo.svg'
+import logo from '../../assets/common/logo.svg'
 import WideButton from '../common/WideButton'
 import { Link } from 'react-router-dom'
 
