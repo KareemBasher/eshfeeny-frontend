@@ -7,6 +7,7 @@ import Location from '../../assets/common/Location.svg'
 import Cart from '../../assets/common/Cart.svg'
 import Person from '../../assets/common/Person.svg'
 import PageEmpty from '../common/PageEmpty'
+import GroupHeart from '../../assets/common/GroupHeart.svg'
 
 const Favourites = () => {
   const [query, setQuery] = useState('')
@@ -27,7 +28,7 @@ const Favourites = () => {
         <NavList />
       </div>
       <div>
-        <PageEmpty></PageEmpty>
+        <PageEmpty onGetLogo={GroupHeart} onGetText="لا توجد أي منتجات مفضلة لديك "></PageEmpty>
       </div>
     </>
   )
