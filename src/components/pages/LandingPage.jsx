@@ -1,9 +1,9 @@
 import React from 'react'
 import logo from '../../../assets/common/logo.svg'
-import WideButton from './WideButton'
+import WideButton from '../common/WideButton'
 import { Link } from 'react-router-dom'
 
-const index = () => {
+const LandingPage = () => {
   return (
     <div className=" flex flex-col items-center justify-center">
       <img className="w-[306px] my-14" src={logo} alt="logo" />
@@ -22,4 +22,4 @@ const index = () => {
   )
 }
 
-export default index
+export default LandingPage

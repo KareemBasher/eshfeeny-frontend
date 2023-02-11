@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const NavList = () => {
   return (
     <div>
-      <div className="flex flex-row justify-evenly text-[20px] w-full  ">
+          <div className="flex flex-row justify-evenly text-[20px] w-full  ">
         <Link>الأدوية</Link>
         <Link> الحمايه من الفيروسات</Link>
         <Link>منتجات المرأه</Link>
