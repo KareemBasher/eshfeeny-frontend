@@ -6,6 +6,7 @@ import HeartDark from '../../assets/common/HeartDark.svg'
 import Location from '../../assets/common/Location.svg'
 import Cart from '../../assets/common/Cart.svg'
 import Person from '../../assets/common/Person.svg'
+import PageEmpty from '../common/PageEmpty'
 
 const Favourites = () => {
   const [query, setQuery] = useState('')
@@ -24,6 +25,9 @@ const Favourites = () => {
       </div>
       <div className=" my-5 border  w-full  py-3  ">
         <NavList />
+      </div>
+      <div>
+        <PageEmpty></PageEmpty>
       </div>
     </>
   )
