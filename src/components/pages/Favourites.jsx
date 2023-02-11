@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 /*    Scripts    */
 import SearchBar from '../common/SearchBar'
 import RoundButton from '../common/RoundButton'
@@ -11,12 +11,22 @@ import HeartLight from '../../assets/common/HeartLight.svg'
 import Location from '../../assets/common/Location.svg'
 import Cart from '../../assets/common/Cart.svg'
 import Person from '../../assets/common/Person.svg'
+/*     API     */
+import * as ProductsAPI from '../../utils/productsAPI'
 
 const Favourites = () => {
   const [query, setQuery] = useState('')
   const searchResult = (e) => {
     setQuery(e.target.value)
   }
+  const [items, setItems] = useState([])
+  useEffect(() => {
+    const updateItems = async () => {
+      setItems(await ProductsAPI.getFavoriteProducts('63d9239b6ff014381890d178'))
+    }
+    updateItems()
+    console.log(items)
+  }, [])
 
   return (
     <>
