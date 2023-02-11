@@ -18,6 +18,7 @@ module.exports = {
     'prettier/prettier': 2,
     'no-console': 0,
     'no-var': 'error',
-    'prefer-const': 'error'
+    'prefer-const': 'error',
+    'react/prop-types': ['off']
   }
 }
