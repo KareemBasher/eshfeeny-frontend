@@ -15,7 +15,7 @@ const Favourites = () => {
         <SearchBar onGetData={searchResult} />
         <RoundButton />
       </div>
-      <div className=" my-5`  w-full">
+      <div className=" my-5 border  w-full  py-3  ">
         <NavList />
       </div>
     </>
