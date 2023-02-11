@@ -1,9 +1,13 @@
 import './App.css'
-import Favourites from './components/pages/Favourites'
+import LandingPage from './components/pages/landingPage/index.jsx'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <Favourites />
+    <Routes>
+      <Route path="/landingPage" element={<LandingPage />} />
+      <Route path="/favorites" element={}/>
+    </Routes>
   )
 }
 
