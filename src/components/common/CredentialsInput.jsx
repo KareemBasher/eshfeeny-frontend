@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import ShowPassword from '../../assets/common/ShowPassword.svg'
 
-const CredentialsInput = ({ placeHolder, type }) => {
-  const [input, setInput] = useState('')
+const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
   const [inputType, setInputType] = useState(type)
-
-  const handleInput = (e) => {
-    setInput(e.target.value)
-  }
+  const [inputValue, setInputValue] = useState(value)
 
   const handleOnClick = () => {
     if (inputType === 'password') setInputType('text')
     else setInputType('password')
   }
+
+  const handleInputValue = (e) => {
+    setInputValue(e.target.value)
+    handleInput(e.target.value, name)
+  }
+
   return (
     <div className="w-full mb-5 flex flex-row-reverse bg-[#ECECEC] rounded-[10px] shadow-[0px_2px_1px_rgba(0,0,0,0.15)]">
       {type === 'password' && (
@@ -27,8 +29,8 @@ const CredentialsInput = ({ placeHolder, type }) => {
         className="bg-[#ECECEC] w-full py-4 px-3 rounded-[10px] placeholder:text-[#868484] outline-none"
         type={inputType}
         placeholder={placeHolder}
-        value={input}
-        onChange={(e) => handleInput(e)}
+        value={inputValue}
+        onChange={(e) => handleInputValue(e)}
       />
     </div>
   )
