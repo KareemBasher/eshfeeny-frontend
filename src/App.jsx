@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/landingPage" element={<LandingPage />} />
-      <Route path="/favorites" element={<Favourites/>}/>
+      <Route path="/favorites" element={<Favourites />} />
     </Routes>
   )
 }
