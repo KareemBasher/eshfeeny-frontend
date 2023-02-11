@@ -5,6 +5,11 @@ module.exports = {
     es2021: true
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:prettier/recommended'],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
