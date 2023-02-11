@@ -4,7 +4,7 @@ import WideButton from './WideButton'
 
 const index = () => {
   return (
-    <div className=" flex flex-col items-center justify-center font-cairo">
+    <div className=" flex flex-col items-center justify-center">
       <img className="w-[306px] my-14" src={logo} alt="logo" />
       <p className="text-[28px]">مرحبا بك في تطبيق أشفينى</p>
 
