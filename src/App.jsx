@@ -4,7 +4,7 @@ import Favourites from './components/pages/Favourites/Favourites'
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import Login from './components/pages/Login'
-
+import Cart from './components/pages/cart/Cart'
 function App() {
   const [loggedUser, setLoggedUser] = useState(null)
 
@@ -17,6 +17,7 @@ function App() {
       <Route path="/landingPage" element={<LandingPage />} />
       <Route path="/favorites" element={<Favourites loggedUser={loggedUser} />} />
       <Route path="/login" element={<Login changeLoggedUser={changeLoggedUser} />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   )
 }
