@@ -14,6 +14,7 @@ import CartDark from '../../../assets/common/CartDark.svg'
 import Person from '../../../assets/common/Person.svg'
 /*     API     */
 import * as ProductsAPI from '../../../utils/productsAPI'
+// import * as UsersAPI from '../../../utils/usersAPI'
 
 const Favourites = () => {
   const [query, setQuery] = useState('')
@@ -27,6 +28,11 @@ const Favourites = () => {
     }
     updateItems()
   }, [])
+  // const removeFromFavourites = (item) => {
+  //   UsersAPI.removeFromFavorites(item)
+
+  //   setItems()
+  // }
 
   return (
     <>
