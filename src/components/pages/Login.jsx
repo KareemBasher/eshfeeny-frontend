@@ -5,7 +5,7 @@ import LoginVector from '../../assets/common/LoginVector.svg'
 import WideButton from '../common/WideButton'
 import AlternateSignin from '../common/AlternateSignin'
 
-const Login = ({ changeLoggedUSer }) => {
+const Login = ({ changeLoggedUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
