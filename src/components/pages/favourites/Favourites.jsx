@@ -51,7 +51,7 @@ const Favourites = () => {
       <div>
         {items.length ? (
           <FavouritesContent
-            OnGetTitle="المنتجات المفضلة"
+            onGetTitle="المنتجات المفضلة"
             onGetItems={items}
             onRemoveFavourite={removeFromFavourites}
           />
@@ -59,7 +59,7 @@ const Favourites = () => {
           <PageEmpty
             onGetLogo={HeartLight}
             onGetText="لا توجد أي منتجات مفضلة لديك"
-            OnGetTitle="المنتجات المفضلة"
+            onGetTitle="المنتجات المفضلة"
           />
         )}
       </div>
