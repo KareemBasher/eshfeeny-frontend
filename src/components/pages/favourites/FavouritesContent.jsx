@@ -1,7 +1,8 @@
 import React from 'react'
 import Heart from '../../../assets/common/HeartYellow.svg'
 
-const FavouritesContent = ({ onGetTitle, onGetItems, onRemoveFavourite }) => {
+const FavouritesContent = ({ onGetTitle, onGetItems, onGetCartItems, onRemoveFavourite }) => {
+  const cartItemsID = onGetCartItems.map((item) => item._id)
   return (
     <div>
       <div className="text-right text-[28px] m-10 mr-20">{onGetTitle}</div>
@@ -23,9 +24,15 @@ const FavouritesContent = ({ onGetTitle, onGetItems, onRemoveFavourite }) => {
                 </p>
                 <p className="text-blue py-1">{product.price} جنيه</p>
                 <div className="self-center">
-                  <button className="my-1 p-1 px-10 rounded-xl text-orange border-orange border-[0.8px]">
-                    أضف الى العربة
-                  </button>
+                  {cartItemsID.includes(product._id) ? (
+                    <p className="text-center my-1 p-1  rounded-xl text-blue border-blue border-[0.8px]">
+                      مضاف إلى العربة
+                    </p>
+                  ) : (
+                    <button className="my-1 p-1 px-10 rounded-xl text-orange border-orange border-[0.8px]">
+                      أضف الى العربة
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
