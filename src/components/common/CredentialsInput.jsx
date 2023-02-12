@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ShowPassword from '../../assets/common/ShowPassword.svg'
+import ShowPasswordOn from '../../assets/common/ShowPasswordOn.svg'
 
 const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
   const [inputType, setInputType] = useState(type)
@@ -19,7 +20,7 @@ const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
     <div className="w-full mb-5 flex flex-row-reverse bg-[#ECECEC] rounded-[10px] shadow-[0px_2px_1px_rgba(0,0,0,0.15)]">
       {type === 'password' && (
         <img
-          src={ShowPassword}
+          src={inputType === 'password' ? ShowPassword : ShowPasswordOn}
           className="px-4 cursor-pointer"
           onClick={(e) => handleOnClick(e)}
           alt="show password"
