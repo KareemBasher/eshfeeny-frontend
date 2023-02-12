@@ -29,6 +29,12 @@ const Favourites = () => {
     updateItems()
   }, [])
 
+  const removeFromFavourites = (ID, productID) => {
+    console.log('id:' + productID)
+    UsersAPI.removeFromFavorites(ID, productID)
+    setItems(items.filter((product) => product._id !== productID))
+  }
+
   return (
     <>
       <div className="flex pt-3 px-[112px]">
@@ -43,7 +49,11 @@ const Favourites = () => {
         <NavList />
       </div>
       <div>
-        <FavouritesContent OnGetTitle="المنتجات المفضلة" onGetItems={items} />
+        <FavouritesContent
+          OnGetTitle="المنتجات المفضلة"
+          onGetItems={items}
+          onRemoveFavourite={removeFromFavourites}
+        />
         {/* <PageEmpty onGetLogo={HeartLight} onGetText="لا توجد أي منتجات مفضلة لديك" OnGetTitle="المنتجات المفضلة"/> */}
       </div>
     </>
