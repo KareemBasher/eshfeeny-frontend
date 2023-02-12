@@ -103,7 +103,7 @@ export const getOrderHistoryProducts = async (userId, orderHistoryId) => {
     if (result.status === 200) return result.json()
   } catch (error) {
     console.log(
-      `Could get products from order with id ${orderHistoryId} for user with id ${userId} from API.`
+      `Could not get products from order with id ${orderHistoryId} for user with id ${userId} from API.`
     )
   }
 }
@@ -116,7 +116,7 @@ export const getFavoriteProducts = async (userId) => {
     })
     if (result.status === 200) return result.json()
   } catch (error) {
-    console.log(`Could get products from favorites for user with id ${userId} from API.`)
+    console.log(`Could not get products from favorites for user with id ${userId} from API.`)
   }
 }
 
@@ -128,6 +128,6 @@ export const getAlternatives = async (activeIngredient) => {
     })
     if (result.status === 200) return result.json()
   } catch (error) {
-    console.log(`Could get products that have the active ingredient ${activeIngredient} from API.`)
+    console.log(`Could not get products that have the active ingredient ${activeIngredient} from API.`)
   }
 }
