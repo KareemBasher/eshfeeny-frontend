@@ -9,7 +9,9 @@ const FavouritesContent = ({ OnGetTitle, onGetItems }) => {
         {onGetItems.map((c) => (
           <li key={c.nameEn}>
             <div className="flex flex-col justify-between rounded-lg shadow-md w-[233px] h-[340px] border-[#E7E7E7] border-[0.8px]">
-              <img src={Heart} className="w-[22px] box-border mr-3 mt-5" />
+              <button>
+                <img src={Heart} className="w-[22px] box-border mr-3 mt-5" />
+              </button>
               <div className="flex justify-center">
                 <img src="" className="w-32 m-5" />
               </div>
