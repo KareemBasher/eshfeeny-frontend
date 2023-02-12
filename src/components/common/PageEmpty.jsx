@@ -1,5 +1,5 @@
 import React from 'react'
-
+import WideButton from './WideButton'
 const PageEmpty = ({ onGetLogo, onGetText, onGetTitle }) => {
   return (
     <div>
@@ -11,6 +11,9 @@ const PageEmpty = ({ onGetLogo, onGetText, onGetTitle }) => {
       </div>
       <div className="m-5 text-[26px]">
         <p>{onGetText}</p>
+      </div>
+      <div>
+        <WideButton content="اذهب للتسوق الان" />
       </div>
     </div>
   )
