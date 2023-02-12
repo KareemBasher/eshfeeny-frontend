@@ -18,8 +18,8 @@ const FavouritesContent = ({ OnGetTitle, onGetItems, onRemoveFavourite }) => {
               <div className="text-right p-3 text-[18px] h-">
                 <p>
                   {product.nameAr}
-                  {product.volume ? ` | ${product.volume}` : ''}{' '}
-                  {product.amount ? `| ${product.amount}` : ''}
+                  {product.volume ? ` | ${product.volume}` : ''}
+                  {product.amount ? ` | ${product.amount}` : ''}
                 </p>
                 <p className="text-blue py-1">{product.price} جنيه</p>
                 <div className="self-center">
