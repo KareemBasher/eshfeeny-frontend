@@ -14,6 +14,7 @@ import CartDark from '../../../assets/common/CartDark.svg'
 import Person from '../../../assets/common/Person.svg'
 /*     API     */
 import * as ProductsAPI from '../../../utils/productsAPI'
+import * as UsersAPI from '../../../utils/usersAPI'
 
 const Favourites = () => {
   const [query, setQuery] = useState('')
@@ -27,6 +28,12 @@ const Favourites = () => {
     }
     updateItems()
   }, [])
+
+  const removeFromFavourites = (ID, productID) => {
+    console.log('id:' + productID)
+    UsersAPI.removeFromFavorites(ID, productID)
+    setItems(items.filter((product) => product._id !== productID))
+  }
 
   return (
     <>
@@ -42,7 +49,11 @@ const Favourites = () => {
         <NavList />
       </div>
       <div>
-        <FavouritesContent OnGetTitle="المنتجات المفضلة" onGetItems={items} />
+        <FavouritesContent
+          OnGetTitle="المنتجات المفضلة"
+          onGetItems={items}
+          onRemoveFavourite={removeFromFavourites}
+        />
         {/* <PageEmpty onGetLogo={HeartLight} onGetText="لا توجد أي منتجات مفضلة لديك" OnGetTitle="المنتجات المفضلة"/> */}
       </div>
     </>

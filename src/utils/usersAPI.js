@@ -34,7 +34,7 @@ export const addToCart = async (id, productID) => {
     })
     if (result.status === 200) return result.json()
   } catch (error) {
-    console.log(`Could not ad product with id ${id} to cart.`)
+    console.log(`Could not add product with id ${id} to cart.`)
   }
 }
 
