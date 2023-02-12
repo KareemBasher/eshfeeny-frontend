@@ -1,6 +1,5 @@
 import React from 'react'
 import Heart from '../../../assets/common/HeartYellow.svg'
-import Pic from '../../../../../comtrex.png'
 
 const FavouritesContent = ({ OnGetTitle, onGetItems }) => {
   return (
@@ -12,7 +11,7 @@ const FavouritesContent = ({ OnGetTitle, onGetItems }) => {
             <div className="flex flex-col justify-between rounded-lg shadow-md w-[233px] h-[340px] border-[#E7E7E7] border-[0.8px]">
               <img src={Heart} className="w-[22px] box-border mr-3 mt-5" />
               <div className="flex justify-center">
-                <img src={Pic} className="w-32 m-5" />
+                <img src="" className="w-32 m-5" />
               </div>
               <div className="text-right p-3 text-[18px] h-">
                 <p>{c.nameAr}</p>
