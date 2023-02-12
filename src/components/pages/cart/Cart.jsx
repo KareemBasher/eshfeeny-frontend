@@ -18,17 +18,27 @@ import * as UsersAPI from '../../../utils/usersAPI'
 
 const Cart = () => {
   const [query, setQuery] = useState('')
+  const [amount, setAmount] = useState(1)
+  const [items, setItems] = useState([])
+
+  const addAmountHandler = (productID) => {
+    console.log('click')
+
+    setAmount(amount + 1)
+  }
+
   const searchResult = (e) => {
     setQuery(e.target.value)
   }
-  const [items, setItems] = useState([])
+  console.log(items)
+
   useEffect(() => {
     const updateItems = async () => {
       setItems(await ProductsAPI.getCartProducts('63d9239b6ff014381890d178'))
     }
     updateItems()
-    console.log(items)
   }, [])
+
   const removeFromCart = (ID, productID) => {
     console.log('id:' + productID)
     UsersAPI.removeFromCart(ID, productID)
@@ -49,7 +59,13 @@ const Cart = () => {
         <NavList />
       </div>
       <div>
-        <CartContent onGetItems={items} onRemoveCartItem={removeFromCart} OnGetTitle="سله التسوق" />
+        <CartContent
+          onGetItems={items}
+          onRemoveCartItem={removeFromCart}
+          OnGetTitle="سله التسوق"
+          amount={amount}
+          onAddAmount={addAmountHandler}
+        />
         {/* <PageEmpty onGetTitle="سلة التسوق" onGetLogo={CartLight} onGetText="عربة التسوق فارغة " /> */}
       </div>
     </>
