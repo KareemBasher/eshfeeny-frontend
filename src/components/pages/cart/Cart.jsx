@@ -1,21 +1,40 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SearchBar from '../../common/SearchBar'
 import RoundButton from '../../common/RoundButton'
 import NavList from '../../common/NavList'
 import PageEmpty from '../../common/PageEmpty'
 import LogoScript from '../../common/LogoScript'
+import CartContent from './CartContent'
 /*    Icons    */
 import HeartDark from '../../../assets/common/HeartDark.svg'
 import CartLight from '../../../assets/common/CartLight.svg'
 import Location from '../../../assets/common/Location.svg'
 import CartDark from '../../../assets/common/CartDark.svg'
 import Person from '../../../assets/common/Person.svg'
+/*     API     */
+import * as ProductsAPI from '../../../utils/productsAPI'
+import * as UsersAPI from '../../../utils/usersAPI'
+
 const Cart = () => {
   const [query, setQuery] = useState('')
   const searchResult = (e) => {
     setQuery(e.target.value)
   }
+  const [items, setItems] = useState([])
+  useEffect(() => {
+    const updateItems = async () => {
+      setItems(await ProductsAPI.getCartProducts('63d9239b6ff014381890d178'))
+    }
+    updateItems()
+    console.log(items)
+  }, [])
+  const removeFromCart = (ID, productID) => {
+    console.log('id:' + productID)
+    UsersAPI.removeFromCart(ID, productID)
+    setItems(items.filter((product) => product._id !== productID))
+  }
+
   return (
     <>
       <div className="flex pt-3 px-[112px]">
@@ -30,7 +49,8 @@ const Cart = () => {
         <NavList />
       </div>
       <div>
-        <PageEmpty onGetTitle="سلة التسوق" onGetLogo={CartLight} onGetText="عربة التسوق فارغة " />
+        <CartContent onGetItems={items} onRemoveCartItem={removeFromCart} OnGetTitle="سله التسوق" />
+        {/* <PageEmpty onGetTitle="سلة التسوق" onGetLogo={CartLight} onGetText="عربة التسوق فارغة " /> */}
       </div>
     </>
   )
