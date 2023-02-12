@@ -3,7 +3,6 @@ import Heart from '../../../assets/common/HeartYellow.svg'
 import Pic from '../../../../../comtrex.png'
 
 const FavouritesContent = ({ OnGetTitle, onGetItems }) => {
-  console.log(onGetItems);
   return (
     <div>
       <div className="text-right text-[28px] m-10 mr-20">{OnGetTitle}</div>
@@ -19,7 +18,7 @@ const FavouritesContent = ({ OnGetTitle, onGetItems }) => {
                 <p>{c.nameAr}</p>
                 <p>{c.volume}</p>
                 <p>{c.amount}</p>
-                <p className="text-[#0597F2] py-1">{c.price} جنيه</p>
+                <p className="text-blue py-1">{c.price} جنيه</p>
                 <div className="self-center">
                   <button className="my-1 p-1 px-10 rounded-xl text-orange border-orange border-[0.8px]">
                     أضف الى العربة
