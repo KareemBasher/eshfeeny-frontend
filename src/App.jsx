@@ -1,6 +1,6 @@
 import './App.css'
 import LandingPage from './components/pages/LandingPage.jsx'
-import Favourites from './components/pages/Favourites/Favourites'
+import Favourites from './components/pages/favourites/Favourites.jsx'
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import Login from './components/pages/Login'
