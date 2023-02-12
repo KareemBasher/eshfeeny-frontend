@@ -128,6 +128,20 @@ export const getAlternatives = async (activeIngredient) => {
     })
     if (result.status === 200) return result.json()
   } catch (error) {
-    console.log(`Could not get products that have the active ingredient ${activeIngredient} from API.`)
+    console.log(
+      `Could not get products that have the active ingredient ${activeIngredient} from API.`
+    )
+  }
+}
+
+// Get products from a users favorites list
+export const getCartProducts = async (userId) => {
+  try {
+    const result = await fetch(apiURL + `/products/user/${userId}/cart`, {
+      headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get products from cart for user with id ${userId} from API.`)
   }
 }
