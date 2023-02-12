@@ -2,7 +2,6 @@ import React from 'react'
 import Heart from '../../../assets/common/HeartYellow.svg'
 
 const FavouritesContent = ({ OnGetTitle, onGetItems, onRemoveFavourite }) => {
-  console.log(onGetItems)
   return (
     <div>
       <div className="text-right text-[28px] m-10 mr-20">{OnGetTitle}</div>
