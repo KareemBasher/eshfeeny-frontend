@@ -49,12 +49,19 @@ const Favourites = () => {
         <NavList />
       </div>
       <div>
-        <FavouritesContent
-          OnGetTitle="المنتجات المفضلة"
-          onGetItems={items}
-          onRemoveFavourite={removeFromFavourites}
-        />
-        {/* <PageEmpty onGetLogo={HeartLight} onGetText="لا توجد أي منتجات مفضلة لديك" OnGetTitle="المنتجات المفضلة"/> */}
+        {items.length ? (
+          <FavouritesContent
+            OnGetTitle="المنتجات المفضلة"
+            onGetItems={items}
+            onRemoveFavourite={removeFromFavourites}
+          />
+        ) : (
+          <PageEmpty
+            onGetLogo={HeartLight}
+            onGetText="لا توجد أي منتجات مفضلة لديك"
+            OnGetTitle="المنتجات المفضلة"
+          />
+        )}
       </div>
     </>
   )
