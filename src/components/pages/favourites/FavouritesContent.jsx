@@ -1,6 +1,6 @@
 import React from 'react'
 import Heart from '../../../assets/common/HeartYellow.svg'
-import Pic from '../../../../../comtrex.png'
+// import Pic from '../../../../../comtrex.png'
 
 const FavouritesContent = ({ OnGetTitle, onGetItems }) => {
   return (

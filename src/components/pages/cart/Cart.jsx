@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import SearchBar from '../../common/SearchBar'
 import RoundButton from '../../common/RoundButton'
 import NavList from '../../common/NavList'
@@ -29,7 +30,7 @@ const Cart = () => {
         <NavList />
       </div>
       <div>
-        <PageEmpty OnGetTitle="سلة التسوق" onGetIcone={CartLight} onGetText="عربة التسوق فارغة " />
+        <PageEmpty onGetTitle="سلة التسوق" onGetLogo={CartLight} onGetText="عربة التسوق فارغة " />
       </div>
     </>
   )
