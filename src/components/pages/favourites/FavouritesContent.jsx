@@ -1,8 +1,10 @@
 import React from 'react'
+/*       Icons       */
 import Heart from '../../../assets/common/HeartYellow.svg'
+/*     Components      */
+import QuantityController from '../../common/QuantityController'
 
-const FavouritesContent = ({ onGetTitle, onGetItems, onGetCartItems, onRemoveFavourite }) => {
-  
+const FavouritesContent = ({ onGetTitle, onGetItems, onRemoveFavourite }) => {
   return (
     <div>
       <div className="text-right text-[28px] m-10 mr-20">{onGetTitle}</div>
@@ -24,9 +26,13 @@ const FavouritesContent = ({ onGetTitle, onGetItems, onGetCartItems, onRemoveFav
                 </p>
                 <p className="text-blue py-1">{product.price} جنيه</p>
                 <div className="self-center">
-                  <button className="my-1 p-1 px-10 rounded-xl text-orange border-orange border-[0.8px]">
+                  {/* <button className="my-1 p-1 px-10 rounded-xl text-orange border-orange border-[0.8px]">
                     أضف الى العربة
-                  </button>
+                  </button> */}
+                  <QuantityController
+                    onGetUserID="63d9239b6ff014381890d178"
+                    onGetProductID={product._id}
+                  />
                 </div>
               </div>
             </div>

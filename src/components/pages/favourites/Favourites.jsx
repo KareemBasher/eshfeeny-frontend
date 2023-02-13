@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-/*    Scripts    */
+/*    Components    */
 import SearchBar from '../../common/SearchBar'
 import RoundButton from '../../common/RoundButton'
 import NavList from '../../common/NavList'
@@ -26,7 +26,6 @@ const Favourites = () => {
   useEffect(() => {
     const updateItems = async () => {
       setItems(await ProductsAPI.getFavoriteProducts('63d9239b6ff014381890d178'))
-      setCartItems(await ProductsAPI.getCartProducts('63d9239b6ff014381890d178'))
     }
     updateItems()
   }, [])
