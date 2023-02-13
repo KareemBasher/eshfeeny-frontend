@@ -137,7 +137,7 @@ export const getAlternatives = async (activeIngredient) => {
 // Get products from a users favorites list
 export const getCartProducts = async (userId) => {
   try {
-    const result = await fetch(apiURL + `/products/user/${userId}/cart`, {
+    const result = await fetch(apiURL + `/user/${userId}/cart`, {
       headers
     })
     if (result.status === 200) return result.json()
