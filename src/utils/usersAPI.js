@@ -63,3 +63,29 @@ export const removeFromCart = async (userID, productID) => {
     console.log(`Could not remove product.`)
   }
 }
+
+// Increment the quantity of a product in the cart
+export const incrementQuantity = async (userID, productID) => {
+  try {
+    const result = await fetch(apiURL + `/users/${userID}/cart/${productID}/1`, {
+      method: 'PATCH',
+      headers: headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not increment quantity.`)
+  }
+}
+
+// Decrement the quantity of a product in the cart
+export const decrementQuantity = async (userID, productID) => {
+  try {
+    const result = await fetch(apiURL + `/users/${userID}/cart/${productID}/-1`, {
+      method: 'PATCH',
+      headers: headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not decrement quantity.`)
+  }
+}
