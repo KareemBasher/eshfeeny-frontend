@@ -1,8 +1,6 @@
 import React from 'react'
 /*     Components      */
 import FavouriteProducts from './FavouriteProducts'
-/*     API      */
-import * as ProductsAPI from '../../../utils/productsAPI'
 
 const FavouritesContent = ({ onGetTitle, onGetItems, onRemoveFavourite }) => {
   return (

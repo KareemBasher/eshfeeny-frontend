@@ -4,7 +4,7 @@ import IncrementButton from '../../assets/common/AddButton.svg'
 import DecrementButton from '../../assets/common/DecrementButton.svg'
 import RemoveButton from '../../assets/common/DeleteButton.svg'
 
-const QuantityController = ({ onGetQuantity }) => {
+const QuantityController = ({ onGetQuantity, handleShowButton }) => {
   return (
     <div className=" flex flex-row">
       <button>
@@ -18,7 +18,7 @@ const QuantityController = ({ onGetQuantity }) => {
           <img src={DecrementButton} className="w-[48px] h-[45px] box-border " />
         </button>
       ) : (
-        <button>
+        <button onClick={handleShowButton}>
           <img src={RemoveButton} className="w-[48px] h-[45px] box-border " />
         </button>
       )}
