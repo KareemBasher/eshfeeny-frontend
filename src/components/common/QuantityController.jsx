@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import IncrementButton from '../../assets/common/AddButton.svg'
 import DecrementButton from '../../assets/common/DecrementButton.svg'
 import RemoveButton from '../../assets/common/DeleteButton.svg'
+/*     API      */
+import * as ProductsAPI from '../../utils/productsAPI'
 
-const QuantityController = ({ onGetQuantity, handleShowButton }) => {
+const QuantityController = ({ handleHideComponent }) => {
   return (
     <div className=" flex flex-row">
       <button>
@@ -18,7 +20,7 @@ const QuantityController = ({ onGetQuantity, handleShowButton }) => {
           <img src={DecrementButton} className="w-[48px] h-[45px] box-border " />
         </button>
       ) : (
-        <button onClick={handleShowButton}>
+        <button onClick={handleHideComponent}>
           <img src={RemoveButton} className="w-[48px] h-[45px] box-border " />
         </button>
       )}
