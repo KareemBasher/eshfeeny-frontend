@@ -26,6 +26,7 @@ const Favourites = () => {
   useEffect(() => {
     const updateItems = async () => {
       setItems(await ProductsAPI.getFavoriteProducts('63d9239b6ff014381890d178'))
+      setCartItems(await ProductsAPI.getCartProducts('63d9239b6ff014381890d178'))
     }
     updateItems()
   }, [])
