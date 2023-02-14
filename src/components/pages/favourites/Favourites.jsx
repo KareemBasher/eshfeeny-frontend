@@ -39,7 +39,7 @@ const Favourites = () => {
     <>
       <div className="flex pt-3 px-[112px]">
         <LogoScript />
-        <SearchBar onGetData={searchResult} />
+        <SearchBar onGetData={searchResult} query={query} />
         <RoundButton onGetLogo={HeartDark} onGetText="المفضلة" onGetPath="/favorites" />
         <RoundButton onGetLogo={Location} onGetText="أقرب صيدلية" onGetPath="/location" />
         <RoundButton onGetLogo={CartDark} onGetText="العربة" onGetPath="/cart" />
