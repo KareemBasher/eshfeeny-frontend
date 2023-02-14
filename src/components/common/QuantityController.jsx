@@ -18,6 +18,7 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
         setModifiedQuantity(checkQuantity)
       } else {
         await UsersAPI.addToCart(onGetUserID, onGetProductID)
+        setBaseQuantity(await ProductsAPI.checkCart(onGetUserID, onGetProductID))
       }
     }
     itemQuantity()
