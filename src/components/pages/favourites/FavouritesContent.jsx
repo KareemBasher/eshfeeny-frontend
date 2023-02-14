@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 /*     Components      */
 import FavouriteProducts from './FavouriteProducts'
 
 const FavouritesContent = ({ onGetTitle, onGetItems, onGetCartItems, onRemoveFavourite }) => {
-  // const cartItemsID = onGetCartItems.map((item) => item.id)
-  console.log(onGetCartItems)
   return (
     <div>
       <div className="text-right text-[28px] m-10 mr-20">{onGetTitle}</div>
