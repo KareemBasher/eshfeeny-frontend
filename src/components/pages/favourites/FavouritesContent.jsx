@@ -1,8 +1,15 @@
 import React from 'react'
 import Heart from '../../../assets/common/HeartYellow.svg'
+import * as UsersAPI from '../../../utils/usersAPI'
 
 const FavouritesContent = ({ onGetTitle, onGetItems, onGetCartItems, onRemoveFavourite }) => {
-  
+  const callfunc = async () => {
+    const data = await UsersAPI.addToCart('63d9239b6ff014381890d178', '63da80fd3d5bf5dea2ee3583')
+
+    console.log(data)
+  }
+
+  callfunc()
   return (
     <div>
       <div className="text-right text-[28px] m-10 mr-20">{onGetTitle}</div>

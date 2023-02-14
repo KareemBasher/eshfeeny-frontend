@@ -30,7 +30,7 @@ export const addToCart = async (id, productID) => {
         ...headers,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(productID)
+      body: JSON.stringify({ productID: productID })
     })
     if (result.status === 200) return result.json()
   } catch (error) {
