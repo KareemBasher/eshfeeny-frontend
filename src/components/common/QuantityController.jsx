@@ -40,28 +40,28 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
     await UsersAPI.removeFromCart(userID, productID)
   }
   return (
-    <div className=" flex flex-row">
+    <div className="flex flex-row justify-center">
       <button>
         <img
           src={IncrementButton}
-          className="w-[48px] h-[45px] box-border  "
+          className="w-[40px] h-[35px] box-border  "
           onClick={() => increment(onGetUserID, onGetProductID)}
         />
       </button>
-      <p className="text-center text-[#0597F2] text-[28px] rounded-[10px] w-[156px] h-[45px] m-3 bg-[#c4e3f7]">
+      <p className="flex items-center justify-center text-[#0597F2] text-[20px] rounded-[10px] w-[100px] h-[35px] m-1 bg-[#c4e3f7]">
         {modifiedQuantity}
       </p>
       {modifiedQuantity > 1 ? (
         <button>
           <img
             src={DecrementButton}
-            className="w-[48px] h-[45px] box-border "
+            className="w-[40px] h-[35px] box-border "
             onClick={() => decrement(onGetUserID, onGetProductID)}
           />
         </button>
       ) : (
         <button onClick={() => removeFromCart(onGetUserID, onGetProductID)}>
-          <img src={RemoveButton} className="w-[48px] h-[45px] box-border " />
+          <img src={RemoveButton} className="w-[40px] h-[35px] box-border" />
         </button>
       )}
     </div>
