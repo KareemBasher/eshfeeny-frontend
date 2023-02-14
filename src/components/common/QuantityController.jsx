@@ -5,26 +5,52 @@ import DecrementButton from '../../assets/common/DecrementButton.svg'
 import RemoveButton from '../../assets/common/DeleteButton.svg'
 /*     API      */
 import * as ProductsAPI from '../../utils/productsAPI'
+import * as UsersAPI from '../../utils/usersAPI'
 
 const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }) => {
-  const [quantity, seQyantity] = useState('0')
+  const [baseQuantity, setBaseQuantity] = useState('0') //value in data base
+  const [modifiedQuantity, setModifiedQuantity] = useState(0) //shown value
   useEffect(() => {
     const itemQuantity = async () => {
-      seQyantity(await ProductsAPI.checkCart(onGetUserID, onGetProductID))
+      const checkQuantity = await ProductsAPI.checkCart(onGetUserID, onGetProductID)
+      if (checkQuantity) {
+        setBaseQuantity(checkQuantity)
+        setModifiedQuantity(checkQuantity)
+      } else {
+        await UsersAPI.addToCart(onGetUserID, onGetProductID)
+      }
     }
     itemQuantity()
   }, [])
+  const increment = async (userID, productID) => {
+    setModifiedQuantity(modifiedQuantity + 1)
+    await UsersAPI.incrementQuantity(userID, productID)
+    setBaseQuantity(baseQuantity + 1)
+  }
+  const decrement = async (userID, productID) => {
+    setModifiedQuantity(modifiedQuantity - 1)
+    await UsersAPI.decrementQuantity(userID, productID)
+    setBaseQuantity(baseQuantity - 1)
+  }
   return (
     <div className=" flex flex-row">
       <button>
-        <img src={IncrementButton} className="w-[48px] h-[45px] box-border  " />
+        <img
+          src={IncrementButton}
+          className="w-[48px] h-[45px] box-border  "
+          onClick={() => increment(onGetUserID, onGetProductID)}
+        />
       </button>
       <p className="text-center text-[#0597F2] text-[28px] rounded-[10px] w-[156px] h-[45px] m-3 bg-[#c4e3f7]">
-        {quantity}
+        {modifiedQuantity}
       </p>
-      {quantity > 1 ? (
+      {modifiedQuantity > 1 ? (
         <button>
-          <img src={DecrementButton} className="w-[48px] h-[45px] box-border " />
+          <img
+            src={DecrementButton}
+            className="w-[48px] h-[45px] box-border "
+            onClick={() => decrement(onGetUserID, onGetProductID)}
+          />
         </button>
       ) : (
         <button onClick={handleHideComponent}>

@@ -22,11 +22,9 @@ const Favourites = () => {
     setQuery(e.target.value)
   }
   const [items, setItems] = useState([])
-  const [cartItems, setCartItems] = useState([])
   useEffect(() => {
     const updateItems = async () => {
       setItems(await ProductsAPI.getFavoriteProducts('63d9239b6ff014381890d178'))
-      setCartItems(await ProductsAPI.getCartProducts('63d9239b6ff014381890d178'))
     }
     updateItems()
   }, [])
@@ -55,7 +53,6 @@ const Favourites = () => {
           <FavouritesContent
             onGetTitle="المنتجات المفضلة"
             onGetItems={items}
-            onGetCartItems={cartItems}
             onRemoveFavourite={removeFromFavourites}
           />
         ) : (
