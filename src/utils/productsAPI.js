@@ -145,3 +145,17 @@ export const getCartProducts = async (userId) => {
     console.log(`Could not get products from cart for user with id ${userId} from API.`)
   }
 }
+
+// Check if an item is in the cart of a user
+export const checkCart = async (userId, productId) => {
+  try {
+    const result = await fetch(apiURL + `/products/user/${userId}/cart/${productId}`, {
+      headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(
+      `Could not check if product with id ${productId} is in cart for user with id ${userId}.`
+    )
+  }
+}
