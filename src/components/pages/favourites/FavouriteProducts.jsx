@@ -27,10 +27,10 @@ const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
           {onGetProduct.amount ? ` | ${onGetProduct.amount}` : ''}
         </p>
         <p className="text-blue py-1">{onGetProduct.price} جنيه</p>
-        <div className="self-center">
+        <div className="flex justify-center">
           {showButton && (
             <button
-              className="my-1 p-1 px-10 rounded-xl text-orange border-orange border-[0.8px]"
+              className="my-1 h-[40px] px-10 rounded-[10px] text-white bg-orange"
               onClick={handleHideButton}
             >
               أضف الى العربة
