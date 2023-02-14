@@ -18,7 +18,9 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
         setModifiedQuantity(checkQuantity)
       } else {
         await UsersAPI.addToCart(onGetUserID, onGetProductID)
-        setBaseQuantity(await ProductsAPI.checkCart(onGetUserID, onGetProductID))
+        const quantity = await ProductsAPI.checkCart(onGetUserID, onGetProductID)
+        setModifiedQuantity(quantity)
+        setBaseQuantity(quantity)
       }
     }
     itemQuantity()
@@ -32,6 +34,10 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
     setModifiedQuantity(modifiedQuantity - 1)
     await UsersAPI.decrementQuantity(userID, productID)
     setBaseQuantity(baseQuantity - 1)
+  }
+  const removeFromCart = async (userID, productID) => {
+    handleHideComponent()
+    await UsersAPI.removeFromCart(userID, productID)
   }
   return (
     <div className=" flex flex-row">
@@ -54,7 +60,7 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
           />
         </button>
       ) : (
-        <button onClick={handleHideComponent}>
+        <button onClick={() => removeFromCart(onGetUserID, onGetProductID)}>
           <img src={RemoveButton} className="w-[48px] h-[45px] box-border " />
         </button>
       )}
