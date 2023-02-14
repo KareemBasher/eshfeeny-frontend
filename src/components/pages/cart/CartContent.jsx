@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import HeartDark from '../../../assets/common/HeartDark.svg'
-import QuantityController from '../../common/QuantityController'
+// import QuantityController from '../../common/QuantityController'
 
 const CartContent = ({ onGetItems, OnGetTitle, onRemoveCartItem, onAddAmount, amount }) => {
   return (
