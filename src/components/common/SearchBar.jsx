@@ -8,7 +8,7 @@ const SearchBar = ({ onGetData }) => {
       <input
         className="bg-[#F7F7F7] outline-none w-full rounded-full"
         type="text"
-        placeholder="ما الذي تبحت عنه؟"
+        placeholder="ما الذي تبحث عنه؟"
         onChange={onGetData}
       />
     </div>
