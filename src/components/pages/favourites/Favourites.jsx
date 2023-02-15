@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 /*    Components    */
 import SearchBar from '../../common/SearchBar'
 import RoundButton from '../../common/RoundButton'
-import NavList from '../../common/NavList'
+import NavListContainer from '../../common/navBar/NavListContainer'
 import PageEmpty from '../../common/PageEmpty'
 import FavouritesContent from './FavouritesContent'
 import LogoScript from '../../common/LogoScript'
@@ -30,7 +30,6 @@ const Favourites = () => {
   }, [])
 
   const removeFromFavourites = (ID, productID) => {
-    console.log('id:' + productID)
     UsersAPI.removeFromFavorites(ID, productID)
     setItems(items.filter((product) => product._id !== productID))
   }
@@ -45,9 +44,7 @@ const Favourites = () => {
         <RoundButton onGetLogo={CartDark} onGetText="العربة" onGetPath="/cart" />
         <RoundButton onGetLogo={Person} onGetText="حسابي" onGetPath="/profile" />
       </div>
-      <div className="my-5 py-3 border w-full">
-        <NavList />
-      </div>
+      <NavListContainer />
       <div>
         {items.length ? (
           <FavouritesContent

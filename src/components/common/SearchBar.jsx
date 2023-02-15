@@ -15,7 +15,7 @@ const SearchBar = ({ onGetData, query }) => {
   }, [query])
 
   return (
-    <div className="w-full flex flex-col relative">
+    <div className="w-full flex flex-col relative z-20">
       <div
         className={`flex justify-start bg-[#F7F7F7] ${
           data.length > 0 ? 'rounded-t-[10px]' : 'rounded-full'
