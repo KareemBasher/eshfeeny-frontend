@@ -1,31 +1,30 @@
-import React, { useState } from 'react'
-import HeartDark from '../../../assets/common/HeartDark.svg'
-import QuantityController from '../../common/QuantityController'
+import React from 'react'
+import CartItem from './CartItem'
+import { Link } from 'react-router-dom'
 
-const CartContent = ({ onGetItems, OnGetTitle, onRemoveCartItem, onAddAmount, amount }) => {
+const CartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveItem }) => {
   return (
-    <div>
-      <div className="text-right text-[28px] m-10 mr-20">{OnGetTitle}</div>
-      <ol className="flex flex-wrap mr-20">
-        {onGetItems.map((product) => (
+    <div className="mr-20">
+      <div className="text-right text-[28px] my-10">{OnGetTitle}</div>
+      <ol className="flex flex-col mb-16">
+        {onGetItems.map(({ product, quantity }) => (
           <li key={product._id}>
-            <div className="flex justify-center shadow-sm rounded-[10px] mt-5 w-[600px] h-[340px] border-[#E7E7E7] border-[0.8px] ml-5">
-              <div className="flex justify-start">
-                <img src={HeartDark} className="w-32 m-5" />
-              </div>
-              <div className="flex  h-full  flex-col  justify-end  text-[18px]">
-                <div>
-                  <p>{product.nameAr}</p>
-                  <p className="">{product.volume}</p>
-                  <p>{product.amount}</p>
-                  <p className="text-blue ">{product.price} جنيه</p>
-                </div>
-                <QuantityController />
-              </div>
-            </div>
+            <CartItem
+              product={product}
+              loggedInUser={loggedInUser}
+              quantity={quantity}
+              onRemoveItem={onRemoveItem}
+            />
           </li>
         ))}
       </ol>
+
+      <div className="flex w-full flex-col justify-center">
+        <p className="text-[28px] underline text-lightBlue underline-offset-8">
+          <Link to="/products">استمر بالتسوق</Link>
+        </p>
+        <p className="text-[#676767] text-[14px] my-5">قد تخلتف الأسعار بين الصيدليات</p>
+      </div>
     </div>
   )
 }

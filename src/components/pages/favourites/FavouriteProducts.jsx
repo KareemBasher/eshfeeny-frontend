@@ -29,7 +29,7 @@ const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
           {onGetProduct.volume ? ` | ${onGetProduct.volume}` : ''}
           {onGetProduct.amount ? ` | ${onGetProduct.amount}` : ''}
         </p>
-        <p className="text-blue py-1">{onGetProduct.price} جنيه</p>
+        <p className="text-lightBlue py-1">{onGetProduct.price} جنيه</p>
         <div className="flex justify-center">
           {showButton && (
             <button
