@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import SearchBar from '../../common/SearchBar'
 import RoundButton from '../../common/RoundButton'
-import NavList from '../../common/NavList'
+import NavListContainer from '../../common/navBar/NavListContainer'
 import PageEmpty from '../../common/PageEmpty'
 import LogoScript from '../../common/LogoScript'
 import CartContent from './CartContent'
@@ -47,9 +47,9 @@ const Cart = ({ loggedInUser }) => {
         <RoundButton onGetLogo={CartDark} onGetText="العربة" onGetPath="/cart" />
         <RoundButton onGetLogo={Person} onGetText="حسابي" onGetPath="/profile" />
       </div>
-      <div className="my-5 py-3 border w-full">
-        <NavList />
-      </div>
+
+      <NavListContainer />
+
       <div>
         {items.length ? (
           <CartContent
