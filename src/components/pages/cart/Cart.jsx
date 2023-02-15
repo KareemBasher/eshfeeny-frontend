@@ -54,7 +54,7 @@ const Cart = ({ loggedInUser }) => {
         {items.length ? (
           <CartContent
             onGetItems={items}
-            OnGetTitle="سله التسوق"
+            OnGetTitle="سلة التسوق"
             loggedInUser={loggedInUser}
             onRemoveItem={removeFromCart}
           />
