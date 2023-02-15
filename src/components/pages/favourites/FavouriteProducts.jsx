@@ -14,8 +14,11 @@ const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
   }
   return (
     <div className="flex flex-col justify-between rounded-lg shadow-sm w-[233px] h-[340px] border-[#E7E7E7] border-[0.8px] ml-5 my-4">
-      <button onClick={() => onRemoveFavourite('63d9239b6ff014381890d178', onGetProduct._id)}>
-        <img src={Heart} className="w-[22px] box-border mr-3 mt-5" />
+      <button
+        className="w-[22px] box-border mr-3 mt-5"
+        onClick={() => onRemoveFavourite('63d9239b6ff014381890d178', onGetProduct._id)}
+      >
+        <img src={Heart} />
       </button>
       <div className="flex justify-center">
         <img src="" className="w-32 m-5" />
