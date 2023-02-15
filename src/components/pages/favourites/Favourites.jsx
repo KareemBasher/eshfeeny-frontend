@@ -30,7 +30,6 @@ const Favourites = () => {
   }, [])
 
   const removeFromFavourites = (ID, productID) => {
-    console.log('id:' + productID)
     UsersAPI.removeFromFavorites(ID, productID)
     setItems(items.filter((product) => product._id !== productID))
   }
@@ -45,7 +44,7 @@ const Favourites = () => {
         <RoundButton onGetLogo={CartDark} onGetText="العربة" onGetPath="/cart" />
         <RoundButton onGetLogo={Person} onGetText="حسابي" onGetPath="/profile" />
       </div>
-      <div className="my-5 py-3 border w-full">
+      <div className="mt-5 border-y w-full">
         <NavList />
       </div>
       <div>
