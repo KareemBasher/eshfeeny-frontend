@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import QuantityControllerCart from './QuantityControllerCart'
 import RemoveFromCart from '../../../assets/cartPage/RemoveFromCart.svg'
 
 const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
+  const [price, setPrice] = useState(product.price * quantity)
+
+  const updatePrice = (quantity) => {
+    setPrice(product.price * quantity)
+  }
+
   return (
     <div className="flex justify-evenly text-right border-b mt-5 h-32 w-full">
       <div className="flex items-center justify-center">
-        <img className="w-[150px]" />
+        <img src="" className="w-[150px]" />
       </div>
       <div className="text-[20px] flex items-center w-[250px]">
         <p>
@@ -21,11 +27,12 @@ const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
           loggedInUser={loggedInUser}
           onGetQuantity={quantity}
           productID={product._id}
+          updatePrice={updatePrice}
         />
       </div>
 
       <div className="flex items-center w-[150px]">
-        <p className="text-lightBlue text-[24px]">{product.price} جنيه</p>
+        <p className="text-lightBlue text-[24px]">{price} جنيه</p>
       </div>
 
       <button onClick={() => onRemoveItem(loggedInUser, product._id)}>

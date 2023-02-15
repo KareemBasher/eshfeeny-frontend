@@ -5,18 +5,25 @@ import DecrementButton from '../../../assets/common/DecrementButton.svg'
 /*     API      */
 import * as UsersAPI from '../../../utils/usersAPI'
 
-const QuantityController = ({ onGetQuantity, loggedInUser, productID }) => {
+const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePrice }) => {
   const [quantity, setQuantity] = useState(onGetQuantity)
 
   const increment = async (userID, productID) => {
     await UsersAPI.incrementQuantity(userID, productID)
-    setQuantity(quantity + 1)
+    const newQuantity = quantity + 1
+    setQuantity(newQuantity)
+    updatePrice(newQuantity)
   }
 
-  const decrement = async (userID, productID) => {
-    setQuantity(quantity - 1)
-    await UsersAPI.decrementQuantity(userID, productID)
-    setQuantity(quantity - 1)
+  const decrement = async (e, userID, productID) => {
+    if (quantity === 1) {
+      e.target.disabled = true
+    } else {
+      await UsersAPI.decrementQuantity(userID, productID)
+      const newQuantity = quantity - 1
+      setQuantity(newQuantity)
+      updatePrice(newQuantity)
+    }
   }
 
   return (
@@ -31,11 +38,11 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID }) => {
       <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[156px] h-[45px] m-1 bg-[#DBEBF5]">
         {quantity}
       </p>
-      <button>
+      <button className="disabled:bg-gray-500 disabled:cursor-not-allowed">
         <img
           src={DecrementButton}
-          className="w-[48px] h-[45px] box-border "
-          onClick={() => decrement(loggedInUser, productID)}
+          className="w-[48px] h-[45px] box-border"
+          onClick={(e) => decrement(e, loggedInUser, productID)}
         />
       </button>
     </div>
