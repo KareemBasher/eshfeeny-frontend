@@ -16,40 +16,32 @@ import Person from '../../../assets/common/Person.svg'
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
-const Cart = () => {
+const Cart = ({ loggedInUser }) => {
   const [query, setQuery] = useState('')
-  const [amount, setAmount] = useState(1)
   const [items, setItems] = useState([])
-
-  const addAmountHandler = (productID) => {
-    console.log('click')
-
-    setAmount(amount + 1)
-  }
 
   const searchResult = (e) => {
     setQuery(e.target.value)
   }
-  console.log(items)
 
   useEffect(() => {
     const updateItems = async () => {
-      setItems(await ProductsAPI.getCartProducts('63d9239b6ff014381890d178'))
+      const result = await ProductsAPI.getCartProducts(loggedInUser)
+      setItems(result?.cart)
     }
     updateItems()
   }, [])
 
   const removeFromCart = (ID, productID) => {
-    console.log('id:' + productID)
     UsersAPI.removeFromCart(ID, productID)
-    setItems(items.filter((product) => product._id !== productID))
+    setItems(items.filter(({ product }) => product._id !== productID))
   }
 
   return (
     <>
       <div className="flex pt-3 px-[112px]">
         <LogoScript />
-        <SearchBar onGetData={searchResult} />
+        <SearchBar onGetData={searchResult} query={query} />
         <RoundButton onGetLogo={HeartDark} onGetText="المفضلة" onGetPath="/favorites" />
         <RoundButton onGetLogo={Location} onGetText="أقرب صيدلية" onGetPath="/location" />
         <RoundButton onGetLogo={CartDark} onGetText="العربة" onGetPath="/cart" />
@@ -59,14 +51,16 @@ const Cart = () => {
         <NavList />
       </div>
       <div>
-        <CartContent
-          onGetItems={items}
-          onRemoveCartItem={removeFromCart}
-          OnGetTitle="سله التسوق"
-          amount={amount}
-          onAddAmount={addAmountHandler}
-        />
-        {/* <PageEmpty onGetTitle="سلة التسوق" onGetLogo={CartLight} onGetText="عربة التسوق فارغة " /> */}
+        {items.length ? (
+          <CartContent
+            onGetItems={items}
+            OnGetTitle="سله التسوق"
+            loggedInUser={loggedInUser}
+            onRemoveItem={removeFromCart}
+          />
+        ) : (
+          <PageEmpty onGetTitle="سلة التسوق" onGetLogo={CartLight} onGetText="عربة التسوق فارغة " />
+        )}
       </div>
     </>
   )
