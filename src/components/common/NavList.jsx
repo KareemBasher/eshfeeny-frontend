@@ -1,16 +1,44 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import NavListItems from './NavListItems'
 const NavList = () => {
   return (
     <div className="mx-8">
       <div className="flex flex-row justify-evenly text-[20px] w-full">
-        <Link>الأدوية</Link>
-        <Link> الحمايه من الفيروسات</Link>
-        <Link>منتجات الرجال</Link>
-        <Link>منتجات المرأه</Link>
-        <Link>الأم و الطفل</Link>
-        <Link>العناية بالبشرة و الشعر</Link>
-        <Link>العناية بالاسنان</Link>
+        <NavListItems
+          onGetPath="/products/type/medicine"
+          onGetTitle="الأدوية "
+          onGetSubItems={[]}
+        />
+        <NavListItems
+          onGetPath="/products/type/viruses"
+          onGetTitle="الحمايه من الفيروسات"
+          onGetSubItems={[]}
+        />
+        <NavListItems
+          onGetPath="/products/type/menProducts"
+          onGetTitle="منتجات الرجال"
+          onGetSubItems={[]}
+        />
+        <NavListItems
+          onGetPath="/products/type/womenProducts"
+          onGetTitle="منتجات المرأة"
+          onGetSubItems={[]}
+        />
+        <NavListItems
+          onGetPath="/products/type/mothers"
+          onGetTitle="الأم و الطفل"
+          onGetSubItems={[]}
+        />
+        <NavListItems
+          onGetPath="/products/type/skinCare"
+          onGetTitle="العناية بالبشرة و الشعر"
+          onGetSubItems={[]}
+        />
+        <NavListItems
+          onGetPath="/products/type/dentalHealth"
+          onGetTitle="العناية بالاسنان"
+          onGetSubItems={[]}
+        />
       </div>
     </div>
   )
