@@ -10,7 +10,7 @@ const NavListItems = ({
 }) => {
   return (
     <div
-      className="group relative z-10"
+      className="group relative z-20"
       onMouseOver={() => handleShowOverlay()}
       onMouseOut={() => handleHideOverlay()}
     >

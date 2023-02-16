@@ -38,7 +38,7 @@ const SearchBar = ({ onGetData, query }) => {
   }, [query])
 
   return (
-    <div className="w-full flex flex-col relative z-20" ref={ref}>
+    <div className="w-full flex flex-col relative z-30" ref={ref}>
       <div
         className={`flex justify-start bg-[#F7F7F7] ${
           data.length > 0 && resultsOpen ? 'rounded-t-[10px]' : 'rounded-full'
