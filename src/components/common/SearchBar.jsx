@@ -19,7 +19,7 @@ const SearchBar = ({ onGetData, query }) => {
       <div
         className={`flex justify-start bg-[#F7F7F7] ${
           data.length > 0 ? 'rounded-t-[10px]' : 'rounded-full'
-        } shadow-md`}
+        } shadow-sm`}
       >
         <img className="px-5 py-3 " src={SearchLogo} alt="Search Logo" />
         <input
