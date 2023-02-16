@@ -26,7 +26,6 @@ const Login = ({ changeLoggedUser }) => {
     if (password.length < 4) setError({ password: true })
     else {
       const result = await verifyLogin(email, password)
-      console.log(result._id)
       if (result) {
         changeLoggedUser(result._id)
         setError(false)
@@ -88,7 +87,7 @@ const Login = ({ changeLoggedUser }) => {
           </div>
         </div>
         <div className="w-4/12">
-          <img src={error ? LoginVectorError : LoginVector} alt="login vector" />
+          <img src={error?.all ? LoginVectorError : LoginVector} alt="login vector" />
         </div>
       </div>
     </div>
