@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Logo from '../../assets/common/Logo.svg'
 import CredentialsInput from '../common/CredentialsInput'
-import LoginVector from '../../assets/common/LoginVector.svg'
+import LoginVector from '../../assets/loginPage/LoginVector.svg'
+import LoginVectorError from '../../assets/loginPage/LoginVectorError.svg'
 import WideButton from '../common/WideButton'
 import AlternateSignin from '../common/AlternateSignin'
+import { verifyLogin } from '../../utils/usersAPI'
 
 const Login = ({ changeLoggedUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     setEmail('')
@@ -18,6 +21,21 @@ const Login = ({ changeLoggedUser }) => {
     if (name === 'email') setEmail(value)
     else if (name === 'password') setPassword(value)
   }
+
+  const handleSubmit = async () => {
+    if (password.length < 4) setError({ password: true })
+    else {
+      const result = await verifyLogin(email, password)
+      console.log(result._id)
+      if (result) {
+        changeLoggedUser(result._id)
+        setError(false)
+      } else {
+        setError({ all: true })
+      }
+    }
+  }
+
   return (
     <div>
       <div className="flex h-[25vh] items-center justify-center">
@@ -43,14 +61,26 @@ const Login = ({ changeLoggedUser }) => {
             handleInput={handleInput}
           />
 
-          <div>
-            <span className="text-[14px] text-[#868484] underline float-left ml-6 cursor-pointer">
+          <div className="flex flex-row-reverse items-center justify-between">
+            <span className="text-[14px] text-[#868484] underline float-left cursor-pointer">
               هل نسيت كلمة السر؟
             </span>
+
+            {error.password ? (
+              <span className="text-[#EB1D36] text-[14px]">
+                من فضلك كلمة المرور يجيب الا تقل عن 8 احرف او ارقام
+              </span>
+            ) : (
+              error.all && (
+                <span className="text-[#EB1D36] text-[14px]">
+                  يوجد خطأ بالإيميل أو كلمة السر التى سجلتها
+                </span>
+              )
+            )}
           </div>
 
           <div className="mt-16 mb-4">
-            <WideButton content={'تأكيد'} />
+            <WideButton content={'تأكيد'} handleOnClick={handleSubmit} />
           </div>
 
           <div className="w-full flex justify-center relative">
@@ -58,7 +88,7 @@ const Login = ({ changeLoggedUser }) => {
           </div>
         </div>
         <div className="w-4/12">
-          <img src={LoginVector} alt="login vector" />
+          <img src={error ? LoginVectorError : LoginVector} alt="login vector" />
         </div>
       </div>
     </div>

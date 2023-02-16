@@ -89,3 +89,19 @@ export const decrementQuantity = async (userID, productID) => {
     console.log(`Could not decrement quantity.`)
   }
 }
+
+export const verifyLogin = async (email, password) => {
+  try {
+    const result = await fetch(apiURL + '/users/verify', {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email, password: password })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not verify login.')
+  }
+}
