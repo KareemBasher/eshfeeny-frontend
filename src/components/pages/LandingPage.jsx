@@ -1,6 +1,5 @@
 import React from 'react'
 import Logo from '../../assets/common/Logo.svg'
-import WideButton from '../common/WideButton'
 import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
@@ -11,11 +10,15 @@ const LandingPage = () => {
 
       <div className="w-[472px] flex flex-col mt-32">
         <Link to="/login">
-          <WideButton content={'تسجيل الدخول'} />
+          <button className="w-full max-w-[472px] h-[58px] rounded-[10px] my-3 text-[24px] text-white bg-blue">
+            تسجيل الدخول
+          </button>
         </Link>
 
         <Link to="/signup">
-          <WideButton content={'إنشاء حساب'} />
+          <button className="w-full max-w-[472px] h-[58px] rounded-[10px] my-3 text-[24px] text-white bg-blue">
+            إنشاء حساب
+          </button>
         </Link>
       </div>
     </div>

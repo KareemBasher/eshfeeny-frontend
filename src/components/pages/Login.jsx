@@ -29,6 +29,7 @@ const Login = ({ changeLoggedUser }) => {
       if (result) {
         changeLoggedUser(result._id)
         setError(false)
+        window.location.href = '/products'
       } else {
         setError({ all: true })
       }
@@ -79,7 +80,11 @@ const Login = ({ changeLoggedUser }) => {
           </div>
 
           <div className="mt-16 mb-4">
-            <WideButton content={'تأكيد'} handleOnClick={handleSubmit} />
+            <WideButton
+              content={'تأكيد'}
+              handleOnClick={handleSubmit}
+              disabled={email.length > 0 ? false : true}
+            />
           </div>
 
           <div className="w-full flex justify-center relative">
