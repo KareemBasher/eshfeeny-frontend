@@ -4,6 +4,16 @@ const headers = {
   Accept: 'application/json'
 }
 
+// Get user data
+export const getUser = async (id) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get user with id ${id}.`)
+  }
+}
+
 // Add a product to favorites
 export const addToFavorites = async (id, productID) => {
   try {
