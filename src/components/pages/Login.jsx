@@ -23,11 +23,13 @@ const Login = ({ changeLoggedUser }) => {
   }
 
   const handleSubmit = async () => {
-    if (password.length < 8) setError({ password: true })
+    if (password.length < 4) setError({ password: true })
     else {
       const result = await verifyLogin(email, password)
-      if (result.status === 200) {
-        changeLoggedUser(result.data._id)
+      console.log(result._id)
+      if (result) {
+        changeLoggedUser(result._id)
+        setError(false)
       } else {
         setError({ all: true })
       }
@@ -59,14 +61,26 @@ const Login = ({ changeLoggedUser }) => {
             handleInput={handleInput}
           />
 
-          <div>
+          <div className="flex flex-row-reverse items-center justify-between">
             <span className="text-[14px] text-[#868484] underline float-left cursor-pointer">
               هل نسيت كلمة السر؟
             </span>
+
+            {error.password ? (
+              <span className="text-[#EB1D36] text-[14px]">
+                من فضلك كلمة المرور يجيب الا تقل عن 8 احرف او ارقام
+              </span>
+            ) : (
+              error.all && (
+                <span className="text-[#EB1D36] text-[14px]">
+                  يوجد خطأ بالإيميل أو كلمة السر التى سجلتها
+                </span>
+              )
+            )}
           </div>
 
           <div className="mt-16 mb-4">
-            <WideButton content={'تأكيد'} />
+            <WideButton content={'تأكيد'} handleOnClick={handleSubmit} />
           </div>
 
           <div className="w-full flex justify-center relative">
