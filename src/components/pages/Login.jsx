@@ -29,6 +29,7 @@ const Login = ({ changeLoggedUser }) => {
       if (result) {
         changeLoggedUser(result._id)
         setError(false)
+        window.location.href = '/products'
       } else {
         setError({ all: true })
       }
