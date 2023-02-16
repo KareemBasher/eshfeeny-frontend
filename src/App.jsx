@@ -6,6 +6,7 @@ import { useState } from 'react'
 import Login from './components/pages/Login'
 import Cart from './components/pages/cart/Cart'
 import ProductPage from './components/pages/ProductPage'
+import Profile from './components/pages/profile/Profile'
 
 function App() {
   const [loggedInUser, setLoggedUser] = useState('63d9239b6ff014381890d178')
@@ -21,6 +22,7 @@ function App() {
       <Route path="/login" element={<Login changeLoggedUser={changeLoggedInUser} />} />
       <Route path="/cart" element={<Cart loggedInUser={loggedInUser} />} />
       <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
+      <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
