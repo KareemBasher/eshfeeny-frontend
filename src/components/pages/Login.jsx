@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Logo from '../../assets/common/Logo.svg'
 import CredentialsInput from '../common/CredentialsInput'
-import LoginVector from '../../assets/common/LoginVector.svg'
+import LoginVector from '../../assets/loginPage/LoginVector.svg'
 import WideButton from '../common/WideButton'
 import AlternateSignin from '../common/AlternateSignin'
 
@@ -44,7 +44,7 @@ const Login = ({ changeLoggedUser }) => {
           />
 
           <div>
-            <span className="text-[14px] text-[#868484] underline float-left ml-6 cursor-pointer">
+            <span className="text-[14px] text-[#868484] underline float-left cursor-pointer">
               هل نسيت كلمة السر؟
             </span>
           </div>

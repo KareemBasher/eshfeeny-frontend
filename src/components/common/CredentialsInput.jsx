@@ -17,7 +17,7 @@ const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
   }
 
   return (
-    <div className="w-full mb-5 flex flex-row-reverse bg-[#ECECEC] rounded-[10px] shadow-[0px_2px_1px_rgba(0,0,0,0.15)]">
+    <div className="w-full mb-5 flex flex-row-reverse rounded-[10px] focus-within:border-lightBlue text-[20px] border border-[#868484]">
       {type === 'password' && (
         <img
           src={inputType === 'password' ? ShowPassword : ShowPasswordOn}
@@ -27,7 +27,7 @@ const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
         />
       )}
       <input
-        className="bg-[#ECECEC] w-full py-4 px-3 rounded-[10px] placeholder:text-[#868484] outline-none"
+        className="w-full py-4 px-3 rounded-[10px] placeholder:text-[#868484] placeholder:text-[16px] outline-none"
         type={inputType}
         placeholder={placeHolder}
         value={inputValue}
