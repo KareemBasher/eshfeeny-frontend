@@ -14,7 +14,7 @@ const Favourites = ({ loggedInUser }) => {
   useEffect(() => {
     const updateItems = async () => {
       const result = await ProductsAPI.getFavoriteProducts(loggedInUser)
-      setItems(result?.favorites ? result.favorites : [])
+      setItems(result ? result : [])
     }
     updateItems()
   }, [])
