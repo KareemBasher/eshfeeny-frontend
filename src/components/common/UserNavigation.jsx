@@ -17,7 +17,7 @@ const UserNavigation = () => {
   }
   return (
     <>
-      <div className="flex pt-3 px-[112px]">
+      <div className="flex px-20 py-7 justify-center">
         <LogoScript />
         <SearchBar onGetData={searchResult} query={query} />
         <RoundButton onGetLogo={HeartDark} onGetText="المفضلة" onGetPath="/favorites" />
