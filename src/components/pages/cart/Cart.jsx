@@ -14,7 +14,7 @@ const Cart = ({ loggedInUser }) => {
   useEffect(() => {
     const updateItems = async () => {
       const result = await ProductsAPI.getCartProducts(loggedInUser)
-      setItems(result?.cart)
+      setItems(result?.cart ? result.cart : [])
     }
     updateItems()
   }, [])
