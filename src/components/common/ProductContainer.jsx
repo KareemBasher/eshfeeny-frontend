@@ -5,7 +5,7 @@ import Heart from '../../assets/common/HeartYellow.svg'
 import QuantityController from './QuantityController'
 import { Link } from 'react-router-dom'
 
-const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
+const FavouriteProducts = ({ onGetProduct, onRemoveFavourite, loggedInUser }) => {
   const [showButton, setShowButton] = useState(true)
   const handleShowButton = () => {
     setShowButton(true)
@@ -17,7 +17,7 @@ const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
     <div className="flex flex-col justify-between rounded-lg shadow-sm w-[233px] h-[340px] border-[#E7E7E7] border-[0.8px] ml-5 my-4">
       <button
         className="w-[22px] box-border mr-3 mt-5"
-        onClick={() => onRemoveFavourite('63d9239b6ff014381890d178', onGetProduct._id)}
+        onClick={() => onRemoveFavourite(loggedInUser, onGetProduct._id)}
       >
         <img src={Heart} />
       </button>
@@ -45,7 +45,7 @@ const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
           {!showButton && (
             <QuantityController
               handleHideComponent={handleShowButton}
-              onGetUserID="63d9239b6ff014381890d178"
+              onGetUserID={loggedInUser}
               onGetProductID={onGetProduct._id}
             />
           )}

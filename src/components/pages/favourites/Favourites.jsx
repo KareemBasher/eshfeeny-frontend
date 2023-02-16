@@ -9,11 +9,11 @@ import HeartLight from '../../../assets/common/HeartLight.svg'
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
-const Favourites = () => {
+const Favourites = ({ loggedInUser }) => {
   const [items, setItems] = useState([])
   useEffect(() => {
     const updateItems = async () => {
-      setItems(await ProductsAPI.getFavoriteProducts('63d9239b6ff014381890d178'))
+      setItems(await ProductsAPI.getFavoriteProducts(loggedInUser))
     }
     updateItems()
   }, [])
@@ -32,6 +32,7 @@ const Favourites = () => {
             onGetTitle="المنتجات المفضلة"
             onGetItems={items}
             onRemoveFavourite={removeFromFavourites}
+            loggedInUser={loggedInUser}
           />
         ) : (
           <PageEmpty

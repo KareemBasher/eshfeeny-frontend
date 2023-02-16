@@ -17,7 +17,7 @@ function App() {
   return (
     <Routes>
       <Route path="/landingPage" element={<LandingPage />} />
-      <Route path="/favorites" element={<Favourites loggedUser={loggedInUser} />} />
+      <Route path="/favorites" element={<Favourites loggedInUser={loggedInUser} />} />
       <Route path="/login" element={<Login changeLoggedUser={changeLoggedInUser} />} />
       <Route path="/cart" element={<Cart loggedInUser={loggedInUser} />} />
       <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
