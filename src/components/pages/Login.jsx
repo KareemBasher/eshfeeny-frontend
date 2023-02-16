@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import Logo from '../../assets/common/Logo.svg'
 import CredentialsInput from '../common/CredentialsInput'
 import LoginVector from '../../assets/loginPage/LoginVector.svg'
+import LoginVectorError from '../../assets/loginPage/LoginVectorError.svg'
 import WideButton from '../common/WideButton'
 import AlternateSignin from '../common/AlternateSignin'
+import { verifyLogin } from '../../utils/usersAPI'
 
 const Login = ({ changeLoggedUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     setEmail('')
@@ -18,6 +21,19 @@ const Login = ({ changeLoggedUser }) => {
     if (name === 'email') setEmail(value)
     else if (name === 'password') setPassword(value)
   }
+
+  const handleSubmit = async () => {
+    if (password.length < 8) setError({ password: true })
+    else {
+      const result = await verifyLogin(email, password)
+      if (result.status === 200) {
+        changeLoggedUser(result.data._id)
+      } else {
+        setError({ all: true })
+      }
+    }
+  }
+
   return (
     <div>
       <div className="flex h-[25vh] items-center justify-center">
@@ -58,7 +74,7 @@ const Login = ({ changeLoggedUser }) => {
           </div>
         </div>
         <div className="w-4/12">
-          <img src={LoginVector} alt="login vector" />
+          <img src={error ? LoginVectorError : LoginVector} alt="login vector" />
         </div>
       </div>
     </div>
