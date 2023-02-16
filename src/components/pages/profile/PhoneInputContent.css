@@ -1,0 +1,73 @@
+.selected-flag
+{
+    display: flex;
+    justify-content: center;
+}
+.country-list
+{
+    width:4000px
+}
+
+.arrow
+{
+    display: none;
+}
+
+.react-tel-input .flag-dropdown
+{
+   border-radius: 0%;
+   border: 0;
+}
+
+.react-tel-input .flag-dropdown.open
+{
+    border-radius: 0%;
+    border: 0;
+}
+
+.react-tel-input .selected-flag
+{
+    padding: 0%;
+
+  
+}
+.react-tel-input .form-control 
+{
+    background: #F7F7F7;
+    height: 2.5rem;
+    width: 20rem;
+   
+    border-radius: 10px;
+
+    
+}
+.react-tel-input
+{
+z-index: 0;
+   
+}
+
+.react-tel-input .flag-dropdown
+{
+    margin: 10px;
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag
+{
+    border: none;
+    background-color: #F7F7F7;
+}
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+    background-color: #F7F7F7;
+}
+
+.react-tel-input .selected-flag:hover
+{
+background-color: #F7F7F7;
+}
+
+.react-tel-input .selected-flag
+{
+    background-color: #F7F7F7;
+}
