@@ -1,29 +1,16 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import SearchBar from '../../common/SearchBar'
-import RoundButton from '../../common/RoundButton'
-import NavListContainer from '../../common/navBar/NavListContainer'
+import React, { useState, useEffect } from 'react'
+/*    Components    */
+import UserNavigation from '../../common/UserNavigation'
 import PageEmpty from '../../common/PageEmpty'
-import LogoScript from '../../common/LogoScript'
 import CartContent from './CartContent'
 /*    Icons    */
-import HeartDark from '../../../assets/common/HeartDark.svg'
 import CartLight from '../../../assets/common/CartLight.svg'
-import Location from '../../../assets/common/Location.svg'
-import CartDark from '../../../assets/common/CartDark.svg'
-import Person from '../../../assets/common/Person.svg'
 /*     API     */
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
 const Cart = ({ loggedInUser }) => {
-  const [query, setQuery] = useState('')
   const [items, setItems] = useState([])
-
-  const searchResult = (e) => {
-    setQuery(e.target.value)
-  }
-
   useEffect(() => {
     const updateItems = async () => {
       const result = await ProductsAPI.getCartProducts(loggedInUser)
@@ -39,17 +26,7 @@ const Cart = ({ loggedInUser }) => {
 
   return (
     <>
-      <div className="flex pt-3 px-[112px]">
-        <LogoScript />
-        <SearchBar onGetData={searchResult} query={query} />
-        <RoundButton onGetLogo={HeartDark} onGetText="المفضلة" onGetPath="/favorites" />
-        <RoundButton onGetLogo={Location} onGetText="أقرب صيدلية" onGetPath="/location" />
-        <RoundButton onGetLogo={CartDark} onGetText="العربة" onGetPath="/cart" />
-        <RoundButton onGetLogo={Person} onGetText="حسابي" onGetPath="/profile" />
-      </div>
-
-      <NavListContainer />
-
+      <UserNavigation />
       <div>
         {items.length ? (
           <CartContent
