@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Heart from '../../assets/common/HeartYellow.svg'
 /*     Components      */
 import QuantityController from './QuantityController'
+import { Link } from 'react-router-dom'
 
 const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
   const [showButton, setShowButton] = useState(true)
@@ -20,15 +21,17 @@ const FavouriteProducts = ({ onGetProduct, onRemoveFavourite }) => {
       >
         <img src={Heart} />
       </button>
-      <div className="flex justify-center">
+      <Link to={`/product/${onGetProduct._id}`} className="flex justify-center">
         <img src="" className="w-32 m-5" />
-      </div>
+      </Link>
       <div className="text-right p-3 text-[18px] h-">
-        <p>
-          {onGetProduct.nameAr}
-          {onGetProduct.volume ? ` | ${onGetProduct.volume}` : ''}
-          {onGetProduct.amount ? ` | ${onGetProduct.amount}` : ''}
-        </p>
+        <Link to={`/product/${onGetProduct._id}`}>
+          <p>
+            {onGetProduct.nameAr}
+            {onGetProduct.volume ? ` | ${onGetProduct.volume}` : ''}
+            {onGetProduct.amount ? ` | ${onGetProduct.amount}` : ''}
+          </p>
+        </Link>
         <p className="text-lightBlue py-1">{onGetProduct.price} جنيه</p>
         <div className="flex justify-center">
           {showButton && (
