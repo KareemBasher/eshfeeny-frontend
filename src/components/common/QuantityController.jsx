@@ -48,7 +48,7 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
           onClick={() => increment(onGetUserID, onGetProductID)}
         />
       </button>
-      <p className="flex items-center justify-center text-blue text-[20px] rounded-[10px] w-[100px] h-[35px] m-1 bg-[#DBEBF5]">
+      <p className="flex items-center justify-center text-blue text-[20px] rounded-[10px] w-[100px] h-[35px] m-1 bg-[#D4EEFF]">
         {modifiedQuantity}
       </p>
       {modifiedQuantity > 1 ? (

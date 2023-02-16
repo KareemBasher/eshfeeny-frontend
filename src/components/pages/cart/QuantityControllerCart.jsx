@@ -36,7 +36,7 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePric
           onClick={() => increment(loggedInUser, productID)}
         />
       </button>
-      <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[156px] h-[45px] m-1 bg-[#DBEBF5]">
+      <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[156px] h-[45px] m-1 bg-[#D4EEFF]">
         {quantity}
       </p>
       <button className="disabled:bg-gray-500">
