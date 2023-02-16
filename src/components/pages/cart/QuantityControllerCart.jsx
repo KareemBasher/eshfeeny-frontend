@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 /*      Icons      */
 import IncrementButton from '../../../assets/common/AddButton.svg'
 import DecrementButton from '../../../assets/common/DecrementButton.svg'
+import DecrementDisabledButton from '../../../assets/common/DecrementDisabledButton.svg'
 /*     API      */
 import * as UsersAPI from '../../../utils/usersAPI'
 
@@ -38,9 +39,9 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePric
       <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[156px] h-[45px] m-1 bg-[#DBEBF5]">
         {quantity}
       </p>
-      <button className="disabled:bg-gray-500 disabled:cursor-not-allowed">
+      <button className="disabled:bg-gray-500">
         <img
-          src={DecrementButton}
+          src={quantity === 1 ? DecrementDisabledButton : DecrementButton}
           className="w-[48px] h-[45px] box-border"
           onClick={(e) => decrement(e, loggedInUser, productID)}
         />
