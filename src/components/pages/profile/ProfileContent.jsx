@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PhoneInputContent from './PhoneInputContent'
 
-const ProfileContent = ({ user }) => {
+const ProfileContent = ({ user, toggleModal }) => {
   return (
     <div>
       {/* /* title */}
@@ -12,10 +11,12 @@ const ProfileContent = ({ user }) => {
       {/* inputs */}
 
       <div className="flex justify-center  ">
-        <div className="flex flex-col justify-center border-2 rounded-[10px] w-[904px] h-[500px]">
-          <div className="flex flex-row justify-around ">
-            <div>
-              <label className="text-2xl flex my-5 justify-start">الأسم</label>
+        <div className="flex flex-col  justify-center border-2 rounded-[10px] w-[904px] h-[500px]">
+          <div className="flex flex-row  justify-around ">
+            <div className=" ">
+              <label className=" text-2xl flex my-5 justify-start" htmlFor="">
+                الأسم
+              </label>
               <input
                 className="w-96 h-14 shadow-sm rounded-[10px] px-4 outline-none bg-[#F7F7F7]"
                 type="text"
@@ -45,7 +46,7 @@ const ProfileContent = ({ user }) => {
             </button>
 
             <div className="text-[24px] py-2 text-lightBlue border-opacity-50 border border-lightBlue w-[193px] h-[58px] rounded-[10px] m-5 ">
-              <Link to="/changepassword">تغيير كلمة السر</Link>
+              <button onClick={() => toggleModal()}>تغيير كلمة السر</button>
             </div>
           </div>
         </div>
