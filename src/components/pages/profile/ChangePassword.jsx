@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CredentialsInput from '../../common/CredentialsInput'
 import CloseButton from '../../../assets/common/CloseButton.svg'
 
-const changePassword = ({ toggleModal }) => {
+const changePassword = ({ toggleModal, user }) => {
   const [oldPassword, setOldPassword] = useState('')
   const [NewPassword, setNewPassword] = useState('')
 

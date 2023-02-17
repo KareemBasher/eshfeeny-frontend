@@ -11,7 +11,7 @@ const NavListContainer = () => {
   }
   return (
     <div>
-      <div className="mt-5 border-y w-full">
+      <div className="border-y w-full">
         <NavList handleShowOverlay={handleShowOverlay} handleHideOverlay={handleHideOverlay} />
       </div>
       <div className={`${black ? 'fixed' : 'hidden'} bg-black opacity-50 h-full w-full z-10`}></div>

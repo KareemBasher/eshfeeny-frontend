@@ -1,11 +1,25 @@
-// Components
+/*        Components       */
 import UserNavigation from '../../common/UserNavigation'
 import ProfileContent from './ProfileContent'
-import ChangePassword from './ChangePassword'
-import { useState } from 'react'
+/*        Hooks       */
+import { useEffect, useState } from 'react'
+/*        API       */
+import * as UsersAPI from '../../../utils/usersAPI'
 
-const Profile = () => {
+import ChangePassword from './ChangePassword'
+
+const Profile = ({ loggedInUser }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [user, setUser] = useState({})
+
+  useEffect(() => {
+    const getUser = async () => {
+      setUser(await UsersAPI.getUser(loggedInUser))
+    }
+
+    getUser()
+  }, [])
+
   const toggleModal = () => {
     setIsOpen(!isOpen)
   }
@@ -13,9 +27,9 @@ const Profile = () => {
     <>
       <UserNavigation />
       {isOpen ? (
-        <ChangePassword toggleModal={toggleModal} />
+        <ChangePassword toggleModal={toggleModal} user={user} />
       ) : (
-        <ProfileContent toggleModal={toggleModal} />
+        <ProfileContent toggleModal={toggleModal} user={user} />
       )}
     </>
   )
