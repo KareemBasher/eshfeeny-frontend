@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import QuantityControllerCart from './QuantityControllerCart'
-import RemoveFromCart from '../../../assets/cartPage/RemoveFromCart.svg'
+import CloseButton from '../../../assets/common/CloseButton.svg'
 
 const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
   const [price, setPrice] = useState(product.price * quantity)
@@ -36,7 +36,7 @@ const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
       </div>
 
       <button onClick={() => onRemoveItem(loggedInUser, product._id)}>
-        <img src={RemoveFromCart} alt="Remove from cart" />
+        <img src={CloseButton} alt="Remove from cart" />
       </button>
     </div>
   )
