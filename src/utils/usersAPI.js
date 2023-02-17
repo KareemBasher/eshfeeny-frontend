@@ -100,6 +100,7 @@ export const decrementQuantity = async (userID, productID) => {
   }
 }
 
+// Verify login for user
 export const verifyLogin = async (email, password) => {
   try {
     const result = await fetch(apiURL + '/users/verify', {
@@ -113,5 +114,39 @@ export const verifyLogin = async (email, password) => {
     if (result.status === 200) return result.json()
   } catch (error) {
     console.log('Could not verify login.')
+  }
+}
+
+// Upate user name, email, and/or phone number
+export const updateUser = async (id, name, email, phone) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}/profile`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: name, email: email, phoneNumber: phone })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not update user.')
+  }
+}
+
+// Update user password
+export const updatePassword = async (id, password) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}/password`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ password: password })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not update password.')
   }
 }
