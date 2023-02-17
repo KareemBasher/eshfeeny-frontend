@@ -14,6 +14,16 @@ export const getUser = async (id) => {
   }
 }
 
+// Check if user exists using email
+export const checkUserEmail = async (email) => {
+  try {
+    const result = await fetch(apiURL + `/users/checkEmail/${email}`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not check user email.`)
+  }
+}
+
 // Add a product to favorites
 export const addToFavorites = async (id, productID) => {
   try {
