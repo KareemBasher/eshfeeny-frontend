@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import * as ProductsAPI from '../../../utils/productsAPI'
+/*     Components      */
+import DetailsData from './DetailsData'
 
 const ProductDetails = ({ onGetDescription, onGetUseCases, onGetUsage, onGetSideEffects }) => {
   const [description, setDescription] = useState('')
@@ -16,7 +17,15 @@ const ProductDetails = ({ onGetDescription, onGetUseCases, onGetUsage, onGetSide
 
   return (
     <div>
-      <ol>{useCases && useCases.map((useCase) => <li key={useCase}>{useCase}</li>)}</ol>
+      {description && (
+        <div className="text-[24px] mb-8">
+          <p className="text-[28px]">الوصف :</p>
+          <p className="pt-4">{description}</p>
+        </div>
+      )}
+      {useCases && <DetailsData Title="دواعي الاستخدام :" Data={useCases} />}
+      {usage && <DetailsData Title="طريقة الاستعمال :" Data={usage} />}
+      {sideEffects && <DetailsData Title="الاعراض الجانبية :" Data={sideEffects} />}
     </div>
   )
 }

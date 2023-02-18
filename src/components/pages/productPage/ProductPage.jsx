@@ -38,6 +38,7 @@ const ProductPage = ({ loggedInUser }) => {
     }
     getProduct()
   }, [])
+
   return (
     <div>
       <UserNavigation />
@@ -51,10 +52,7 @@ const ProductPage = ({ loggedInUser }) => {
             {product.type}
           </Link>
           <img src={Arrow} className="mx-2" />
-          <Link
-            to={`/products/type/${product.type}/${product.category}`}
-            className="hover:underline"
-          >
+          <Link to={`/products/category/${product.category}`} className="hover:underline">
             {product.category}
           </Link>
           <img src={Arrow} className="mx-2" />
@@ -62,35 +60,39 @@ const ProductPage = ({ loggedInUser }) => {
         </div>
       </div>
       <div className="flex justify-start pt-8 border-b h-80">
-        <section className="flex flex-col overflow-auto pr-20 min-w-fit">
+        <section className="flex flex-col overflow-auto pr-20">
           {/*      small Pictures         */}
           {images.map((image) => (
             <div
               key={image}
-              className="flex justify-center py-5 mb-3 w-20 h-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
+              className="flex justify-center items-center mb-3 w-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
               onClick={changeImage}
             >
-              <img src={image} />
+              <img src={image} className="h-20 py-5" />
             </div>
           ))}
         </section>
         {/*      Big Picture         */}
-        <div className="flex w-fit items-end">
+        <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
             <img src={currentImage} />
           </div>
         </div>
-        <div className="flex flex-col text-right w-full text-[24px] pt-10 pr-48">
+        {/*     Left Section        */}
+        <div className="flex flex-col text-right text-[24px] pt-10">
           <p>
             {product.nameAr}
             {product.volume ? ` | ${product.volume}` : ''}
             {product.amount ? ` | ${product.amount}` : ''}
           </p>
-          <p className="text-lightBlue py-3">{product.price}جنيه</p>
-          <div className="flex text-[20px] items-center mb-4">
+          <p className="text-lightBlue py-3">{product.price} جنيه</p>
+          <Link
+            to={`/products/alternatives/${product.activeIngredient}`}
+            className="flex text-[20px] items-center mb-4"
+          >
             <img src={Alternative} />
             <p className="mr-2">البديل</p>
-          </div>
+          </Link>
 
           {showButton && (
             <button
@@ -109,23 +111,13 @@ const ProductPage = ({ loggedInUser }) => {
           )}
         </div>
       </div>
-      <div className="text-right pt-8 pr-20">
+      <div className="text-right text-[#1F1F1F] pt-8 pr-20">
         <ProductDetails
           onGetDescription={product.description}
           onGetUseCases={product.useCases}
           onGetUsage={product.usage}
           onGetSideEffects={product.sideEffects}
         />
-        {/* <p className="text-[28px]">الوصف:</p>
-        <p className="text-[24px] text-[#1F1F1F] py-4">{product.description}</p>
-        <p className="text-[28px]">دواعي الاستخدام:</p>
-        <ol className="text-[24px] text-[#1F1F1F] py-4">
-          <li>{product.useCases}</li>
-        </ol>
-        <p className="text-[28px]">طريقة الاستعمال:</p>
-        <p className="text-[24px] text-[#1F1F1F] py-4">{product.usage}</p>
-        <p className="text-[28px]">الأعراض الجانبية:</p>
-        <p className="text-[24px] text-[#1F1F1F] py-4">{product.sideEffects}</p> */}
       </div>
     </div>
   )
