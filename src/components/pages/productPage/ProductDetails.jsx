@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
+/*     Icons      */
 import Bullet from '../../../assets/common/ListBullet.svg'
+/*     API      */
+import * as ProductsAPI from '../../../utils/productsAPI'
 
 const ProductDetails = ({ onGetDescription, onGetUseCases, onGetUsage, onGetSideEffects }) => {
   const [description, setDescription] = useState('')
@@ -13,6 +16,7 @@ const ProductDetails = ({ onGetDescription, onGetUseCases, onGetUsage, onGetSide
     setUsage(onGetUsage)
     setSideEffects(onGetSideEffects)
   }, [onGetDescription, onGetUseCases, onGetUsage, onGetSideEffects])
+
   return (
     <div>
       {description && (

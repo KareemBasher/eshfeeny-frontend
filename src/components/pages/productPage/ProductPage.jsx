@@ -38,6 +38,10 @@ const ProductPage = ({ loggedInUser }) => {
     }
     getProduct()
   }, [])
+
+  const alternative = async () => {
+    console.log(await ProductsAPI.getAlternatives(product.activeIngredient))
+  }
   return (
     <div>
       <UserNavigation />
@@ -87,10 +91,10 @@ const ProductPage = ({ loggedInUser }) => {
             {product.amount ? ` | ${product.amount}` : ''}
           </p>
           <p className="text-lightBlue py-3">{product.price}جنيه</p>
-          <div className="flex text-[20px] items-center mb-4">
+          <button className="flex text-[20px] items-center mb-4" onClick={() => alternative()}>
             <img src={Alternative} />
             <p className="mr-2">البديل</p>
-          </div>
+          </button>
 
           {showButton && (
             <button
@@ -116,16 +120,6 @@ const ProductPage = ({ loggedInUser }) => {
           onGetUsage={product.usage}
           onGetSideEffects={product.sideEffects}
         />
-        {/* <p className="text-[28px]">الوصف:</p>
-        <p className="text-[24px] text-[#1F1F1F] py-4">{product.description}</p>
-        <p className="text-[28px]">دواعي الاستخدام:</p>
-        <ol className="text-[24px] text-[#1F1F1F] py-4">
-          <li>{product.useCases}</li>
-        </ol>
-        <p className="text-[28px]">طريقة الاستعمال:</p>
-        <p className="text-[24px] text-[#1F1F1F] py-4">{product.usage}</p>
-        <p className="text-[28px]">الأعراض الجانبية:</p>
-        <p className="text-[24px] text-[#1F1F1F] py-4">{product.sideEffects}</p> */}
       </div>
     </div>
   )
