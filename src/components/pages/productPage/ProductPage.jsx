@@ -39,9 +39,6 @@ const ProductPage = ({ loggedInUser }) => {
     getProduct()
   }, [])
 
-  const alternative = async () => {
-    console.log(await ProductsAPI.getAlternatives(product.activeIngredient))
-  }
   return (
     <div>
       <UserNavigation />
@@ -55,10 +52,7 @@ const ProductPage = ({ loggedInUser }) => {
             {product.type}
           </Link>
           <img src={Arrow} className="mx-2" />
-          <Link
-            to={`/products/type/${product.type}/${product.category}`}
-            className="hover:underline"
-          >
+          <Link to={`/products/category/${product.category}`} className="hover:underline">
             {product.category}
           </Link>
           <img src={Arrow} className="mx-2" />
@@ -71,30 +65,34 @@ const ProductPage = ({ loggedInUser }) => {
           {images.map((image) => (
             <div
               key={image}
-              className="flex justify-center py-5 mb-3 w-20 h-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
+              className="flex justify-center items-center mb-3 h-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
               onClick={changeImage}
             >
-              <img src={image} />
+              <img src={image} className="w-20" />
             </div>
           ))}
         </section>
         {/*      Big Picture         */}
-        <div className="flex w-fit items-end">
+        <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
             <img src={currentImage} />
           </div>
         </div>
-        <div className="flex flex-col text-right w-full text-[24px] pt-10 pr-48">
+        {/*     Left Section        */}
+        <div className="flex flex-col text-right text-[24px] pt-10">
           <p>
             {product.nameAr}
             {product.volume ? ` | ${product.volume}` : ''}
             {product.amount ? ` | ${product.amount}` : ''}
           </p>
-          <p className="text-lightBlue py-3">{product.price}جنيه</p>
-          <button className="flex text-[20px] items-center mb-4" onClick={() => alternative()}>
+          <p className="text-lightBlue py-3">{product.price} جنيه</p>
+          <Link
+            to={`/products/alternatives/${product.activeIngredient}`}
+            className="flex text-[20px] items-center mb-4"
+          >
             <img src={Alternative} />
             <p className="mr-2">البديل</p>
-          </button>
+          </Link>
 
           {showButton && (
             <button
