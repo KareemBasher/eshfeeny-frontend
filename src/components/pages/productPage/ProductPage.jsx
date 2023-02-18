@@ -7,8 +7,11 @@ import ProductDetails from './ProductDetails'
 /*       Icons       */
 import Arrow from '../../../assets/common/Arrow.svg'
 import Alternative from '../../../assets/common/Alternative.svg'
+import HeartEmpty from '../../../assets/common/HeartEmpty.svg'
+import HeartFill from '../../../assets/common/HeartYellow.svg'
 /*       API       */
 import * as ProductsAPI from '../../../utils/productsAPI'
+import * as UsersAPI from '../../../utils/usersAPI'
 
 const ProductPage = ({ loggedInUser }) => {
   const images = []
@@ -23,22 +26,21 @@ const ProductPage = ({ loggedInUser }) => {
   }
 
   const [showButton, setShowButton] = useState(true)
-  const handleShowButton = () => {
-    setShowButton(true)
-  }
-  const handleHideButton = () => {
-    setShowButton(false)
+  const handleButton = () => {
+    setShowButton(!showButton)
   }
 
   const params = useParams()
   const [product, setProduct] = useState([])
+  const [favouriteProducts, setFavouriteProducts] = useState([])
   useEffect(() => {
     const getProduct = async () => {
       setProduct(await ProductsAPI.getProduct(params.id))
+      setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
     }
     getProduct()
-  }, [])
-
+  }, [favouriteProducts])
+  const favouriteProductsNames = favouriteProducts.map((product) => product.nameAr)
   return (
     <div>
       <UserNavigation />
@@ -61,7 +63,7 @@ const ProductPage = ({ loggedInUser }) => {
       </div>
       <div className="flex justify-start pt-8 border-b h-80">
         <section className="flex flex-col overflow-auto pr-20">
-          {/*      small Pictures         */}
+          {/*      small Pictures     */}
           {images.map((image) => (
             <div
               key={image}
@@ -72,6 +74,21 @@ const ProductPage = ({ loggedInUser }) => {
             </div>
           ))}
         </section>
+        {/*     Favourites Heart     */}
+        <div className="flex pr-8">
+          {favouriteProductsNames.includes(product.nameAr) /*     Remove from Favourites     */ && (
+            <button
+              onClick={async () => await UsersAPI.removeFromFavorites(loggedInUser, params.id)}
+            >
+              <img src={HeartFill} />
+            </button>
+          )}
+          {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
+            <button onClick={async () => await UsersAPI.addToFavorites(loggedInUser, params.id)}>
+              <img src={HeartEmpty} />
+            </button>
+          )}
+        </div>
         {/*      Big Picture         */}
         <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
@@ -97,14 +114,14 @@ const ProductPage = ({ loggedInUser }) => {
           {showButton && (
             <button
               className="text-white bg-orange rounded-[10px] w-80 h-14"
-              onClick={handleHideButton}
+              onClick={handleButton}
             >
               أضف الى العربة
             </button>
           )}
           {!showButton && (
             <QuantityController
-              handleHideComponent={handleShowButton}
+              handleHideComponent={handleButton}
               onGetUserID={loggedInUser}
               onGetProductID={params.id}
             />
