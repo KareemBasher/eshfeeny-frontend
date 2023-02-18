@@ -7,3 +7,7 @@
 html {
   direction: rtl;
 }
+
+section::-webkit-scrollbar {
+  display: none;
+}

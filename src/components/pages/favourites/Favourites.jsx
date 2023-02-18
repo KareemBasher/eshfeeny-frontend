@@ -23,7 +23,6 @@ const Favourites = ({ loggedInUser }) => {
     UsersAPI.removeFromFavorites(ID, productID)
     setItems(items.filter((product) => product._id !== productID))
   }
-
   return (
     <>
       <UserNavigation />

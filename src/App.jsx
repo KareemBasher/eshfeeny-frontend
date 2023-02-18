@@ -7,7 +7,7 @@ import { useCookies } from 'react-cookie'
 /*         Page imports         */
 import Login from './components/pages/login/Login'
 import Cart from './components/pages/cart/Cart'
-import ProductPage from './components/pages/ProductPage'
+import ProductPage from './components/pages/productPage/ProductPage'
 import Profile from './components/pages/profile/Profile'
 import LandingPage from './components/pages/LandingPage.jsx'
 import Favourites from './components/pages/favourites/Favourites'
