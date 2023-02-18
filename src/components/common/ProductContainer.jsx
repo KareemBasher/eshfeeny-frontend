@@ -24,7 +24,7 @@ const FavouriteProducts = ({ onGetProduct, onRemoveFavourite, loggedInUser }) =>
       <Link to={`/product/${onGetProduct._id}`} className="flex justify-center">
         <img src="" className="w-32 m-5" />
       </Link>
-      <div className="text-right p-3 text-[18px] h-">
+      <div className="text-right p-3 text-[18px]">
         <Link to={`/product/${onGetProduct._id}`}>
           <p>
             {onGetProduct.nameAr}

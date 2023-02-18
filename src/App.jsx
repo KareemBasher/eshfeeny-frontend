@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import Login from './components/pages/Login'
 import Cart from './components/pages/cart/Cart'
-import ProductPage from './components/pages/ProductPage'
+import ProductPage from './components/pages/productPage/ProductPage'
 
 function App() {
   const [loggedInUser, setLoggedUser] = useState('63d9239b6ff014381890d178')
