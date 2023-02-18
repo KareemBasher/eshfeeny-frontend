@@ -13,6 +13,10 @@ import HeartFill from '../../../assets/common/HeartYellow.svg'
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
+// import Image from '../../../../../medicine.png'
+// import Image2 from '../../../../../fusi.png'
+// import Image3 from '../../../../../fusidine.png'
+
 const ProductPage = ({ loggedInUser }) => {
   const images = []
   const [currentImage, setCurrentImage] = useState([])
@@ -33,14 +37,24 @@ const ProductPage = ({ loggedInUser }) => {
   const params = useParams()
   const [product, setProduct] = useState([])
   const [favouriteProducts, setFavouriteProducts] = useState([])
+  const [showFavouriteButton, setShowFavouriteButton] = useState('true')
   useEffect(() => {
     const getProduct = async () => {
       setProduct(await ProductsAPI.getProduct(params.id))
       setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
     }
     getProduct()
-  }, [favouriteProducts])
+  }, [showFavouriteButton])
+
   const favouriteProductsNames = favouriteProducts.map((product) => product.nameAr)
+  const handleRemove = async (userID, productID) => {
+    setShowFavouriteButton(!showFavouriteButton)
+    await UsersAPI.removeFromFavorites(userID, productID)
+  }
+  const handleAdd = async (userID, productID) => {
+    setShowFavouriteButton(!showFavouriteButton)
+    await UsersAPI.addToFavorites(userID, productID)
+  }
   return (
     <div>
       <UserNavigation />
@@ -77,14 +91,12 @@ const ProductPage = ({ loggedInUser }) => {
         {/*     Favourites Heart     */}
         <div className="flex pr-8">
           {favouriteProductsNames.includes(product.nameAr) /*     Remove from Favourites     */ && (
-            <button
-              onClick={async () => await UsersAPI.removeFromFavorites(loggedInUser, params.id)}
-            >
+            <button onClick={() => handleRemove(loggedInUser, params.id)}>
               <img src={HeartFill} />
             </button>
           )}
           {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
-            <button onClick={async () => await UsersAPI.addToFavorites(loggedInUser, params.id)}>
+            <button onClick={() => handleAdd(loggedInUser, params.id)}>
               <img src={HeartEmpty} />
             </button>
           )}

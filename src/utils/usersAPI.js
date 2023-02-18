@@ -113,6 +113,7 @@ export const decrementQuantity = async (userID, productID) => {
 // Verify login for user
 export const verifyLogin = async (email, password) => {
   try {
+    if (email === '' || password === '') throw new Error('Please enter an email and password.')
     const result = await fetch(apiURL + '/users/verify', {
       method: 'POST',
       headers: {
