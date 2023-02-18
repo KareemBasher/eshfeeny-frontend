@@ -109,7 +109,7 @@ const ProductPage = ({ loggedInUser }) => {
           )}
         </div>
       </div>
-      <div className="text-right pt-8 pr-20">
+      <div className="text-right text-[#1F1F1F] pt-8 pr-20">
         <ProductDetails
           onGetDescription={product.description}
           onGetUseCases={product.useCases}
