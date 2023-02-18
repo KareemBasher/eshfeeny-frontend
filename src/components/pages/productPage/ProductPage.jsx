@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 /*    Components    */
 import UserNavigation from '../../common/UserNavigation'
 import QuantityController from '../../pages/productPage/QuantityControllerProductDetails'
-// import ProductDetails from './ProductDetails'
+import ProductDetails from './ProductDetails'
 /*       Icons       */
 import Arrow from '../../../assets/common/Arrow.svg'
 import Alternative from '../../../assets/common/Alternative.svg'
@@ -110,13 +110,13 @@ const ProductPage = ({ loggedInUser }) => {
         </div>
       </div>
       <div className="text-right pt-8 pr-20">
-        {/* <ProductDetails
+        <ProductDetails
           onGetDescription={product.description}
           onGetUseCases={product.useCases}
           onGetUsage={product.usage}
           onGetSideEffects={product.sideEffects}
-        /> */}
-        <p className="text-[28px]">الوصف:</p>
+        />
+        {/* <p className="text-[28px]">الوصف:</p>
         <p className="text-[24px] text-[#1F1F1F] py-4">{product.description}</p>
         <p className="text-[28px]">دواعي الاستخدام:</p>
         <ol className="text-[24px] text-[#1F1F1F] py-4">
@@ -125,7 +125,7 @@ const ProductPage = ({ loggedInUser }) => {
         <p className="text-[28px]">طريقة الاستعمال:</p>
         <p className="text-[24px] text-[#1F1F1F] py-4">{product.usage}</p>
         <p className="text-[28px]">الأعراض الجانبية:</p>
-        <p className="text-[24px] text-[#1F1F1F] py-4">{product.sideEffects}</p>
+        <p className="text-[24px] text-[#1F1F1F] py-4">{product.sideEffects}</p> */}
       </div>
     </div>
   )
