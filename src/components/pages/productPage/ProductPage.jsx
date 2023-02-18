@@ -87,7 +87,7 @@ const ProductPage = ({ loggedInUser }) => {
           </p>
           <p className="text-lightBlue py-3">{product.price} جنيه</p>
           <Link
-            to={`/products/alternatives/${product.activeIngredient}`}
+            to={`/products/alternatives/${product.type}/${product.category}/${product.nameAr}/${product.activeIngredient}`}
             className="flex text-[20px] items-center mb-4"
           >
             <img src={Alternative} />
