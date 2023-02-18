@@ -4,6 +4,26 @@ const headers = {
   Accept: 'application/json'
 }
 
+// Get user data
+export const getUser = async (id) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get user with id ${id}.`)
+  }
+}
+
+// Check if user exists using email
+export const checkUserEmail = async (email) => {
+  try {
+    const result = await fetch(apiURL + `/users/checkEmail/${email}`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not check user email.`)
+  }
+}
+
 // Add a product to favorites
 export const addToFavorites = async (id, productID) => {
   try {
@@ -90,6 +110,7 @@ export const decrementQuantity = async (userID, productID) => {
   }
 }
 
+// Verify login for user
 export const verifyLogin = async (email, password) => {
   try {
     const result = await fetch(apiURL + '/users/verify', {
@@ -103,5 +124,39 @@ export const verifyLogin = async (email, password) => {
     if (result.status === 200) return result.json()
   } catch (error) {
     console.log('Could not verify login.')
+  }
+}
+
+// Upate user name, email, and/or phone number
+export const updateUser = async (id, name, email, phone) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}/profile`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: name, email: email, phoneNumber: phone })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not update user.')
+  }
+}
+
+// Update user password
+export const updatePassword = async (id, password) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}/password`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ password: password })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not update password.')
   }
 }
