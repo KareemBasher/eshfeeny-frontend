@@ -1,7 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PhoneInputContent from './PhoneInputContent'
+import { updateUser } from '../../../utils/usersAPI'
 
 const ProfileContent = ({ user, toggleModal }) => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+
+  useEffect(() => {
+    if (user.name && user.email && user.phoneNumber) {
+      setName(user.name)
+      setEmail(user.email)
+      setPhoneNumber(user.phoneNumber)
+    }
+  }, [user])
+
+  const handleNameChange = (e) => {
+    setName(e.target.value)
+  }
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const handlePhoneChange = (phone) => {
+    setPhoneNumber(phone)
+  }
+
+  const handleSubmit = async () => {
+    await updateUser(user._id, name, email, phoneNumber)
+  }
+
   return (
     <div>
       {/* /* title */}
@@ -11,7 +40,7 @@ const ProfileContent = ({ user, toggleModal }) => {
       {/* inputs */}
 
       <div className="flex justify-center  ">
-        <div className="flex flex-col  justify-center border-2 rounded-[10px] w-[904px] h-[500px]">
+        <div className="flex flex-col justify-center border border-black rounded-[10px] w-[904px] h-[500px]">
           <div className="flex flex-row  justify-around ">
             <div className=" ">
               <label className=" text-2xl flex my-5 justify-start" htmlFor="">
@@ -20,7 +49,8 @@ const ProfileContent = ({ user, toggleModal }) => {
               <input
                 className="w-96 h-14 shadow-sm rounded-[10px] px-4 outline-none bg-[#F7F7F7]"
                 type="text"
-                defaultValue={user.name}
+                value={name}
+                onChange={(e) => handleNameChange(e)}
               ></input>
             </div>
 
@@ -29,7 +59,8 @@ const ProfileContent = ({ user, toggleModal }) => {
               <input
                 className="w-96 h-14 shadow-sm outline-none px-4 rounded-[10px] bg-[#F7F7F7]"
                 type="text"
-                defaultValue={user.email}
+                value={email}
+                onChange={(e) => handleEmailChange(e)}
               ></input>
             </div>
           </div>
@@ -37,11 +68,14 @@ const ProfileContent = ({ user, toggleModal }) => {
           <div className="flex flex-col justify-start m-10">
             <label className="text-2xl text-right my-5">رقم الهاتف</label>
 
-            <PhoneInputContent user={user} />
+            <PhoneInputContent phoneNumber={phoneNumber} handlePhoneChange={handlePhoneChange} />
           </div>
           {/* buttons */}
           <div className="flex flex-row justify-center">
-            <button className="text-[24px] text-white bg-blue rounded-[10px] m-5 w-[193px] h-[58px]">
+            <button
+              className="text-[24px] text-white bg-blue rounded-[10px] m-5 w-[193px] h-[58px]"
+              onClick={() => handleSubmit()}
+            >
               حفظ التغيير
             </button>
 
