@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import QuantityControllerCart from './QuantityControllerCart'
 import CloseButton from '../../../assets/common/CloseButton.svg'
+import { Link } from 'react-router-dom'
 
 const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
   const [price, setPrice] = useState(product.price * quantity)
@@ -11,16 +12,16 @@ const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
 
   return (
     <div className="flex justify-evenly text-right border-b mt-5 h-32 w-full">
-      <div className="flex items-center justify-center">
+      <Link to={`/product/${product._id}`} className="flex items-center justify-center">
         <img src="" className="w-[150px]" />
-      </div>
-      <div className="text-[20px] flex items-center w-[250px]">
+      </Link>
+      <Link to={`/product/${product._id}`} className="text-[20px] flex items-center w-[250px]">
         <p>
           {product.nameAr}
           {product.volume ? ` | ${product.volume}` : ''}
           {product.amount ? ` | ${product.amount}` : ''}
         </p>
-      </div>
+      </Link>
 
       <div className="flex h-full flex-col items-start justify-around text-[18px]">
         <QuantityControllerCart
