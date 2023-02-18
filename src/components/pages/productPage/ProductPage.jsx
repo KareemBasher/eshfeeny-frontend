@@ -60,15 +60,15 @@ const ProductPage = ({ loggedInUser }) => {
         </div>
       </div>
       <div className="flex justify-start pt-8 border-b h-80">
-        <section className="flex flex-col overflow-auto pr-20 min-w-fit">
+        <section className="flex flex-col overflow-auto pr-20">
           {/*      small Pictures         */}
           {images.map((image) => (
             <div
               key={image}
-              className="flex justify-center items-center mb-3 h-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
+              className="flex justify-center items-center mb-3 w-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
               onClick={changeImage}
             >
-              <img src={image} className="w-20" />
+              <img src={image} className="h-20 py-5" />
             </div>
           ))}
         </section>
