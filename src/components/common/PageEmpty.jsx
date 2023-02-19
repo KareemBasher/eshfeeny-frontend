@@ -13,7 +13,10 @@ const PageEmpty = ({ onGetLogo, onGetText, onGetTitle }) => {
         <p>{onGetText}</p>
       </div>
       <div>
-        <WideButton content="اذهب للتسوق الان" />
+        <WideButton
+          content="اذهب للتسوق الان"
+          handleOnClick={() => (window.location = '/products')}
+        />
       </div>
     </div>
   )
