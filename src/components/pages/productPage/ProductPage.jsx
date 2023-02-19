@@ -7,8 +7,8 @@ import ProductDetails from './ProductDetails'
 /*       Icons       */
 import Arrow from '../../../assets/common/Arrow.svg'
 import Alternative from '../../../assets/common/Alternative.svg'
-import HeartEmpty from '../../../assets/common/HeartEmpty.svg'
-import HeartFill from '../../../assets/common/HeartYellow.svg'
+import HeartEmpty from '../../../assets/productPage/HeartEmpty.svg'
+import HeartFill from '../../../assets/productPage/HeartFill.svg'
 /*       API       */
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
@@ -88,19 +88,6 @@ const ProductPage = ({ loggedInUser }) => {
             </div>
           ))}
         </section>
-        {/*     Favourites Heart     */}
-        <div className="flex pr-8">
-          {favouriteProductsNames.includes(product.nameAr) /*     Remove from Favourites     */ && (
-            <button onClick={() => handleRemove(loggedInUser, params.id)}>
-              <img src={HeartFill} />
-            </button>
-          )}
-          {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
-            <button onClick={() => handleAdd(loggedInUser, params.id)}>
-              <img src={HeartEmpty} />
-            </button>
-          )}
-        </div>
         {/*      Big Picture         */}
         <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
@@ -108,13 +95,28 @@ const ProductPage = ({ loggedInUser }) => {
           </div>
         </div>
         {/*     Left Section        */}
-        <div className="flex flex-col text-right text-[24px] pt-10">
+        <div className="flex flex-col text-right text-[24px]">
           <p>
             {product.nameAr}
             {product.volume ? ` | ${product.volume}` : ''}
             {product.amount ? ` | ${product.amount}` : ''}
           </p>
           <p className="text-lightBlue py-3">{product.price} جنيه</p>
+          {/*     Favourites Heart     */}
+          <div className="flex text-[20px]">
+            {favouriteProductsNames.includes(product.nameAr) /*     Remove from Favourites     */ && (
+              <button className="flex" onClick={() => handleRemove(loggedInUser, params.id)}>
+                <img src={HeartFill} />
+                <p className="mr-2 self-center">المفضلة</p>
+              </button>
+            )}
+            {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
+              <button className="flex" onClick={() => handleAdd(loggedInUser, params.id)}>
+                <img src={HeartEmpty} />
+                <p className="mr-2 self-center">المفضلة</p>
+              </button>
+            )}
+          </div>
           <Link
             to={`/products/alternatives/${product.activeIngredient}`}
             className="flex text-[20px] items-center mb-4"
