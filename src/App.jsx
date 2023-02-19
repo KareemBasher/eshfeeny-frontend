@@ -41,7 +41,7 @@ function App() {
       <Route
         exact
         path="/products/alternatives/:type/:category/:name/:activeIngredient"
-        element={<AlternativesPage />}
+        element={<AlternativesPage loggedInUser={loggedInUser} />}
       />
     </Routes>
   )
