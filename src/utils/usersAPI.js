@@ -33,7 +33,7 @@ export const addToFavorites = async (id, productID) => {
         ...headers,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(productID)
+      body: JSON.stringify({ productId: productID })
     })
     if (result.status === 200) return result.json()
   } catch (error) {
