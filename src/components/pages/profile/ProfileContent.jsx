@@ -39,7 +39,7 @@ const ProfileContent = ({ user, toggleModal }) => {
       </div>
       {/* inputs */}
 
-      <div className="flex justify-center  ">
+      <div className="flex justify-center mb-20">
         <div className="flex flex-col justify-center border border-black rounded-[10px] w-[904px] h-[500px]">
           <div className="flex flex-row  justify-around ">
             <div className=" ">
