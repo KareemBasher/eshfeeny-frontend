@@ -35,7 +35,8 @@ const changePassword = ({ toggleModal, user }) => {
   }
 
   const handleSubmit = async () => {
-    if (checkNewPassword() && (await checkOldPassword())) {
+    const oldPasswordResult = await checkOldPassword()
+    if (checkNewPassword() && oldPasswordResult) {
       const result = await updatePassword(user._id, newPassword)
       if (result?.modifiedCount === 1) toggleModal()
     }
