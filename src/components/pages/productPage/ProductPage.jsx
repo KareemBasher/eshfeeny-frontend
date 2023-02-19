@@ -125,21 +125,13 @@ const ProductPage = ({ loggedInUser }) => {
               )}
             </div>
             <Link
-              to={`/products/alternatives/${product.activeIngredient}`}
+              to={`/products/alternatives/${product.type}/${product.category}/${product.nameAr}/${product.activeIngredient}`}
               className="flex text-[20px] items-center mb-4"
             >
               <img src={Alternative} />
               <p className="mr-2">البديل</p>
             </Link>
           </div>
-          <Link
-            to={`/products/alternatives/${product.type}/${product.category}/${product.nameAr}/${product.activeIngredient}`}
-            className="flex text-[20px] items-center mb-4"
-          >
-            <img src={Alternative} />
-            <p className="mr-2">البديل</p>
-          </Link>
-
           {showButton && (
             <button
               className="text-white bg-orange rounded-[10px] w-80 h-14"
