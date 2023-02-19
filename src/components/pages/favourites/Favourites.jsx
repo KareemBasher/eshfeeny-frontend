@@ -7,22 +7,23 @@ import FavouritesContent from './FavouritesContent'
 import HeartLight from '../../../assets/common/HeartLight.svg'
 /*     API     */
 import * as ProductsAPI from '../../../utils/productsAPI'
-import * as UsersAPI from '../../../utils/usersAPI'
 
 const Favourites = ({ loggedInUser }) => {
   const [items, setItems] = useState([])
+  const [favoriteProductsIDs, setFavouriteProductsIDs] = useState([])
+
   useEffect(() => {
     const updateItems = async () => {
       const result = await ProductsAPI.getFavoriteProducts(loggedInUser)
+      if (result) {
+        const IDs = result.map((product) => product._id)
+        setFavouriteProductsIDs(IDs)
+      }
       setItems(result ? result : [])
     }
     updateItems()
   }, [])
 
-  const removeFromFavourites = (ID, productID) => {
-    UsersAPI.removeFromFavorites(ID, productID)
-    setItems(items.filter((product) => product._id !== productID))
-  }
   return (
     <>
       <UserNavigation />
@@ -31,8 +32,8 @@ const Favourites = ({ loggedInUser }) => {
           <FavouritesContent
             onGetTitle="المنتجات المفضلة"
             onGetItems={items}
-            onRemoveFavourite={removeFromFavourites}
             loggedInUser={loggedInUser}
+            favorites={favoriteProductsIDs}
           />
         ) : (
           <PageEmpty

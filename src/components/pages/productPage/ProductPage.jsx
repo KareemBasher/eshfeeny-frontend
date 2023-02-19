@@ -30,6 +30,7 @@ const ProductPage = ({ loggedInUser }) => {
   }
 
   const [showButton, setShowButton] = useState(true)
+
   const handleButton = () => {
     setShowButton(!showButton)
   }
@@ -38,23 +39,27 @@ const ProductPage = ({ loggedInUser }) => {
   const [product, setProduct] = useState([])
   const [favouriteProducts, setFavouriteProducts] = useState([])
   const [showFavouriteButton, setShowFavouriteButton] = useState('true')
+
   useEffect(() => {
     const getProduct = async () => {
       setProduct(await ProductsAPI.getProduct(params.id))
       setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
     }
     getProduct()
-  }, [showFavouriteButton])
+  }, [showFavouriteButton, params])
 
   const favouriteProductsNames = favouriteProducts.map((product) => product.nameAr)
+
   const handleRemove = async (userID, productID) => {
     setShowFavouriteButton(!showFavouriteButton)
     await UsersAPI.removeFromFavorites(userID, productID)
   }
+
   const handleAdd = async (userID, productID) => {
     setShowFavouriteButton(!showFavouriteButton)
     await UsersAPI.addToFavorites(userID, productID)
   }
+
   return (
     <div>
       <UserNavigation />

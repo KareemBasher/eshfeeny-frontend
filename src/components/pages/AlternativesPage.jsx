@@ -5,6 +5,7 @@ import UserNavigation from '../common/UserNavigation'
 import PageEmpty from '../common/PageEmpty'
 /*       API       */
 import * as ProductsAPI from '../../utils/productsAPI'
+import { getUser } from '../../utils/usersAPI'
 /*       Icons       */
 import Arrow from '../../assets/common/Arrow.svg'
 import ProductContainer from '../common/ProductContainer'
@@ -13,18 +14,22 @@ import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
 const AlternativesPage = ({ loggedInUser }) => {
   const params = useParams()
   const [alternative, setAlternative] = useState([])
+  const [favoriteProductsIDs, setFavouriteProductsIDs] = useState([])
 
   useEffect(() => {
     const getAlternative = async () => {
       setAlternative(await ProductsAPI.getAlternatives(params.activeIngredient))
     }
+
+    const getFavoriteProducts = async () => {
+      const result = await getUser(loggedInUser)
+      setFavouriteProductsIDs(result.favorites ? result.favorites : [])
+    }
+
     getAlternative()
+    getFavoriteProducts()
   }, [])
-  // const removeFromFavourites = (ID, productID) => {
-  //   UsersAPI.removeFromFavorites(ID, productID)
-  //   setItems(items.filter((product) => product._id !== productID))
-  // }
-  console.log(alternative.length)
+
   return (
     <>
       <div>
@@ -62,7 +67,11 @@ const AlternativesPage = ({ loggedInUser }) => {
           <ol className="flex flex-wrap justify-start mr-20">
             {alternative.map((product) => (
               <li key={product._id}>
-                <ProductContainer onGetProduct={product} loggedInUser={loggedInUser} />
+                <ProductContainer
+                  onGetProduct={product}
+                  loggedInUser={loggedInUser}
+                  favorites={favoriteProductsIDs}
+                />
               </li>
             ))}
           </ol>
