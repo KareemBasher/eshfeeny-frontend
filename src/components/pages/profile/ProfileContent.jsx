@@ -8,10 +8,10 @@ const ProfileContent = ({ user, toggleModal }) => {
   const [phoneNumber, setPhoneNumber] = useState('')
 
   useEffect(() => {
-    if (user.name && user.email && user.phoneNumber) {
+    if (user.name && user.email) {
       setName(user.name)
       setEmail(user.email)
-      setPhoneNumber(user.phoneNumber)
+      setPhoneNumber(user?.phoneNumber)
     }
   }, [user])
 
@@ -28,7 +28,9 @@ const ProfileContent = ({ user, toggleModal }) => {
   }
 
   const handleSubmit = async () => {
-    await updateUser(user._id, name, email, phoneNumber)
+    if (name.length !== 0 && email.length !== 0 && phoneNumber.length !== 0) {
+      await updateUser(user._id, name, email, phoneNumber)
+    }
   }
 
   return (
