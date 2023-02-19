@@ -103,27 +103,35 @@ const ProductPage = ({ loggedInUser }) => {
           </p>
           <p className="text-lightBlue py-3">{product.price} جنيه</p>
           {/*     Favourites Heart     */}
-          <div className="flex text-[20px]">
-            {favouriteProductsNames.includes(product.nameAr) /*     Remove from Favourites     */ && (
-              <button className="flex" onClick={() => handleRemove(loggedInUser, params.id)}>
-                <img src={HeartFill} />
-                <p className="mr-2 self-center">المفضلة</p>
-              </button>
-            )}
-            {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
-              <button className="flex" onClick={() => handleAdd(loggedInUser, params.id)}>
-                <img src={HeartEmpty} />
-                <p className="mr-2 self-center">المفضلة</p>
-              </button>
-            )}
+          <div className="flex">
+            <div className="flex text-[20px]">
+              {favouriteProductsNames.includes(
+                product.nameAr
+              ) /*     Remove from Favourites     */ && (
+                <div className="flex">
+                  <button className="flex" onClick={() => handleRemove(loggedInUser, params.id)}>
+                    <img src={HeartFill} />
+                  </button>
+                  <p className="mx-2 pt-1">المفضلة</p>
+                </div>
+              )}
+              {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
+                <div className="flex">
+                  <button className="flex" onClick={() => handleAdd(loggedInUser, params.id)}>
+                    <img src={HeartEmpty} />
+                  </button>
+                  <p className="mx-2 pt-1">المفضلة</p>
+                </div>
+              )}
+            </div>
+            <Link
+              to={`/products/alternatives/${product.activeIngredient}`}
+              className="flex text-[20px] items-center mb-4"
+            >
+              <img src={Alternative} />
+              <p className="mr-2">البديل</p>
+            </Link>
           </div>
-          <Link
-            to={`/products/alternatives/${product.activeIngredient}`}
-            className="flex text-[20px] items-center mb-4"
-          >
-            <img src={Alternative} />
-            <p className="mr-2">البديل</p>
-          </Link>
 
           {showButton && (
             <button
