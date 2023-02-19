@@ -7,8 +7,15 @@ import ProductDetails from './ProductDetails'
 /*       Icons       */
 import Arrow from '../../../assets/common/Arrow.svg'
 import Alternative from '../../../assets/common/Alternative.svg'
+import HeartEmpty from '../../../assets/productPage/HeartEmpty.svg'
+import HeartFill from '../../../assets/productPage/HeartFill.svg'
 /*       API       */
 import * as ProductsAPI from '../../../utils/productsAPI'
+import * as UsersAPI from '../../../utils/usersAPI'
+
+// import Image from '../../../../../medicine.png'
+// import Image2 from '../../../../../fusi.png'
+// import Image3 from '../../../../../fusidine.png'
 
 const ProductPage = ({ loggedInUser }) => {
   const images = []
@@ -23,22 +30,31 @@ const ProductPage = ({ loggedInUser }) => {
   }
 
   const [showButton, setShowButton] = useState(true)
-  const handleShowButton = () => {
-    setShowButton(true)
-  }
-  const handleHideButton = () => {
-    setShowButton(false)
+  const handleButton = () => {
+    setShowButton(!showButton)
   }
 
   const params = useParams()
   const [product, setProduct] = useState([])
+  const [favouriteProducts, setFavouriteProducts] = useState([])
+  const [showFavouriteButton, setShowFavouriteButton] = useState('true')
   useEffect(() => {
     const getProduct = async () => {
       setProduct(await ProductsAPI.getProduct(params.id))
+      setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
     }
     getProduct()
-  }, [])
+  }, [showFavouriteButton])
 
+  const favouriteProductsNames = favouriteProducts.map((product) => product.nameAr)
+  const handleRemove = async (userID, productID) => {
+    setShowFavouriteButton(!showFavouriteButton)
+    await UsersAPI.removeFromFavorites(userID, productID)
+  }
+  const handleAdd = async (userID, productID) => {
+    setShowFavouriteButton(!showFavouriteButton)
+    await UsersAPI.addToFavorites(userID, productID)
+  }
   return (
     <div>
       <UserNavigation />
@@ -61,7 +77,7 @@ const ProductPage = ({ loggedInUser }) => {
       </div>
       <div className="flex justify-start pt-8 border-b h-80">
         <section className="flex flex-col overflow-auto pr-20">
-          {/*      small Pictures         */}
+          {/*      small Pictures     */}
           {images.map((image) => (
             <div
               key={image}
@@ -79,13 +95,28 @@ const ProductPage = ({ loggedInUser }) => {
           </div>
         </div>
         {/*     Left Section        */}
-        <div className="flex flex-col text-right text-[24px] pt-10">
+        <div className="flex flex-col text-right text-[24px]">
           <p>
             {product.nameAr}
             {product.volume ? ` | ${product.volume}` : ''}
             {product.amount ? ` | ${product.amount}` : ''}
           </p>
           <p className="text-lightBlue py-3">{product.price} جنيه</p>
+          {/*     Favourites Heart     */}
+          <div className="flex text-[20px]">
+            {favouriteProductsNames.includes(product.nameAr) /*     Remove from Favourites     */ && (
+              <button className="flex" onClick={() => handleRemove(loggedInUser, params.id)}>
+                <img src={HeartFill} />
+                <p className="mr-2 self-center">المفضلة</p>
+              </button>
+            )}
+            {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
+              <button className="flex" onClick={() => handleAdd(loggedInUser, params.id)}>
+                <img src={HeartEmpty} />
+                <p className="mr-2 self-center">المفضلة</p>
+              </button>
+            )}
+          </div>
           <Link
             to={`/products/alternatives/${product.activeIngredient}`}
             className="flex text-[20px] items-center mb-4"
@@ -97,14 +128,14 @@ const ProductPage = ({ loggedInUser }) => {
           {showButton && (
             <button
               className="text-white bg-orange rounded-[10px] w-80 h-14"
-              onClick={handleHideButton}
+              onClick={handleButton}
             >
               أضف الى العربة
             </button>
           )}
           {!showButton && (
             <QuantityController
-              handleHideComponent={handleShowButton}
+              handleHideComponent={handleButton}
               onGetUserID={loggedInUser}
               onGetProductID={params.id}
             />
