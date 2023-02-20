@@ -26,7 +26,7 @@ const Profile = ({ loggedInUser }) => {
 
   return (
     <>
-      <UserNavigation />
+      <UserNavigation loggedInUser={loggedInUser} />
       {isOpen ? (
         <ChangePassword toggleModal={toggleModal} user={user ? user : {}} />
       ) : (
