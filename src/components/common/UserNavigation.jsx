@@ -33,15 +33,30 @@ const UserNavigation = ({ loggedInUser }) => {
       <div className="flex px-20 py-7 justify-center">
         <LogoScript />
         <SearchBar onGetData={searchResult} query={query} />
-        <RoundButton onGetLogo={HeartDark} onGetText="المفضلة" onGetPath="/favorites" />
-        <RoundButton onGetLogo={Location} onGetText="أقرب صيدلية" onGetPath="/location" />
+        <RoundButton
+          onGetLogo={HeartDark}
+          onGetText="المفضلة"
+          onGetPath="/favorites"
+          onGetCartLength={0}
+        />
+        <RoundButton
+          onGetLogo={Location}
+          onGetText="أقرب صيدلية"
+          onGetPath="/location"
+          onGetCartLength={cartItems}
+        />
         <RoundButton
           onGetLogo={CartDark}
           onGetText="العربة"
           onGetPath="/cart"
           onGetCartLength={cartItems}
         />
-        <RoundButton onGetLogo={Person} onGetText="حسابي" onGetPath="/profile" />
+        <RoundButton
+          onGetLogo={Person}
+          onGetText="حسابي"
+          onGetPath="/profile"
+          onGetCartLength={0}
+        />
       </div>
       <NavListContainer />
     </>
