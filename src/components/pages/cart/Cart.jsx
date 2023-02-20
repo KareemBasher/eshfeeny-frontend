@@ -26,7 +26,7 @@ const Cart = ({ loggedInUser }) => {
 
   return (
     <>
-      <UserNavigation />
+      <UserNavigation loggedInUser={loggedInUser} />
       <div>
         {items.length ? (
           <CartContent

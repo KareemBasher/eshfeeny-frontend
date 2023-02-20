@@ -62,7 +62,7 @@ const ProductPage = ({ loggedInUser }) => {
 
   return (
     <div>
-      <UserNavigation />
+      <UserNavigation loggedInUser={loggedInUser} />
       <div className="pt-8 pr-20 text-[16px] text-lightBlue">
         <div className="flex justify-start">
           <Link to="/products" className="hover:underline">
