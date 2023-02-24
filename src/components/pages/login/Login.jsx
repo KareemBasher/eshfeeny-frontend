@@ -44,6 +44,19 @@ const Login = ({ changeLoggedUser }) => {
     }
   }
 
+  useEffect(() => {
+    const handleKeydown = (event) => {
+      if (event.key === 'Enter') {
+        handleSubmit()
+      }
+    }
+    window.addEventListener('keydown', handleKeydown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown)
+    }
+  }, [password])
+
   return (
     <div>
       <div className="flex h-[25vh] items-center justify-center">
