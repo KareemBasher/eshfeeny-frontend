@@ -60,7 +60,7 @@ const SearchBar = ({ onGetData, query }) => {
             <ol className="w-full">
               {data.map(({ _id, nameAr }) => (
                 <li key={_id} className="flex justify-start items-center pr-7 border-t py-2">
-                  <img src={SearchLogoSmall} className="w-4 ml-2" />
+                  <img src={SearchLogoSmall} className="w-4 ml-2" alt="SearchIcon" />
                   <Link to={`/product/${_id}`}>{nameAr}</Link>
                 </li>
               ))}

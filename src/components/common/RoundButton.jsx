@@ -16,7 +16,7 @@ const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength }) => {
         {onGetCartLength > 0 && onGetText === 'أقرب صيدلية' && (
           <div className="absolute right-2.5 top-1.5 bg-orange w-[10px] h-[10px] justify-center items-center rounded-full text-[12px]"></div>
         )}
-        <img className="self-center" src={onGetLogo} />
+        <img className="self-center" src={onGetLogo} alt="RadialButton" />
       </Link>
       <Link to={onGetPath} className="self-center px-2">
         <p className="text-[20px]">{onGetText}</p>

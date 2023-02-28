@@ -34,6 +34,7 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePric
           src={IncrementButton}
           className="w-[48px] h-[45px] box-border  "
           onClick={() => increment(loggedInUser, productID)}
+          alt="IncrementButton"
         />
       </button>
       <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[156px] h-[45px] m-1 bg-[#D4EEFF]">
@@ -44,6 +45,7 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePric
           src={quantity === 1 ? DecrementDisabledButton : DecrementButton}
           className="w-[48px] h-[45px] box-border"
           onClick={(e) => decrement(e, loggedInUser, productID)}
+          alt="DecrementButton"
         />
       </button>
     </div>

@@ -46,6 +46,7 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
           src={IncrementButton}
           className="w-[40px] h-[35px] box-border"
           onClick={() => increment(onGetUserID, onGetProductID)}
+          alt="IncrementButton"
         />
       </button>
       <p className="flex items-center justify-center text-blue text-[20px] rounded-[10px] w-[100px] h-[35px] m-1 bg-[#D4EEFF]">
@@ -57,11 +58,12 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
             src={DecrementButton}
             className="w-[40px] h-[35px] box-border "
             onClick={() => decrement(onGetUserID, onGetProductID)}
+            alt="DecrementButton"
           />
         </button>
       ) : (
         <button onClick={() => removeFromCart(onGetUserID, onGetProductID)}>
-          <img src={RemoveButton} className="w-[40px] h-[35px] box-border" />
+          <img src={RemoveButton} className="w-[40px] h-[35px] box-border" alt="RemoveFromCart" />
         </button>
       )}
     </div>

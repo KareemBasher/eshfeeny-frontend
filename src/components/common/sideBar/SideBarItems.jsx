@@ -19,7 +19,7 @@ const SideBarItems = ({ typeName, onGetTitle, category, types }) => {
         }`}
       >
         <div className="flex">
-          <img src={Arrow} alt="" />
+          <img src={Arrow} alt="Arrow" />
           <button>{onGetTitle}</button>
         </div>
       </div>

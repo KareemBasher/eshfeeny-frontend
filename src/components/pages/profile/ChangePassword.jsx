@@ -52,7 +52,7 @@ const changePassword = ({ toggleModal, user }) => {
               onClick={() => toggleModal()}
               className="text-[28px] text-[#4D4D4D] justify-self-end"
             >
-              <img src={CloseButton} alt="" />
+              <img src={CloseButton} alt="closeButton" />
             </button>
           </div>
 
