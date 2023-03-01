@@ -40,10 +40,13 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
         className="w-[22px] box-border mr-3 mt-5"
         onClick={() => (itemInFavorites ? handleRemove() : handleAdd())}
       >
-        <img src={itemInFavorites ? HeartFill : HeartEmpty} />
+        <img
+          src={itemInFavorites ? HeartFill : HeartEmpty}
+          alt={itemInFavorites ? 'Remove from favorites' : 'add to favorites'}
+        />
       </button>
       <Link to={`/product/${onGetProduct._id}`} className="flex justify-center">
-        <img src="" className="w-32 m-5" />
+        <img src="" className="w-32 m-5" alt="Product" />
       </Link>
       <div className="text-right p-3 text-[18px]">
         <Link to={`/product/${onGetProduct._id}`}>
