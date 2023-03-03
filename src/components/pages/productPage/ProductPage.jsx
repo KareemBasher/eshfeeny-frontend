@@ -24,16 +24,19 @@ const ProductPage = ({ loggedInUser }) => {
   const [product, setProduct] = useState([])
   const [favouriteProducts, setFavouriteProducts] = useState([])
   const [showFavouriteButton, setShowFavouriteButton] = useState('true')
+  const [currentImage, setCurrentImage] = useState('')
 
-  const [currentImage, setCurrentImage] = useState()
   useEffect(() => {
     const getProduct = async () => {
       setProduct(await ProductsAPI.getProduct(params.id))
       setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
-      setCurrentImage(product.images)
     }
     getProduct()
   }, [showFavouriteButton, params])
+
+  useEffect(() => {
+    setCurrentImage(product.images)
+  }, [product.images])
 
   const changeImage = (e) => {
     if (e.target.src) {
@@ -92,11 +95,7 @@ const ProductPage = ({ loggedInUser }) => {
         {/*      Big Picture         */}
         <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
-            <img
-              src={currentImage ? currentImage : product.images}
-              className="max-h-[15rem]"
-              alt="ProductMainImage"
-            />
+            <img src={currentImage} className="max-h-[15rem]" alt="ProductMainImage" />
           </div>
         </div>
         {/*     Left Section        */}
