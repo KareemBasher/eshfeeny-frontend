@@ -159,3 +159,13 @@ export const checkCart = async (userId, productId) => {
     )
   }
 }
+
+// Get all product from a brand
+export const getBrand = async (brand) => {
+  try {
+    const result = await fetch(apiURL + `/products/brand/${brand}`, { headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get product from brand ${brand} from API.`)
+  }
+}
