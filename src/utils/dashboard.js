@@ -13,3 +13,29 @@ export const sendEmail = async (email) => {
     console.log(`Could not send email.`)
   }
 }
+
+// Uploading an image to imgbb
+export const uploadImage = async (imagePath) => {
+  try {
+    const result = await fetch(`${apiURL}/upload`, {
+      method: 'POST',
+      body: { imagePath: imagePath }
+    })
+    if (result.status === 200) return result.json()
+  } catch {
+    console.log(`Could not upload image.`)
+  }
+}
+
+// Searching for a product using an image
+export const imageSearch = async (imagePath) => {
+  try {
+    const result = await fetch(`${apiURL}/imageSearch`, {
+      method: 'POST',
+      body: { imagePath: imagePath }
+    })
+    if (result.status === 200) return result.json()
+  } catch {
+    console.log(`Could not search image.`)
+  }
+}
