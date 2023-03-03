@@ -13,22 +13,7 @@ import HeartFill from '../../../assets/productPage/HeartFill.svg'
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
-// import Image from '../../../../../medicine.png'
-// import Image2 from '../../../../../fusi.png'
-// import Image3 from '../../../../../fusidine.png'
-
 const ProductPage = ({ loggedInUser }) => {
-  const images = []
-  const [currentImage, setCurrentImage] = useState([])
-  const changeImage = (e) => {
-    // setCurrentImage(e.target.src)
-    if (e.target.src) {
-      setCurrentImage(e.target.src)
-    } else {
-      setCurrentImage(e.target.firstChild.src)
-    }
-  }
-
   const [showButton, setShowButton] = useState(true)
 
   const handleButton = () => {
@@ -40,13 +25,23 @@ const ProductPage = ({ loggedInUser }) => {
   const [favouriteProducts, setFavouriteProducts] = useState([])
   const [showFavouriteButton, setShowFavouriteButton] = useState('true')
 
+  const [currentImage, setCurrentImage] = useState()
   useEffect(() => {
     const getProduct = async () => {
       setProduct(await ProductsAPI.getProduct(params.id))
       setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
+      setCurrentImage(product.images)
     }
     getProduct()
   }, [showFavouriteButton, params])
+
+  const changeImage = (e) => {
+    if (e.target.src) {
+      setCurrentImage(e.target.src)
+    } else {
+      setCurrentImage(e.target.firstChild.src)
+    }
+  }
 
   const favouriteProductsNames = favouriteProducts.map((product) => product.nameAr)
 
@@ -83,20 +78,21 @@ const ProductPage = ({ loggedInUser }) => {
       <div className="flex justify-start pt-8 border-b h-80">
         <section className="flex flex-col overflow-auto pr-20">
           {/*      small Pictures     */}
-          {images.map((image) => (
-            <div
-              key={image}
-              className="flex justify-center items-center mb-3 w-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
-              onClick={changeImage}
-            >
-              <img src={image} className="h-20 py-5" alt="ProductAltImage" />
-            </div>
-          ))}
+          {product.images &&
+            product.images.map((image) => (
+              <div
+                key={image}
+                className="flex justify-center items-center mb-3 w-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
+                onClick={changeImage}
+              >
+                <img src={image} className="h-20 py-5" alt="ProductAltImage" />
+              </div>
+            ))}
         </section>
         {/*      Big Picture         */}
         <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
-            <img src={currentImage} alt="ProductMainImage" />
+            <img src={currentImage ? currentImage : product.images} alt="ProductMainImage" />
           </div>
         </div>
         {/*     Left Section        */}
