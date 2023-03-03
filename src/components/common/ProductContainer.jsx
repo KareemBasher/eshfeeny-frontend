@@ -45,8 +45,8 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
           alt={itemInFavorites ? 'Remove from favorites' : 'add to favorites'}
         />
       </button>
-      <Link to={`/product/${onGetProduct._id}`} className="flex justify-center">
-        <img src="" className="w-32 m-5" alt="Product" />
+      <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[40%]">
+        <img src={onGetProduct?.images} className="m-5" alt="Product" />
       </Link>
       <div className="text-right p-3 text-[18px]">
         <Link to={`/product/${onGetProduct._id}`}>
