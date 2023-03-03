@@ -47,7 +47,7 @@ const SearchBar = ({ onGetData, query }) => {
         <img className="px-5 py-3 " src={SearchLogo} alt="Search Logo" />
         <input
           value={query}
-          className="bg-[#F7F7F7] outline-none w-full ml-5"
+          className="bg-[#F7F7F7] outline-none w-full min-w-fit rounded-l-full ml-5"
           type="text"
           placeholder="ما الذي تبحث عنه؟"
           onChange={onGetData}
