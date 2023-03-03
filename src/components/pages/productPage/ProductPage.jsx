@@ -92,7 +92,11 @@ const ProductPage = ({ loggedInUser }) => {
         {/*      Big Picture         */}
         <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
-            <img src={currentImage ? currentImage : product.images} alt="ProductMainImage" />
+            <img
+              src={currentImage ? currentImage : product.images}
+              className="max-h-[15rem]"
+              alt="ProductMainImage"
+            />
           </div>
         </div>
         {/*     Left Section        */}
