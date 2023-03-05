@@ -1,4 +1,8 @@
+import FormData from 'form-data'
+
 const apiURL = import.meta.env.VITE_API_URL
+const imgbbKey = import.meta.env.VITE_IMGBB_API_KEY
+const imgbbURL = import.meta.env.VITE_IMGBB_URL
 
 const headers = {
   Accept: 'application/json'
@@ -15,11 +19,15 @@ export const sendEmail = async (email) => {
 }
 
 // Uploading an image to imgbb
-export const uploadImage = async (imagePath) => {
+export const uploadImage = async (image) => {
   try {
-    const result = await fetch(`${apiURL}/upload`, {
+    const form = new FormData()
+    form.append('key', imgbbKey)
+    form.append('image', image)
+
+    const result = await fetch(imgbbURL, {
       method: 'POST',
-      body: { imagePath: imagePath }
+      body: form
     })
     if (result.status === 200) return result.json()
   } catch {
@@ -28,11 +36,15 @@ export const uploadImage = async (imagePath) => {
 }
 
 // Searching for a product using an image
-export const imageSearch = async (imagePath) => {
+export const imageSearch = async (imageURL) => {
   try {
     const result = await fetch(`${apiURL}/imageSearch`, {
       method: 'POST',
-      body: { imagePath: imagePath }
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ imageURL: imageURL })
     })
     if (result.status === 200) return result.json()
   } catch {
