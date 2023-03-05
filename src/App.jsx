@@ -14,6 +14,7 @@ import Favourites from './components/pages/favourites/Favourites'
 import ForgotPassword from './components/pages/login/ForgotPassword'
 import VerifyCode from './components/pages/login/VerifyCode'
 import AlternativesPage from './components/pages/AlternativesPage'
+import SearchResults from './components/pages/SearchResults'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -38,6 +39,7 @@ function App() {
       <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
       <Route path="/forgotPassword/" element={<ForgotPassword />} />
       <Route exact path="/forgotPassword/verify/:email" element={<VerifyCode />} />
+      <Route path="/searchResults/:searchResults" element={<SearchResults />} />
       <Route
         exact
         path="/products/alternatives/:type/:category/:name/:activeIngredient"
