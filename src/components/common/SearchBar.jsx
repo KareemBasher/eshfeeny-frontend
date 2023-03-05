@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 /*         Assets        */
 import SearchLogo from '../../assets/common/SearchIcon.svg'
@@ -32,6 +32,8 @@ const SearchBar = ({ onGetData, query }) => {
   const [resultsOpen, setResultsOpen] = useState(true)
   const [dragActive, setDragActive] = useState(false)
   const [loading, SetLoading] = useState(false)
+
+  const navigate = useNavigate()
 
   useOutsideHook(ref, (isOpen) => setResultsOpen(isOpen))
 
@@ -71,8 +73,7 @@ const SearchBar = ({ onGetData, query }) => {
         SetLoading(false)
         setDragActive(false)
         const IDs = searchResult.map((item) => item._id)
-        console.log(IDs)
-        window.location = `/searchResults/${IDs.join('&')}`
+        navigate(`/searchResults/${IDs.join('&')}`)
       }
     }
   }
