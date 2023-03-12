@@ -96,7 +96,7 @@ const Login = ({ changeLoggedUser }) => {
             ) : (
               error.all && (
                 <span className="text-[#EB1D36] text-[14px]">
-                  يوجد خطأ بالإيميل أو كلمة السر التى سجلتها
+                  البريد الالكتروني او كلمة المرور غير صحيحة
                 </span>
               )
             )}
