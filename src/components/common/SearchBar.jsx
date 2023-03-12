@@ -60,6 +60,7 @@ const SearchBar = ({ onGetData, query }) => {
   const handleDrop = async (e) => {
     e.preventDefault()
     e.stopPropagation()
+
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       if (
         e.dataTransfer.files[0].type === 'image/jpeg' ||
@@ -75,6 +76,8 @@ const SearchBar = ({ onGetData, query }) => {
         const IDs = searchResult.map((item) => item._id)
         navigate(`/searchResults/${IDs.join('&')}`)
       }
+    } else {
+      setDragActive(false)
     }
   }
 
