@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 /*    Components    */
 import SearchBar from '../common/SearchBar'
 import RoundButton from '../common/RoundButton'
@@ -14,6 +15,8 @@ import * as ProductsAPI from '../../utils/productsAPI'
 
 const UserNavigation = ({ loggedInUser }) => {
   const [query, setQuery] = useState('')
+  const location = useLocation()
+
   const searchResult = (e) => {
     setQuery(e.target.value)
   }
@@ -38,24 +41,28 @@ const UserNavigation = ({ loggedInUser }) => {
           onGetText="المفضلة"
           onGetPath="/favorites"
           onGetCartLength={0}
+          active={location.pathname === '/favorites'}
         />
         <RoundButton
           onGetLogo={Location}
           onGetText="أقرب صيدلية"
           onGetPath="/location"
           onGetCartLength={cartItems}
+          active={location.pathname === '/location'}
         />
         <RoundButton
           onGetLogo={CartDark}
           onGetText="العربة"
           onGetPath="/cart"
           onGetCartLength={cartItems}
+          active={location.pathname === '/cart'}
         />
         <RoundButton
           onGetLogo={Person}
           onGetText="حسابي"
           onGetPath="/profile"
           onGetCartLength={0}
+          active={location.pathname === '/profile'}
         />
       </div>
       <NavListContainer />

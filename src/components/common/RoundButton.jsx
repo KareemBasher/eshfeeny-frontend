@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength }) => {
+const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength, active }) => {
   return (
     <div className="flex mr-5 min-w-fit">
       <Link
