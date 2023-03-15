@@ -6,7 +6,7 @@ import SearchLogo from '../../assets/common/SearchIcon.svg'
 import SearchLogoSmall from '../../assets/common/SearchIconSmall.svg'
 
 /*         API        */
-import * as ProductsAPI from '../../utils/productsAPI'
+import { search } from '../../utils/productsAPI'
 import { uploadImage, imageSearch } from '../../utils/dashboard'
 
 // React hook for detecting clicks outside of a component
@@ -39,7 +39,7 @@ const SearchBar = ({ onGetData, query }) => {
 
   useEffect(() => {
     const getData = async () => {
-      if (query) setData(await ProductsAPI.search(query))
+      if (query) setData(await search(query))
       else setData([])
     }
 
