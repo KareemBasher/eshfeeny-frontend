@@ -8,7 +8,7 @@ const PhoneInputContent = ({ phoneNumber, handlePhoneChange }) => {
   const [value, setValue] = useState('')
 
   return (
-    <div className="w-80 mx-[3.5rem]" dir="ltr">
+    <div dir="ltr">
       <PhoneInput
         country={'eg'}
         value={phoneNumber}

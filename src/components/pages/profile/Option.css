@@ -1,0 +1,10 @@
+select{
+    -webkit-appearance: none;
+    height: 5000px;
+}
+
+option:hover
+{
+  background-color: #EFF6FF;
+}
+
