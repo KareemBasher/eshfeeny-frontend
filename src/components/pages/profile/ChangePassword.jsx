@@ -44,9 +44,9 @@ const changePassword = ({ toggleModal, user }) => {
 
   return (
     <div className="my-20">
-      <div className="flex justify-center items-center">
-        <div className="border rounded-[10px] flex flex-col justify-center py-10 px-16">
-          <div className="my-5 grid-flow-col grid">
+      <div className="flex flex-wrap justify-center items-center">
+        <div className="border rounded-[10px] flex flex-col justify-center py-5 px-5 w-[1040px]">
+          <div className="my-5 grid-flow-col grid w-full">
             <p className="text-[28px] inline justify-self-end">تغيير كلمة المرور</p>
             <button
               onClick={() => toggleModal()}
@@ -57,8 +57,8 @@ const changePassword = ({ toggleModal, user }) => {
           </div>
 
           <div className="flex flex-col">
-            <div className="w-[470px] my-5 flex flex-col items-start">
-              <p className="text-[20px] text-right my-2">كلمة المرور الحالية</p>
+            <div className="w-[450px] my-5 mx-5 flex flex-col items-start">
+              <p className="text-[20px] text-right my-5">كلمة المرور الحالية</p>
               <CredentialsInput
                 name="oldPassword"
                 type="password"
@@ -70,26 +70,42 @@ const changePassword = ({ toggleModal, user }) => {
                 <span className="text-[#EB1D36] text-[14px]">كلمة المرور القديمة غير صحيحة</span>
               )}
             </div>
-
-            <div className="w-[470px] my-5 flex flex-col items-start">
-              <p className="text-[20px] text-right my-2">كلمة المرور الجديدة</p>
-              <CredentialsInput
-                name="newPassword"
-                type="password"
-                placeHolder="ادخل كلمة المرور الجديدة"
-                value={newPassword}
-                handleInput={handleOnChange}
-              />
-              {error.new && (
-                <p className="text-[#EB1D36] text-[14px]">
-                  من فضلك كلمة المرور يجيب الا تقل عن 8 احرف او ارقام
-                </p>
-              )}
+            <div className="flex flex-row justify-around">
+              <div className="w-[450px]  flex flex-col items-start">
+                <p className="text-[20px] text-right my-5">كلمة المرور الجديدة</p>
+                <CredentialsInput
+                  name="newPassword"
+                  type="password"
+                  placeHolder="ادخل كلمة المرور الجديدة"
+                  value={newPassword}
+                  handleInput={handleOnChange}
+                />
+                {error.new && (
+                  <p className="text-[#EB1D36] text-[14px]">
+                    من فضلك كلمة المرور يجيب الا تقل عن 8 احرف او ارقام
+                  </p>
+                )}
+              </div>
+              <div className="w-[450px] flex flex-col items-start">
+                <p className="text-[20px] text-right my-5">تأكيد كلمة المرور الجديدة</p>
+                <CredentialsInput
+                  name="newPassword"
+                  type="password"
+                  placeHolder="تأكيد كلمة المرور الجديدة"
+                  value={newPassword}
+                  handleInput={handleOnChange}
+                />
+                {error.new && (
+                  <p className="text-[#EB1D36] text-[14px]">
+                    من فضلك كلمة المرور يجيب الا تقل عن 8 احرف او ارقام
+                  </p>
+                )}
+              </div>
             </div>
           </div>
           <div className="flex justify-center">
             <button
-              className="bg-blue rounded-[10px] text-white text-[22px] p-4"
+              className="bg-[#E5E5E5] rounded-[10px] text-[#676767] text-[22px] p-4 px-10"
               onClick={() => handleSubmit()}
             >
               تغيير كلمة المرور
