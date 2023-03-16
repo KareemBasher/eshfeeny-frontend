@@ -22,15 +22,17 @@ const UserNavigation = ({ loggedInUser }) => {
   }
 
   const [cartItems, setCartItems] = useState(0)
+  const [favouriteItems, setFavouriteItems] = useState(0)
 
   useEffect(() => {
-    const getCartItems = async () => {
-      const result = await ProductsAPI.getCartProducts(loggedInUser)
-      setCartItems(result.cart.length ? result.cart.length : 0)
+    const getItems = async () => {
+      const cart = await ProductsAPI.getCartProducts(loggedInUser)
+      const favourite = await ProductsAPI.getFavoriteProducts(loggedInUser)
+      setCartItems(cart.cart.length ? cart.cart.length : 0)
+      setFavouriteItems(favourite.length ? favourite.length : 0)
     }
-    getCartItems()
-  }, [cartItems])
-
+    getItems()
+  }, [cartItems, favouriteItems])
   return (
     <>
       <div className="flex px-20 py-7 justify-center">
@@ -40,7 +42,7 @@ const UserNavigation = ({ loggedInUser }) => {
           onGetLogo={HeartDark}
           onGetText="المفضلة"
           onGetPath="/favorites"
-          onGetCartLength={0}
+          onGetCartLength={favouriteItems}
           active={location.pathname === '/favorites'}
         />
         <RoundButton
