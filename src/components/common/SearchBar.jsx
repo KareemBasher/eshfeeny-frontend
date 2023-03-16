@@ -4,6 +4,10 @@ import { Link, useNavigate } from 'react-router-dom'
 /*         Assets        */
 import SearchLogo from '../../assets/common/SearchIcon.svg'
 import SearchLogoSmall from '../../assets/common/SearchIconSmall.svg'
+import CameraSearch from '../../assets/common/CamSearch.svg'
+import ImageSearch from '../../assets/common/ImageSearch.svg'
+import CloseButton from '../../assets/common/CloseButton.svg'
+import LoadingElipse from '../../assets/common/LoadingElipse.png'
 
 /*         API        */
 import { search } from '../../utils/productsAPI'
@@ -31,7 +35,9 @@ const SearchBar = ({ onGetData, query }) => {
   const [data, setData] = useState([])
   const [resultsOpen, setResultsOpen] = useState(true)
   const [dragActive, setDragActive] = useState(false)
-  const [loading, SetLoading] = useState(false)
+  const [image, setImage] = useState('')
+  const [imageURL, setImageURL] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
 
@@ -52,8 +58,6 @@ const SearchBar = ({ onGetData, query }) => {
 
     if (e.type === 'dragenter' || e.type === 'dragover') {
       setDragActive(true)
-    } else if (e.type === 'dragleave') {
-      setDragActive(false)
     }
   }
 
@@ -67,14 +71,8 @@ const SearchBar = ({ onGetData, query }) => {
         e.dataTransfer.files[0].type === 'image/jpg' ||
         e.dataTransfer.files[0].type === 'image/png'
       ) {
-        SetLoading(true)
-        const result = await uploadImage(e.dataTransfer.files[0])
-        const imageURL = result.data.url
-        const searchResult = await imageSearch(imageURL)
-        SetLoading(false)
-        setDragActive(false)
-        const IDs = searchResult.map((item) => item._id)
-        navigate(`/searchResults/${IDs.join('&')}`)
+        setImageURL(URL.createObjectURL(e.dataTransfer.files[0]))
+        setImage(e.dataTransfer.files[0])
       }
     } else {
       setDragActive(false)
@@ -89,6 +87,28 @@ const SearchBar = ({ onGetData, query }) => {
     }
   }, [])
 
+  const hanldeClose = () => {
+    setDragActive(false)
+    setImage('')
+    setImageURL('')
+  }
+
+  const resetImage = () => {
+    setImage('')
+    setImageURL('')
+  }
+
+  const handleSearch = async () => {
+    setLoading(true)
+    const result = await uploadImage(image)
+    const imageURL = result.data.url
+    const searchResult = await imageSearch(imageURL)
+    setLoading(false)
+    setDragActive(false)
+    const IDs = searchResult.map((item) => item._id)
+    navigate(`/searchResults/${IDs.join('&')}`)
+  }
+
   return (
     <>
       {dragActive && (
@@ -99,23 +119,69 @@ const SearchBar = ({ onGetData, query }) => {
           onDragOver={(e) => dragHandler(e)}
           onDrop={(e) => handleDrop(e)}
         >
-          {loading ? (
-            <div className="flex flex-col items-center justify-center">
-              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
-              <p className="text-white text-5xl mt-5">جاري التحميل</p>
-            </div>
-          ) : (
-            <p className="text-white text-5xl">ارفع صورة لدواء او منتج للبحث</p>
-          )}
+          <div className="bg-white h-[550px] w-[950px] rounded-[20px] flex flex-col items-center justify-center">
+            {loading ? (
+              <div className="h-[256px] w-[256px]  flex items-center justify-center relative">
+                <img className="absolute animate-spin" src={LoadingElipse} alt="Loading Elipse" />
+                <p className="text-[14px] text-lightBlue">جاري البحث عن المنتج...</p>
+              </div>
+            ) : (
+              <>
+                <div className={`w-full flex px-10 ${!imageURL && 'flex-row-reverse'}`}>
+                  {imageURL && (
+                    <div className="w-full mb-3">
+                      <p className="text-[24px] text-right">الصورة المختارة</p>
+                    </div>
+                  )}
+
+                  <button onClick={() => hanldeClose()}>
+                    <img className="" src={CloseButton} alt="Close Button" />
+                  </button>
+                </div>
+                <div className="h-[360px] w-[650px]">
+                  {imageURL ? (
+                    <div className="w-full flex flex-col items-center pt-8">
+                      <img
+                        className="h-[250px] object-cover rounded-[10px]"
+                        src={imageURL}
+                        alt="Uploaded Image"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10">
+                      <img className="w-[70px]" src={ImageSearch} alt="Image Search" />
+                      <p className="text-[22px]">أضف صورة الروشتة أو المنتج الذى تبحث عنه</p>
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <button
+                    disabled={imageURL ? false : true}
+                    className="w-[223px] py-3 rounded-[10px] text-[24px] bg-lightBlue text-white mx-10 disabled:bg-[#E5E5E5] disabled:text-[#8d8d8d]"
+                    onClick={() => handleSearch()}
+                  >
+                    بحث
+                  </button>
+                  <button
+                    disabled={imageURL ? false : true}
+                    className="w-[223px] py-3 border border-black rounded-[10px] text-[24px] mx-10 disabled:bg-[#E5E5E5] disabled:text-[#8d8d8d] disabled:border-none"
+                    onClick={() => resetImage()}
+                  >
+                    إلغاء
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       )}
       <div className="w-full flex flex-col relative z-30" ref={ref}>
         <div
-          className={`flex justify-start bg-[#F7F7F7] ${
+          className={`flex justify-start bg-[#F7F7F7] border ${
             data.length > 0 && resultsOpen ? 'rounded-t-[10px]' : 'rounded-full'
-          } shadow-sm`}
+          }`}
         >
-          <img className="px-5 py-3 " src={SearchLogo} alt="Search Logo" />
+          <img className="px-5 py-3" src={SearchLogo} alt="Search Logo" />
           <input
             value={query}
             className="bg-[#F7F7F7] outline-none w-full ml-5"
@@ -123,6 +189,10 @@ const SearchBar = ({ onGetData, query }) => {
             placeholder="ما الذي تبحث عنه؟"
             onChange={onGetData}
           />
+
+          <button className="px-5" onClick={() => setDragActive(true)}>
+            <img className="w-[45px]" src={CameraSearch} alt="Search using image" />
+          </button>
         </div>
 
         {data.length > 0 && resultsOpen && (
