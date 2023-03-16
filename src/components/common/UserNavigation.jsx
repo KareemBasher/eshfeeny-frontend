@@ -44,18 +44,18 @@ const UserNavigation = ({ loggedInUser }) => {
           active={location.pathname === '/favorites'}
         />
         <RoundButton
-          onGetLogo={Location}
-          onGetText="أقرب صيدلية"
-          onGetPath="/location"
-          onGetCartLength={cartItems}
-          active={location.pathname === '/location'}
-        />
-        <RoundButton
           onGetLogo={CartDark}
           onGetText="العربة"
           onGetPath="/cart"
           onGetCartLength={cartItems}
           active={location.pathname === '/cart'}
+        />
+        <RoundButton
+          onGetLogo={Location}
+          onGetText="أقرب صيدلية"
+          onGetPath="/location"
+          onGetCartLength={cartItems}
+          active={location.pathname === '/location'}
         />
         <RoundButton
           onGetLogo={Person}
