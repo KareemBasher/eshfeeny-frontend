@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-const Redirect = () => {
+const SearchResults = () => {
   const params = useParams()
   const IDs = params.searchResults.split('&')
 
@@ -14,4 +14,4 @@ const Redirect = () => {
   )
 }
 
-export default Redirect
+export default SearchResults
