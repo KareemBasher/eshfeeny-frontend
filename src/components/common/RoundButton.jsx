@@ -24,7 +24,7 @@ const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength }) => {
         <img className="self-center" src={onGetLogo} alt="RadialButton" />
       </Link>
       <Link to={onGetPath} className="self-center px-2">
-        <p className="text-[20px]">{onGetText}</p>
+        <p className="text-[20px] pr-1">{onGetText}</p>
       </Link>
     </div>
   )

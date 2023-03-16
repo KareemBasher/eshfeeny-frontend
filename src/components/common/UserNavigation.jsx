@@ -35,7 +35,7 @@ const UserNavigation = ({ loggedInUser }) => {
   }, [cartItems, favouriteItems])
   return (
     <>
-      <div className="flex px-20 py-7 justify-center">
+      <div className="flex px-20 pr-24 py-7 justify-center">
         <LogoScript />
         <SearchBar onGetData={searchResult} query={query} />
         <RoundButton
