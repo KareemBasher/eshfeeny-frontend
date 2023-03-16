@@ -79,7 +79,7 @@ const ProductPage = ({ loggedInUser }) => {
         </div>
       </div>
       <div className="flex justify-start pt-8 border-b h-80">
-        <section className="flex flex-col overflow-auto pr-20">
+        <section className="flex flex-col-reverse overflow-auto pr-20">
           {/*      small Pictures     */}
           {product.images &&
             product.images.map((image) => (

@@ -3,12 +3,12 @@ import { useParams, Link } from 'react-router-dom'
 /*    Components    */
 import UserNavigation from '../common/UserNavigation'
 import PageEmpty from '../common/PageEmpty'
+import ProductContainer from '../common/ProductContainer'
 /*       API       */
-import * as ProductsAPI from '../../utils/productsAPI'
+import { getAlternatives } from '../../utils/productsAPI'
 import { getUser } from '../../utils/usersAPI'
 /*       Icons       */
 import Arrow from '../../assets/common/Arrow.svg'
-import ProductContainer from '../common/ProductContainer'
 import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
 
 const AlternativesPage = ({ loggedInUser }) => {
@@ -18,7 +18,7 @@ const AlternativesPage = ({ loggedInUser }) => {
 
   useEffect(() => {
     const getAlternative = async () => {
-      setAlternative(await ProductsAPI.getAlternatives(params.activeIngredient))
+      setAlternative(await getAlternatives(params.activeIngredient))
     }
 
     const getFavoriteProducts = async () => {
