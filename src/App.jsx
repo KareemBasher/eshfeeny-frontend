@@ -32,7 +32,7 @@ function App() {
       <Route path="/landingPage" element={<LandingPage />} />
       <Route
         path="/"
-        element={loggedInUser ? <Navigate to="/products" /> : <Navigate to="/landingPage" />}
+        element={loggedInUser ? <Navigate to="/main" /> : <Navigate to="/landingPage" />}
       />
       <Route path="/favorites" element={<Favourites loggedInUser={loggedInUser} />} />
       <Route path="/login" element={<Login changeLoggedUser={changeLoggedInUser} />} />
@@ -47,7 +47,7 @@ function App() {
       />
       <Route
         exact
-        path="/products/alternatives/:type/:category/:name/:activeIngredient"
+        path="/main/alternatives/:type/:category/:name/:activeIngredient"
         element={<AlternativesPage loggedInUser={loggedInUser} />}
       />
       <Route path="/main" element={<Main loggedInUser={loggedInUser} />} />

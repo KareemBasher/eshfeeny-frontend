@@ -39,7 +39,7 @@ const ImageSlider = () => {
 
   return (
     <>
-      <div className="max-w-[1900px] h-[850px] w-full m-auto py-10 px-4 relative ">
+      <div className="max-w-[1900px] h-[850px] w-full m-auto py-10 px-4 relative">
         <div
           style={{ backgroundImage: `url(${images[currentIndex].url})` }}
           className="w-full h-full rounded-2xl bg-center bg-cover duration-300"
