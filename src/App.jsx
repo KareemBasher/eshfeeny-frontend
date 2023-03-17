@@ -41,7 +41,10 @@ function App() {
       <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
       <Route path="/forgotPassword/" element={<ForgotPassword />} />
       <Route exact path="/forgotPassword/verify/:email" element={<VerifyCode />} />
-      <Route path="/searchResults/:searchResults" element={<SearchResults />} />
+      <Route
+        path="/searchResults/:searchResults"
+        element={<SearchResults loggedInUser={loggedInUser} />}
+      />
       <Route
         exact
         path="/products/alternatives/:type/:category/:name/:activeIngredient"

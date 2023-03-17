@@ -1,13 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength, active }) => {
+const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength }) => {
   return (
     <div className="flex mr-5 min-w-fit">
       <Link
         to={onGetPath}
         className="flex justify-center rounded-full shadow-md w-10 h-10 relative"
       >
+        {onGetCartLength > 0 && onGetText === 'المفضلة' && (
+          <div className="absolute right-0 bg-orange w-[17px] h-[17px] justify-center items-center rounded-full text-[12px]">
+            {onGetCartLength}
+          </div>
+        )}
         {onGetCartLength > 0 && onGetText === 'العربة' && (
           <div className="absolute right-0 bg-orange w-[17px] h-[17px] justify-center items-center rounded-full text-[12px]">
             {onGetCartLength}
@@ -19,7 +24,7 @@ const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength, active 
         <img className="self-center" src={onGetLogo} alt="RadialButton" />
       </Link>
       <Link to={onGetPath} className="self-center px-2">
-        <p className="text-[20px]">{onGetText}</p>
+        <p className="text-[20px] pr-1">{onGetText}</p>
       </Link>
     </div>
   )
