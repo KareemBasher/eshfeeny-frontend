@@ -87,7 +87,7 @@ const SearchBar = ({ onGetData, query }) => {
     }
   }, [])
 
-  const hanldeClose = () => {
+  const handleClose = () => {
     setDragActive(false)
     setImage('')
     setImageURL('')
@@ -96,6 +96,15 @@ const SearchBar = ({ onGetData, query }) => {
   const resetImage = () => {
     setImage('')
     setImageURL('')
+  }
+
+  const handleTextSearch = async () => {
+    setLoading(true)
+    const searchResult = await search(query)
+    setLoading(false)
+    setDragActive(false)
+    const IDs = searchResult.map((item) => item._id)
+    navigate(`/searchResults/${IDs.join('&')}`)
   }
 
   const handleSearch = async () => {
@@ -134,7 +143,7 @@ const SearchBar = ({ onGetData, query }) => {
                     </div>
                   )}
 
-                  <button onClick={() => hanldeClose()}>
+                  <button onClick={() => handleClose()}>
                     <img className="" src={CloseButton} alt="Close Button" />
                   </button>
                 </div>
@@ -181,17 +190,22 @@ const SearchBar = ({ onGetData, query }) => {
             data.length > 0 && resultsOpen ? 'rounded-t-[10px]' : 'rounded-full'
           }`}
         >
-          <img className="px-5 py-3" src={SearchLogo} alt="Search Logo" />
+          <img
+            className="px-5 py-3 cursor-pointer searchButton"
+            onClick={handleTextSearch}
+            src={SearchLogo}
+            alt="Search Logo"
+          />
           <input
             value={query}
-            className="bg-[#F7F7F7] outline-none w-full ml-5"
+            className="bg-[#F7F7F7] outline-none w-full ml-5 searchBar"
             type="text"
             placeholder="ما الذي تبحث عنه؟"
             onChange={onGetData}
           />
 
           <button className="px-5" onClick={() => setDragActive(true)}>
-            <img className="w-[45px]" src={CameraSearch} alt="Search using image" />
+            <img className="w-[35px]" src={CameraSearch} alt="Search using image" />
           </button>
         </div>
 
