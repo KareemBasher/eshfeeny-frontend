@@ -10,12 +10,14 @@ const ProfileContent = ({ user, toggleModal }) => {
   const [email, setEmail] = useState('')
   const [arrow, setArrow] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState('')
+  const [gender, setGender] = useState('')
 
   useEffect(() => {
     if (user.name && user.email) {
       setName(user.name)
       setEmail(user.email)
       setPhoneNumber(user?.phoneNumber)
+      setGender(user?.gender)
     }
   }, [user])
 
@@ -31,9 +33,13 @@ const ProfileContent = ({ user, toggleModal }) => {
     setPhoneNumber(phone)
   }
 
+  const handleGenderChange = (e) => {
+    setGender(e.target.value)
+  }
+
   const handleSubmit = async () => {
     if (name.length !== 0 && email.length !== 0 && phoneNumber.length !== 0) {
-      await updateUser(user._id, name, email, phoneNumber)
+      await updateUser(user._id, name, email, phoneNumber, gender)
     }
   }
   const handelArrow = () => {
@@ -92,8 +98,11 @@ const ProfileContent = ({ user, toggleModal }) => {
                   onClick={handelArrow}
                   className="w-96 h-14 shadow-sm outline-none px-4 rounded-[10px] bg-[#F7F7F7]"
                   id="sex"
+                  onChange={(e) => handleGenderChange(e)}
+                  // defaultValue={"select"}
+                  value={gender ? gender : 'select'}
                 >
-                  <option selected disabled value="select">
+                  <option disabled value="select">
                     اختر
                   </option>
                   <option value="ذكر">ذكر</option>
