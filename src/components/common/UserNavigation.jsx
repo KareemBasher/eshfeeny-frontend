@@ -21,6 +21,15 @@ const UserNavigation = ({ loggedInUser }) => {
     setQuery(e.target.value)
   }
 
+  let i = 0
+  const input = document.querySelector('.searchBar')
+  input?.addEventListener('keypress', (e) => {
+    i++
+    if (e.key === 'Enter' && i <= 1) {
+      document.querySelector('.searchButton').click()
+    }
+  })
+
   const [cartItems, setCartItems] = useState(0)
   const [favouriteItems, setFavouriteItems] = useState(0)
 
