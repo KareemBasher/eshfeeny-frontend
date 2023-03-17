@@ -21,7 +21,7 @@ const CartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveItem }) => 
 
       <div className="flex w-full flex-col justify-center">
         <p className="text-[28px] underline text-lightBlue underline-offset-8">
-          <Link to="/products">استمر بالتسوق</Link>
+          <Link to="/home">استمر بالتسوق</Link>
         </p>
         <p className="text-[#676767] text-[14px] my-5">قد تخلتف الأسعار بين الصيدليات</p>
       </div>

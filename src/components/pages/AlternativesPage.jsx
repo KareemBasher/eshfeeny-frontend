@@ -36,7 +36,7 @@ const AlternativesPage = ({ loggedInUser }) => {
         <UserNavigation loggedInUser={loggedInUser} />
         <div className="pt-8 pr-20 text-[16px] text-lightBlue">
           <div className="flex justify-start">
-            <Link to="/products" className="hover:underline">
+            <Link to="/home" className="hover:underline">
               الرئيسية
             </Link>
             <img src={Arrow} className="mx-2" alt="Arrow" />
