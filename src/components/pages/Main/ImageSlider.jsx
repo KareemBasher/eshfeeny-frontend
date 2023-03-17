@@ -5,11 +5,19 @@ import Image_1 from '../../../assets/MainPage/Image_1.svg'
 import Image_2 from '../../../assets/MainPage/Image_2.svg'
 import Image_3 from '../../../assets/MainPage/Image_3.svg'
 import Image_4 from '../../../assets/MainPage/Image_4.svg'
+import Image_5 from '../../../assets/MainPage/Image_5.svg'
 import './Dot.css'
 import { FaCircle } from 'react-icons/fa'
 
 const ImageSlider = () => {
-  const images = [{ url: Image_1 }, { url: Image_2 }, { url: Image_3 }, { url: Image_4 }]
+  const images = [
+    { url: Image_1 },
+    { url: Image_2 },
+    { url: Image_3 },
+    { url: Image_4 },
+    { url: Image_5 }
+  ]
+
   const [currentIndex, setCurrtentIndex] = useState(0)
   const timerRef = useRef(null)
 
