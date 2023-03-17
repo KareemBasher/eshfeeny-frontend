@@ -1,9 +1,12 @@
 import React from 'react'
 import UserNavigation from '../../common/UserNavigation'
-const Main = () => {
+import ImageSlider from './ImageSlider'
+
+const Main = ({ loggedInUser }) => {
   return (
     <div>
-      <UserNavigation />
+      <UserNavigation loggedInUser={loggedInUser} />
+      <ImageSlider />
     </div>
   )
 }

@@ -52,7 +52,7 @@ const ImageSlider = () => {
         <div className=" absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-[10px] p-2 cursor-pointer mx-5">
           <img src={RightArrow} onClick={nextSlide} size={30} />
         </div>
-        <div className="absolute flex" dir="ltr">
+        <div className="absolute flex top-[85%] right-[47%]" dir="ltr">
           {images.map((slide, slideIndex) => (
             <div
               key={slideIndex}
