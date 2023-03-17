@@ -16,6 +16,7 @@ import ForgotPassword from './components/pages/login/ForgotPassword'
 import VerifyCode from './components/pages/login/VerifyCode'
 import AlternativesPage from './components/pages/AlternativesPage'
 import SearchResults from './components/pages/SearchResults'
+import Main from './components/pages/Main/Main'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -46,6 +47,7 @@ function App() {
         path="/products/alternatives/:type/:category/:name/:activeIngredient"
         element={<AlternativesPage loggedInUser={loggedInUser} />}
       />
+      <Route path="/main" element={<Main loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
