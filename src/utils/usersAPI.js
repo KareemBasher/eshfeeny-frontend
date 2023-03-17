@@ -129,7 +129,7 @@ export const verifyLogin = async (email, password) => {
 }
 
 // Upate user name, email, and/or phone number
-export const updateUser = async (id, name, email, phone) => {
+export const updateUser = async (id, name, email, phone, gender) => {
   try {
     const result = await fetch(apiURL + `/users/${id}/profile`, {
       method: 'PATCH',
@@ -137,7 +137,7 @@ export const updateUser = async (id, name, email, phone) => {
         ...headers,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name: name, email: email, phoneNumber: phone })
+      body: JSON.stringify({ name: name, email: email, phoneNumber: phone, gender: gender })
     })
     if (result.status === 200) return result.json()
   } catch (error) {
