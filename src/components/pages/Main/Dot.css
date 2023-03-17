@@ -1,0 +1,12 @@
+.dot {
+   
+    border-radius: 50%;
+    color: white;
+    margin: 6px;
+    
+
+}
+
+.dot.active {
+    color:#0583F2;
+}
