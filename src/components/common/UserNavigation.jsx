@@ -21,14 +21,26 @@ const UserNavigation = ({ loggedInUser }) => {
     setQuery(e.target.value)
   }
 
-  let i = 0
-  const input = document.querySelector('.searchBar')
-  input?.addEventListener('keypress', (e) => {
-    i++
-    if (e.key === 'Enter' && i <= 1) {
-      document.querySelector('.searchButton').click()
+  useEffect(() => {
+    const input = document.querySelector('.searchBar')
+    const handleTextSearch = (e) => {
+      let i = 0
+      if (input.value) {
+        i = 1
+      }
+      if (e.key === 'Enter' && i === 1) {
+        document.querySelector('.searchButton').click()
+      }
     }
-  })
+    input?.addEventListener('keypress', (e) => {
+      handleTextSearch(e)
+    })
+    return () => {
+      input?.removeEventListener('keypress', (e) => {
+        handleTextSearch(e)
+      })
+    }
+  }, [])
 
   const [cartItems, setCartItems] = useState(0)
   const [favouriteItems, setFavouriteItems] = useState(0)

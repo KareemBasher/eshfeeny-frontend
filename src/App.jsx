@@ -16,7 +16,7 @@ import ForgotPassword from './components/pages/login/ForgotPassword'
 import VerifyCode from './components/pages/login/VerifyCode'
 import AlternativesPage from './components/pages/AlternativesPage'
 import SearchResults from './components/pages/SearchResults'
-import Main from './components/pages/Main/Main'
+import Main from './components/pages/main/Main'
 import Prescription from './components/pages/Prescription'
 
 function App() {
