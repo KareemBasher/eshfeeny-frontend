@@ -3,7 +3,7 @@ import React from 'react'
 import UserNavigation from '../../common/UserNavigation'
 import ImageSlider from './ImageSlider'
 import AddContainer from './AddContainer'
-import CatigoryItems from './CatigoryItems'
+import CategoryItems from './CategoryItems'
 
 const Main = ({ loggedInUser }) => {
   return (
@@ -11,9 +11,9 @@ const Main = ({ loggedInUser }) => {
       <UserNavigation loggedInUser={loggedInUser} />
       <ImageSlider />
       <AddContainer />
-      <CatigoryItems onGetTitle="الكحة" loggedInUser={loggedInUser} />
-      <CatigoryItems onGetTitle="المغص" loggedInUser={loggedInUser} />
-      <CatigoryItems onGetTitle="امساك" loggedInUser={loggedInUser} />
+      <CategoryItems onGetTitle="الكحة" loggedInUser={loggedInUser} />
+      <CategoryItems onGetTitle="المغص" loggedInUser={loggedInUser} />
+      <CategoryItems onGetTitle="امساك" loggedInUser={loggedInUser} />
     </div>
   )
 }
