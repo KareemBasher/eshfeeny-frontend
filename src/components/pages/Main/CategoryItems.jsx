@@ -9,7 +9,7 @@ import ArrowOrange from '../../../assets/mainPage/ArrowOrange.svg'
 import { getCategory, getFavoriteProducts } from '../../../utils/productsAPI'
 import { useState } from 'react'
 
-const CatigoryItems = ({ onGetTitle, loggedInUser }) => {
+const CategoryItems = ({ onGetTitle, loggedInUser }) => {
   const [products, setProducts] = useState([])
   const [favouriteProducts, setFavouriteProducts] = useState([])
   useEffect(() => {
@@ -51,4 +51,4 @@ const CatigoryItems = ({ onGetTitle, loggedInUser }) => {
   )
 }
 
-export default CatigoryItems
+export default CategoryItems
