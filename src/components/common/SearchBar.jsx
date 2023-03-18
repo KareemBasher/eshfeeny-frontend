@@ -99,12 +99,14 @@ const SearchBar = ({ onGetData, query }) => {
   }
 
   const handleTextSearch = async () => {
-    setLoading(true)
-    const searchResult = await search(query)
-    setLoading(false)
-    setDragActive(false)
-    const IDs = searchResult.map((item) => item._id)
-    navigate(`/searchResults/${IDs.join('&')}`)
+    if (query.length > 0) {
+      setLoading(true)
+      const searchResult = await search(query)
+      setLoading(false)
+      setDragActive(false)
+      const IDs = searchResult.map((item) => item._id)
+      navigate(`/searchResults/${IDs.join('&')}`)
+    }
   }
 
   const handleSearch = async () => {
