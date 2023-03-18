@@ -1,9 +1,10 @@
 import React from 'react'
+/*       Icons       */
 import InsuranceImage from '../../../assets/MainPage/InsuranceImage.svg'
 
 const InsuranceCard = () => {
   return (
-    <div className="flex w-[570px] border rounded-[10px] shadow-md">
+    <div className="flex h-[253px] border rounded-[10px] shadow-md w-full">
       <div className="flex flex-col text-right m-10">
         <p className="text-[26px]">استخدم كارت التأمين</p>
         <p className="text-[16px] my-5">و اطلب ادويتك بسهوله الأن </p>
@@ -11,7 +12,8 @@ const InsuranceCard = () => {
           أختر شركة التأمين
         </button>
       </div>
-      <div>
+
+      <div className="flex items-center w-f">
         <img src={InsuranceImage} alt="insuranceImage" />
       </div>
     </div>

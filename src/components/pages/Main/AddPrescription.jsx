@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+/*       Icons       */
 import PrescriptionImage from '../../../assets/MainPage/PrescriptionImage.svg'
 
 const AddPrescription = () => {

@@ -1,4 +1,5 @@
 import React from 'react'
+/*    Components    */
 import InsuranceCard from './InsuranceCard'
 import AddPrescription from './AddPrescription'
 
@@ -8,6 +9,7 @@ const AddContainer = () => {
       <div className="mx-10">
         <InsuranceCard />
       </div>
+
       <div className="mx-10">
         <AddPrescription />
       </div>
