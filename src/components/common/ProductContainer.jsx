@@ -35,7 +35,7 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
   }
 
   return (
-    <div className="flex flex-col justify-between rounded-lg shadow-sm w-[233px] h-[340px] border-[#E7E7E7] border-[0.8px] ml-5 my-4">
+    <div className="flex flex-col justify-between rounded-lg hover:shadow-xl transition-all duration-300 shadow-sm w-[233px] h-[340px] border-[#E7E7E7] border-[0.8px] ml-5 my-4">
       <button
         className="w-[22px] box-border mr-3 mt-5"
         onClick={() => (itemInFavorites ? handleRemove() : handleAdd())}
@@ -45,10 +45,10 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
           alt={itemInFavorites ? 'Remove from favorites' : 'add to favorites'}
         />
       </button>
-      <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[40%]">
-        <img src={onGetProduct?.images} className="m-5" alt="Product" />
+      <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[30%]">
+        <img src={onGetProduct?.images} alt="Product" />
       </Link>
-      <div className="text-right p-3 text-[18px]">
+      <div className="text-right px-3 text-[18px]">
         <Link to={`/product/${onGetProduct._id}`}>
           <p>
             {onGetProduct.nameAr}
@@ -56,11 +56,11 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
             {onGetProduct.amount ? ` | ${onGetProduct.amount}` : ''}
           </p>
         </Link>
-        <p className="text-lightBlue py-1">{onGetProduct.price} جنيه</p>
+        <p className="text-lightBlue my-3">{onGetProduct.price} جنيه</p>
         <div className="flex justify-center">
           {showButton && (
             <button
-              className="my-1 h-[40px] px-10 rounded-[10px] text-white bg-orange"
+              className="my-1 h-[40px] px-10 mb-4 rounded-[10px] text-white bg-orange"
               onClick={handleHideButton}
             >
               أضف الى العربة
