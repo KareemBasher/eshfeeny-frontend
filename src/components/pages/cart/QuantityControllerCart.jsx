@@ -32,12 +32,12 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePric
       <button>
         <img
           src={IncrementButton}
-          className="w-[48px] h-[45px] box-border  "
+          className="w-[48px] h-[45px] box-border"
           onClick={() => increment(loggedInUser, productID)}
           alt="IncrementButton"
         />
       </button>
-      <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[156px] h-[45px] m-1 bg-[#D4EEFF]">
+      <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[156px] h-[45px] m-1 bg-[#cce6ff]">
         {quantity}
       </p>
       <button className="disabled:bg-gray-500">

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 /*      Icons      */
 import IncrementButton from '../../../assets/common/AddButton.svg'
 import DecrementButton from '../../../assets/common/DecrementButton.svg'
-import RemoveButton from '../../../assets/common/DeleteButton.svg'
 /*     API      */
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
@@ -44,28 +43,27 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
       <button>
         <img
           src={IncrementButton}
-          className="w-[54pxpx] h-[48px] box-border"
+          className="w-[54pxpx] h-[48px] box-border ml-[3px]"
           onClick={() => increment(onGetUserID, onGetProductID)}
           alt="IncrementButton"
         />
       </button>
-      <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[220px] h-[48px] m-1 bg-[#D4EEFF]">
+      <p className="flex items-center justify-center text-blue text-[28px] rounded-[10px] w-[220px] h-[48px] m-1 bg-[#cce6ff]">
         {modifiedQuantity}
       </p>
-      {modifiedQuantity > 1 ? (
-        <button>
-          <img
-            src={DecrementButton}
-            className="w-[54px] h-[48px] box-border "
-            onClick={() => decrement(onGetUserID, onGetProductID)}
-            alt="DecrementButton"
-          />
-        </button>
-      ) : (
-        <button onClick={() => removeFromCart(onGetUserID, onGetProductID)}>
-          <img src={RemoveButton} className="w-[54px] h-[48px] box-border" alt="RemoveFromCart" />
-        </button>
-      )}
+
+      <button>
+        <img
+          src={DecrementButton}
+          className="w-[54px] h-[48px] box-border"
+          onClick={() =>
+            modifiedQuantity > 1
+              ? decrement(onGetUserID, onGetProductID)
+              : removeFromCart(onGetUserID, onGetProductID)
+          }
+          alt="DecrementButton"
+        />
+      </button>
     </div>
   )
 }

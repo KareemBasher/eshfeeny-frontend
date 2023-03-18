@@ -6,6 +6,7 @@
 
 html {
   direction: rtl;
+  background-color: #FDFDFF;
 }
 
 section::-webkit-scrollbar {

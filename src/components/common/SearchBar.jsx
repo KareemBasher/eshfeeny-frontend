@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 
 /*         Assets        */
 import SearchLogo from '../../assets/common/SearchIcon.svg'
-import SearchLogoSmall from '../../assets/common/SearchIconSmall.svg'
 import CameraSearch from '../../assets/common/CamSearch.svg'
 import ImageSearch from '../../assets/common/ImageSearch.svg'
 import CloseButton from '../../assets/common/CloseButton.svg'
@@ -124,15 +123,15 @@ const SearchBar = ({ onGetData, query }) => {
     <>
       {dragActive && (
         <div
-          className="overflow-y-hidden backdrop-blur-sm absolute w-full h-full inset-0 bg-[#0000008a] flex items-center justify-center z-50"
+          className="overflow-y-hidden absolute w-full h-full inset-0 bg-[#00000080] flex items-center justify-center z-50"
           onDragEnter={(e) => dragHandler(e)}
           onDragLeave={(e) => dragHandler(e)}
           onDragOver={(e) => dragHandler(e)}
           onDrop={(e) => handleDrop(e)}
         >
-          <div className="bg-white h-[550px] w-[950px] rounded-[20px] flex flex-col items-center justify-center">
+          <div className="bg-offWhite h-[550px] w-[950px] rounded-[20px] flex flex-col items-center justify-center">
             {loading ? (
-              <div className="h-[256px] w-[256px]  flex items-center justify-center relative">
+              <div className="h-[256px] w-[256px] flex items-center justify-center relative">
                 <img className="absolute animate-spin" src={LoadingElipse} alt="Loading Elipse" />
                 <p className="text-[14px] text-lightBlue">جاري البحث عن المنتج...</p>
               </div>
@@ -146,7 +145,7 @@ const SearchBar = ({ onGetData, query }) => {
                   )}
 
                   <button onClick={() => handleClose()}>
-                    <img className="" src={CloseButton} alt="Close Button" />
+                    <img src={CloseButton} alt="Close Button" />
                   </button>
                 </div>
                 <div className="h-[360px] w-[650px]">
@@ -187,11 +186,7 @@ const SearchBar = ({ onGetData, query }) => {
         </div>
       )}
       <div className="w-full flex flex-col relative z-30" ref={ref}>
-        <div
-          className={`flex justify-start bg-[#F7F7F7] border ${
-            data.length > 0 && resultsOpen ? 'rounded-t-[10px]' : 'rounded-full'
-          }`}
-        >
+        <div className={`flex justify-start bg-[#F7F7F7] border rounded-full`}>
           <img
             className="px-5 py-3 cursor-pointer searchButton"
             onClick={handleTextSearch}
@@ -213,13 +208,26 @@ const SearchBar = ({ onGetData, query }) => {
 
         {data.length > 0 && resultsOpen && (
           <>
-            <div className="max-h-52 overflow-x-auto absolute bg-[#F7F7F7] w-full top-full flex justify-start rounded-b-[10px]">
+            <div className="max-h-52 overflow-x-auto border absolute bg-white w-full top-[85%] flex justify-start rounded-[10px]">
               <ol className="w-full">
-                {data.map(({ _id, nameAr }) => (
-                  <li key={_id} className="flex justify-start items-center pr-7 border-t py-2">
-                    <img src={SearchLogoSmall} className="w-4 ml-2" alt="SearchIcon" />
-                    <Link onClick={() => setResultsOpen(false)} to={`/product/${_id}`}>
-                      {nameAr}
+                {data.map(({ _id, nameAr, price, volume, amount, images }) => (
+                  <li
+                    key={_id}
+                    className="w-full flex justify-start items-center pr-7 border-b py-2"
+                  >
+                    <Link to={`/product/${_id}`}>
+                      <div className="flex">
+                        <img src={images} className="w-[70px]" alt="Product" />
+                        <div className="flex flex-col items-start mx-5">
+                          <p>
+                            {nameAr}
+                            {volume ? ` | ${volume}` : ''}
+                            {amount ? ` | ${amount}` : ''}
+                          </p>
+
+                          <p className="text-lightBlue py-1">{price} جنيه</p>
+                        </div>
+                      </div>
                     </Link>
                   </li>
                 ))}

@@ -51,6 +51,7 @@ function App() {
         element={<AlternativesPage loggedInUser={loggedInUser} />}
       />
       <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
+      <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
