@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 /*       Icons       */
-import PrescriptionImage from '../../../assets/MainPage/PrescriptionImage.svg'
+import PrescriptionImage from '../../../assets/mainPage/PrescriptionImage.svg'
 
 const AddPrescription = () => {
   return (

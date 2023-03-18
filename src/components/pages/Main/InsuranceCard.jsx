@@ -1,6 +1,6 @@
 import React from 'react'
 /*       Icons       */
-import InsuranceImage from '../../../assets/MainPage/InsuranceImage.svg'
+import InsuranceImage from '../../../assets/mainPage/InsuranceImage.svg'
 
 const InsuranceCard = () => {
   return (
