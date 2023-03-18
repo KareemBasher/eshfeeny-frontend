@@ -19,13 +19,13 @@ const ProductDetails = ({ onGetDescription, onGetUseCases, onGetUsage, onGetSide
     <div>
       {description && (
         <div className="text-[24px] mb-8">
-          <p className="text-[28px]">الوصف :</p>
+          <p className="text-[28px]">الوصف:</p>
           <p className="pt-4">{description}</p>
         </div>
       )}
-      {useCases && <DetailsData Title="دواعي الاستخدام :" Data={useCases} />}
-      {usage && <DetailsData Title="طريقة الاستعمال :" Data={usage} />}
-      {sideEffects && <DetailsData Title="الاعراض الجانبية :" Data={sideEffects} />}
+      {useCases && <DetailsData Title="دواعي الاستخدام:" Data={useCases} />}
+      {usage && <DetailsData Title="طريقة الاستعمال:" Data={usage} />}
+      {sideEffects && <DetailsData Title="الاعراض الجانبية:" Data={sideEffects} />}
     </div>
   )
 }
