@@ -17,6 +17,7 @@ import VerifyCode from './components/pages/login/VerifyCode'
 import AlternativesPage from './components/pages/AlternativesPage'
 import SearchResults from './components/pages/SearchResults'
 import Main from './components/pages/Main/Main'
+import Prescription from './components/pages/Prescription'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -51,6 +52,7 @@ function App() {
         element={<AlternativesPage loggedInUser={loggedInUser} />}
       />
       <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
+      <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
