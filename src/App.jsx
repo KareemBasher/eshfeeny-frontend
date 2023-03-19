@@ -54,7 +54,7 @@ function App() {
       />
       <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
       <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signup" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
     </Routes>
   )
 }
