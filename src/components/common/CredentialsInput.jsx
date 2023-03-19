@@ -17,12 +17,13 @@ const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
   }
 
   return (
-    <div className="w-full mb-5 flex flex-row-reverse rounded-[10px] focus-within:border-lightBlue text-[20px] border border-[#868484]">
+    <div className="w-full flex flex-row-reverse rounded-[10px] focus-within:border-lightBlue text-[20px] border border-[#868484]">
       {type === 'password' && (
         <img
           src={inputType === 'password' ? ShowPassword : ShowPasswordOn}
           className="px-4 cursor-pointer"
           onClick={(e) => handleOnClick(e)}
+          draggable="false"
           alt="show password"
         />
       )}

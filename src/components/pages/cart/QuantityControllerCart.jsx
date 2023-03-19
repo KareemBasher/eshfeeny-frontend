@@ -31,6 +31,7 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePric
     <div className="flex flex-row justify-center">
       <button>
         <img
+          draggable="false"
           src={IncrementButton}
           className="w-[48px] h-[45px] box-border"
           onClick={() => increment(loggedInUser, productID)}
@@ -42,6 +43,7 @@ const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePric
       </p>
       <button className="disabled:bg-gray-500">
         <img
+          draggable="false"
           src={quantity === 1 ? DecrementDisabledButton : DecrementButton}
           className="w-[48px] h-[45px] box-border"
           onClick={(e) => decrement(e, loggedInUser, productID)}

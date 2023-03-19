@@ -13,7 +13,7 @@ const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
   return (
     <div className="flex justify-evenly text-right border-b mt-5 h-32 w-full">
       <Link to={`/product/${product._id}`} className="flex items-center justify-center w-[150px]">
-        <img src={product?.images} className="max-h-[80%]" alt="Product" />
+        <img src={product?.images} draggable="false" className="max-h-[80%]" alt="Product" />
       </Link>
       <Link to={`/product/${product._id}`} className="text-[20px] flex items-center w-[250px]">
         <p>
@@ -37,7 +37,7 @@ const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
       </div>
 
       <button onClick={() => onRemoveItem(loggedInUser, product._id)}>
-        <img src={CloseButton} alt="Remove from cart" />
+        <img src={CloseButton} draggable="false" alt="Remove from cart" />
       </button>
     </div>
   )

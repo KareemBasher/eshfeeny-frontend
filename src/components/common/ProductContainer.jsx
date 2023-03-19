@@ -41,12 +41,13 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
         onClick={() => (itemInFavorites ? handleRemove() : handleAdd())}
       >
         <img
+          draggable="false"
           src={itemInFavorites ? HeartFill : HeartEmpty}
           alt={itemInFavorites ? 'Remove from favorites' : 'add to favorites'}
         />
       </button>
       <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[30%]">
-        <img src={onGetProduct?.images} alt="Product" />
+        <img src={onGetProduct?.images} draggable="false" alt="Product" />
       </Link>
       <div className="text-right px-3 text-[18px]">
         <Link to={`/product/${onGetProduct._id}`}>

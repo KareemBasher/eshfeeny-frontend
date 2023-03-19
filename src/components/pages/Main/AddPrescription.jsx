@@ -20,7 +20,7 @@ const AddPrescription = () => {
       </div>
 
       <div className="flex  ">
-        <img className="w-[129px]" src={PrescriptionImage} alt="insuranceImage" />
+        <img className="w-[129px]" draggable="false" src={PrescriptionImage} alt="insuranceImage" />
       </div>
     </div>
   )

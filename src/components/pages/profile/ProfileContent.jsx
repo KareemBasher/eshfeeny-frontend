@@ -89,9 +89,9 @@ const ProfileContent = ({ user, toggleModal }) => {
               <div className="relative">
                 <div className="absolute left-0 my-5 mx-5 pointer-events-none">
                   {!arrow ? (
-                    <img className="w-[20px]" src={ArrowDown} alt="arrowDown" />
+                    <img draggable="false" className="w-[20px]" src={ArrowDown} alt="arrowDown" />
                   ) : (
-                    <img className="w-[20px]" src={ArrowUp} alt="arrowUp" />
+                    <img draggable="false" className="w-[20px]" src={ArrowUp} alt="arrowUp" />
                   )}
                 </div>
                 <select

@@ -42,6 +42,7 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
     <div className="flex justify-start">
       <button>
         <img
+          draggable="false"
           src={IncrementButton}
           className="w-[54pxpx] h-[48px] box-border ml-[3px]"
           onClick={() => increment(onGetUserID, onGetProductID)}
@@ -54,6 +55,7 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
 
       <button>
         <img
+          draggable="false"
           src={DecrementButton}
           className="w-[54px] h-[48px] box-border"
           onClick={() =>

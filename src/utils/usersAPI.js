@@ -4,6 +4,23 @@ const headers = {
   Accept: 'application/json'
 }
 
+// Add a product to favorites
+export const createUser = async (name, email, password) => {
+  try {
+    const result = await fetch(apiURL + `/users`, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: name, email: email, password: password, type: 'user' })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not add user.`)
+  }
+}
+
 // Get user data
 export const getUser = async (id) => {
   try {

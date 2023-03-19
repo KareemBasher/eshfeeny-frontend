@@ -39,19 +39,19 @@ const AlternativesPage = ({ loggedInUser }) => {
             <Link to="/home" className="hover:underline">
               الرئيسية
             </Link>
-            <img src={Arrow} className="mx-2" alt="Arrow" />
+            <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
             <Link to={`/products/type/${params.type}`} className="hover:underline">
               {params.type}
             </Link>
-            <img src={Arrow} className="mx-2" alt="Arrow" />
+            <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
             <Link to={`/products/category/${params.category}`} className="hover:underline">
               {params.category}
             </Link>
-            <img src={Arrow} className="mx-2" alt="Arrow" />
+            <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
             <Link to={`/products/name/${params.name}`} className="hover:underline">
               {params.name}
             </Link>
-            <img src={Arrow} className="mx-2" alt="Arrow" />
+            <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
             <p className="text-[#1F1F1F]">البديل</p>
           </div>
         </div>
