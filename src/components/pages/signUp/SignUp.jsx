@@ -124,7 +124,7 @@ const SignUp = () => {
         </div>
 
         <div className="">
-          <img src={SingupVector} alt="login vector" />
+          <img draggable="false" src={SingupVector} alt="login vector" />
         </div>
       </div>
     </>
