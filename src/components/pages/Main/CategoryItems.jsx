@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import ProductContainer from '../../common/ProductContainer'
 /*       Icons       */
 import ArrowOrange from '../../../assets/mainPage/ArrowOrange.svg'
+import RightArrow from '../../../assets/mainPage/RightArrow.svg'
+import LeftArrow from '../../../assets/mainPage/LeftArrow.svg'
 /*       API        */
 import { getCategory, getFavoriteProducts } from '../../../utils/productsAPI'
 import { useState } from 'react'
@@ -34,18 +36,29 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
           <img src={ArrowOrange} className="pr-2" />
         </Link>
       </div>
-      <div className=" w-full overflow-x-auto">
-        <ol className="flex justify-start">
-          {products.map((product) => (
-            <li key={product._id}>
-              <ProductContainer
-                onGetProduct={product}
-                loggedInUser={loggedInUser}
-                favorites={favoriteProductsIDs}
-              />
-            </li>
-          ))}
-        </ol>
+      <div className="flex relative">
+        {/*    Right Arrow    */}
+        <div className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60">
+          <img src={RightArrow} />
+        </div>
+        {/*      Products     */}
+        <div className="flex w-full overflow-x-auto">
+          <ol className="flex justify-between">
+            {products.map((product) => (
+              <li key={product._id}>
+                <ProductContainer
+                  onGetProduct={product}
+                  loggedInUser={loggedInUser}
+                  favorites={favoriteProductsIDs}
+                />
+              </li>
+            ))}
+          </ol>
+        </div>
+        {/*    Left Arrow    */}
+        <div className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60">
+          <img src={LeftArrow} />
+        </div>
       </div>
     </div>
   )
