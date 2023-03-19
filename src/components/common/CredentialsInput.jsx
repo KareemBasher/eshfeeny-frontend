@@ -23,6 +23,7 @@ const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
           src={inputType === 'password' ? ShowPassword : ShowPasswordOn}
           className="px-4 cursor-pointer"
           onClick={(e) => handleOnClick(e)}
+          draggable="false"
           alt="show password"
         />
       )}
