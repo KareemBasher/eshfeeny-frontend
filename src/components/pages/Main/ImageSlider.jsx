@@ -64,14 +64,14 @@ const ImageSlider = () => {
         {/* Left Arrow */}
         <div
           onClick={prevSlide}
-          className="h-[44px] w-[44px] flex justify-center items-center bg-[#f5f5f581] hover:opacity-60 rounded-full absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl p-2 cursor-pointer mx-5"
+          className="h-[44px] w-[44px] flex justify-center items-center bg-[#f5f5f581] hover:opacity-60 rounded-full absolute top-[50%]  left-5 text-2xl p-2 cursor-pointer mx-5"
         >
           <img draggable="false" src={LeftArrow} />
         </div>
         {/* Right Arrow */}
         <div
           onClick={nextSlide}
-          className="h-[44px] w-[44px] flex justify-center items-center bg-[#f5f5f581] hover:opacity-60 rounded-full absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl p-2 cursor-pointer mx-5"
+          className="h-[44px] w-[44px] flex justify-center items-center bg-[#f5f5f581] hover:opacity-60 rounded-full absolute top-[50%]  right-5 text-2xl p-2 cursor-pointer mx-5"
         >
           <img draggable="false" src={RightArrow} />
         </div>
