@@ -15,15 +15,15 @@ const AlternateSignin = ({ state }) => {
 
       <div className="flex w-full items-center justify-center my-8">
         <div className="w-[52px] h-[52px] flex items-center justify-center bg-[#F5F5F5] rounded-full shadow-md mx-2">
-          <img src={apple} alt="apple" />
+          <img src={apple} alt="apple" draggable="false" />
         </div>
 
         <div className="w-[52px] h-[52px] flex items-center justify-center bg-[#F5F5F5] rounded-full shadow-md mx-2">
-          <img src={facebook} alt="facebook" />
+          <img src={facebook} alt="facebook" draggable="false" />
         </div>
 
         <div className="w-[52px] h-[52px] flex items-center justify-center bg-[#F5F5F5] rounded-full shadow-md mx-2">
-          <img src={google} alt="google" />
+          <img src={google} alt="google" draggable="false" />
         </div>
       </div>
 

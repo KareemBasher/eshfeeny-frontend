@@ -66,15 +66,15 @@ const ProductPage = ({ loggedInUser }) => {
           <Link to="/home" className="hover:underline">
             الرئيسية
           </Link>
-          <img src={Arrow} className="mx-2" alt="Arrow" />
+          <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
           <Link to={`/products/type/${product.type}`} className="hover:underline">
             {product.type}
           </Link>
-          <img src={Arrow} className="mx-2" alt="Arrow" />
+          <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
           <Link to={`/products/category/${product.category}`} className="hover:underline">
             {product.category}
           </Link>
-          <img src={Arrow} className="mx-2" alt="Arrow" />
+          <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
           <p className="text-[#1F1F1F]">{product.nameAr}</p>
         </div>
       </div>
@@ -88,14 +88,19 @@ const ProductPage = ({ loggedInUser }) => {
                 className="flex justify-center items-center mb-3 w-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
                 onClick={changeImage}
               >
-                <img src={image} className="h-20 py-5" alt="ProductAltImage" />
+                <img draggable="false" src={image} className="h-20 py-5" alt="ProductAltImage" />
               </div>
             ))}
         </section>
         {/*      Big Picture         */}
         <div className="flex w-1/2 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
-            <img src={currentImage} className="max-h-[15rem]" alt="ProductMainImage" />
+            <img
+              draggable="false"
+              src={currentImage}
+              className="max-h-[15rem]"
+              alt="ProductMainImage"
+            />
           </div>
         </div>
         {/*     Left Section        */}
@@ -114,7 +119,7 @@ const ProductPage = ({ loggedInUser }) => {
               ) /*     Remove from Favourites     */ && (
                 <div className="flex">
                   <button className="flex" onClick={() => handleRemove(loggedInUser, params.id)}>
-                    <img src={HeartFill} alt="HeartIcon" />
+                    <img draggable="false" src={HeartFill} alt="HeartIcon" />
                   </button>
                   <p className="mx-2 pt-1">المفضلة</p>
                 </div>
@@ -122,7 +127,7 @@ const ProductPage = ({ loggedInUser }) => {
               {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
                 <div className="flex">
                   <button className="flex" onClick={() => handleAdd(loggedInUser, params.id)}>
-                    <img src={HeartEmpty} alt="HeartIcon" />
+                    <img draggable="false" src={HeartEmpty} alt="HeartIcon" />
                   </button>
                   <p className="mx-2 pt-1">المفضلة</p>
                 </div>
@@ -132,7 +137,7 @@ const ProductPage = ({ loggedInUser }) => {
               to={`/products/alternatives/${product.type}/${product.category}/${product.nameAr}/${product.activeIngredient}`}
               className="flex text-[20px] items-center mb-4"
             >
-              <img src={Alternative} alt="AltProduct" />
+              <img draggable="false" src={Alternative} alt="AltProduct" />
               <p className="mr-2">البديل</p>
             </Link>
           </div>
