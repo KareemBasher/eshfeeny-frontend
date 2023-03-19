@@ -132,7 +132,12 @@ const SearchBar = ({ onGetData, query }) => {
           <div className="bg-offWhite h-[550px] w-[950px] rounded-[20px] flex flex-col items-center justify-center">
             {loading ? (
               <div className="h-[256px] w-[256px] flex items-center justify-center relative">
-                <img className="absolute animate-spin" src={LoadingElipse} alt="Loading Elipse" />
+                <img
+                  className="absolute animate-spin"
+                  draggable="false"
+                  src={LoadingElipse}
+                  alt="Loading Elipse"
+                />
                 <p className="text-[14px] text-lightBlue">جاري البحث عن المنتج...</p>
               </div>
             ) : (
@@ -145,13 +150,14 @@ const SearchBar = ({ onGetData, query }) => {
                   )}
 
                   <button onClick={() => handleClose()}>
-                    <img src={CloseButton} alt="Close Button" />
+                    <img src={CloseButton} draggable="false" alt="Close Button" />
                   </button>
                 </div>
                 <div className="h-[360px] w-[650px]">
                   {imageURL ? (
                     <div className="w-full flex flex-col items-center pt-8">
                       <img
+                        draggable="false"
                         className="h-[250px] object-cover rounded-[10px]"
                         src={imageURL}
                         alt="Uploaded Image"
@@ -159,7 +165,12 @@ const SearchBar = ({ onGetData, query }) => {
                     </div>
                   ) : (
                     <div className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10">
-                      <img className="w-[70px]" src={ImageSearch} alt="Image Search" />
+                      <img
+                        className="w-[70px]"
+                        draggable="false"
+                        src={ImageSearch}
+                        alt="Image Search"
+                      />
                       <p className="text-[22px]">أضف صورة الروشتة أو المنتج الذى تبحث عنه</p>
                     </div>
                   )}
@@ -188,6 +199,7 @@ const SearchBar = ({ onGetData, query }) => {
       <div className="w-full flex flex-col relative z-30" ref={ref}>
         <div className={`flex justify-start bg-[#F7F7F7] border rounded-full`}>
           <img
+            draggable="false"
             className="px-5 py-3 cursor-pointer searchButton"
             onClick={handleTextSearch}
             src={SearchLogo}
@@ -202,7 +214,12 @@ const SearchBar = ({ onGetData, query }) => {
           />
 
           <button className="px-5" onClick={() => setDragActive(true)}>
-            <img className="w-[35px]" src={CameraSearch} alt="Search using image" />
+            <img
+              className="w-[35px]"
+              draggable="false"
+              src={CameraSearch}
+              alt="Search using image"
+            />
           </button>
         </div>
 
@@ -217,7 +234,7 @@ const SearchBar = ({ onGetData, query }) => {
                   >
                     <Link to={`/product/${_id}`}>
                       <div className="flex">
-                        <img src={images} className="w-[70px]" alt="Product" />
+                        <img draggable="false" src={images} className="w-[70px]" alt="Product" />
                         <div className="flex flex-col items-start mx-5">
                           <p>
                             {nameAr}

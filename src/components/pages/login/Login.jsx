@@ -119,7 +119,11 @@ const Login = ({ changeLoggedUser }) => {
         </div>
 
         <div className="w-4/12">
-          <img src={error?.all ? LoginVectorError : LoginVector} alt="login vector" />
+          <img
+            src={error?.all ? LoginVectorError : LoginVector}
+            draggable="false"
+            alt="login vector"
+          />
         </div>
       </div>
     </div>

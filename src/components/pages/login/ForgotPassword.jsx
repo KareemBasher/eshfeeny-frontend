@@ -37,7 +37,7 @@ const ForgotPassword = () => {
   return (
     <div>
       <div className="flex h-[25vh] items-center justify-center">
-        <img src={Logo} className="mx-5 w-[44px]" alt="Logo" />
+        <img src={Logo} draggable="false" className="mx-5 w-[44px]" alt="Logo" />
         <span className="text-[24px]">مرحبا بك في تطبيق أشفينى </span>
       </div>
       <div className="flex h-[75vh] justify-around">
@@ -76,7 +76,7 @@ const ForgotPassword = () => {
         </div>
 
         <div className="w-4/12">
-          <img src={error ? LoginVectorError : LoginVector} alt="login vector" />
+          <img src={error ? LoginVectorError : LoginVector} draggable="false" alt="login vector" />
         </div>
       </div>
     </div>

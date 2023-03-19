@@ -14,7 +14,7 @@ const InsuranceCard = () => {
       </div>
 
       <div className="flex items-center w-f">
-        <img src={InsuranceImage} alt="insuranceImage" />
+        <img draggable="false" src={InsuranceImage} alt="insuranceImage" />
       </div>
     </div>
   )

@@ -9,7 +9,13 @@ const DetailsData = ({ Title, Data }) => {
       {Data &&
         Data.map((data) => (
           <div key={`${data}1`} className="flex items-start pt-3">
-            <img key={`${data}2`} src={Bullet} className="ml-4 pt-3" alt="BulletPoint" />
+            <img
+              draggable="false"
+              key={`${data}2`}
+              src={Bullet}
+              className="ml-4 pt-3"
+              alt="BulletPoint"
+            />
             <li key={`${data}3`}>{data}</li>
           </div>
         ))}
