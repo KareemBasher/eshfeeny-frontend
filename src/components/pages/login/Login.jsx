@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
 import AlternateSignin from '../../common/AlternateSignin'
+import WelcomeLogo from '../../common/WelcomeLogo'
 
 /*         Illustration and images         */
-import Logo from '../../../assets/common/Logo.svg'
 import LoginVectorError from '../../../assets/loginPage/LoginVectorError.svg'
 import LoginVector from '../../../assets/loginPage/LoginVector.svg'
 
@@ -59,28 +59,31 @@ const Login = ({ changeLoggedUser }) => {
 
   return (
     <div>
-      <div className="flex h-[25vh] items-center justify-center">
-        <img src={Logo} draggable="false" className="mx-5 w-[44px]" alt="Logo" />
-        <span className="text-[24px]">مرحبا بك في تطبيق أشفينى </span>
+      <div>
+        <WelcomeLogo />
       </div>
 
       <div className="flex h-[75vh] justify-around">
         <div className="m-10 w-[472px] flex flex-col">
           <p className="text-[28px] mb-10 text-right">قم بتسجيل الدخول</p>
-          <CredentialsInput
-            name={'email'}
-            placeHolder={'البريد الاكتروني'}
-            type={'text'}
-            value={email}
-            handleInput={handleInput}
-          />
-          <CredentialsInput
-            name={'password'}
-            placeHolder={'كلمة المرور'}
-            type={'password'}
-            value={password}
-            handleInput={handleInput}
-          />
+          <div className="mb-5">
+            <CredentialsInput
+              name={'email'}
+              placeHolder={'البريد الاكتروني'}
+              type={'text'}
+              value={email}
+              handleInput={handleInput}
+            />
+          </div>
+          <div className="mb-5">
+            <CredentialsInput
+              name={'password'}
+              placeHolder={'كلمة المرور'}
+              type={'password'}
+              value={password}
+              handleInput={handleInput}
+            />
+          </div>
 
           <div className="flex flex-row-reverse items-center justify-between">
             <Link to="/forgotPassword">

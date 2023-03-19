@@ -18,6 +18,7 @@ import AlternativesPage from './components/pages/AlternativesPage'
 import SearchResults from './components/pages/SearchResults'
 import Main from './components/pages/main/Main'
 import Prescription from './components/pages/Prescription'
+import SignUp from './components/pages/signUp/SignUp'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -53,6 +54,7 @@ function App() {
       />
       <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
       <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   )
 }
