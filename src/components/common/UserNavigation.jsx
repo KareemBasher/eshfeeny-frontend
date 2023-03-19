@@ -24,10 +24,12 @@ const UserNavigation = ({ loggedInUser }) => {
   useEffect(() => {
     const input = document.querySelector('.searchBar')
     const handleTextSearch = (e) => {
+      //Variable to check if input is Empty
       let i = 0
       if (input.value) {
         i = 1
       }
+      //Checks if 'Enter' is pressed
       if (e.key === 'Enter' && i === 1) {
         document.querySelector('.searchButton').click()
       }
