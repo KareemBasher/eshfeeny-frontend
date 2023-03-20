@@ -3,7 +3,7 @@ import NavListItems from '../NavListItems'
 const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
   return (
     <div className="mx-8 relative">
-      <div className="flex flex-row justify-evenly text-[20px] w-full">
+      <div className="flex mx-36 justify-evenly text-[20px]">
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
