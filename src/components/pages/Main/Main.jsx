@@ -9,11 +9,15 @@ const Main = ({ loggedInUser }) => {
   return (
     <div>
       <UserNavigation loggedInUser={loggedInUser} />
-      <ImageSlider />
-      <AddContainer />
-      <CategoryItems onGetTitle="الكحة" loggedInUser={loggedInUser} />
-      <CategoryItems onGetTitle="المغص" loggedInUser={loggedInUser} />
-      <CategoryItems onGetTitle="امساك" loggedInUser={loggedInUser} />
+
+      <div className="mx-36">
+        <ImageSlider />
+        <AddContainer />
+
+        <CategoryItems onGetTitle="الكحة" loggedInUser={loggedInUser} />
+        <CategoryItems onGetTitle="المغص" loggedInUser={loggedInUser} />
+        <CategoryItems onGetTitle="امساك" loggedInUser={loggedInUser} />
+      </div>
     </div>
   )
 }
