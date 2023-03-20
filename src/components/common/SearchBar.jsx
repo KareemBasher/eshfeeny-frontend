@@ -123,7 +123,7 @@ const SearchBar = ({ onGetData, query }) => {
     <>
       {dragActive && (
         <div
-          className="overflow-y-hidden absolute w-full h-full inset-0 bg-[#00000080] flex items-center justify-center z-50"
+          className="overflow-y-hidden fixed w-full h-full inset-0 bg-[#00000080] flex items-center justify-center z-50"
           onDragEnter={(e) => dragHandler(e)}
           onDragLeave={(e) => dragHandler(e)}
           onDragOver={(e) => dragHandler(e)}
