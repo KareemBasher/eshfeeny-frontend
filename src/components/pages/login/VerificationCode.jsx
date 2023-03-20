@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import ReactCodeInput from 'react-code-input'
 import WelcomeLogo from '../../common/WelcomeLogo'
 import WideButton from '../../common/WideButton'
-import './ReactCodeInput.css'
 import SingupVector from '../../../assets/common/SingupVector.svg'
+
 const VerificationCode = () => {
   const [code, setCode] = useState('')
 
