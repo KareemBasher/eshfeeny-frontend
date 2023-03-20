@@ -196,8 +196,9 @@ const SearchBar = ({ onGetData, query }) => {
           </div>
         </div>
       )}
+
       <div className="w-full flex flex-col relative z-30" ref={ref}>
-        <div className={`flex justify-start bg-[#F7F7F7] border rounded-full`}>
+        <div className={`flex justify-start h-[45px] bg-[#F7F7F7] border rounded-full`}>
           <img
             draggable="false"
             className="px-5 py-3 cursor-pointer searchButton"
@@ -215,7 +216,7 @@ const SearchBar = ({ onGetData, query }) => {
 
           <button className="px-5" onClick={() => setDragActive(true)}>
             <img
-              className="w-[35px]"
+              className="w-[32px]"
               draggable="false"
               src={CameraSearch}
               alt="Search using image"
