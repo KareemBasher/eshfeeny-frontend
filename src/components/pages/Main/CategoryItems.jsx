@@ -49,7 +49,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
   const favoriteProductsIDs = favouriteProducts.map((product) => product._id)
 
   return (
-    <div className="mx-36 mb-10">
+    <div className="mx-36">
       <div className="flex justify-between">
         <p className="text-right text-[26px] pb-3">{onGetTitle}</p>
         <Link
@@ -60,7 +60,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
           <img src={ArrowOrange} draggable="false" className="pr-2" />
         </Link>
       </div>
-      <div className="flex relative">
+      <div className="flex relative h-fill">
         {/*    Right Arrow    */}
         <div
           className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
@@ -76,7 +76,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
           <img src={LeftArrow} />
         </div>
         {/*      Products     */}
-        <div className={`flex w-full overflow-x-auto ${onGetTitle} container`}>
+        <div className={`flex w-full pb-7 overflow-x-auto ${onGetTitle} container`}>
           <ol className="flex justify-between">
             {products.map((product) => (
               <li key={product._id}>
