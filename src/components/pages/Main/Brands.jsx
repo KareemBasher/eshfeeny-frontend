@@ -1,18 +1,21 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-/*      Components       */
-import ProductContainer from '../../common/ProductContainer'
+/*      Components     */
+import BrandsPictures from './BrandsPictures'
 /*       Icons       */
 import ArrowOrange from '../../../assets/mainPage/ArrowOrange.svg'
 import RightArrow from '../../../assets/mainPage/RightArrow.svg'
 import LeftArrow from '../../../assets/mainPage/LeftArrow.svg'
-/*       API        */
-import { getCategory, getFavoriteProducts } from '../../../utils/productsAPI'
-import { useState } from 'react'
+/*       Images        */
+import Image1 from '../../../assets/brands/Garnier.png'
+import Image2 from '../../../assets/brands/VICHY.png'
+import Image3 from '../../../assets/brands/Pampers.png'
+import Image4 from '../../../assets/brands/Beesline.png'
+import Image5 from '../../../assets/brands/AXE.png'
 
-const CategoryItems = ({ onGetTitle, loggedInUser }) => {
-  const container = document.querySelector(`.${onGetTitle}`)
+const Brands = () => {
+  const container = document.querySelector('.brands')
 
   const handleLeft = () => {
     let scrollAmount = 0
@@ -36,26 +39,19 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
     }, 25)
   }
 
-  const [products, setProducts] = useState([])
-  const [favouriteProducts, setFavouriteProducts] = useState([])
+  const [title, setTitle] = useState([])
   useEffect(() => {
-    const getProducts = async () => {
-      setProducts(await getCategory(onGetTitle))
-      setFavouriteProducts(await getFavoriteProducts(loggedInUser))
+    const getTitle = () => {
+      setTitle('تصفح الماركات')
     }
-    getProducts()
+    getTitle()
   }, [])
-
-  const favoriteProductsIDs = favouriteProducts.map((product) => product._id)
 
   return (
     <div className="mx-36">
       <div className="flex justify-between">
-        <p className="text-right text-[26px] pb-3">{onGetTitle}</p>
-        <Link
-          to={`products/category/${onGetTitle}`}
-          className="flex border border-orange py-3 px-5 rounded-[10px]"
-        >
+        <p className="text-right text-[26px] pb-3">{title}</p>
+        <Link to="/brands" className="flex border border-orange py-3 px-5 rounded-[10px]">
           <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
           <img src={ArrowOrange} draggable="false" className="pr-2" />
         </Link>
@@ -75,18 +71,24 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
         >
           <img src={LeftArrow} />
         </div>
-        {/*      Products     */}
-        <div className={`flex w-full pb-7 overflow-x-auto ${onGetTitle} container`}>
+        {/*      Brands     */}
+        <div className="flex w-full pb-7 overflow-x-auto brands container justify-between">
           <ol className="flex justify-between">
-            {products.map((product) => (
-              <li key={product._id}>
-                <ProductContainer
-                  onGetProduct={product}
-                  loggedInUser={loggedInUser}
-                  favorites={favoriteProductsIDs}
-                />
-              </li>
-            ))}
+            <li>
+              <BrandsPictures onGetImage={Image1} onGetPath="garnier" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image2} onGetPath="vichy" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image3} onGetPath="pampers" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image4} onGetPath="beesline" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image5} onGetPath="axe" />
+            </li>
           </ol>
         </div>
       </div>
@@ -94,4 +96,4 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
   )
 }
 
-export default CategoryItems
+export default Brands
