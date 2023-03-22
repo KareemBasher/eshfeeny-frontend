@@ -1,19 +1,22 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+/*         Assets        */
 import LoadingElipse from '../../assets/common/LoadingElipse.png'
 import ImageSearch from '../../assets/common/ImageSearch.svg'
-import PlusSign from '../../assets/common/PlusSign.svg'
+
+/*         API        */
+import { uploadImage, imageSearch } from '../../utils/dashboard'
 
 const ImageDroper = ({ title, buttonTitle }) => {
   const [dragActive, setDragActive] = useState(false)
   const [image, setImage] = useState('')
-  const [selectedImage, setSelectedImage] = useState('')
   const [imageURL, setImageURL] = useState('')
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
+  const hiddenFileInput = useRef(null)
 
   const dragHandler = (e) => {
     e.preventDefault()
@@ -34,14 +37,33 @@ const ImageDroper = ({ title, buttonTitle }) => {
         e.dataTransfer.files[0].type === 'image/jpg' ||
         e.dataTransfer.files[0].type === 'image/png'
       ) {
-        const newImage = URL.createObjectURL(e.dataTransfer.files[0])
-        setImageURL([...imageURL, newImage])
-        setSelectedImage(newImage)
+        setImageURL(URL.createObjectURL(e.dataTransfer.files[0]))
         setImage(e.dataTransfer.files[0])
       }
     } else {
       setDragActive(false)
     }
+  }
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      if (file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png') {
+        setImageURL(URL.createObjectURL(file))
+        setImage(file)
+      }
+    }
+  }
+
+  const handleSearch = async () => {
+    setLoading(true)
+    const result = await uploadImage(image)
+    const imageURL = result.data.url
+    const searchResult = await imageSearch(imageURL)
+    setLoading(false)
+    setDragActive(false)
+    const IDs = searchResult.map((item) => item._id)
+    navigate(`/location/${IDs.join('&')}`)
   }
 
   useEffect(() => {
@@ -52,6 +74,10 @@ const ImageDroper = ({ title, buttonTitle }) => {
     }
   }, [])
 
+  const handleInputClick = () => {
+    hiddenFileInput.current.click()
+  }
+
   return (
     <div
       className="flex items-center justify-center"
@@ -61,6 +87,13 @@ const ImageDroper = ({ title, buttonTitle }) => {
       onDrop={(e) => handleDrop(e)}
     >
       <div className="h-[550px] w-[950px] rounded-[20px] flex flex-col items-center justify-center">
+        <input
+          type="file"
+          accept=".png, .jpeg, .jpg"
+          ref={hiddenFileInput}
+          onChange={handleFileSelect}
+          className="hidden"
+        />
         {loading ? (
           <div className="h-[256px] w-[256px] flex items-center justify-center relative">
             <img
@@ -69,42 +102,27 @@ const ImageDroper = ({ title, buttonTitle }) => {
               src={LoadingElipse}
               alt="Loading Elipse"
             />
-            <p className="text-[14px] text-lightBlue">جاري البحث عن المنتج...</p>
+            <p className="text-[14px] text-lightBlue">جاري البحث عن المنتجات...</p>
           </div>
         ) : (
           <>
             <div className="w-[650px]">
               {imageURL ? (
                 <div className="w-full flex flex-col items-center pt-8">
-                  <div className="border-2 p-3 rounded-[10px]">
+                  <div className="border-2 p-3 rounded-[10px] mb-10">
                     <img
                       draggable="false"
                       className="h-[250px] object-cover rounded-[10px]"
-                      src={selectedImage}
+                      src={imageURL}
                       alt="Uploaded Image"
                     />
                   </div>
-
-                  <div className="flex flex-row-reverse m-5">
-                    {imageURL.map((img) => (
-                      <div
-                        onClick={() => setSelectedImage(img)}
-                        key={img}
-                        className={`h-[50px] w-[50px] flex justify-center p-[2px] border-2 rounded-[6px] overflow-hidden mx-2 cursor-pointer ${
-                          selectedImage === img && 'border-lightBlue'
-                        }`}
-                      >
-                        <img src={img} draggable="false" alt="Uploaded Image" />
-                      </div>
-                    ))}
-
-                    <div className="h-[50px] w-[50px] flex justify-center p-[2px] border-2 rounded-[6px] mx-2">
-                      <img draggable="false" className="w-[20px]" src={PlusSign} alt="Add image" />
-                    </div>
-                  </div>
                 </div>
               ) : (
-                <div className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10">
+                <div
+                  onClick={handleInputClick}
+                  className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10 py-8"
+                >
                   <img
                     className="w-[70px]"
                     draggable="false"

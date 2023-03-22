@@ -39,6 +39,7 @@ const SearchBar = ({ onGetData, query }) => {
   const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
+  const hiddenFileInput = useRef(null)
 
   useOutsideHook(ref, (isOpen) => setResultsOpen(isOpen))
 
@@ -75,6 +76,16 @@ const SearchBar = ({ onGetData, query }) => {
       }
     } else {
       setDragActive(false)
+    }
+  }
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      if (file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png') {
+        setImageURL(URL.createObjectURL(file))
+        setImage(file)
+      }
     }
   }
 
@@ -119,6 +130,10 @@ const SearchBar = ({ onGetData, query }) => {
     navigate(`/searchResults/${IDs.join('&')}`)
   }
 
+  const handleInputClick = () => {
+    hiddenFileInput.current.click()
+  }
+
   return (
     <>
       {dragActive && (
@@ -130,6 +145,13 @@ const SearchBar = ({ onGetData, query }) => {
           onDrop={(e) => handleDrop(e)}
         >
           <div className="bg-offWhite h-[550px] w-[950px] rounded-[20px] flex flex-col items-center justify-center">
+            <input
+              type="file"
+              accept=".png, .jpeg, .jpg"
+              ref={hiddenFileInput}
+              onChange={handleFileSelect}
+              className="hidden"
+            />
             {loading ? (
               <div className="h-[256px] w-[256px] flex items-center justify-center relative">
                 <img
@@ -164,7 +186,10 @@ const SearchBar = ({ onGetData, query }) => {
                       />
                     </div>
                   ) : (
-                    <div className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10">
+                    <div
+                      onClick={handleInputClick}
+                      className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10 py-8"
+                    >
                       <img
                         className="w-[70px]"
                         draggable="false"
