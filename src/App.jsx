@@ -61,7 +61,7 @@ function App() {
         path="/insuranceCompanies"
         element={<InsuranceCompanies loggedInUser={loggedInUser} />}
       />
-      <Route path="/insuranceCompanies/:company" element={<CompanyPage />} />
+      <Route path="/insuranceCompanies/:company" element={<CompanyPage loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
