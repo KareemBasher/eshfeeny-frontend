@@ -36,7 +36,7 @@ const InsuranceCompanies = ({ loggedInUser }) => {
               className="w-[233px] h-[310px] border rounded-[10px] flex justify-center items-center ml-5"
               key={index}
             >
-              <Link to={`/insuranceCompanies/${params}`}>
+              <Link to={`/insuranceCompanies/${params}/`}>
                 <img
                   draggable="false"
                   className="items-center"
