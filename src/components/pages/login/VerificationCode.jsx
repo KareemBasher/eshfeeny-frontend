@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ReactCodeInput from 'react-code-input'
+import AuthCode from 'react-auth-code-input'
 import WelcomeLogo from '../../common/WelcomeLogo'
 import WideButton from '../../common/WideButton'
 import SingupVector from '../../../assets/common/SingupVector.svg'
@@ -27,22 +27,14 @@ const VerificationCode = () => {
           {/* input */}
           <div className="mb-10">
             <div dir="ltr">
-              <ReactCodeInput
-                type="text"
-                fields={4}
+              <AuthCode
+                className="codeInput"
                 value={code}
-                onChange={(value) => handleCodeValue(value)}
-                inputStyle={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: 10,
-                  border: '1px solid #868484',
-                  margin: '5px',
-                  textAlign: 'center',
-                  fontSize: '30px',
-                  fontWeight: 'bold',
-                  outline: '1px soild #0597F2'
-                }}
+                inputClassName={
+                  'h-[60px] w-[60px] m-2 border border-[#949495] rounded-[10px] outline-lightBlue text-center text-[20px]'
+                }
+                length={4}
+                onChange={handleCodeValue}
               />
             </div>
           </div>
@@ -53,7 +45,9 @@ const VerificationCode = () => {
               <WideButton content="تحقق" disabled={code.length === 4 ? false : true} />
             </div>
             <div>
-              <WideButton content="إعادة ارسال الرمز" />
+              <button className="w-full max-w-[472px] h-[58px] rounded-[10px] my-3 text-[24px] border border-black">
+                إعادة إرسال الرمز
+              </button>
             </div>
           </div>
         </div>

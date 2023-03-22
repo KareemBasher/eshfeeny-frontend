@@ -14,7 +14,7 @@
   "dependencies": {
     "form-data": "^4.0.0",
     "react": "^18.2.0",
-    "react-code-input": "^3.10.1",
+    "react-auth-code-input": "^3.2.1",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
