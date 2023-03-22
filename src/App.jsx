@@ -67,7 +67,7 @@ function App() {
         element={<CompanyPage loggedInUser={loggedInUser} />}
       />
       <Route
-        path="/insuranceCardPage/:company"
+        path="/insuranceCards/:company"
         element={<InsuranceCardPage loggedInUser={loggedInUser} />}
       />
     </Routes>
