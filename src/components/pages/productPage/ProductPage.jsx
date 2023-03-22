@@ -134,7 +134,7 @@ const ProductPage = ({ loggedInUser }) => {
               )}
             </div>
             <Link
-              to={`/products/alternatives/${product.type}/${product.category}/${product.nameAr}/${product.activeIngredient}`}
+              to={`/alternatives/${product._id}/`}
               className="flex text-[20px] items-center mb-4"
             >
               <img draggable="false" src={Alternative} alt="AltProduct" />
