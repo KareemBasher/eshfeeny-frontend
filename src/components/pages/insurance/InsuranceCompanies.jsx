@@ -1,8 +1,11 @@
 import React from 'react'
+/*         component imports         */
 import UserNavigation from '../../common/UserNavigation'
+/*         images imports         */
 import Image1 from '../../../assets/insuranceCompanies/Image1.png'
 import Image2 from '../../../assets/insuranceCompanies/Image2.png'
 import Arrow from '../../../assets/common/Arrow.svg'
+/*         Hooks        */
 import { Link } from 'react-router-dom'
 
 const InsuranceCompanies = ({ loggedInUser }) => {

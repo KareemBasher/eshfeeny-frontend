@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
+/*         component imports         */
 import UserNavigation from '../../common/UserNavigation'
+/*         image imports         */
 import InsuranceCardImg from '../../../assets/insuranceCompanies/InsuranceCardImg.svg'
 
 const InsuranceCardPage = ({ loggedInUser }) => {
   const [card, setCard] = useState('')
+
   return (
-    <>
+    <div>
       <div>
         <UserNavigation loggedInUser={loggedInUser} />
       </div>
+
       {!card.length ? (
         <div className=" mt-16 mr-24">
           <div className="text-right text-[26px]">
@@ -34,7 +38,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
           </div>
         </div>
       ) : null}
-    </>
+    </div>
   )
 }
 

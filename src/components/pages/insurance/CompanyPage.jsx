@@ -1,6 +1,9 @@
 import React from 'react'
+/*         Hooks        */
 import { Link, useParams } from 'react-router-dom'
+/*         component imports         */
 import UserNavigation from '../../common/UserNavigation'
+/*         images imports         */
 import AddPrescriptionImage from '../../../assets/insuranceCompanies/AddPrescriptionImage.png'
 import MonthlyMedicine from '../../../assets/insuranceCompanies/MonthlyMedicine.png'
 
@@ -11,10 +14,12 @@ const CompanyPage = ({ loggedInUser }) => {
       <div>
         <UserNavigation loggedInUser={loggedInUser} />
       </div>
+
       <div className="flex flex-col mt-16 mr-24">
         <div className="mb-16">
           <p className="text-[26px] text-right">{company}</p>
         </div>
+
         <div className="flex">
           <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-10">
             <Link>
@@ -22,6 +27,7 @@ const CompanyPage = ({ loggedInUser }) => {
               <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
             </Link>
           </div>
+
           <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col">
             <Link>
               <img className="m-2" src={AddPrescriptionImage} alt="" />
