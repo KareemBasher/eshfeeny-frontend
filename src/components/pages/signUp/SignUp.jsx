@@ -20,37 +20,46 @@ const SignUp = ({ changeLoggedUser }) => {
     else if (name === 'checkPassword') setCheckPassowrd(value)
   }
 
-  const inputValidation = () => {
-    if (name.length === 0) setError((prev) => ({ ...prev, nameLength: true }))
-    else setError((prev) => ({ ...prev, nameLength: false }))
+  const inputValidation = async () => {
+    const errorObj = {}
 
-    if (email.length === 0) setError((prev) => ({ ...prev, emailLength: true }))
-    else setError((prev) => ({ ...prev, emailLength: false }))
+    if (name.length === 0) errorObj.nameLength = true
+    else errorObj.nameLength = false
+
+    if (email.length === 0) errorObj.emailLength = true
+    else errorObj.emailLength = false
 
     if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/))
-      setError((prev) => ({ ...prev, emailCheck: true }))
-    else setError((prev) => ({ ...prev, emailCheck: false }))
+      errorObj.emailCheck = true
+    else errorObj.emailCheck = false
 
-    if (password.length < 8) setError((prev) => ({ ...prev, passwordLength: true }))
-    else setError((prev) => ({ ...prev, passwordLength: false }))
+    if (password.length < 8) errorObj.passwordLength = true
+    else errorObj.passwordLength = false
 
-    if (!password === checkPassword) setError((prev) => ({ ...prev, passwordCheck: true }))
-    else setError((prev) => ({ ...prev, passwordCheck: false }))
+    if (password !== checkPassword || checkPassword < 8) errorObj.passwordCheck = true
+    else errorObj.passwordCheck = false
+
+    setError(errorObj)
+
+    if (
+      errorObj.emailCheck ||
+      errorObj.emailExists ||
+      errorObj.emailLength ||
+      errorObj.nameLength ||
+      errorObj.passwordCheck ||
+      errorObj.passwordLength
+    )
+      return false
+    else return true
   }
 
   const handleSubmit = async () => {
-    inputValidation()
+    const validCredentials = await inputValidation()
 
-    if (
-      !error.nameLength &&
-      !error.emailLength &&
-      !error.emailCheck &&
-      !error.passwordLength &&
-      !error.passwordCheck
-    ) {
+    if (validCredentials) {
       const result = await createUser(name, email, password)
 
-      if (result === 'User already exists') setError((prev) => ({ ...prev, userExists: true }))
+      if (result === 'User already exists') setError((prev) => ({ ...prev, emailExists: true }))
       else {
         setError((prev) => ({ ...prev, userExists: false }))
         changeLoggedUser(result._id)
@@ -61,7 +70,7 @@ const SignUp = ({ changeLoggedUser }) => {
 
   useEffect(() => {
     const handleKeydown = (event) => {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && checkPassword.length > 0) {
         handleSubmit()
       }
     }
@@ -70,7 +79,7 @@ const SignUp = ({ changeLoggedUser }) => {
     return () => {
       window.removeEventListener('keydown', handleKeydown)
     }
-  }, [password])
+  }, [name, email, password, checkPassword])
 
   return (
     <>
@@ -112,7 +121,7 @@ const SignUp = ({ changeLoggedUser }) => {
               ) : error.emailCheck ? (
                 <span className="text-[#EB1D36] text-[14px]">البريد الاكتروني غير صحيح</span>
               ) : (
-                error.userExists && (
+                error.emailExists && (
                   <span className="text-[#EB1D36] text-[14px]">البريد الاكتروني مسجل بالفعل</span>
                 )
               )}
