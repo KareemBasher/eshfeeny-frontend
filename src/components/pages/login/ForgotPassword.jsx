@@ -39,7 +39,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && email.length > 0) {
         handleSubmit()
       }
     }

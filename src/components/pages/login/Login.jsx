@@ -46,7 +46,7 @@ const Login = ({ changeLoggedUser }) => {
 
   useEffect(() => {
     const handleKeydown = (event) => {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && email.length > 0) {
         handleSubmit()
       }
     }

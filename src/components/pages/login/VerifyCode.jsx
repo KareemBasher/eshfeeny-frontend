@@ -21,11 +21,14 @@ const VerifyCode = () => {
     }
 
     getCode()
-    console.log(emailedCode)
   }, [])
 
   const handleCodeValue = (value) => {
     setCode(value)
+  }
+
+  const handleResend = async () => {
+    setEmailedCode(await sendEmail(params.email))
   }
 
   return (
@@ -62,7 +65,10 @@ const VerifyCode = () => {
               <WideButton content="تحقق" disabled={code.length === 4 ? false : true} />
             </div>
             <div>
-              <button className="w-full max-w-[472px] h-[58px] rounded-[10px] my-3 text-[24px] border border-black">
+              <button
+                className="w-full max-w-[472px] h-[58px] rounded-[10px] my-3 text-[24px] border border-black"
+                onClick={() => handleResend}
+              >
                 إعادة إرسال الرمز
               </button>
             </div>
