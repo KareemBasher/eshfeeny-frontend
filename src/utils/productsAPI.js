@@ -121,16 +121,14 @@ export const getFavoriteProducts = async (userId) => {
 }
 
 // Get products that have a certain active ingredient
-export const getAlternatives = async (activeIngredient) => {
+export const getAlternatives = async (id) => {
   try {
-    const result = await fetch(apiURL + `/products/alternatives/${activeIngredient}`, {
+    const result = await fetch(apiURL + `/products/alternatives/${id}`, {
       headers
     })
     if (result.status === 200) return result.json()
   } catch (error) {
-    console.log(
-      `Could not get products that have the active ingredient ${activeIngredient} from API.`
-    )
+    console.log(`Could not get alternatitives to item with id ${id} from API.`)
   }
 }
 

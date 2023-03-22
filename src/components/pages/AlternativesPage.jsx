@@ -21,7 +21,7 @@ const AlternativesPage = ({ loggedInUser }) => {
     const getAlternative = async () => {
       const result = await getProduct(params.id)
       if (result) setProduct(result)
-      setAlternative(await getAlternatives(result.activeIngredient))
+      setAlternative(await getAlternatives(params.id))
     }
 
     const getFavoriteProducts = async () => {
