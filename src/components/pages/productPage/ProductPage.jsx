@@ -106,7 +106,10 @@ const ProductPage = ({ loggedInUser }) => {
         {/*     Favourite and Alternative buttons     */}
         <div className="flex flex-col">
           {/*     Favourites Heart     */}
-          <div className="flex pb-5">
+          <div className="flex mb-5 group relative">
+            <span className="absolute bg-[#e7e7e7] px-[10px] py-[5px] left-[130%] rounded-[10px] opacity-0 group-hover:opacity-100 transition ease-in delay-500 duration-200">
+              المفضلة
+            </span>
             {/*     Remove from Favourites     */}
             {favouriteProductsNames.includes(product.nameAr) && (
               <div
@@ -133,8 +136,11 @@ const ProductPage = ({ loggedInUser }) => {
           {/*     Alternative     */}
           <Link
             to={`/alternatives/${product._id}/`}
-            className="flex justify-center items-center w-[38px] h-[38px] shadow-md rounded-full bg-[#F7F7F7]"
+            className="flex justify-center items-center w-[38px] h-[38px] shadow-md rounded-full bg-[#F7F7F7] group relative"
           >
+            <span className="absolute bg-[#e7e7e7] px-[10px] py-[5px] left-[130%] rounded-[10px] opacity-0 group-hover:opacity-100 transition ease-in delay-500 duration-200">
+              البديل
+            </span>
             <img draggable="false" src={Alternative} alt="AltProduct" />
           </Link>
         </div>
