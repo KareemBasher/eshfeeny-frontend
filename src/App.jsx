@@ -21,6 +21,7 @@ import Prescription from './components/pages/Prescription'
 import SignUp from './components/pages/signUp/SignUp'
 import InsuranceCompanies from './components/pages/insurance/InsuranceCompanies'
 import CompanyPage from './components/pages/insurance/CompanyPage'
+import InsuranceCard from './components/pages/main/InsuranceCard'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -61,7 +62,14 @@ function App() {
         path="/insuranceCompanies"
         element={<InsuranceCompanies loggedInUser={loggedInUser} />}
       />
-      <Route path="/insuranceCompanies/:company" element={<CompanyPage loggedInUser={loggedInUser} />} />
+      <Route
+        path="/insuranceCompanies/:company"
+        element={<CompanyPage loggedInUser={loggedInUser} />}
+      />
+      <Route
+        path="/insuranceCard/:company"
+        element={<InsuranceCard loggedInUser={loggedInUser} />}
+      />
     </Routes>
   )
 }

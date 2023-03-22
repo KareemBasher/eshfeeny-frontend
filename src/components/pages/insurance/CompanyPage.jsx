@@ -18,14 +18,14 @@ const CompanyPage = ({ loggedInUser }) => {
         <div className="flex">
           <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-10">
             <Link>
-            <img className="m-2" src={MonthlyMedicine} alt="" />
-            <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
+              <img className="m-2" src={MonthlyMedicine} alt="" />
+              <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
             </Link>
           </div>
           <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col">
             <Link>
-            <img className="m-2" src={AddPrescriptionImage} alt="" />
-            <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
+              <img className="m-2" src={AddPrescriptionImage} alt="" />
+              <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
             </Link>
           </div>
         </div>
