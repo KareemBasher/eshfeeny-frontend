@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
 
 const InsuranceCompanies = ({ loggedInUser }) => {
   const images = [
-      { url: Image1, params: 'ميت لايف' },
-      { url: Image2, params: 'مصر هيلث كير' }
+    { url: Image1, params: 'ميت لايف' },
+    { url: Image2, params: 'مصر هيلث كير' }
   ]
   return (
     <div>
