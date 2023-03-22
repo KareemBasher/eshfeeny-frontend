@@ -34,7 +34,14 @@ export const getUser = async (id) => {
 // Check if user exists using email
 export const checkUserEmail = async (email) => {
   try {
-    const result = await fetch(apiURL + `/users/checkEmail/${email}`, { headers: headers })
+    const result = await fetch(apiURL + `/users/checkEmail`, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email })
+    })
     if (result.status === 200) return result.json()
   } catch (error) {
     console.log(`Could not check user email.`)
