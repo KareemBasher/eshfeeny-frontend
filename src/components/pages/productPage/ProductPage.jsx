@@ -93,7 +93,7 @@ const ProductPage = ({ loggedInUser }) => {
             ))}
         </section>
         {/*      Big Picture         */}
-        <div className="flex w-1/2 items-end">
+        <div className="flex w-2/5 items-end">
           <div className="w-64 h-fit mb-10 mr-36">
             <img
               draggable="false"
@@ -103,47 +103,52 @@ const ProductPage = ({ loggedInUser }) => {
             />
           </div>
         </div>
+        {/*     Favourite and Alternative buttons     */}
+        <div className="flex flex-col">
+          {/*     Favourites Heart     */}
+          <div className="flex pb-5">
+            {/*     Remove from Favourites     */}
+            {favouriteProductsNames.includes(product.nameAr) && (
+              <div
+                className="flex justify-center items-center w-[38px] h-[38px] shadow-md rounded-full bg-[#F7F7F7]"
+                onClick={() => handleRemove(loggedInUser, params.id)}
+              >
+                <button className="flex">
+                  <img draggable="false" src={HeartFill} alt="HeartIcon" />
+                </button>
+              </div>
+            )}
+            {/*     Add To Favourites     */}
+            {!favouriteProductsNames.includes(product.nameAr) && (
+              <div
+                className="flex justify-center items-center w-[38px] h-[38px] shadow-md rounded-full bg-[#F7F7F7]"
+                onClick={() => handleAdd(loggedInUser, params.id)}
+              >
+                <button className="flex">
+                  <img draggable="false" src={HeartEmpty} alt="HeartIcon" />
+                </button>
+              </div>
+            )}
+          </div>
+          {/*     Alternative     */}
+          <Link
+            to={`/alternatives/${product._id}/`}
+            className="flex justify-center items-center w-[38px] h-[38px] shadow-md rounded-full bg-[#F7F7F7]"
+          >
+            <img draggable="false" src={Alternative} alt="AltProduct" />
+          </Link>
+        </div>
         {/*     Left Section        */}
-        <div className="flex flex-col text-right text-[24px]">
+        <div className="flex flex-col text-right text-[24px] pr-5">
           <p>
             {product.nameAr}
             {product.volume ? ` | ${product.volume}` : ''}
             {product.amount ? ` | ${product.amount}` : ''}
           </p>
-          <p className="text-lightBlue py-3">{product.price} جنيه</p>
-          {/*     Favourites Heart     */}
-          <div className="flex">
-            <div className="flex text-[20px]">
-              {favouriteProductsNames.includes(
-                product.nameAr
-              ) /*     Remove from Favourites     */ && (
-                <div className="flex">
-                  <button className="flex" onClick={() => handleRemove(loggedInUser, params.id)}>
-                    <img draggable="false" src={HeartFill} alt="HeartIcon" />
-                  </button>
-                  <p className="mx-2 pt-1">المفضلة</p>
-                </div>
-              )}
-              {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
-                <div className="flex">
-                  <button className="flex" onClick={() => handleAdd(loggedInUser, params.id)}>
-                    <img draggable="false" src={HeartEmpty} alt="HeartIcon" />
-                  </button>
-                  <p className="mx-2 pt-1">المفضلة</p>
-                </div>
-              )}
-            </div>
-            <Link
-              to={`/alternatives/${product._id}/`}
-              className="flex text-[20px] items-center mb-4"
-            >
-              <img draggable="false" src={Alternative} alt="AltProduct" />
-              <p className="mr-2">البديل</p>
-            </Link>
-          </div>
+          <p className="text-lightBlue py-3 pb-5">{product.price} جنيه</p>
           {showButton && (
             <button
-              className="text-white bg-orange rounded-[10px] w-80 h-14"
+              className="text-white bg-orange rounded-[10px] w-[400px] h-[56px]"
               onClick={handleButton}
             >
               أضف الى العربة
