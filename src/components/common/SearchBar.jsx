@@ -259,8 +259,8 @@ const SearchBar = ({ onGetData, query }) => {
                     className="w-full flex justify-start items-center pr-7 border-b py-2"
                   >
                     <Link to={`/product/${_id}`}>
-                      <div className="flex">
-                        <img draggable="false" src={images} className="w-[70px]" alt="Product" />
+                      <div className="flex h-[80px]">
+                        <img draggable="false" src={images} className="" alt="Product" />
                         <div className="flex flex-col items-start mx-5">
                           <p>
                             {nameAr}
