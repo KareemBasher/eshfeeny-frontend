@@ -59,6 +59,7 @@ const AlternativesPage = ({ loggedInUser }) => {
           </div>
         </div>
       </div>
+
       <div>
         {!alternative.length ? (
           <PageEmpty
@@ -67,17 +68,25 @@ const AlternativesPage = ({ loggedInUser }) => {
             onGetLogo={AlternativeLogo}
           />
         ) : (
-          <ol className="flex flex-wrap justify-start mr-20">
-            {alternative.map((product) => (
-              <li key={product._id}>
-                <ProductContainer
-                  onGetProduct={product}
-                  loggedInUser={loggedInUser}
-                  favorites={favoriteProductsIDs}
-                />
-              </li>
-            ))}
-          </ol>
+          <div>
+            <div className="text-right text-[28px] my-10 mx-20">
+              <p>البديل</p>
+            </div>
+
+            <div>
+              <ol className="flex flex-wrap justify-start mr-20">
+                {alternative.map((product) => (
+                  <li key={product._id}>
+                    <ProductContainer
+                      onGetProduct={product}
+                      loggedInUser={loggedInUser}
+                      favorites={favoriteProductsIDs}
+                    />
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
         )}
       </div>
     </>
