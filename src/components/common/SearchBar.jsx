@@ -233,7 +233,7 @@ const SearchBar = ({ onGetData, query }) => {
           />
           <input
             value={query}
-            className="bg-[#F7F7F7] outline-none w-full ml-5 searchBar"
+            className="bg-[#F7F7F7] outline-none w-full min-w-fit ml-5 searchBar rounded-l-full"
             type="text"
             placeholder="ما الذي تبحث عنه؟"
             onChange={onGetData}
