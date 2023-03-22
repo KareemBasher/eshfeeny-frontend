@@ -5,7 +5,7 @@ import UserNavigation from '../common/UserNavigation'
 import PageEmpty from '../common/PageEmpty'
 import ProductContainer from '../common/ProductContainer'
 /*       API       */
-import { getAlternatives } from '../../utils/productsAPI'
+import { getAlternatives, getProduct } from '../../utils/productsAPI'
 import { getUser } from '../../utils/usersAPI'
 /*       Icons       */
 import Arrow from '../../assets/common/Arrow.svg'
@@ -13,12 +13,15 @@ import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
 
 const AlternativesPage = ({ loggedInUser }) => {
   const params = useParams()
+  const [product, setProduct] = useState({})
   const [alternative, setAlternative] = useState([])
   const [favoriteProductsIDs, setFavouriteProductsIDs] = useState([])
 
   useEffect(() => {
     const getAlternative = async () => {
-      setAlternative(await getAlternatives(params.activeIngredient))
+      const result = await getProduct(params.id)
+      if (result) setProduct(result)
+      setAlternative(await getAlternatives(params.id))
     }
 
     const getFavoriteProducts = async () => {
@@ -40,16 +43,16 @@ const AlternativesPage = ({ loggedInUser }) => {
               الرئيسية
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
-            <Link to={`/products/type/${params.type}`} className="hover:underline">
-              {params.type}
+            <Link to={`/products/type/${product.type}`} className="hover:underline">
+              {product.type}
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
-            <Link to={`/products/category/${params.category}`} className="hover:underline">
-              {params.category}
+            <Link to={`/products/category/${product.category}`} className="hover:underline">
+              {product.category}
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
-            <Link to={`/products/name/${params.name}`} className="hover:underline">
-              {params.name}
+            <Link to={`/products/name/${product.name}`} className="hover:underline">
+              {product.nameAr}
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
             <p className="text-[#1F1F1F]">البديل</p>

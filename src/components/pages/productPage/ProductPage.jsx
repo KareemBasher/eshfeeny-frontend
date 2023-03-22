@@ -146,6 +146,36 @@ const ProductPage = ({ loggedInUser }) => {
             {product.amount ? ` | ${product.amount}` : ''}
           </p>
           <p className="text-lightBlue py-3 pb-5">{product.price} جنيه</p>
+          {/*     Favourites Heart     */}
+          <div className="flex">
+            <div className="flex text-[20px]">
+              {favouriteProductsNames.includes(
+                product.nameAr
+              ) /*     Remove from Favourites     */ && (
+                <div className="flex">
+                  <button className="flex" onClick={() => handleRemove(loggedInUser, params.id)}>
+                    <img draggable="false" src={HeartFill} alt="HeartIcon" />
+                  </button>
+                  <p className="mx-2 pt-1">المفضلة</p>
+                </div>
+              )}
+              {!favouriteProductsNames.includes(product.nameAr) /*     Add To Favourites     */ && (
+                <div className="flex">
+                  <button className="flex" onClick={() => handleAdd(loggedInUser, params.id)}>
+                    <img draggable="false" src={HeartEmpty} alt="HeartIcon" />
+                  </button>
+                  <p className="mx-2 pt-1">المفضلة</p>
+                </div>
+              )}
+            </div>
+            <Link
+              to={`/alternatives/${product._id}/`}
+              className="flex text-[20px] items-center mb-4"
+            >
+              <img draggable="false" src={Alternative} alt="AltProduct" />
+              <p className="mr-2">البديل</p>
+            </Link>
+          </div>
           {showButton && (
             <button
               className="text-white bg-orange rounded-[10px] w-[400px] h-[56px]"
