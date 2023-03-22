@@ -50,7 +50,7 @@ function App() {
       />
       <Route
         exact
-        path="/proudcts/alternatives/:type/:category/:name/:activeIngredient"
+        path="/alternatives/:id"
         element={<AlternativesPage loggedInUser={loggedInUser} />}
       />
       <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
