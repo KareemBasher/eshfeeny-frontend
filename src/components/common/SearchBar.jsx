@@ -251,7 +251,10 @@ const SearchBar = ({ onGetData, query }) => {
 
         {data.length > 0 && resultsOpen && (
           <>
-            <div className="max-h-52 overflow-x-auto border absolute bg-white w-full top-[85%] flex justify-start rounded-[10px]">
+            <div
+              id="scrollbar"
+              className="max-h-52 overflow-x-auto border absolute bg-white w-full top-[85%] flex justify-start rounded-[10px]"
+            >
               <ol className="w-full">
                 {data.map(({ _id, nameAr, price, volume, amount, images }) => (
                   <li

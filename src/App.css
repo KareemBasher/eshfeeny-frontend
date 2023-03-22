@@ -16,3 +16,14 @@ section::-webkit-scrollbar {
 .container::-webkit-scrollbar {
   display: none;
 }
+
+#scrollbar::-webkit-scrollbar {
+  width: 3px;
+  padding: 3px;
+}
+
+#scrollbar::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+  border-radius: 5px;
+  
+}
