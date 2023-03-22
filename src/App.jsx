@@ -19,7 +19,6 @@ import SearchResults from './components/pages/SearchResults'
 import Main from './components/pages/main/Main'
 import Prescription from './components/pages/Prescription'
 import SignUp from './components/pages/signUp/SignUp'
-import VerificationCode from './components/pages/login/VerificationCode'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -43,7 +42,7 @@ function App() {
       <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
       <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
       <Route path="/forgotPassword/" element={<ForgotPassword />} />
-      <Route exact path="/forgotPassword/verify/:email" element={<VerifyCode />} />
+      <Route path="/forgotPassword/verify/:email" element={<VerifyCode />} />
       <Route
         path="/searchResults/:searchResults"
         element={<SearchResults loggedInUser={loggedInUser} />}
@@ -56,7 +55,6 @@ function App() {
       <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
       <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
       <Route path="/signup" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
-      <Route path="/verificationCode" element={<VerificationCode />} />
     </Routes>
   )
 }

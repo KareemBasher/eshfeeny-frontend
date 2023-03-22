@@ -1,5 +1,5 @@
 /*         Hooks         */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 /*         Components         */
@@ -25,14 +25,31 @@ const ForgotPassword = () => {
   }
 
   const handleSubmit = async () => {
-    const result = await checkUserEmail(email)
-    if (result) {
-      setError(false)
-      navigate(`/forgotPassword/verify/${email}`)
-    } else {
-      setError(true)
+    if (email === '') setError(true)
+    else {
+      const result = await checkUserEmail(email)
+      if (result) {
+        setError(false)
+        navigate(`/forgotPassword/verify/${email}`)
+      } else {
+        setError(true)
+      }
     }
   }
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        handleSubmit()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [email])
 
   return (
     <div>
