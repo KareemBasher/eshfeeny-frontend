@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import WelcomeLogo from '../../common/WelcomeLogo'
 import CredentialsInput from '../../common/CredentialsInput'
+import SingupVector from '../../../assets/common/SingupVector.svg'
 const NewPassword = () => {
   const [newPassword, setNewPassword] = useState('')
   const [checkPassword, setCheckPassword] = useState('')
