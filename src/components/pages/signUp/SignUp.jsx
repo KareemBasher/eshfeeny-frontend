@@ -3,7 +3,7 @@ import CredentialsInput from '../../common/CredentialsInput'
 import WelcomeLogo from '../../common/WelcomeLogo'
 import WideButton from '../../common/WideButton'
 import AlternateSignin from '../../common/AlternateSignin'
-import SingupVector from '../../../assets/common/SingupVector.svg'
+import SignupVector from '../../../assets/common/SignupVector.svg'
 import { createUser } from '../../../utils/usersAPI'
 
 const SignUp = ({ changeLoggedUser }) => {
@@ -170,7 +170,7 @@ const SignUp = ({ changeLoggedUser }) => {
         </div>
 
         <div>
-          <img draggable="false" src={SingupVector} alt="login vector" />
+          <img draggable="false" src={SignupVector} alt="login vector" />
         </div>
       </div>
     </>

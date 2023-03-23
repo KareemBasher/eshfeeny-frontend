@@ -22,6 +22,7 @@ import SignUp from './components/pages/signUp/SignUp'
 import InsuranceCompanies from './components/pages/insurance/InsuranceCompanies'
 import CompanyPage from './components/pages/insurance/CompanyPage'
 import InsuranceCardPage from './components/pages/insurance/InsuranceCardPage'
+import NewPassword from './components/pages/login/NewPassword'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -70,6 +71,7 @@ function App() {
         path="/insuranceCards/:company"
         element={<InsuranceCardPage loggedInUser={loggedInUser} />}
       />
+      <Route path="/newPassword" element={<NewPassword />} />
     </Routes>
   )
 }
