@@ -1,8 +1,9 @@
 import React from 'react'
 import NavListItems from '../NavListItems'
+
 const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
   return (
-    <div className="mx-8 relative">
+    <div className="xl:-mx-10 2xl:mx-8 relative">
       <div className="flex mx-36 justify-evenly text-[20px]">
         <NavListItems
           handleShowOverlay={handleShowOverlay}
