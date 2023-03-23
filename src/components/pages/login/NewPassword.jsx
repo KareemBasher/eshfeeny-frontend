@@ -12,6 +12,22 @@ const NewPassword = () => {
     if (name === 'newPassword') setNewPassword(value)
     else if (name === 'checkPassword') setCheckPassword(value)
   }
+  const inputValidation = () => {
+    const errorObj = {}
+    if (newPassword.length < 8) errorObj.passwordLength = true
+    else errorObj.passwordLength = false
+
+    if (newPassword !== checkPassword || checkPassword < 8) errorObj.passwordCheck = true
+    else errorObj.passwordCheck = false
+
+    setError(errorObj)
+
+    if (errorObj.passwordCheck || errorObj.passwordLength) return false
+    else return true
+  }
+  const handleSubmit = () => {
+    inputValidation()
+  }
   return (
     <div>
       <div>
@@ -31,6 +47,15 @@ const NewPassword = () => {
               value={newPassword}
               handleInput={handleInput}
             />
+            <div>
+              {error.passwordLength && (
+                <div className="">
+                  <span className="text-[#EB1D36] text-[14px]">
+                    من فضلك كلمة المرور يجيب الا تقل عن 8 احرف او ارقام
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="mb-20">
@@ -41,6 +66,13 @@ const NewPassword = () => {
               value={checkPassword}
               handleInput={handleInput}
             />
+            <div>
+              {error.passwordCheck && (
+                <div className="">
+                  <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل نفس كلمه المرور</span>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="flex justify-start mb-4">
