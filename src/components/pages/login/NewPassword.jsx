@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+/*         Page imports         */
 import WelcomeLogo from '../../common/WelcomeLogo'
 import CredentialsInput from '../../common/CredentialsInput'
-import SignupVector from '../../../assets/common/SignupVector.svg'
+/*         Assets         */
 import WideButton from '../../common/WideButton'
+import SignupVector from '../../../assets/common/SignupVector.svg'
 
 const NewPassword = () => {
   const [newPassword, setNewPassword] = useState('')
@@ -90,7 +92,7 @@ const NewPassword = () => {
           </div>
         </div>
         <div>
-          <img src={SignupVector} alt="" />
+          <img draggable="false" src={SignupVector} alt="" />
         </div>
       </div>
     </div>
