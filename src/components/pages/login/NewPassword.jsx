@@ -3,6 +3,7 @@ import WelcomeLogo from '../../common/WelcomeLogo'
 import CredentialsInput from '../../common/CredentialsInput'
 import SignupVector from '../../../assets/common/SignupVector.svg'
 import WideButton from '../../common/WideButton'
+
 const NewPassword = () => {
   const [newPassword, setNewPassword] = useState('')
   const [checkPassword, setCheckPassword] = useState('')
@@ -12,6 +13,7 @@ const NewPassword = () => {
     if (name === 'newPassword') setNewPassword(value)
     else if (name === 'checkPassword') setCheckPassword(value)
   }
+
   const inputValidation = () => {
     const errorObj = {}
     if (newPassword.length < 8) errorObj.passwordLength = true
@@ -25,9 +27,11 @@ const NewPassword = () => {
     if (errorObj.passwordCheck || errorObj.passwordLength) return false
     else return true
   }
+
   const handleSubmit = () => {
     inputValidation()
   }
+
   return (
     <div>
       <div>
@@ -47,10 +51,10 @@ const NewPassword = () => {
               value={newPassword}
               handleInput={handleInput}
             />
-            <div>
+            <div className="text-right">
               {error.passwordLength && (
                 <div className="">
-                  <span className="text-[#EB1D36] text-[14px]">
+                  <span className="text-[#EB1D36] text-[14px] text-right">
                     من فضلك كلمة المرور يجيب الا تقل عن 8 احرف او ارقام
                   </span>
                 </div>
@@ -66,10 +70,12 @@ const NewPassword = () => {
               value={checkPassword}
               handleInput={handleInput}
             />
-            <div>
+            <div className="text-right">
               {error.passwordCheck && (
                 <div className="">
-                  <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل نفس كلمه المرور</span>
+                  <span className="text-[#EB1D36] text-[14px] text-right">
+                    من فضلك ادخل نفس كلمه المرور
+                  </span>
                 </div>
               )}
             </div>
