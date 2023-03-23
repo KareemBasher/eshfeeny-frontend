@@ -11,7 +11,7 @@ const Main = ({ loggedInUser }) => {
     <div>
       <UserNavigation loggedInUser={loggedInUser} />
 
-      <div className="2xl:mx-36">
+      <div className="2xl:mx-28">
         <ImageSlider />
         <AddContainer />
 
