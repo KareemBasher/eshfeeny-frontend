@@ -13,7 +13,7 @@ const InsuranceCard = () => {
         </div>
 
         <div className="text-[20px] w-[205px] rounded-[30px] bg-[#0583F2] text-white py-2 mt-12 shadow-md text-center">
-          <Link to="/prescription">أختر شركة التأمين</Link>
+          <Link to="/insuranceCompanies">أختر شركة التأمين</Link>
         </div>
       </div>
 
