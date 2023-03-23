@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import WelcomeLogo from '../../common/WelcomeLogo'
 import CredentialsInput from '../../common/CredentialsInput'
 import SignupVector from '../../../assets/common/SignupVector.svg'
+import WideButton from '../../common/WideButton'
 const NewPassword = () => {
   const [newPassword, setNewPassword] = useState('')
   const [checkPassword, setCheckPassword] = useState('')
@@ -17,30 +18,37 @@ const NewPassword = () => {
         <WelcomeLogo />
       </div>
 
-      <div>
-        <div>
-          <div>
+      <div className="flex justify-around">
+        <div className="felx flex-col  mt-10 w-[472px]">
+          <div className="text-right text-[26px] mb-10">
+            <p>إنشاء كلمة مرور جديدة</p>
+          </div>
+          <div className="mb-5">
             <CredentialsInput
               name={'newPassword'}
-              placeHolder={'البريد الاكتروني'}
+              placeHolder={'أدخل كلمة المرور الجديدة'}
               type={'password'}
               value={newPassword}
               handleInput={handleInput}
             />
           </div>
 
-          <div>
+          <div className="mb-20">
             <CredentialsInput
               name={'checkPassword'}
-              placeHolder={'البريد الاكتروني'}
+              placeHolder={'تاكيد كلمة المرور'}
               type={'password'}
               value={checkPassword}
               handleInput={handleInput}
             />
           </div>
 
-          <div>
-            <button>تأكيد</button>
+          <div className="flex justify-start mb-4">
+            <WideButton
+              disabled={checkPassword.length > 0 ? false : true}
+              content={'تأكيد'}
+              handleOnClick={handleSubmit}
+            />
           </div>
         </div>
         <div>
