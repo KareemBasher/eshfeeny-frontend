@@ -92,7 +92,7 @@ const NewPassword = () => {
           </div>
         </div>
         <div>
-          <img draggable="false" src={SignupVector} alt="" />
+          <img src={SignupVector} alt="" draggable="false" />
         </div>
       </div>
     </div>
