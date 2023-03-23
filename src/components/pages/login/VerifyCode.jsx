@@ -5,7 +5,7 @@ import AuthCode from 'react-auth-code-input'
 /*         Assets         */
 import WelcomeLogo from '../../common/WelcomeLogo'
 import WideButton from '../../common/WideButton'
-import SingupVector from '../../../assets/common/SingupVector.svg'
+import SignupVector from '../../../assets/common/SignupVector.svg'
 
 /*         API         */
 import { sendEmail } from '../../../utils/dashboard'
@@ -77,7 +77,7 @@ const VerifyCode = () => {
 
         {/* img  */}
         <div>
-          <img src={SingupVector} alt="" />
+          <img src={SignupVector} alt="" />
         </div>
       </div>
     </div>
