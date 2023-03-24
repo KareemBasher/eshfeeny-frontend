@@ -37,7 +37,7 @@ const ProfileContent = ({ user, toggleModal }) => {
   }
 
   const handleSubmit = async () => {
-    if (name.length !== 0 && email.length !== 0 && phoneNumber.length !== 0) {
+    if (name.length !== 0 && email.length !== 0) {
       await updateUser(user._id, name, email, phoneNumber, gender)
     }
   }

@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 import UserNavigation from '../../common/UserNavigation'
 /*         image imports         */
 import InsuranceCardImg from '../../../assets/insuranceCompanies/InsuranceCardImg.svg'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const InsuranceCardPage = ({ loggedInUser }) => {
   const [card, setCard] = useState('')
-  const {company} = useParams()
+  const { company } = useParams()
   return (
     <div>
       <div>
@@ -34,7 +34,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
             </div>
 
             <div className="text-[24px] border border-lightBlue rounded-[10px] py-2 px-10 text-lightBlue">
-              <button>أضف كارت</button>
+              <Link to="/addCard">أضف كارت</Link>
             </div>
           </div>
         </div>

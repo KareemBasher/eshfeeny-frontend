@@ -8,7 +8,7 @@ import AddPrescriptionImage from '../../../assets/insuranceCompanies/AddPrescrip
 import MonthlyMedicine from '../../../assets/insuranceCompanies/MonthlyMedicine.png'
 
 const CompanyPage = ({ loggedInUser }) => {
-  const { company } = useParams()
+  const { company,url } = useParams()
   const [card, setCard] = useState('')
   return (
     <div>
