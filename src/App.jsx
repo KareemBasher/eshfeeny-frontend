@@ -72,12 +72,8 @@ function App() {
         path="/insuranceCards/:company"
         element={<InsuranceCardPage loggedInUser={loggedInUser} />}
       />
-<<<<<<< HEAD
-      <Route path="/newPassword" element={<NewPassword />} />
-      <Route path="/addCard" element={<AddCard />} />
-=======
       <Route path="/newPassword/:code" element={<NewPassword />} />
->>>>>>> 65728484322f21fc72b7d472def499aa05ca9c01
+      <Route path="/addCard" element={<AddCard />} />
     </Routes>
   )
 }
