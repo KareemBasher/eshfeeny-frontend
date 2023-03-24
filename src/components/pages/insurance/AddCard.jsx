@@ -23,8 +23,9 @@ const AddCard = () => {
     if (errorObj.cardNumberLength || errorObj.userNameLength) return false
     else return true
   }
-
-
+  const handleSubmit = () => {
+    inputValidation()
+  }
   return (
     <div>
       <div>
@@ -34,23 +35,38 @@ const AddCard = () => {
       <div>
         <div>{/* title */}</div>
         <div>
-          <p>رقم الكارت</p>
-          <CredentialsInput
-            name={'cardNumber'}
-            placeHolder={'أدخل رقم الكارت'}
-            type={'text'}
-            value={cardNumber}
-            handleInput={handleInput}
-          />
+          <div>
+            <p>رقم الكارت</p>
+            <CredentialsInput
+              name={'cardNumber'}
+              placeHolder={'أدخل رقم الكارت'}
+              type={'text'}
+              value={cardNumber}
+              handleInput={handleInput}
+            />
+            {error.cardNumberLength && (
+              <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل رقم الكارت</span>
+            )}
+          </div>
+          <div>
+            <p>أسم حامل الكارت</p>
+            <CredentialsInput
+              name={'userName'}
+              placeHolder={'أدخل الأسم'}
+              type={'text'}
+              value={userName}
+              handleInput={handleInput}
+            />
+            {error.userNameLength && (
+              <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل اسم</span>
+            )}
+          </div>
         </div>
         <div>
-          <p>أسم حامل الكارت</p>
-          <CredentialsInput
-            name={'userName'}
-            placeHolder={'أدخل الأسم'}
-            type={'text'}
-            value={userName}
-            handleInput={handleInput}
+          <WideButton
+            // disabled={checkPassword.length > 0 ? false : true}
+            content={'تأكيد'}
+            handleOnClick={handleSubmit}
           />
         </div>
       </div>
