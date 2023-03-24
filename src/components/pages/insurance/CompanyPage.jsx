@@ -35,14 +35,14 @@ const CompanyPage = ({ loggedInUser }) => {
         </div>
 
         <div className="flex">
-          <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-10">
+          <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-5 hover:shadow-xl transition-all duration-300 shadow-sm">
             <Link>
               <img draggable="false" className="m-2" src={MonthlyMedicine} alt="" />
               <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
             </Link>
           </div>
 
-          <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col">
+          <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col hover:shadow-xl transition-all duration-300 shadow-sm">
             <Link>
               <img draggable="false" className="m-2" src={AddPrescriptionImage} alt="" />
               <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
