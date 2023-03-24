@@ -63,10 +63,7 @@ function App() {
         path="/insuranceCompanies"
         element={<InsuranceCompanies loggedInUser={loggedInUser} />}
       />
-      <Route
-        path="/insuranceCompanies/:company"
-        element={<CompanyPage loggedInUser={loggedInUser} />}
-      />
+      <Route path="/insuranceCompanies/:id" element={<CompanyPage loggedInUser={loggedInUser} />} />
       <Route
         path="/insuranceCards/:company"
         element={<InsuranceCardPage loggedInUser={loggedInUser} />}
