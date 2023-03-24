@@ -26,6 +26,7 @@
     padding: 0%;
     background-color: white;
 }
+
 .react-tel-input .form-control 
 {
     height: 3.5rem;
@@ -38,6 +39,11 @@
     font-size: 16px;
     
 }
+
+.react-tel-input .form-control:focus {
+    border: 1px solid #0597F2;
+}
+
 .react-tel-input
 {
 z-index: 0;

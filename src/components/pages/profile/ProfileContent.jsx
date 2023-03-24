@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import PhoneInputContent from './PhoneInputContent'
 import './Option.css'
 import { updateUser } from '../../../utils/usersAPI'
-import ArrowUp from '../../../assets/common/ArrowUp.svg'
 import ArrowDown from '../../../assets/common/ArrowDown.svg'
 
 const ProfileContent = ({ user, toggleModal }) => {
@@ -57,7 +56,7 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div className=" ">
               <label className=" text-2xl flex my-5 justify-start">الأسم</label>
               <input
-                className="w-96 h-14 shadow-sm border border-[#949495] rounded-[10px] px-4 outline-none"
+                className="w-96 h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
                 type="text"
                 value={name}
                 onChange={(e) => handleNameChange(e)}
@@ -68,7 +67,7 @@ const ProfileContent = ({ user, toggleModal }) => {
               <label className="text-2xl flex justify-start my-5">البريد الالكترونى</label>
               <input
                 dir="ltr"
-                className="w-96 h-14 shadow-sm border border-[#949495] rounded-[10px] px-4 outline-none"
+                className="w-96 h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
                 type="text"
                 value={email}
                 onChange={(e) => handleEmailChange(e)}
@@ -86,34 +85,36 @@ const ProfileContent = ({ user, toggleModal }) => {
               <label className="text-2xl flex flex-start my-5">الجنس</label>
               <div className="relative">
                 <div className="absolute left-0 py-4 mx-5 pointer-events-none">
-                  {!boxOpen ? (
-                    <img draggable="false" className="w-[20px]" src={ArrowDown} alt="arrowDown" />
-                  ) : (
-                    <img draggable="false" className="w-[20px]" src={ArrowUp} alt="arrowUp" />
-                  )}
+                  <img
+                    draggable="false"
+                    className={`w-[20px] transition-all ${boxOpen && 'rotate-180'}`}
+                    src={ArrowDown}
+                    alt="arrowDown"
+                  />
                 </div>
                 <div
                   className={`w-96 h-14 relative flex items-center shadow-sm border border-[#949495] px-4 rounded-[10px] ${
-                    boxOpen && 'border-[#0583f2]'
+                    boxOpen && 'border-[#0597F2]'
                   }`}
                   onClick={() => handleSelectBox()}
                 >
                   {gender ? gender : 'اختر'}
 
                   <div
-                    className={`overflow-clip bg-white w-96 absolute left-0 top-full flex flex-col items-start border border-[#949495] rounded-[10px] ${
+                    className={`overflow-clip w-96 absolute -left-px top-[91%] flex flex-col items-start border border-t-0 border-[#949495] rounded-[10px] rounded-t-none ${
                       !boxOpen && 'hidden'
                     }`}
                   >
+                    <div className="w-full py-4" />
                     <div
-                      className="w-full text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-t-[10px]"
+                      className="w-full bg-white text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-t-[10px]"
                       onClick={() => setGender('ذكر')}
                     >
                       ذكر
                     </div>
                     <div
                       name="انثي"
-                      className="w-full text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-b-[10px]"
+                      className="w-full bg-white text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-b-[10px]"
                       onClick={() => setGender('انثى')}
                     >
                       انثى
