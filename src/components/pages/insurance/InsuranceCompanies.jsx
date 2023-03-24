@@ -40,8 +40,8 @@ const InsuranceCompanies = ({ loggedInUser }) => {
         </div>
 
         <div className="flex ">
-          {companies.map(({ _id, name, logo }) => (
-            <Link key={_id} to={`/insuranceCompanies/${name}/`}>
+          {companies.map(({ _id, logo }) => (
+            <Link key={_id} to={`/insuranceCompanies/${_id}/`}>
               <div className="w-[233px] h-[310px] hover:shadow-xl transition-all duration-300 shadow-sm border rounded-[10px] flex justify-center items-center ml-5">
                 <img draggable="false" className="w-3/4" src={logo} alt="inInsuranceCompanies" />
               </div>
