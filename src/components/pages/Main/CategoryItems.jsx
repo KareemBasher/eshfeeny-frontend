@@ -16,7 +16,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
 
   const handleLeft = () => {
     let scrollAmount = 0
-    const slideTimer = setInterval(function () {
+    const slideTimer = setInterval(() => {
       container.scrollLeft -= 25
       scrollAmount += 10
       if (scrollAmount >= 100) {
@@ -27,7 +27,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
 
   const handleRight = () => {
     let scrollAmount = 0
-    const slideTimer = setInterval(function () {
+    const slideTimer = setInterval(() => {
       container.scrollLeft += 25
       scrollAmount += 10
       if (scrollAmount >= 100) {
@@ -62,19 +62,20 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
       </div>
       <div className="flex relative">
         {/*    Right Arrow    */}
-        <div
+        <button
           className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
           onClick={handleRight}
+          disabled={true}
         >
           <img src={RightArrow} />
-        </div>
+        </button>
         {/*    Left Arrow    */}
-        <div
+        <button
           className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
           onClick={handleLeft}
         >
           <img src={LeftArrow} />
-        </div>
+        </button>
         {/*      Products     */}
         <div className={`flex w-full pb-7 overflow-x-auto ${onGetTitle} container`}>
           <ol className="flex justify-between">
