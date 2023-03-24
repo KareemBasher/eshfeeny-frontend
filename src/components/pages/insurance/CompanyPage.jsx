@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 /*         Hooks        */
 import { Link, useParams } from 'react-router-dom'
 /*         component imports         */
@@ -9,6 +9,7 @@ import MonthlyMedicine from '../../../assets/insuranceCompanies/MonthlyMedicine.
 
 const CompanyPage = ({ loggedInUser }) => {
   const { company } = useParams()
+  const [card, setCard] = useState('')
   return (
     <div>
       <div>
