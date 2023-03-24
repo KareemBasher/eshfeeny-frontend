@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import UserNavigation from '../../common/UserNavigation'
 import CredentialsInput from '../../common/CredentialsInput'
+import WideButton from '../../common/WideButton'
 
 const AddCard = () => {
   const [cardNumber, setCardNumber] = useState('')
@@ -23,7 +24,7 @@ const AddCard = () => {
     else return true
   }
 
-  
+
   return (
     <div>
       <div>
