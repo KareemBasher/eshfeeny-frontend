@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 import UserNavigation from '../../common/UserNavigation'
 /*         image imports         */
 import InsuranceCardImg from '../../../assets/insuranceCompanies/InsuranceCardImg.svg'
+import { useParams } from 'react-router-dom'
 
 const InsuranceCardPage = ({ loggedInUser }) => {
   const [card, setCard] = useState('')
-
+  const {company} = useParams()
   return (
     <div>
       <div>
@@ -16,7 +17,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
       {!card.length ? (
         <div className=" mt-16 mr-24">
           <div className="text-right text-[26px]">
-            <p>إيجي كير</p>
+            <p>{company}</p>
           </div>
 
           <div className="flex flex-col items-center mt-20">
