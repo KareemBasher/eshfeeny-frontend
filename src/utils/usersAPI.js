@@ -185,3 +185,30 @@ export const updatePassword = async (id, password) => {
     console.log('Could not update password.')
   }
 }
+
+// Add an insurance card to a user
+export const addInsuranceCard = async (id, card) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}/insuranceCards`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ insuranceCard: card })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not add insurance card.')
+  }
+}
+
+// Get all insurance cards for a user
+export const getInsuranceCards = async (id) => {
+  try {
+    const result = await fetch(apiURL + `/users/${id}/insuranceCards`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not get insurance cards.')
+  }
+}
