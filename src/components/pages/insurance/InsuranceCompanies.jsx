@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 /*         component imports         */
 import UserNavigation from '../../common/UserNavigation'
-/*         images imports         */
-import Image1 from '../../../assets/insuranceCompanies/Image1.png'
-import Image2 from '../../../assets/insuranceCompanies/Image2.png'
 import Arrow from '../../../assets/common/Arrow.svg'
 /*         Hooks        */
 import { Link } from 'react-router-dom'
+/*         API         */
+import { getInsuranceCompanies } from '../../../utils/insuranceCompaniesAPI'
 
 const InsuranceCompanies = ({ loggedInUser }) => {
-  const images = [
-    { url: Image1, params: 'ميت لايف' },
-    { url: Image2, params: 'مصر هيلث كير' }
-  ]
+  const [companies, setCompanies] = useState([])
+
+  useEffect(() => {
+    const getCompanies = async () => {
+      const result = await getInsuranceCompanies()
+      setCompanies(result)
+    }
+
+    getCompanies()
+  }, [])
 
   return (
     <div>
@@ -35,20 +40,12 @@ const InsuranceCompanies = ({ loggedInUser }) => {
         </div>
 
         <div className="flex ">
-          {images.map(({ url, index, params }) => (
-            <div
-              className="w-[233px] h-[310px] border rounded-[10px] flex justify-center items-center ml-5"
-              key={index}
-            >
-              <Link to={`/insuranceCompanies/${params}`}>
-                <img
-                  draggable="false"
-                  className="items-center"
-                  src={url}
-                  alt="inInsuranceCompanies"
-                />
-              </Link>
-            </div>
+          {companies.map(({ _id, logo }) => (
+            <Link key={_id} to={`/insuranceCompanies/${_id}/`}>
+              <div className="w-[233px] h-[310px] hover:shadow-xl transition-all duration-300 shadow-sm border rounded-[10px] flex justify-center items-center ml-5">
+                <img draggable="false" className="w-3/4" src={logo} alt="inInsuranceCompanies" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>

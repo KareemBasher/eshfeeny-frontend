@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import UserNavigation from '../../common/UserNavigation'
 import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
+import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
 
 const AddCard = () => {
   const [cardNumber, setCardNumber] = useState('')
@@ -32,42 +33,47 @@ const AddCard = () => {
         <UserNavigation />
       </div>
 
-      <div>
-        <div>{/* title */}</div>
+      <div className="flex justify-around mt-20">
         <div>
           <div>
-            <p>رقم الكارت</p>
-            <CredentialsInput
-              name={'cardNumber'}
-              placeHolder={'أدخل رقم الكارت'}
-              type={'text'}
-              value={cardNumber}
-              handleInput={handleInput}
-            />
-            {error.cardNumberLength && (
-              <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل رقم الكارت</span>
-            )}
+            <div>{/* title */}</div>
+            <div>
+              <p>رقم الكارت</p>
+              <CredentialsInput
+                name={'cardNumber'}
+                placeHolder={'أدخل رقم الكارت'}
+                type={'text'}
+                value={cardNumber}
+                handleInput={handleInput}
+              />
+              {error.cardNumberLength && (
+                <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل رقم الكارت</span>
+              )}
+            </div>
+            <div>
+              <p>أسم حامل الكارت</p>
+              <CredentialsInput
+                name={'userName'}
+                placeHolder={'أدخل الأسم'}
+                type={'text'}
+                value={userName}
+                handleInput={handleInput}
+              />
+              {error.userNameLength && (
+                <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل اسم</span>
+              )}
+            </div>
           </div>
           <div>
-            <p>أسم حامل الكارت</p>
-            <CredentialsInput
-              name={'userName'}
-              placeHolder={'أدخل الأسم'}
-              type={'text'}
-              value={userName}
-              handleInput={handleInput}
+            <WideButton
+              // disabled={checkPassword.length > 0 ? false : true}
+              content={'تأكيد'}
+              handleOnClick={handleSubmit}
             />
-            {error.userNameLength && (
-              <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل اسم</span>
-            )}
           </div>
         </div>
         <div>
-          <WideButton
-            // disabled={checkPassword.length > 0 ? false : true}
-            content={'تأكيد'}
-            handleOnClick={handleSubmit}
-          />
+          <img src={InsuranceAddCard} alt="" />
         </div>
       </div>
     </div>
