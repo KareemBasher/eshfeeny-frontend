@@ -24,15 +24,13 @@
 .react-tel-input .selected-flag
 {
     padding: 0%;
-
-  
+    background-color: white;
 }
 .react-tel-input .form-control 
 {
-    background: #F7F7F7;
     height: 3.5rem;
     width: 24rem;
-    border: none;
+    border: 1px solid #949495;
     --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
         --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -54,19 +52,4 @@ z-index: 0;
 .react-tel-input .flag-dropdown.open .selected-flag
 {
     border: none;
-    background-color: #F7F7F7;
-}
-.react-tel-input .selected-flag:hover,
-.react-tel-input .selected-flag:focus {
-    background-color: #F7F7F7;
-}
-
-.react-tel-input .selected-flag:hover
-{
-background-color: #F7F7F7;
-}
-
-.react-tel-input .selected-flag
-{
-    background-color: #F7F7F7;
 }

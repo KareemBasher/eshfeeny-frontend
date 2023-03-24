@@ -60,7 +60,7 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div className=" ">
               <label className=" text-2xl flex my-5 justify-start">الأسم</label>
               <input
-                className="w-96 h-14 shadow-sm rounded-[10px] px-4 outline-none bg-[#F7F7F7]"
+                className="w-96 h-14 shadow-sm border border-[#949495] rounded-[10px] px-4 outline-none"
                 type="text"
                 value={name}
                 onChange={(e) => handleNameChange(e)}
@@ -70,7 +70,8 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div>
               <label className="text-2xl flex justify-start my-5">البريد الالكترونى</label>
               <input
-                className="w-96 h-14 shadow-sm outline-none px-4 rounded-[10px] bg-[#F7F7F7]"
+                dir="ltr"
+                className="w-96 h-14 shadow-sm border border-[#949495] rounded-[10px] px-4 outline-none"
                 type="text"
                 value={email}
                 onChange={(e) => handleEmailChange(e)}
@@ -87,7 +88,7 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div className="flex flex-col justify-start my-10">
               <label className="text-2xl flex flex-start my-5">الجنس</label>
               <div className="relative">
-                <div className="absolute left-0 my-5 mx-5 pointer-events-none">
+                <div className="absolute left-0 py-4 mx-5 pointer-events-none">
                   {!arrow ? (
                     <img draggable="false" className="w-[20px]" src={ArrowDown} alt="arrowDown" />
                   ) : (
@@ -96,7 +97,7 @@ const ProfileContent = ({ user, toggleModal }) => {
                 </div>
                 <select
                   onClick={handelArrow}
-                  className="w-96 h-14 shadow-sm outline-none px-4 rounded-[10px] bg-[#F7F7F7]"
+                  className="w-96 h-14 shadow-sm outline-none border border-[#949495] px-4 rounded-[10px]"
                   id="sex"
                   onChange={(e) => handleGenderChange(e)}
                   // defaultValue={"select"}
