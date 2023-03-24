@@ -8,9 +8,9 @@ import ArrowDown from '../../../assets/common/ArrowDown.svg'
 const ProfileContent = ({ user, toggleModal }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [arrow, setArrow] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState('')
   const [gender, setGender] = useState('')
+  const [boxOpen, setBoxOpen] = useState(false)
 
   useEffect(() => {
     if (user.name && user.email) {
@@ -33,17 +33,14 @@ const ProfileContent = ({ user, toggleModal }) => {
     setPhoneNumber(phone)
   }
 
-  const handleGenderChange = (e) => {
-    setGender(e.target.value)
+  const handleSelectBox = () => {
+    setBoxOpen(!boxOpen)
   }
 
   const handleSubmit = async () => {
     if (name.length !== 0 && email.length !== 0 && phoneNumber.length !== 0) {
       await updateUser(user._id, name, email, phoneNumber, gender)
     }
-  }
-  const handelArrow = () => {
-    setArrow(!arrow)
   }
 
   return (
@@ -89,26 +86,40 @@ const ProfileContent = ({ user, toggleModal }) => {
               <label className="text-2xl flex flex-start my-5">الجنس</label>
               <div className="relative">
                 <div className="absolute left-0 py-4 mx-5 pointer-events-none">
-                  {!arrow ? (
+                  {!boxOpen ? (
                     <img draggable="false" className="w-[20px]" src={ArrowDown} alt="arrowDown" />
                   ) : (
                     <img draggable="false" className="w-[20px]" src={ArrowUp} alt="arrowUp" />
                   )}
                 </div>
-                <select
-                  onClick={handelArrow}
-                  className="w-96 h-14 shadow-sm outline-none border border-[#949495] px-4 rounded-[10px]"
-                  id="sex"
-                  onChange={(e) => handleGenderChange(e)}
-                  // defaultValue={"select"}
-                  value={gender ? gender : 'select'}
+                <div
+                  className={`w-96 h-14 relative flex items-center shadow-sm border border-[#949495] px-4 rounded-[10px] ${
+                    boxOpen && 'border-[#0583f2]'
+                  }`}
+                  onClick={() => handleSelectBox()}
                 >
-                  <option disabled value="select">
-                    اختر
-                  </option>
-                  <option value="ذكر">ذكر</option>
-                  <option value="انثى">انثى</option>
-                </select>
+                  {gender ? gender : 'اختر'}
+
+                  <div
+                    className={`overflow-clip bg-white w-96 absolute left-0 top-full flex flex-col items-start border border-[#949495] rounded-[10px] ${
+                      !boxOpen && 'hidden'
+                    }`}
+                  >
+                    <div
+                      className="w-full text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-t-[10px]"
+                      onClick={() => setGender('ذكر')}
+                    >
+                      ذكر
+                    </div>
+                    <div
+                      name="انثي"
+                      className="w-full text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-b-[10px]"
+                      onClick={() => setGender('انثى')}
+                    >
+                      انثى
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
