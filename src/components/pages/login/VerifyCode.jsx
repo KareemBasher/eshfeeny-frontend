@@ -13,6 +13,8 @@ import { sendEmail } from '../../../utils/dashboard'
 const VerifyCode = () => {
   const [code, setCode] = useState('')
   const [emailedCode, setEmailedCode] = useState('')
+  const [emailSent, setEmailSent] = useState(false)
+  const [error, setError] = useState(false)
   const params = useParams()
 
   useEffect(() => {
@@ -27,9 +29,43 @@ const VerifyCode = () => {
     setCode(value)
   }
 
+  const handleSubmit = () => {
+    if (code === emailedCode.code) {
+      const code = Math.random().toString(36).substring(2, 9) + Date.now().toString(36)
+      sessionStorage.setItem('resetPasswordCode', code)
+      sessionStorage.setItem('resetPasswordEmail', params.email)
+
+      window.location.href = `/newPassword/${code}`
+      setError(false)
+    } else {
+      setEmailSent(false)
+      setError(true)
+    }
+  }
+
   const handleResend = async () => {
     setEmailedCode(await sendEmail(params.email))
+    setEmailSent(true)
+    setError(false)
+
+    setTimeout(() => {
+      setEmailSent(false)
+    }, 5000)
   }
+
+  useEffect(() => {
+    const handleEnter = (e) => {
+      if (e.key === 'Enter' && code.length === 4) {
+        handleSubmit()
+      }
+    }
+
+    window.addEventListener('keydown', handleEnter)
+
+    return () => {
+      window.removeEventListener('keydown', handleEnter)
+    }
+  }, [code])
 
   return (
     <div>
@@ -62,15 +98,21 @@ const VerifyCode = () => {
           {/* buttons */}
           <div className="w-full">
             <div className="mb-2">
-              <WideButton content="تحقق" disabled={code.length === 4 ? false : true} />
+              <WideButton
+                handleOnClick={handleSubmit}
+                content="تحقق"
+                disabled={code.length === 4 ? false : true}
+              />
             </div>
-            <div>
+            <div className="text-right">
               <button
                 className="w-full max-w-[472px] h-[58px] rounded-[10px] my-3 text-[24px] border border-black"
-                onClick={() => handleResend}
+                onClick={() => handleResend()}
               >
                 إعادة إرسال الرمز
               </button>
+              {emailSent && <span className="text-lightBlue">تم إعادة ارسال كود التحقيق</span>}
+              {error && <span className="text-red-600">كود التحقيق غير صحيح</span>}
             </div>
           </div>
         </div>

@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react'
 import PhoneInputContent from './PhoneInputContent'
 import './Option.css'
 import { updateUser } from '../../../utils/usersAPI'
-import ArrowUp from '../../../assets/common/ArrowUp.svg'
 import ArrowDown from '../../../assets/common/ArrowDown.svg'
 
 const ProfileContent = ({ user, toggleModal }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [arrow, setArrow] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState('')
   const [gender, setGender] = useState('')
+  const [boxOpen, setBoxOpen] = useState(false)
 
   useEffect(() => {
     if (user.name && user.email) {
@@ -33,17 +32,14 @@ const ProfileContent = ({ user, toggleModal }) => {
     setPhoneNumber(phone)
   }
 
-  const handleGenderChange = (e) => {
-    setGender(e.target.value)
+  const handleSelectBox = () => {
+    setBoxOpen(!boxOpen)
   }
 
   const handleSubmit = async () => {
-    if (name.length !== 0 && email.length !== 0 && phoneNumber.length !== 0) {
+    if (name.length !== 0 && email.length !== 0) {
       await updateUser(user._id, name, email, phoneNumber, gender)
     }
-  }
-  const handelArrow = () => {
-    setArrow(!arrow)
   }
 
   return (
@@ -60,7 +56,7 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div className=" ">
               <label className=" text-2xl flex my-5 justify-start">الأسم</label>
               <input
-                className="w-96 h-14 shadow-sm rounded-[10px] px-4 outline-none bg-[#F7F7F7]"
+                className="w-96 h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
                 type="text"
                 value={name}
                 onChange={(e) => handleNameChange(e)}
@@ -70,7 +66,8 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div>
               <label className="text-2xl flex justify-start my-5">البريد الالكترونى</label>
               <input
-                className="w-96 h-14 shadow-sm outline-none px-4 rounded-[10px] bg-[#F7F7F7]"
+                dir="ltr"
+                className="w-96 h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
                 type="text"
                 value={email}
                 onChange={(e) => handleEmailChange(e)}
@@ -87,27 +84,43 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div className="flex flex-col justify-start my-10">
               <label className="text-2xl flex flex-start my-5">الجنس</label>
               <div className="relative">
-                <div className="absolute left-0 my-5 mx-5 pointer-events-none">
-                  {!arrow ? (
-                    <img draggable="false" className="w-[20px]" src={ArrowDown} alt="arrowDown" />
-                  ) : (
-                    <img draggable="false" className="w-[20px]" src={ArrowUp} alt="arrowUp" />
-                  )}
+                <div className="absolute left-0 py-4 mx-5 pointer-events-none">
+                  <img
+                    draggable="false"
+                    className={`w-[20px] transition-all ${boxOpen && 'rotate-180'}`}
+                    src={ArrowDown}
+                    alt="arrowDown"
+                  />
                 </div>
-                <select
-                  onClick={handelArrow}
-                  className="w-96 h-14 shadow-sm outline-none px-4 rounded-[10px] bg-[#F7F7F7]"
-                  id="sex"
-                  onChange={(e) => handleGenderChange(e)}
-                  // defaultValue={"select"}
-                  value={gender ? gender : 'select'}
+                <div
+                  className={`w-96 h-14 relative flex items-center shadow-sm border border-[#949495] px-4 rounded-[10px] ${
+                    boxOpen && 'border-[#0597F2]'
+                  }`}
+                  onClick={() => handleSelectBox()}
                 >
-                  <option disabled value="select">
-                    اختر
-                  </option>
-                  <option value="ذكر">ذكر</option>
-                  <option value="انثى">انثى</option>
-                </select>
+                  {gender ? gender : 'اختر'}
+
+                  <div
+                    className={`overflow-clip w-96 absolute -left-px top-[91%] flex flex-col items-start border border-t-0 border-[#949495] rounded-[10px] rounded-t-none ${
+                      !boxOpen && 'hidden'
+                    }`}
+                  >
+                    <div className="w-full py-4" />
+                    <div
+                      className="w-full bg-white text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-t-[10px]"
+                      onClick={() => setGender('ذكر')}
+                    >
+                      ذكر
+                    </div>
+                    <div
+                      name="انثي"
+                      className="w-full bg-white text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-b-[10px]"
+                      onClick={() => setGender('انثى')}
+                    >
+                      انثى
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
