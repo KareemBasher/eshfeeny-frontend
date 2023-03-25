@@ -14,6 +14,7 @@ const AddCard = ({ loggedInUser }) => {
   const [userName, setUserName] = useState('')
   const [error, setError] = useState('')
   const [company, setCompany] = useState('')
+  const [nextPage ,setNextPage] = useState('false')
 
   useEffect(() => {
     const getCompany = async () => {
@@ -52,7 +53,7 @@ const AddCard = ({ loggedInUser }) => {
         imageURL: SignupVector
       }
       const result = await addInsuranceCard(loggedInUser, cardData)
-      console.log(result)
+      setNextPage(true)
     }
   }
 
