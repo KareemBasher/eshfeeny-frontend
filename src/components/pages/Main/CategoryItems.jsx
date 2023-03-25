@@ -38,6 +38,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
 
   const [products, setProducts] = useState([])
   const [favouriteProducts, setFavouriteProducts] = useState([])
+
   useEffect(() => {
     const getProducts = async () => {
       setProducts(await getCategory(onGetTitle))
@@ -45,6 +46,19 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
     }
     getProducts()
   }, [])
+
+  const [overflow, setOverflow] = useState(false)
+
+  useEffect(() => {
+    const isOverflown = (element) => {
+      if (element?.scrollWidth > element?.clientWidth) {
+        setOverflow(true)
+      } else {
+        setOverflow(false)
+      }
+    }
+    isOverflown(container)
+  }, [container?.scrollWidth])
 
   const favoriteProductsIDs = favouriteProducts.map((product) => product._id)
 
@@ -61,20 +75,24 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
         </Link>
       </div>
       <div className="flex relative">
-        {/*    Right Arrow    */}
-        <div
-          className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
-          onClick={handleRight}
-        >
-          <img src={RightArrow} />
-        </div>
-        {/*    Left Arrow    */}
-        <div
-          className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
-          onClick={handleLeft}
-        >
-          <img src={LeftArrow} />
-        </div>
+        {overflow && (
+          <>
+            {/*    Right Arrow    */}
+            <button
+              className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
+              onClick={handleRight}
+            >
+              <img src={RightArrow} />
+            </button>
+            {/*    Left Arrow    */}
+            <button
+              className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
+              onClick={handleLeft}
+            >
+              <img src={LeftArrow} />
+            </button>
+          </>
+        )}
         {/*      Products     */}
         <div className={`flex w-full pb-7 overflow-x-auto ${onGetTitle} container`}>
           <ol className="flex justify-between">
