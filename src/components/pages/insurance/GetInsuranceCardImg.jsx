@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
+/*    Components    */
 import UserNavigation from '../../common/UserNavigation'
+import WideButton from '../../common/WideButton'
+/*    API    */
 import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
+/*    Icons    */
 import GetImage from '../../../assets/insuranceCompanies/GetImage.svg'
 import Plus from '../../../assets/insuranceCompanies/Plus.svg'
 import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
-import WideButton from '../../common/WideButton'
 
 const GetInsuranceCardImg = ({ loggedInUser, companyId }) => {
   const [company, setCompany] = useState('')
