@@ -10,7 +10,7 @@ import Alternative from '../../../assets/common/Alternative.svg'
 import HeartEmpty from '../../../assets/productPage/HeartEmpty.svg'
 import HeartFill from '../../../assets/productPage/HeartFill.svg'
 /*       API       */
-import * as ProductsAPI from '../../../utils/productsAPI'
+import { getProduct, getFavoriteProducts } from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
 const ProductPage = ({ loggedInUser }) => {
@@ -27,11 +27,11 @@ const ProductPage = ({ loggedInUser }) => {
   const [currentImage, setCurrentImage] = useState('')
 
   useEffect(() => {
-    const getProduct = async () => {
-      setProduct(await ProductsAPI.getProduct(params.id))
-      setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
+    const getDetails = async () => {
+      setProduct(await getProduct(params.id))
+      setFavouriteProducts(await getFavoriteProducts(loggedInUser))
     }
-    getProduct()
+    getDetails()
   }, [showFavouriteButton, params])
 
   useEffect(() => {
