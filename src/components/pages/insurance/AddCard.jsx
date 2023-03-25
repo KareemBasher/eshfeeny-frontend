@@ -126,7 +126,13 @@ const AddCard = ({ loggedInUser }) => {
           </div>
         </>
       ) : (
-          <GetInsuranceCardImg loggedInUser={loggedInUser} companyId={id} cardName={company.name} userName={userName} cardNumber={cardNumber}/>
+        <GetInsuranceCardImg
+          loggedInUser={loggedInUser}
+          companyId={id}
+          cardName={company.name}
+          userName={userName}
+          cardNumber={cardNumber}
+        />
       )}
     </div>
   )
