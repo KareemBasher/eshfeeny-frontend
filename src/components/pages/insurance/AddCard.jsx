@@ -1,18 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import UserNavigation from '../../common/UserNavigation'
 import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
 import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
+import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
+import { addInsuranceCard } from '../../../utils/usersAPI'
+import SignupVector from '../../../assets/common/SignupVector.svg'
 
-const AddCard = () => {
+const AddCard = ({ loggedInUser }) => {
+  const { id } = useParams()
   const [cardNumber, setCardNumber] = useState('')
   const [userName, setUserName] = useState('')
   const [error, setError] = useState('')
+  const [company, setCompany] = useState('')
+
+  useEffect(() => {
+    const getCompany = async () => {
+      const result = await getInsuranceCompany(id)
+
+      setCompany(result)
+    }
+
+    getCompany()
+  }, [])
 
   const handleInput = (value, name) => {
     if (name === 'cardNumber') setCardNumber(value)
     else if (name === 'userName') setUserName(value)
   }
+
   const inputValidation = () => {
     const errorObj = {}
     if (cardNumber.length === 0) errorObj.cardNumberLength = true
@@ -24,55 +41,85 @@ const AddCard = () => {
     if (errorObj.cardNumberLength || errorObj.userNameLength) return false
     else return true
   }
-  const handleSubmit = () => {
-    inputValidation()
+
+  const handleSubmit = async () => {
+    const validCredentials = inputValidation()
+    if (validCredentials) {
+      const cardData = {
+        name: company.name,
+        number: cardNumber,
+        nameOnCard: userName,
+        imageURL: SignupVector
+      }
+      const result = await addInsuranceCard(loggedInUser, cardData)
+      console.log(result)
+    }
   }
+
+  useEffect(() => {
+    const handleKeydown = (event) => {
+      if (event.key === 'Enter' && cardNumber.length > 0) {
+        handleSubmit()
+      }
+    }
+    window.addEventListener('keydown', handleKeydown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown)
+    }
+  }, [userName, cardNumber])
+
   return (
     <div>
       <div>
         <UserNavigation />
       </div>
 
-      <div className="flex justify-around mt-20">
+      <div className="flex justify-around mt-10">
         <div>
-          <div>
-            <div>{/* title */}</div>
-            <div>
-              <p>رقم الكارت</p>
-              <CredentialsInput
-                name={'cardNumber'}
-                placeHolder={'أدخل رقم الكارت'}
-                type={'text'}
-                value={cardNumber}
-                handleInput={handleInput}
-              />
-              {error.cardNumberLength && (
-                <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل رقم الكارت</span>
-              )}
+          <div className=" w-[472px] flex flex-col text-right mb-16">
+            <div className="mb-16 flex justify-start items-center">
+              <p className="text-[26px] text-right ml-10">{company.name}</p>
+              <img className="h-16" draggable="false" src={company.logo} alt="Company image" />
             </div>
-            <div>
-              <p>أسم حامل الكارت</p>
-              <CredentialsInput
-                name={'userName'}
-                placeHolder={'أدخل الأسم'}
-                type={'text'}
-                value={userName}
-                handleInput={handleInput}
-              />
-              {error.userNameLength && (
-                <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل اسم</span>
-              )}
+            <div className="mt-2">
+              <div className="mb-10">
+                <p className="text-[24px] mb-5">رقم الكارت</p>
+                <CredentialsInput
+                  name={'cardNumber'}
+                  placeHolder={'أدخل رقم الكارت'}
+                  type={'text'}
+                  value={cardNumber}
+                  handleInput={handleInput}
+                />
+                {error.cardNumberLength && (
+                  <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل رقم الكارت</span>
+                )}
+              </div>
+              <div>
+                <p className="text-[24px] mb-5">أسم حامل الكارت</p>
+                <CredentialsInput
+                  name={'userName'}
+                  placeHolder={'أدخل الأسم'}
+                  type={'text'}
+                  value={userName}
+                  handleInput={handleInput}
+                />
+                {error.userNameLength && (
+                  <span className="text-[#EB1D36] text-[14px]">من فضلك ادخل اسم</span>
+                )}
+              </div>
             </div>
-          </div>
-          <div>
-            <WideButton
-              // disabled={checkPassword.length > 0 ? false : true}
-              content={'تأكيد'}
-              handleOnClick={handleSubmit}
-            />
+            <div className="mt-8">
+              <WideButton
+                disabled={userName.length > 0 ? false : true}
+                content={'التالى'}
+                handleOnClick={handleSubmit}
+              />
+            </div>
           </div>
         </div>
-        <div>
+        <div className="mt-14">
           <img src={InsuranceAddCard} alt="" />
         </div>
       </div>

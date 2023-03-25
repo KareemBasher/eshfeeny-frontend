@@ -64,16 +64,13 @@ function App() {
         path="/insuranceCompanies"
         element={<InsuranceCompanies loggedInUser={loggedInUser} />}
       />
+      <Route path="/insuranceCompanies/:id" element={<CompanyPage loggedInUser={loggedInUser} />} />
       <Route
-        path="/insuranceCompanies/:company"
-        element={<CompanyPage loggedInUser={loggedInUser} />}
-      />
-      <Route
-        path="/insuranceCards/:company"
+        path="/insuranceCards/:companyId"
         element={<InsuranceCardPage loggedInUser={loggedInUser} />}
       />
       <Route path="/newPassword/:code" element={<NewPassword />} />
-      <Route path="/addCard" element={<AddCard />} />
+      <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }

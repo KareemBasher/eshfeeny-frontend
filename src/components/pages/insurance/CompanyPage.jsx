@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 /*         Hooks        */
 import { Link, useParams } from 'react-router-dom'
 /*         component imports         */
@@ -6,10 +6,22 @@ import UserNavigation from '../../common/UserNavigation'
 /*         images imports         */
 import AddPrescriptionImage from '../../../assets/insuranceCompanies/AddPrescriptionImage.png'
 import MonthlyMedicine from '../../../assets/insuranceCompanies/MonthlyMedicine.png'
+/*         API         */
+import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
 
 const CompanyPage = ({ loggedInUser }) => {
-  const { company,url } = useParams()
-  const [card, setCard] = useState('')
+  const [company, setCompany] = useState('')
+  const { id } = useParams()
+
+  useEffect(() => {
+    const getCompany = async () => {
+      const result = await getInsuranceCompany(id)
+      setCompany(result)
+    }
+
+    getCompany()
+  }, [])
+
   return (
     <div>
       <div>
@@ -17,12 +29,13 @@ const CompanyPage = ({ loggedInUser }) => {
       </div>
 
       <div className="flex flex-col mt-16 mr-24">
-        <div className="mb-16">
-          <p className="text-[26px] text-right">{company}</p>
+        <div className="mb-16 flex justify-start items-center">
+          <p className="text-[26px] text-right ml-10">{company.name}</p>
+          <img className="h-16" draggable="false" src={company.logo} alt="Company image" />
         </div>
 
         <div className="flex">
-          {card.length ? (
+          {company.length ? (
             <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-10">
               <Link>
                 <img draggable="false" className="m-2" src={MonthlyMedicine} alt="" />
@@ -31,13 +44,13 @@ const CompanyPage = ({ loggedInUser }) => {
             </div>
           ) : (
             <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-10">
-              <Link to={`/insuranceCards/${company}`}>
+              <Link to={`/insuranceCards/${company._id}`}>
                 <img draggable="false" className="m-2" src={MonthlyMedicine} alt="" />
                 <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
               </Link>
             </div>
           )}
-          {card.length ? (
+          {company.length ? (
             <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col">
               <Link>
                 <img draggable="false" className="m-2" src={AddPrescriptionImage} alt="" />
@@ -46,7 +59,7 @@ const CompanyPage = ({ loggedInUser }) => {
             </div>
           ) : (
             <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col">
-              <Link to={`/insuranceCards/${company}`}>
+              <Link to={`/insuranceCards/${company._id}`}>
                 <img draggable="false" className="m-2" src={AddPrescriptionImage} alt="" />
                 <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
               </Link>
