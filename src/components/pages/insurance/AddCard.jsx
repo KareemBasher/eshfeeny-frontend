@@ -7,7 +7,7 @@ import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
 /*    API   */
 import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
-import { addInsuranceCard } from '../../../utils/usersAPI'
+
 /*    Icons    */
 import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
 import SignupVector from '../../../assets/common/SignupVector.svg'
@@ -17,9 +17,10 @@ const AddCard = ({ loggedInUser }) => {
   const { id } = useParams()
   const [cardNumber, setCardNumber] = useState('')
   const [userName, setUserName] = useState('')
+  const [card, setCard] = useState('')
   const [error, setError] = useState('')
   const [company, setCompany] = useState('')
-  const [nextPage, setNextPage] = useState('true')
+  const [nextPage, setNextPage] = useState(false)
 
   useEffect(() => {
     const getCompany = async () => {
@@ -51,13 +52,6 @@ const AddCard = ({ loggedInUser }) => {
   const handleSubmit = async () => {
     const validCredentials = inputValidation()
     if (validCredentials) {
-      const cardData = {
-        name: company.name,
-        number: cardNumber,
-        nameOnCard: userName,
-        imageURL: SignupVector
-      }
-      const result = await addInsuranceCard(loggedInUser, cardData)
       setNextPage(true)
     }
   }
@@ -132,7 +126,7 @@ const AddCard = ({ loggedInUser }) => {
           </div>
         </>
       ) : (
-        <GetInsuranceCardImg loggedInUser={loggedInUser} companyId={id} />
+          <GetInsuranceCardImg loggedInUser={loggedInUser} companyId={id} cardName={company.name} userName={userName} cardNumber={cardNumber}/>
       )}
     </div>
   )
