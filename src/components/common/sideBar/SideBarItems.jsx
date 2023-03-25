@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 /*    Icons    */
 import Arrow from '../../../assets/common/Arrow.svg'
 
-const SideBarItems = ({ typeName, onGetTitle, category, types }) => {
+const SideBarItems = ({ onGetTitle, category }) => {
   const [showItems, setShowItems] = useState(false)
 
   const showItemsHandler = () => {
