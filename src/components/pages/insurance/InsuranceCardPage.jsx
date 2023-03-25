@@ -1,11 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 /*         component imports         */
 import UserNavigation from '../../common/UserNavigation'
 /*         image imports         */
 import InsuranceCardImg from '../../../assets/insuranceCompanies/InsuranceCardImg.svg'
+import { Link, useParams } from 'react-router-dom'
+import { getInsuranceCards } from '../../../utils/usersAPI'
+import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
 
 const InsuranceCardPage = ({ loggedInUser }) => {
   const [card, setCard] = useState('')
+  const { companyId } = useParams('')
+  const [company, setCompany] = useState('')
+
+  useEffect(() => {
+    const getCard = async () => {
+      const result = await getInsuranceCards(loggedInUser)
+      setCard(result)
+      const companyData = await getInsuranceCompany(companyId)
+      setCompany(companyData)
+      console.log(result)
+    }
+
+    getCard()
+  }, [])
 
   return (
     <div>
@@ -13,10 +30,10 @@ const InsuranceCardPage = ({ loggedInUser }) => {
         <UserNavigation loggedInUser={loggedInUser} />
       </div>
 
-      {!card.length ? (
+      {card?.length ? (
         <div className=" mt-16 mr-24">
           <div className="text-right text-[26px]">
-            <p>إيجي كير</p>
+            <p>{company.name}</p>
           </div>
 
           <div className="flex flex-col items-center mt-20">
@@ -33,7 +50,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
             </div>
 
             <div className="text-[24px] border border-lightBlue rounded-[10px] py-2 px-10 text-lightBlue">
-              <button>أضف كارت</button>
+              <Link to={`/addCard/${companyId}`}>أضف كارت</Link>
             </div>
           </div>
         </div>
