@@ -59,6 +59,10 @@ function App() {
         element={<SearchResults loggedInUser={loggedInUser} />}
       />
       <Route
+        path="/searchResults/"
+        element={<SearchResults loggedInUser={loggedInUser} empty={true} />}
+      />
+      <Route
         exact
         path="/alternatives/:id"
         element={<AlternativesPage loggedInUser={loggedInUser} />}

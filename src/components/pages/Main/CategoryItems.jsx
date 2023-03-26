@@ -16,7 +16,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
 
   const handleLeft = () => {
     let scrollAmount = 0
-    const slideTimer = setInterval(function () {
+    const slideTimer = setInterval(() => {
       container.scrollLeft -= 25
       scrollAmount += 10
       if (scrollAmount >= 100) {
@@ -27,7 +27,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
 
   const handleRight = () => {
     let scrollAmount = 0
-    const slideTimer = setInterval(function () {
+    const slideTimer = setInterval(() => {
       container.scrollLeft += 25
       scrollAmount += 10
       if (scrollAmount >= 100) {

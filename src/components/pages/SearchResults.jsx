@@ -9,7 +9,7 @@ import { getMany, getFavoriteProducts } from '../../utils/productsAPI'
 /*       Icons       */
 import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
 
-const SearchResults = ({ loggedInUser }) => {
+const SearchResults = ({ loggedInUser, empty }) => {
   const params = useParams()
 
   const [products, setProducts] = useState([])
@@ -29,17 +29,17 @@ const SearchResults = ({ loggedInUser }) => {
     <>
       <div>
         <UserNavigation loggedInUser={loggedInUser} />
-        {!products.length ? (
+        {empty ? (
           <PageEmpty
-            onGetTitle="البديل"
-            onGetText="لا يوجد بديل لهذا الدواء "
+            onGetTitle="نتائج البحث"
+            onGetText="لم يتم العثور على المنتج"
             onGetLogo={AlternativeLogo}
           />
         ) : (
-          <>
-            <div className="text-right text-[28px] m-10 mr-20">نتائج البحث</div>
-            <ol className="flex flex-wrap justify-start mr-20">
-              {products.map((product) => (
+          <div className="mr-28 2xl:mr-52">
+            <div className="text-right text-[28px] my-10">نتائج البحث</div>
+            <ol className="flex flex-wrap justify-start -mr-2">
+              {products?.map((product) => (
                 <li key={product._id}>
                   <ProductContainer
                     onGetProduct={product}
@@ -49,7 +49,7 @@ const SearchResults = ({ loggedInUser }) => {
                 </li>
               ))}
             </ol>
-          </>
+          </div>
         )}
       </div>
     </>

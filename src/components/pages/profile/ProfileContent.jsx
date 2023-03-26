@@ -45,7 +45,7 @@ const ProfileContent = ({ user, toggleModal }) => {
   return (
     <div>
       {/* /* title */}
-      <div className="text-right text-[28px] m-10 mr-20">
+      <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
         <p>الملف الشخصى</p>
       </div>
       {/* inputs */}
