@@ -8,7 +8,6 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetPath="/products/type/medicine"
           onGetTitle="الأدوية "
           onGetSubItems={[
             'البرد و السعال',
@@ -29,7 +28,6 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetPath="/products/type/viruses"
           onGetTitle="الحمايه من الفيروسات"
           onGetSubItems={[
             'الحماية من الفيروسات',
@@ -41,21 +39,18 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetPath="/products/type/menProducts"
           onGetTitle="منتجات الرجال"
           onGetSubItems={['كل منتجات الرجال', 'جل الحلاقة', 'مزيل العرق', 'مستلزمات الحلاقة']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetPath="/products/type/womenProducts"
           onGetTitle="منتجات المرأة"
           onGetSubItems={['كل منتجات المرأة', 'إزالة الشعر', 'مزيل العرق', 'فوط صحية']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetPath="/products/type/mothers"
           onGetTitle="الأم و الطفل"
           onGetSubItems={[
             'كل الأم و  الطفل',
@@ -67,7 +62,6 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetPath="/products/type/skinCare"
           onGetTitle="العناية بالبشرة و الشعر"
           onGetSubItems={[
             'كل العناية بالبشرة و الشعر',
@@ -84,7 +78,6 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetPath="/products/type/dentalHealth"
           onGetTitle="العناية بالاسنان"
           onGetSubItems={['كل العناية بالأسنان', 'العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']}
         />
