@@ -35,36 +35,18 @@ const CompanyPage = ({ loggedInUser }) => {
         </div>
 
         <div className="flex">
-          {company.length ? (
-            <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-10">
-              <Link>
-                <img draggable="false" className="m-2" src={MonthlyMedicine} alt="" />
-                <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
-              </Link>
-            </div>
-          ) : (
-            <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col ml-10">
-              <Link to={`/insuranceCards/${company._id}`}>
-                <img draggable="false" className="m-2" src={MonthlyMedicine} alt="" />
-                <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
-              </Link>
-            </div>
-          )}
-          {company.length ? (
-            <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col">
-              <Link>
-                <img draggable="false" className="m-2" src={AddPrescriptionImage} alt="" />
-                <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
-              </Link>
-            </div>
-          ) : (
-            <div className="w-[608px] h-[348px] border rounded-[15px] flex flex-col">
-              <Link to={`/insuranceCards/${company._id}`}>
-                <img draggable="false" className="m-2" src={AddPrescriptionImage} alt="" />
-                <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
-              </Link>
-            </div>
-          )}
+          <div className="w-[608px] h-[348px] hover:shadow-xl transition-all duration-300 shadow-sm border rounded-[15px] flex flex-col ml-10">
+            <Link to={`/insuranceCards/${company._id}`}>
+              <img draggable="false" className="m-2" src={MonthlyMedicine} alt="" />
+              <p className="mt-[75px] text-[26px]">اطلب الأدوية الشهرية</p>
+            </Link>
+          </div>
+          <div className="w-[608px] h-[348px] hover:shadow-xl transition-all duration-300 shadow-sm border rounded-[15px] flex flex-col">
+            <Link>
+              <img draggable="false" className="m-2" src={AddPrescriptionImage} alt="" />
+              <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
