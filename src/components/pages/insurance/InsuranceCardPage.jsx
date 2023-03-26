@@ -16,6 +16,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
   const { companyId } = useParams('')
   const [company, setCompany] = useState('')
   const [message, setMessage] = useState(false)
+  const [clickedDiv, setClickedDiv] = useState('')
 
   useEffect(() => {
     const getCard = async () => {
@@ -25,12 +26,14 @@ const InsuranceCardPage = ({ loggedInUser }) => {
       setCompany(companyData)
     }
 
+    setClickedDiv('')
+
     getCard()
   }, [])
 
-  const handelMessage = (e) => {
+  const handelMessage = (number) => {
     setMessage(!message)
-    e.target.style.backgroundColor = '#FFE5CC'
+    setClickedDiv(number)
     setTimeout(() => {
       setMessage(false)
     }, 2000)
@@ -75,10 +78,12 @@ const InsuranceCardPage = ({ loggedInUser }) => {
             {card.map(({ nameOnCard, number }) => (
               <div key={number}>
                 <div
-                  onClick={(e) => handelMessage(e)}
-                  className="border rounded-[10px]  my-5 mt-10 w-[997px]"
+                  onClick={() => handelMessage(number)}
+                  className={`border rounded-[10px]  my-5 mt-10 w-[997px] ${
+                    clickedDiv === number && 'bg-[#FFE5CC] border-[#F99D1C]'
+                  }`}
                 >
-                  <div key={number} className="flex rounded-[10px] justify-between items-center">
+                  <div className="flex rounded-[10px] justify-between items-center">
                     <div className="flex px-5 py-5 items-center">
                       <div className="ml-5">
                         <img
@@ -95,18 +100,26 @@ const InsuranceCardPage = ({ loggedInUser }) => {
                       </div>
                     </div>
 
-                    <div className="border-[3px] rounded-full w-7 h-7 ml-10 flex justify-center items-center">
-                      <p className=" rounded-full w-4 h-4"></p>
+                    <div
+                      className={`border border-[#F99D1C] rounded-full w-7 h-7 ml-10 justify-center items-center ${
+                        clickedDiv === number ? 'flex' : 'hidden'
+                      }`}
+                    >
+                      <p
+                        className={`rounded-full w-4 h-4 ${
+                          clickedDiv === number && 'bg-[#F99D1C]'
+                        }`}
+                      ></p>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="flex justify-center ">
+          <div className="flex justify-center">
             <Link
               to={`/addCard/${companyId}`}
-              className="flex text-[24px] text-lightBlue justify-center border rounded-[10px] border-lightBlue mt-10 px-10 py-2"
+              className="flex text-[24px] text-lightBlue justify-center border rounded-[10px] border-lightBlue mt-10 px-8 py-2"
             >
               <img src={Plus} alt="plus" />
               <p className="mr-2 mx-3">أضف كارت جديد</p>
