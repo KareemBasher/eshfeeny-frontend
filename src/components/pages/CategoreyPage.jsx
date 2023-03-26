@@ -28,7 +28,7 @@ const CategoreyPage = ({ loggedInUser }) => {
   return (
     <div>
       <UserNavigation loggedInUser={loggedInUser} />
-      <div className="flex justify-start mr-32 2xl:mr-52">
+      <div className="flex justify-start mr-32 2xl:mr-52 mt-8">
         <Link to="/home" className="hover:underline">
           الرئيسية
         </Link>
