@@ -63,7 +63,8 @@ const SideBar = () => {
     }
   ]
   return (
-    <div className="flex flex-col w-[250px] h-full border rounded-[10px] my-10">
+    <div className="flex flex-col w-[250px] h-full border rounded-[10px] my-10 pr-1">
+      <p className="text-[22px] pt-5 pr-1 text-right">الأقسام</p>
       <div className="list-books-content">
         {data.map(({ title, category }) => {
           return (
