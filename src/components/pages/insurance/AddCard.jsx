@@ -10,14 +10,12 @@ import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
 
 /*    Icons    */
 import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
-import SignupVector from '../../../assets/common/SignupVector.svg'
 import GetInsuranceCardImg from './GetInsuranceCardImg'
 
 const AddCard = ({ loggedInUser }) => {
   const { id } = useParams()
   const [cardNumber, setCardNumber] = useState('')
   const [userName, setUserName] = useState('')
-  const [card, setCard] = useState('')
   const [error, setError] = useState('')
   const [company, setCompany] = useState('')
   const [nextPage, setNextPage] = useState(false)
@@ -71,7 +69,7 @@ const AddCard = ({ loggedInUser }) => {
 
   return (
     <div>
-      {!nextPage ? (
+      {nextPage ? (
         <>
           <div>
             <UserNavigation />
