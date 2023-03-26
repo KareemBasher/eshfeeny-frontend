@@ -69,7 +69,7 @@ const AddCard = ({ loggedInUser }) => {
 
   return (
     <div>
-      {nextPage ? (
+      {!nextPage ? (
         <>
           <div>
             <UserNavigation />
