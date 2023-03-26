@@ -48,7 +48,7 @@ function App() {
       <Route path="/cart" element={<Cart loggedInUser={loggedInUser} />} />
       <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
       <Route
-        path="/products/category/:category"
+        path="/products/type/:type/category/:category"
         element={<CategoreyPage loggedInUser={loggedInUser} />}
       />
       <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
