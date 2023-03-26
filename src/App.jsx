@@ -23,6 +23,9 @@ import InsuranceCompanies from './components/pages/insurance/InsuranceCompanies'
 import CompanyPage from './components/pages/insurance/CompanyPage'
 import InsuranceCardPage from './components/pages/insurance/InsuranceCardPage'
 import NewPassword from './components/pages/login/NewPassword'
+import Map from './components/pages/Map'
+import AddCard from './components/pages/insurance/AddCard'
+import CategoreyPage from './components/pages/category/CategoreyPage'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -44,12 +47,20 @@ function App() {
       <Route path="/login" element={<Login changeLoggedUser={changeLoggedInUser} />} />
       <Route path="/cart" element={<Cart loggedInUser={loggedInUser} />} />
       <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
+      <Route
+        path="/products/category/:category"
+        element={<CategoreyPage loggedInUser={loggedInUser} />}
+      />
       <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
       <Route path="/forgotPassword/" element={<ForgotPassword />} />
       <Route path="/forgotPassword/verify/:email" element={<VerifyCode />} />
       <Route
         path="/searchResults/:searchResults"
         element={<SearchResults loggedInUser={loggedInUser} />}
+      />
+      <Route
+        path="/searchResults/"
+        element={<SearchResults loggedInUser={loggedInUser} empty={true} />}
       />
       <Route
         exact
@@ -63,15 +74,14 @@ function App() {
         path="/insuranceCompanies"
         element={<InsuranceCompanies loggedInUser={loggedInUser} />}
       />
+      <Route path="/insuranceCompanies/:id" element={<CompanyPage loggedInUser={loggedInUser} />} />
       <Route
-        path="/insuranceCompanies/:company"
-        element={<CompanyPage loggedInUser={loggedInUser} />}
-      />
-      <Route
-        path="/insuranceCards/:company"
+        path="/insuranceCards/:companyId"
         element={<InsuranceCardPage loggedInUser={loggedInUser} />}
       />
       <Route path="/newPassword/:code" element={<NewPassword />} />
+      <Route path="/location" element={<Map />} />
+      <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
