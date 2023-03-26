@@ -73,7 +73,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
               <div className="absolute">{message ? <ConfrimRequest /> : null}</div>
             </div>
             {card.map(({ nameOnCard, number }) => (
-              <>
+              <div key={number}>
                 <div
                   onClick={(e) => handelMessage(e)}
                   className="border rounded-[10px]  my-5 mt-10 w-[997px]"
@@ -100,7 +100,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             ))}
           </div>
           <div className="flex justify-center ">
