@@ -91,8 +91,16 @@ const GetInsuranceCardImg = ({ loggedInUser, companyId, cardName, userName, card
       nameOnCard: userName,
       imageURL: imgbbURL
     }
-    const result = await addInsuranceCard(loggedInUser, obj)
+
+    await addInsuranceCard(loggedInUser, obj)
+    window.location.href = `/insuranceCards/${companyId}`
   }
+
+  const handelRemoveImage = () => {
+    setImage('')
+    setImageURL('')
+  }
+
   return (
     <div>
       <div>
@@ -112,8 +120,8 @@ const GetInsuranceCardImg = ({ loggedInUser, companyId, cardName, userName, card
           </div>
           <div className=" w-[700px] h-[350px]">
             {imageURL ? (
-              <div>
-                <img draggable="false" src={imageURL} alt="cardImage" />
+              <div className="border-[2px] rounded-[15px] flex justify-center mt-5">
+                <img className="p-5" draggable="false" src={imageURL} alt="cardImage" />
               </div>
             ) : (
               <div
@@ -150,13 +158,17 @@ const GetInsuranceCardImg = ({ loggedInUser, companyId, cardName, userName, card
               </div>
             )}
           </div>
+          <div className="mt-24 w-full flex flex-col items-center">
+            {imageURL ? (
+              <div
+                onClick={() => handelRemoveImage()}
+                className="text-[24px] border border-lightBlue text-lightBlue rounded-[10px] w-[290px]"
+              >
+                <button className="py-2">إعادة رفع صورة الكارت</button>
+              </div>
+            ) : null}
 
-          <div className="mt-12">
-            <WideButton
-              //   disabled={userName.length > 0 ? false : true}
-              content={'حفظ الكارت'}
-              handleOnClick={handelData}
-            />
+            <WideButton disabled={!imageURL} content={'حفظ الكارت'} handleOnClick={handelData} />
           </div>
         </div>
 
