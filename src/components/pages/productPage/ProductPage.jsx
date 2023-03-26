@@ -61,8 +61,8 @@ const ProductPage = ({ loggedInUser }) => {
   return (
     <div>
       <UserNavigation loggedInUser={loggedInUser} />
-      <div className="pt-8 pr-20 text-[16px] text-lightBlue">
-        <div className="flex justify-start">
+      <div className="pt-8 text-[16px] text-lightBlue">
+        <div className="flex justify-start mr-32 2xl:mr-52">
           <Link to="/home" className="hover:underline">
             الرئيسية
           </Link>
@@ -79,7 +79,7 @@ const ProductPage = ({ loggedInUser }) => {
         </div>
       </div>
       <div className="flex justify-start pt-8 border-b h-80">
-        <section className="flex flex-col-reverse overflow-auto pr-20">
+        <section className="flex flex-col-reverse overflow-auto mr-32 2xl:mr-52">
           {/*      small Pictures     */}
           {product.images &&
             product.images.map((image) => (
@@ -169,7 +169,7 @@ const ProductPage = ({ loggedInUser }) => {
           )}
         </div>
       </div>
-      <div className="text-right text-[#1F1F1F] pt-8 pr-20">
+      <div className="text-right text-[#1F1F1F] pt-8 mr-32 2xl:mr-52">
         <ProductDetails
           onGetDescription={product.description}
           onGetUseCases={product.useCases}
