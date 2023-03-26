@@ -28,24 +28,19 @@ const CategoreyPage = ({ loggedInUser }) => {
   return (
     <div>
       <UserNavigation loggedInUser={loggedInUser} />
-      <div className="flex justify-start mr-32 2xl:mr-52 mt-8">
+      <div className="flex justify-start mr-32 2xl:mr-52 mt-8 text-blue">
         <Link to="/home" className="hover:underline">
           الرئيسية
         </Link>
         <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
-        <Link to={`/products/type/`} className="hover:underline">
+        <Link to={`/products/type/${type}`} className="hover:underline">
           {type}
         </Link>
         <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
-        <Link
-          to={`/products/type/${type}/category/${category}`}
-          className="hover:underline text-blue"
-        >
-          {category}
-        </Link>
+        <p className="text-[#1F1F1F]">{category}</p>
       </div>
       <div className="flex mr-32 2xl:mr-52">
-        <SideBar />
+        <SideBar onGetActiveType={type} onGetActiveCategory={category} />
         <div className="mr-4">
           <div className="text-right text-[28px] mt-10 mb-3 mr-8">{category}</div>
           {products.length > 1 && (
