@@ -1,6 +1,6 @@
 import SideBarItems from './SideBarItems'
 
-const SideBar = ({ types }) => {
+const SideBar = () => {
   const data = [
     {
       type: 'medicine',
@@ -65,10 +65,10 @@ const SideBar = ({ types }) => {
   return (
     <div className="flex flex-col w-[250px] h-full border rounded-[10px] my-10">
       <div className="list-books-content">
-        {data.map(({ type, title, category }) => {
+        {data.map(({ title, category }) => {
           return (
             <div key={title}>
-              <SideBarItems typeName={type} onGetTitle={title} category={category} types={types} />
+              <SideBarItems onGetTitle={title} category={category} />
             </div>
           )
         })}
