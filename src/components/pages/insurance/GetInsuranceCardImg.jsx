@@ -13,7 +13,9 @@ import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCar
 
 const GetInsuranceCardImg = ({ loggedInUser, companyId, cardName, userName, cardNumber }) => {
   const [company, setCompany] = useState('')
+  // eslint-disable-next-line no-unused-vars
   const [dragActive, setDragActive] = useState(false)
+  // eslint-disable-next-line no-unused-vars
   const [image, setImage] = useState('')
   const [imageURL, setImageURL] = useState('')
   const [imgbbURL, setImgbbURL] = useState('')
