@@ -37,7 +37,7 @@ const AlternativesPage = ({ loggedInUser }) => {
     <>
       <div>
         <UserNavigation loggedInUser={loggedInUser} />
-        <div className="pt-8 pr-20 text-[16px] text-lightBlue">
+        <div className="pt-8 mr-32 2xl:mr-52 text-[16px] text-lightBlue">
           <div className="flex justify-start">
             <Link to="/home" className="hover:underline">
               الرئيسية
@@ -51,7 +51,7 @@ const AlternativesPage = ({ loggedInUser }) => {
               {product.category}
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
-            <Link to={`/products/name/${product.name}`} className="hover:underline">
+            <Link to={`/product/${product._id}`} className="hover:underline">
               {product.nameAr}
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
@@ -68,13 +68,13 @@ const AlternativesPage = ({ loggedInUser }) => {
             onGetLogo={AlternativeLogo}
           />
         ) : (
-          <div>
-            <div className="text-right text-[28px] my-10 mx-20">
+          <div className="mr-32 2xl:mr-52">
+            <div className="text-right text-[28px] my-10">
               <p>البديل</p>
             </div>
 
             <div>
-              <ol className="flex flex-wrap justify-start mr-20">
+              <ol className="flex flex-wrap justify-start">
                 {alternative.map((product) => (
                   <li key={product._id}>
                     <ProductContainer
