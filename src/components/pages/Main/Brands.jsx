@@ -40,12 +40,22 @@ const Brands = () => {
   }
 
   const [title, setTitle] = useState([])
+  const [overflow, setOverflow] = useState(false)
+
   useEffect(() => {
     const getTitle = () => {
       setTitle('تصفح الماركات')
     }
+    const isOverflown = (element) => {
+      if (element?.scrollWidth > element?.clientWidth) {
+        setOverflow(true)
+      } else {
+        setOverflow(false)
+      }
+    }
     getTitle()
-  }, [])
+    isOverflown(container)
+  }, [container?.scrollWidth])
 
   return (
     <div className="mx-36">
@@ -57,20 +67,24 @@ const Brands = () => {
         </Link>
       </div>
       <div className="flex relative">
-        {/*    Right Arrow    */}
-        <div
-          className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
-          onClick={handleRight}
-        >
-          <img src={RightArrow} />
-        </div>
-        {/*    Left Arrow    */}
-        <div
-          className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
-          onClick={handleLeft}
-        >
-          <img src={LeftArrow} />
-        </div>
+        {overflow && (
+          <>
+            {/*    Right Arrow    */}
+            <button
+              className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
+              onClick={handleRight}
+            >
+              <img src={RightArrow} />
+            </button>
+            {/*    Left Arrow    */}
+            <button
+              className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
+              onClick={handleLeft}
+            >
+              <img src={LeftArrow} />
+            </button>
+          </>
+        )}
         {/*      Brands     */}
         <div className="flex w-full pb-7 overflow-x-auto brands container justify-between">
           <ol className="flex justify-between">
