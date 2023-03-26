@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 /*         component imports         */
 import UserNavigation from '../../common/UserNavigation'
+import ConfrimRequest from './ConfrimRequest'
 /*         image imports         */
 import InsuranceCardImg from '../../../assets/insuranceCompanies/InsuranceCardImg.svg'
 import Plus from '../../../assets/insuranceCompanies/Plus.svg'
+/*        HOOKS         */
 import { Link, useParams } from 'react-router-dom'
+/*         API       */
 import { getInsuranceCards } from '../../../utils/usersAPI'
 import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
-import ConfrimRequest from './ConfrimRequest'
 
 const InsuranceCardPage = ({ loggedInUser }) => {
   const [card, setCard] = useState([])
@@ -21,19 +23,19 @@ const InsuranceCardPage = ({ loggedInUser }) => {
       setCard(result)
       const companyData = await getInsuranceCompany(companyId)
       setCompany(companyData)
-      console.log(result)
     }
 
     getCard()
   }, [])
 
-  const handelMessage = () => {
+  const handelMessage = (e) => {
     setMessage(!message)
+    e.target.style.backgroundColor = '#FFE5CC'
     setTimeout(() => {
       setMessage(false)
     }, 2000)
   }
-  console.log(message)
+
   return (
     <div>
       <div>
@@ -73,16 +75,28 @@ const InsuranceCardPage = ({ loggedInUser }) => {
             {card.map(({ nameOnCard, number }) => (
               <>
                 <div
-                  onClick={() => handelMessage()}
-                  className="border rounded-[10px]  my-5 mt-10 w-[997px] hover:bg-[#FFE5CC]"
+                  onClick={(e) => handelMessage(e)}
+                  className="border rounded-[10px]  my-5 mt-10 w-[997px]"
                 >
-                  <div className="flex px-5 py-5 items-center">
-                    <div className="ml-5">
-                      <img className="w-[60px] ml-10" src={company.logo} alt="" />
+                  <div key={number} className="flex rounded-[10px] justify-between items-center">
+                    <div className="flex px-5 py-5 items-center">
+                      <div className="ml-5">
+                        <img
+                          draggable="false"
+                          className="w-[60px] ml-10"
+                          src={company.logo}
+                          alt="companyLogo"
+                        />
+                      </div>
+
+                      <div>
+                        <div className="text-[20px] mb-1">{nameOnCard}</div>
+                        <div className="text-[20px]">{number}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-[20px] mb-1">{nameOnCard}</div>
-                      <div className="text-[20px]">{number}</div>
+
+                    <div className="border-[3px] rounded-full w-7 h-7 ml-10 flex justify-center items-center">
+                      <p className=" rounded-full w-4 h-4"></p>
                     </div>
                   </div>
                 </div>
