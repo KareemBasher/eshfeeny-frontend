@@ -71,7 +71,10 @@ const ProductPage = ({ loggedInUser }) => {
             {product.type}
           </Link>
           <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
-          <Link to={`/products/category/${product.category}`} className="hover:underline">
+          <Link
+            to={`/products/type/${product.type}/category/${product.category}`}
+            className="hover:underline"
+          >
             {product.category}
           </Link>
           <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />

@@ -29,7 +29,7 @@ const SideBarItems = ({ onGetTitle, category }) => {
             {category.map((category) => (
               <li key={category} className="flex justify-start items-center px-5 py-2">
                 <Link
-                  to={`/products/category/${category}`}
+                  to={`/products/type/${onGetTitle}/category/${category}`}
                   className="hover:text-blue hover:underline"
                 >
                   {category}

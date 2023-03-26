@@ -10,7 +10,7 @@ import Arrow from '../../assets/common/Arrow.svg'
 import { getCategory, getFavoriteProducts } from '../../utils/productsAPI'
 
 const CategoreyPage = ({ loggedInUser }) => {
-  const { category } = useParams()
+  const { category, type } = useParams()
 
   const [products, setProducts] = useState([getCategory(category)])
   const [favouriteProducts, setFavouriteProducts] = useState([])
@@ -34,10 +34,13 @@ const CategoreyPage = ({ loggedInUser }) => {
         </Link>
         <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
         <Link to={`/products/type/`} className="hover:underline">
-          type
+          {type}
         </Link>
         <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
-        <Link to={`/products/category/${category}`} className="hover:underline text-blue">
+        <Link
+          to={`/products/type/${type}/category/${category}`}
+          className="hover:underline text-blue"
+        >
           {category}
         </Link>
       </div>

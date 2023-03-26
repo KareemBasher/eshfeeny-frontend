@@ -15,9 +15,9 @@ const Main = ({ loggedInUser }) => {
         <ImageSlider />
         <AddContainer />
 
-        <CategoryItems onGetTitle="الكحة" loggedInUser={loggedInUser} />
-        <CategoryItems onGetTitle="المغص" loggedInUser={loggedInUser} />
-        <CategoryItems onGetTitle="امساك" loggedInUser={loggedInUser} />
+        <CategoryItems onGetTitle="الكحة" onGetType="الأدوية" loggedInUser={loggedInUser} />
+        <CategoryItems onGetTitle="المغص" onGetType="الأدوية" loggedInUser={loggedInUser} />
+        <CategoryItems onGetTitle="امساك" onGetType="الأدوية" loggedInUser={loggedInUser} />
         <Brands />
       </div>
     </div>
