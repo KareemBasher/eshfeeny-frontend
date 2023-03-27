@@ -33,7 +33,7 @@ const Map = ({ loggedInUser }) => {
         <h1>أقرب صيدلية</h1>
       </div>
       <div className="h-[70vh] flex justify-center items-center">
-        <div className="h-full w-3/4">
+        <div className="h-[90%] w-3/4 border shadow-sm hover:shadow-2xl transition-all duration-300">
           <GoogleMap
             options={{
               styles: [
