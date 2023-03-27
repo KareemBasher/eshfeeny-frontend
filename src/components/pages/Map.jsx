@@ -29,8 +29,11 @@ const Map = ({ loggedInUser }) => {
   return (
     <div>
       <UserNavigation loggedInUser={loggedInUser} />
-      <div className="h-[75vh] flex justify-center items-center">
-        <div className="h-full w-3/4 mt-20">
+      <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
+        <h1>أقرب صيدلية</h1>
+      </div>
+      <div className="h-[70vh] flex justify-center items-center">
+        <div className="h-full w-3/4">
           <GoogleMap
             options={{
               styles: [
