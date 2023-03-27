@@ -30,7 +30,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الحمايه من الفيروسات"
           onGetSubItems={[
-            'الحماية من الفيروسات',
+            'كل الحماية من الفيروسات',
             'تقوية المناعة',
             'كمامات و قفازات طبية',
             'مطهرات اليد'

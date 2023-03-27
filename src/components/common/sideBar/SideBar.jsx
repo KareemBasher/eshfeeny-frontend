@@ -23,7 +23,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
     {
       type: 'viruses',
       title: 'الحمايه من الفيروسات',
-      category: ['الحماية من الفيروسات', 'تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']
+      category: ['كل الحماية من الفيروسات', 'تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']
     },
     {
       type: 'menProducts',
