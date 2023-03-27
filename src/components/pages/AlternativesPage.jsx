@@ -47,7 +47,10 @@ const AlternativesPage = ({ loggedInUser }) => {
               {product.type}
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
-            <Link to={`/products/category/${product.category}`} className="hover:underline">
+            <Link
+              to={`/products/type/${product.type}/category/${product.category}`}
+              className="hover:underline"
+            >
               {product.category}
             </Link>
             <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
