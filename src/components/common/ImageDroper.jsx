@@ -62,8 +62,13 @@ const ImageDroper = ({ title, buttonTitle }) => {
     const searchResult = await imageSearch(imageURL)
     setLoading(false)
     setDragActive(false)
-    const IDs = searchResult.map((item) => item._id)
-    navigate(`/location/${IDs.join('&')}`)
+
+    if (searchResult) {
+      const IDs = searchResult.map((item) => item._id)
+      navigate(`/location/${IDs.join('&')}`)
+    } else {
+      navigate('/location')
+    }
   }
 
   useEffect(() => {
