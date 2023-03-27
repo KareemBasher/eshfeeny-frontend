@@ -5,7 +5,6 @@ import Arrow from '../../../assets/common/Arrow.svg'
 
 const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetCategory }) => {
   const [showItems, setShowItems] = useState(false)
-  const [activeCategory, setActiveCategory] = useState(false)
 
   const showItemsHandler = () => {
     setShowItems(!showItems)
@@ -21,18 +20,6 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
     activeType(onGetActiveType)
   }, [onGetActiveType])
 
-  // Shows Active Category ex: مسكنات
-  useEffect(() => {
-    const activeCategory = (category) => {
-      onGetCategory.forEach((element) => {
-        if (element === category) {
-          setActiveCategory(true)
-        }
-      })
-    }
-    activeCategory(onGetActiveCategory)
-  }, [onGetActiveCategory])
-
   return (
     <div className="h-fit">
       <div
@@ -41,7 +28,12 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
           showItems ? 'text-blue text-[20px]' : 'text-black'
         }`}
       >
-        <img src={Arrow} draggable="false" alt="Arrow" />
+        <img
+          className={`transition-all ${showItems && '-rotate-90 ml-1 mt-1'}`}
+          src={Arrow}
+          draggable="false"
+          alt="Arrow"
+        />
         <button>{onGetTitle}</button>
       </div>
       {showItems && (
