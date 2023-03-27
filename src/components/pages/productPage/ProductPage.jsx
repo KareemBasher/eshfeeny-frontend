@@ -61,7 +61,7 @@ const ProductPage = ({ loggedInUser }) => {
   return (
     <div>
       <UserNavigation loggedInUser={loggedInUser} />
-      <div className="pt-8 text-[16px] text-lightBlue">
+      <div className="pt-8 text-[16px] text-blue">
         <div className="flex justify-start mr-32 2xl:mr-52">
           <Link to="/home" className="hover:underline">
             الرئيسية

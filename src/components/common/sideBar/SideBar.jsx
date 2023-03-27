@@ -4,7 +4,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
   const data = [
     {
       type: 'medicine',
-      title: 'الأدوية ',
+      title: 'الأدوية',
       category: [
         'البرد و السعال',
         'مسكنات',
@@ -39,7 +39,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
     {
       type: 'mothers',
       title: 'الأم و الطفل',
-      category: ['كل الأم و  الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
+      category: ['كل الأم و الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
     },
     {
       type: 'skinCare',
