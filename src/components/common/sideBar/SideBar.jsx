@@ -1,10 +1,10 @@
 import SideBarItems from './SideBarItems'
 
-const SideBar = () => {
+const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
   const data = [
     {
       type: 'medicine',
-      title: 'الأدوية ',
+      title: 'الأدوية',
       category: [
         'البرد و السعال',
         'مسكنات',
@@ -13,7 +13,6 @@ const SideBar = () => {
         'الكحة',
         'المغص',
         'امساك',
-        'تقوية المناعة',
         'صحة المرأة',
         'عناية اللفم',
         'مسكنات الالام الموضعية',
@@ -39,7 +38,7 @@ const SideBar = () => {
     {
       type: 'mothers',
       title: 'الأم و الطفل',
-      category: ['كل الأم و  الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
+      category: ['كل الأم و الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
     },
     {
       type: 'skinCare',
@@ -63,13 +62,18 @@ const SideBar = () => {
     }
   ]
   return (
-    <div className="flex flex-col w-[250px] h-full border rounded-[10px] my-10 pr-1">
-      <p className="text-[22px] pt-5 pr-1 text-right">الأقسام</p>
-      <div className="list-books-content text-right">
+    <div className="flex flex-col w-[250px] h-full border rounded-[10px] my-10 text-right whitespace-nowrap">
+      <p className="text-[22px] pt-5 pr-2">الأقسام</p>
+      <div className="list-books-content">
         {data.map(({ title, category }) => {
           return (
             <div key={title}>
-              <SideBarItems onGetTitle={title} category={category} />
+              <SideBarItems
+                onGetTitle={title}
+                onGetCategory={category}
+                onGetActiveType={onGetActiveType}
+                onGetActiveCategory={onGetActiveCategory}
+              />
             </div>
           )
         })}

@@ -11,7 +11,7 @@ import LeftArrow from '../../../assets/mainPage/LeftArrow.svg'
 import { getCategory, getFavoriteProducts } from '../../../utils/productsAPI'
 import { useState } from 'react'
 
-const CategoryItems = ({ onGetTitle, loggedInUser }) => {
+const CategoryItems = ({ onGetTitle, onGetType, loggedInUser }) => {
   const container = document.querySelector(`.${onGetTitle}`)
 
   const handleLeft = () => {
@@ -67,7 +67,7 @@ const CategoryItems = ({ onGetTitle, loggedInUser }) => {
       <div className="flex justify-between">
         <p className="text-right text-[26px] pb-3">{onGetTitle}</p>
         <Link
-          to={`/products/category/${onGetTitle}`}
+          to={`/products/type/${onGetType}/category/${onGetTitle}`}
           className="flex border border-orange py-3 px-5 rounded-[10px]"
         >
           <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>

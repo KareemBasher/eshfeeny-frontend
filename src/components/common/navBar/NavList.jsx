@@ -8,7 +8,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetTitle="الأدوية "
+          onGetTitle="الأدوية"
           onGetSubItems={[
             'البرد و السعال',
             'مسكنات',
@@ -52,12 +52,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الأم و الطفل"
-          onGetSubItems={[
-            'كل الأم و  الطفل',
-            'لبن الاطفال',
-            'الخفاضات و الكريمات',
-            'العناية بالأم'
-          ]}
+          onGetSubItems={['كل الأم و الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
