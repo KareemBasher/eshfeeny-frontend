@@ -80,7 +80,8 @@ function App() {
         element={<InsuranceCardPage loggedInUser={loggedInUser} />}
       />
       <Route path="/newPassword/:code" element={<NewPassword />} />
-      <Route path="/location" element={<Map />} />
+      <Route path="/location/:id" element={<Map loggedInUser={loggedInUser} />} />
+      <Route path="/location/" element={<Map loggedInUser={loggedInUser} />} />
       <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
     </Routes>
   )
