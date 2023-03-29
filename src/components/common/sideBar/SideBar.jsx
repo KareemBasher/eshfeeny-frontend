@@ -6,6 +6,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
       type: 'medicine',
       title: 'الأدوية',
       category: [
+        'كل الأدوية',
         'البرد و السعال',
         'مسكنات',
         'الحروق البسيطة',
