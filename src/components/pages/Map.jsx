@@ -32,8 +32,8 @@ const Map = ({ loggedInUser }) => {
       <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
         <h1>أقرب صيدلية</h1>
       </div>
-      <div className="h-[70vh] flex justify-center items-center">
-        <div className="h-[90%] w-3/4 border shadow-sm hover:shadow-xl transition-all duration-300">
+      <div className="h-[70vh] flex justify-center">
+        <div className="w-[80%] border-2 rounded-[10px] shadow-sm hover:shadow-xl transition-all duration-300">
           <GoogleMap
             options={{
               styles: [
@@ -42,7 +42,7 @@ const Map = ({ loggedInUser }) => {
             }}
             zoom={18}
             center={{ lat: 30.591012255008604, lng: 32.267342084616594 }}
-            mapContainerStyle={{ height: '100%' }}
+            mapContainerStyle={{ height: '100%', borderRadius: '10px' }}
           >
             <Marker position={{ lat: 30.591012255008604, lng: 32.267342084616594 }} />
           </GoogleMap>
