@@ -25,7 +25,7 @@ import InsuranceCardPage from './components/pages/insurance/InsuranceCardPage'
 import NewPassword from './components/pages/login/NewPassword'
 import Map from './components/pages/Map'
 import AddCard from './components/pages/insurance/AddCard'
-import CategoryPage from './components/pages/CatgoreyPage'
+import CategoryPage from './components/pages/CategoryPage'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
