@@ -25,7 +25,7 @@ import InsuranceCardPage from './components/pages/insurance/InsuranceCardPage'
 import NewPassword from './components/pages/login/NewPassword'
 import Map from './components/pages/Map'
 import AddCard from './components/pages/insurance/AddCard'
-import CategoreyPage from './components/pages/CategoreyPage'
+import CategoryPage from './components/pages/CatgoreyPage'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -49,7 +49,7 @@ function App() {
       <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
       <Route
         path="/products/type/:type/category/:category"
-        element={<CategoreyPage loggedInUser={loggedInUser} />}
+        element={<CategoryPage loggedInUser={loggedInUser} />}
       />
       <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
       <Route path="/forgotPassword/" element={<ForgotPassword />} />
