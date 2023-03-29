@@ -9,21 +9,20 @@ import Arrow from '../../assets/common/Arrow.svg'
 /*     API     */
 import { getCategory, getFavoriteProducts } from '../../utils/productsAPI'
 
-const CategoreyPage = ({ loggedInUser }) => {
+const CategoryPage = ({ loggedInUser }) => {
   const { category, type } = useParams()
 
   const [products, setProducts] = useState([getCategory(category)])
-  const [favouriteProducts, setFavouriteProducts] = useState([])
+  const [favoriteProductsIDs, setFavoriteProductsIDs] = useState([])
 
   useEffect(() => {
     const getProducts = async () => {
       setProducts(await getCategory(category))
-      setFavouriteProducts(await getFavoriteProducts(loggedInUser))
+      const favourites = await getFavoriteProducts(loggedInUser)
+      setFavoriteProductsIDs(favourites.map((product) => product._id))
     }
     getProducts()
   }, [category])
-
-  const favoriteProductsIDs = favouriteProducts.map((product) => product._id)
 
   return (
     <div>
@@ -64,4 +63,4 @@ const CategoreyPage = ({ loggedInUser }) => {
   )
 }
 
-export default CategoreyPage
+export default CategoryPage
