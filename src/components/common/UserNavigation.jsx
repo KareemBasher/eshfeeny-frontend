@@ -11,7 +11,7 @@ import Location from '../../assets/common/Location.svg'
 import CartDark from '../../assets/common/CartDark.svg'
 import Person from '../../assets/common/Person.svg'
 /*      API      */
-import * as ProductsAPI from '../../utils/productsAPI'
+import { getCartProducts, getFavoriteProducts } from '../../utils/productsAPI'
 
 const UserNavigation = ({ loggedInUser }) => {
   const [query, setQuery] = useState('')
@@ -45,17 +45,22 @@ const UserNavigation = ({ loggedInUser }) => {
   }, [])
 
   const [cartItems, setCartItems] = useState(0)
+  const [cartProducts, setCartProducts] = useState([])
   const [favouriteItems, setFavouriteItems] = useState(0)
 
   useEffect(() => {
     const getItems = async () => {
-      const cart = await ProductsAPI.getCartProducts(loggedInUser)
-      const favourite = await ProductsAPI.getFavoriteProducts(loggedInUser)
+      const cart = await getCartProducts(loggedInUser)
+      const favourite = await getFavoriteProducts(loggedInUser)
       setCartItems(cart.cart.length ? cart.cart.length : 0)
+      setCartProducts(cart.cart)
       setFavouriteItems(favourite.length ? favourite.length : 0)
     }
     getItems()
   }, [cartItems, favouriteItems])
+
+  const cartIDs = cartProducts.map((product) => product.product._id).join('&')
+
   return (
     <>
       <div className="flex mx-32 2xl:mx-52 py-7 justify-center">
@@ -78,7 +83,7 @@ const UserNavigation = ({ loggedInUser }) => {
         <RoundButton
           onGetLogo={Location}
           onGetText="أقرب صيدلية"
-          onGetPath="/location"
+          onGetPath={`/location/${cartIDs}`}
           onGetCartLength={cartItems}
           active={location.pathname === '/location'}
         />
