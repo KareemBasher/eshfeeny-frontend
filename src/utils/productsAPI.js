@@ -84,6 +84,16 @@ export const getCategory = async (category) => {
   }
 }
 
+// Get all product from a type
+export const getType = async (type) => {
+  try {
+    const result = await fetch(apiURL + `/products/type/${type}`, { headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get product from type ${type} from API.`)
+  }
+}
+
 // Get autocomplete for a search query
 export const search = async (query) => {
   try {
