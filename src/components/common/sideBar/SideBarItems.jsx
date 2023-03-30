@@ -19,7 +19,7 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
     }
     activeType(onGetActiveType)
   }, [onGetActiveType])
-
+  console.log(`كل ${onGetActiveType}`);
   return (
     <div className="h-fit">
       <div
