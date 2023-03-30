@@ -6,6 +6,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
       type: 'medicine',
       title: 'الأدوية',
       category: [
+        'كل الأدوية',
         'البرد و السعال',
         'مسكنات',
         'الحروق البسيطة',
@@ -23,7 +24,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
     {
       type: 'viruses',
       title: 'الحمايه من الفيروسات',
-      category: ['كل الحماية من الفيروسات', 'تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']
+      category: ['كل الحمايه من الفيروسات', 'تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']
     },
     {
       type: 'menProducts',
@@ -58,7 +59,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
     {
       type: 'dentalHealth',
       title: 'العناية بالاسنان',
-      category: ['كل العناية بالأسنان', 'العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']
+      category: ['كل العناية بالاسنان', 'العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']
     }
   ]
   return (
