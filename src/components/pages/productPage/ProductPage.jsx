@@ -32,6 +32,7 @@ const ProductPage = ({ loggedInUser }) => {
       setFavouriteProducts(await getFavoriteProducts(loggedInUser))
     }
     getDetails()
+    setShowButton(true)
   }, [showFavouriteButton, params])
 
   useEffect(() => {
