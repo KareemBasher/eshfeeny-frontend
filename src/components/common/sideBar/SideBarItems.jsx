@@ -40,7 +40,7 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
         <div>
           <ol className="w-full text-[16px]">
             {onGetCategory.map((category) =>
-              category === onGetActiveCategory ? (
+              category === (onGetActiveCategory || `كل ${onGetActiveType}`) ? (
                 // Active Category
                 <li
                   key={category}
@@ -49,7 +49,11 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
                   }
                 >
                   <Link
-                    to={`/products/type/${onGetTitle}/category/${category}`}
+                    to={
+                      category.includes('كل')
+                        ? `/products/type/${onGetTitle}`
+                        : `/products/type/${onGetTitle}/category/${category}`
+                    }
                     className="hover:text-blue hover:underline pr-3"
                   >
                     {category}
@@ -58,7 +62,11 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
               ) : (
                 <li key={category} className={'flex justify-start items-center px-5 py-2'}>
                   <Link
-                    to={`/products/type/${onGetTitle}/category/${category}`}
+                    to={
+                      category.includes('كل')
+                        ? `/products/type/${onGetTitle}`
+                        : `/products/type/${onGetTitle}/category/${category}`
+                    }
                     className="hover:text-blue hover:underline pr-3"
                   >
                     {category}
