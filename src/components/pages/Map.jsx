@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 /*        Assets         */
 import LocationPageEmpty from '../../assets/common/LocationPageEmpty.svg'
-import Logo from '../../assets/common/logo.svg'
+import UserLocation from '../../assets/common/UserLocation.svg'
 /*    Components    */
 import PageEmpty from '../common/PageEmpty'
 import UserNavigation from '../common/UserNavigation'
@@ -62,7 +62,7 @@ const Map = ({ loggedInUser }) => {
             mapContainerStyle={{ height: '100%', borderRadius: '10px' }}
           >
             <Marker
-              icon={Logo}
+              icon={UserLocation}
               title="موقعك"
               position={{ lat: 30.591105239159777, lng: 32.26764605875071 }}
             />
