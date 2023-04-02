@@ -8,7 +8,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
-          onGetTitle="الأدوية "
+          onGetTitle="الأدوية"
           onGetSubItems={[
             'البرد و السعال',
             'مسكنات',
@@ -29,42 +29,31 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الحمايه من الفيروسات"
-          onGetSubItems={[
-            'الحماية من الفيروسات',
-            'تقوية المناعة',
-            'كمامات و قفازات طبية',
-            'مطهرات اليد'
-          ]}
+          onGetSubItems={['تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="منتجات الرجال"
-          onGetSubItems={['كل منتجات الرجال', 'جل الحلاقة', 'مزيل العرق', 'مستلزمات الحلاقة']}
+          onGetSubItems={['جل الحلاقة', 'مزيل العرق', 'مستلزمات الحلاقة']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="منتجات المرأة"
-          onGetSubItems={['كل منتجات المرأة', 'إزالة الشعر', 'مزيل العرق', 'فوط صحية']}
+          onGetSubItems={['إزالة الشعر', 'مزيل العرق', 'فوط صحية']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الأم و الطفل"
-          onGetSubItems={[
-            'كل الأم و  الطفل',
-            'لبن الاطفال',
-            'الخفاضات و الكريمات',
-            'العناية بالأم'
-          ]}
+          onGetSubItems={['لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="العناية بالبشرة و الشعر"
           onGetSubItems={[
-            'كل العناية بالبشرة و الشعر',
             'الحماية من الشمس',
             'العناية باليد و القدم',
             'تفتيح البشرة',
@@ -79,7 +68,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="العناية بالاسنان"
-          onGetSubItems={['كل العناية بالأسنان', 'العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']}
+          onGetSubItems={['العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']}
         />
       </div>
     </div>

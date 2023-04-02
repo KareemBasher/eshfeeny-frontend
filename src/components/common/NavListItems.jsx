@@ -15,7 +15,10 @@ const NavListItems = ({ onGetTitle, onGetSubItems, handleShowOverlay, handleHide
         <ol className="w-full text-[16px]">
           {onGetSubItems.map((subItem) => (
             <li key={subItem} className="flex justify-start items-center px-5 py-2">
-              <Link to={`/products/category/${subItem}`} className="hover:text-blue">
+              <Link
+                to={`/products/type/${onGetTitle}/category/${subItem}`}
+                className="hover:text-blue"
+              >
                 {subItem}
               </Link>
             </li>
