@@ -46,7 +46,7 @@ const Map = ({ loggedInUser }) => {
     )
   30.591012255008604, 32.267342084616594
   return (
-    <div>
+    <div className="pb-20 2xl:pb-0">
       <UserNavigation loggedInUser={loggedInUser} />
       <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
         <h1>أقرب صيدلية</h1>
