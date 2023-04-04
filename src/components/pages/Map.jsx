@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 /*        Assets         */
 import LocationPageEmpty from '../../assets/common/LocationPageEmpty.svg'
@@ -9,29 +8,32 @@ import PageEmpty from '../common/PageEmpty'
 import UserNavigation from '../common/UserNavigation'
 /*    API    */
 import { getAvailable } from '../../utils/pharmaciesAPI'
+import { getCartProducts } from '../../utils/productsAPI'
 
 const Map = ({ loggedInUser }) => {
-  const { id } = useParams()
-  const ids = id.split('&')
   const [pharmacies, setPharmacies] = useState([])
+  const [cartProducts, setCartProducts] = useState([])
 
   const pharmacyMarker =
     'https://www.google.com/maps/vt/icon/name=assets/icons/poi/tactile/pinlet_outline_v4-2-medium.png,assets/icons/poi/tactile/pinlet_v4-2-medium.png,assets/icons/poi/quantum/pinlet/pharmacy_pinlet_v3-2-medium.png&highlight=ea4335,ee675c,ffffff?scale=1'
 
   useEffect(() => {
-    const getPharmacies = async () => {
+    const getData = async () => {
+      const cart = await getCartProducts(loggedInUser)
+      const ids = cart.cart.map((item) => item.product._id)
+      setCartProducts(ids)
       setPharmacies(await getAvailable(ids))
     }
 
-    getPharmacies()
-  }, [id])
+    getData()
+  }, [])
 
   const gcpKey = import.meta.env.VITE_GOOGLE_CLOUD_API_KEY
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: gcpKey
   })
 
-  if (!isLoaded || !id)
+  if (!isLoaded || !cartProducts)
     return (
       <>
         <UserNavigation loggedInUser={loggedInUser} />
