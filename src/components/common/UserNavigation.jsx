@@ -45,8 +45,6 @@ const UserNavigation = ({ loggedInUser }) => {
   }, [])
 
   const [cartItems, setCartItems] = useState(0)
-  const [cartProducts, setCartProducts] = useState([])
-  const [cartProductsIDs, setCartProductsIDs] = useState(cartProducts)
   const [favouriteItems, setFavouriteItems] = useState(0)
 
   useEffect(() => {
@@ -54,14 +52,11 @@ const UserNavigation = ({ loggedInUser }) => {
       const cart = await getCartProducts(loggedInUser)
       const favourite = await getFavoriteProducts(loggedInUser)
       setCartItems(cart.cart.length ? cart.cart.length : 0)
-      setCartProducts(cart.cart)
-      setCartProductsIDs(cartProducts.map((product) => product.product._id))
       setFavouriteItems(favourite.length ? favourite.length : 0)
     }
     getItems()
   }, [cartItems, favouriteItems])
 
-  console.log(cartProductsIDs.join('&'))
   return (
     <>
       <div className="flex mx-32 2xl:mx-52 py-7 justify-center">
@@ -84,7 +79,7 @@ const UserNavigation = ({ loggedInUser }) => {
         <RoundButton
           onGetLogo={Location}
           onGetText="أقرب صيدلية"
-          onGetPath={`/location/${cartProductsIDs}`}
+          onGetPath={`/location/`}
           onGetCartLength={cartItems}
           active={location.pathname === '/location'}
         />

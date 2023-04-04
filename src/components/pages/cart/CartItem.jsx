@@ -11,7 +11,7 @@ const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
   }
 
   return (
-    <div className="flex justify-evenly text-right border-b mt-5 h-32 w-full">
+    <div className="flex justify-evenly px-20 text-right border-b mt-5 h-32 w-full">
       <Link to={`/product/${product._id}`} className="flex items-center justify-center w-[150px]">
         <img src={product?.images} draggable="false" className="max-h-[80%]" alt="Product" />
       </Link>
