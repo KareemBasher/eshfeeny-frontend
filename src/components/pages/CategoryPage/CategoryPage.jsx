@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 /*     Components     */
-import UserNavigation from '../common/UserNavigation'
-import SideBar from '../common/sideBar/SideBar'
-import ProductContainer from '../common/ProductContainer'
+import UserNavigation from '../../common/UserNavigation'
+import SideBar from '../../common/sideBar/SideBar'
+import ProductContainer from '../../common/ProductContainer'
+import Pagination from './Pagination'
 /*     Icons     */
-import Arrow from '../../assets/common/Arrow.svg'
+import Arrow from '../../../assets/common/Arrow.svg'
 /*     API     */
-import { getCategory, getType, getFavoriteProducts } from '../../utils/productsAPI'
+import { getCategory, getType, getFavoriteProducts } from '../../../utils/productsAPI'
 
 const CategoryPage = ({ loggedInUser }) => {
   const { category, type } = useParams()
 
   const [products, setProducts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [productsPerPage] = useState(12)
   const [favoriteProductsIDs, setFavoriteProductsIDs] = useState([])
 
   useEffect(() => {
@@ -27,6 +30,12 @@ const CategoryPage = ({ loggedInUser }) => {
     }
     getProducts()
   }, [category, type])
+
+  const lastProductIndex = currentPage * productsPerPage
+  const firstProductIndex = lastProductIndex - productsPerPage
+  const currentProducts = products.slice(firstProductIndex, lastProductIndex)
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <div>
@@ -59,7 +68,7 @@ const CategoryPage = ({ loggedInUser }) => {
           {products.length > 1 && (
             <>
               <ol className="flex flex-wrap justify-start -mr-2">
-                {products?.map((product) => (
+                {currentProducts?.map((product) => (
                   <li key={product._id}>
                     <ProductContainer
                       onGetProduct={product}
@@ -71,6 +80,11 @@ const CategoryPage = ({ loggedInUser }) => {
               </ol>
             </>
           )}
+          <Pagination
+            totalProducts={products?.length}
+            productsPerPage={productsPerPage}
+            paginate={paginate}
+          />
         </div>
       </div>
     </div>
