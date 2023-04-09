@@ -13,9 +13,14 @@ import { getCategory, getType, getFavoriteProducts } from '../../../utils/produc
 const CategoryPage = ({ loggedInUser }) => {
   const { category, type } = useParams()
 
+  let result = 12
+  if (innerWidth === 1920) {
+    result = 15
+  }
+
   const [products, setProducts] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [productsPerPage] = useState(12)
+  const [productsPerPage] = useState(result)
   const [favoriteProductsIDs, setFavoriteProductsIDs] = useState([])
 
   useEffect(() => {
@@ -59,7 +64,7 @@ const CategoryPage = ({ loggedInUser }) => {
       </div>
       <div className="flex mr-32 2xl:mr-52">
         <SideBar onGetActiveType={type} onGetActiveCategory={category} />
-        <div className="mr-4">
+        <div className="w-full mr-4">
           {category ? (
             <div className="text-right text-[28px] mt-10 mb-3 mr-8">{category}</div>
           ) : (
