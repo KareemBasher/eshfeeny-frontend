@@ -63,7 +63,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
     }
   ]
   return (
-    <div className="flex flex-col min-w-[250px] h-full border rounded-[10px] my-10 text-right whitespace-nowrap">
+    <div className="flex flex-col min-w-[262px] h-full border rounded-[10px] my-10 text-right whitespace-nowrap">
       <p className="text-[22px] pt-5 pr-2">الأقسام</p>
       <div className="list-books-content">
         {data.map(({ title, category }) => {
