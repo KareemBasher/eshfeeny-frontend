@@ -8,18 +8,18 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i)
   }
-  console.log(pageNumbers)
+
   return (
     <div>
-      <ul className="flex justify-end items-center py-10 pl-7 2xl:pl-[195px]">
-        <img
-          draggable="false"
-          src={Arrow}
-          className="ml-1 opacity-70 rotate-180 w-[24px] h-[24px]"
-          alt="Arrow"
-        />
-        {pageNumbers.length > 1 &&
-          pageNumbers.map((number) => (
+      {pageNumbers.length > 1 && (
+        <ul className="flex justify-end items-center py-10 pl-7 2xl:pl-[195px]">
+          <img
+            draggable="false"
+            src={Arrow}
+            className="ml-1 opacity-70 rotate-180 w-[24px] h-[24px]"
+            alt="Arrow"
+          />
+          {pageNumbers.map((number) => (
             <li key={number}>
               <div className="flex justify-center items-center text-[#676767B2] text-opacity-70 text-[18px] w-[30px]">
                 <button
@@ -31,13 +31,14 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
               </div>
             </li>
           ))}
-        <img
-          draggable="false"
-          src={Arrow}
-          className="mr-1 opacity-70 w-[24px] h-[24px]"
-          alt="Arrow"
-        />
-      </ul>
+          <img
+            draggable="false"
+            src={Arrow}
+            className="mr-1 opacity-70 w-[24px] h-[24px]"
+            alt="Arrow"
+          />
+        </ul>
+      )}
     </div>
   )
 }
