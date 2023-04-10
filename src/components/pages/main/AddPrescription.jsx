@@ -9,7 +9,9 @@ const AddPrescription = () => {
       <div className="flex flex-col items-start">
         <div className="flex flex-col items-start justify-between">
           <span className="text-[26px]">أضف الروشتة</span>
-          <span className="text-[16px] my-5">و أعرف أقرب صيدلية من موقعك متوفر فيها كل الدواء</span>
+          <span className="text-[16px] xl:text-right my-5">
+            و أعرف أقرب صيدلية من موقعك متوفر فيها كل الدواء
+          </span>
         </div>
 
         <div className="text-[20px] w-[205px] rounded-[30px] bg-[#0583F2] text-white py-2 mt-12 shadow-md text-center">

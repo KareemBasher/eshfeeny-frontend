@@ -6,7 +6,7 @@ const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength }) => {
     <div className="flex mr-5 min-w-fit">
       <Link
         to={onGetPath}
-        className="flex justify-center rounded-full shadow-md w-10 h-10 relative"
+        className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative"
       >
         {onGetCartLength > 0 && onGetText === 'المفضلة' && (
           <div className="absolute right-0 bg-orange w-[17px] h-[17px] justify-center items-center rounded-full text-[12px]">
