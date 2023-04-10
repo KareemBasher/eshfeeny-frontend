@@ -13,7 +13,7 @@ const ErrorPage = ({ loggedInUser }) => {
           <p className="text-[28px] mb-10">نعتذر لعدم وجود الصفحة</p>
         </div>
         <div>
-          <img src={Error} alt="" />
+          <img draggable="false" src={Error} alt="404 Error Message" />
         </div>
       </div>
     </div>
