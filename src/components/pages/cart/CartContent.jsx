@@ -20,10 +20,19 @@ const CartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveItem }) => 
       </ol>
 
       <div className="flex w-full flex-col justify-center">
-        <p className="text-[28px] underline text-lightBlue underline-offset-8">
-          <Link to="/home">استمر بالتسوق</Link>
+        <p className="text-[24px] text-lightBlue">
+          <Link
+            className="text-[24px] text-lightBlue border border-lightBlue rounded-[10px] py-2 px-6"
+            to="/location"
+          >
+            اعرض الصيديليات
+          </Link>
         </p>
         <p className="text-[#676767] text-[14px] my-5">قد تخلتف الأسعار بين الصيدليات</p>
+
+        <Link className="text-[20px] text-lightBlue underline underline-offset-[5px]" to="/home">
+          استمر بالتسوق
+        </Link>
       </div>
     </div>
   )

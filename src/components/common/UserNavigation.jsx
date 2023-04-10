@@ -45,7 +45,6 @@ const UserNavigation = ({ loggedInUser }) => {
   }, [])
 
   const [cartItems, setCartItems] = useState(0)
-  const [cartProducts, setCartProducts] = useState([])
   const [favouriteItems, setFavouriteItems] = useState(0)
 
   useEffect(() => {
@@ -53,13 +52,10 @@ const UserNavigation = ({ loggedInUser }) => {
       const cart = await getCartProducts(loggedInUser)
       const favourite = await getFavoriteProducts(loggedInUser)
       setCartItems(cart.cart.length ? cart.cart.length : 0)
-      setCartProducts(cart.cart)
       setFavouriteItems(favourite.length ? favourite.length : 0)
     }
     getItems()
   }, [cartItems, favouriteItems])
-
-  const cartIDs = cartProducts.map((product) => product.product._id).join('&')
 
   return (
     <>
@@ -83,7 +79,7 @@ const UserNavigation = ({ loggedInUser }) => {
         <RoundButton
           onGetLogo={Location}
           onGetText="أقرب صيدلية"
-          onGetPath={`/location/${cartIDs}`}
+          onGetPath={`/location/`}
           onGetCartLength={cartItems}
           active={location.pathname === '/location'}
         />
