@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ShowPassword from '../../assets/common/ShowPassword.svg'
 import ShowPasswordOn from '../../assets/common/ShowPasswordOn.svg'
+import './PasswordDots.css'
 
 const CredentialsInput = ({ name, placeHolder, type, value, handleInput }) => {
   const [inputType, setInputType] = useState(type)
