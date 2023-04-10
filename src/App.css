@@ -31,3 +31,7 @@ section::-webkit-scrollbar {
 input[type="password"] {
   font-family: Verdana;
 }
+
+input[type="password"]::placeholder {
+  font-family: 'Cairo', sans-serif;
+}
