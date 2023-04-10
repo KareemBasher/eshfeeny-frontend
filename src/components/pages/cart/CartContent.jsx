@@ -25,7 +25,7 @@ const CartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveItem }) => 
             className="text-[24px] text-lightBlue border border-lightBlue rounded-[10px] py-2 px-6"
             to="/location"
           >
-            اعرض الصيديليات
+            اعرض الصيدليات
           </Link>
         </p>
         <p className="text-[#676767] text-[14px] my-5">قد تخلتف الأسعار بين الصيدليات</p>
