@@ -26,6 +26,7 @@ import NewPassword from './components/pages/login/NewPassword'
 import Map from './components/pages/Map'
 import AddCard from './components/pages/insurance/AddCard'
 import CategoryPage from './components/pages/CategoryPage/CategoryPage'
+import ErrorPage from './components/common/ErrorPage'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -84,6 +85,7 @@ function App() {
       <Route path="/location/:id" element={<Map loggedInUser={loggedInUser} />} />
       <Route path="/location/" element={<Map loggedInUser={loggedInUser} />} />
       <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
+      <Route path="/*" element={<ErrorPage loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
