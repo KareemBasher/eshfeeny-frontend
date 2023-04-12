@@ -89,7 +89,7 @@ const ProductPage = ({ loggedInUser }) => {
             product.images.map((image) => (
               <div
                 key={image}
-                className="flex justify-center items-center mb-3 w-20 border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
+                className="flex justify-center items-center mb-3 h-[70px] w-[70px] border border-[#F99D1C] border-opacity-50 rounded-[10px] cursor-pointer"
                 onClick={changeImage}
               >
                 <img draggable="false" src={image} className="h-20 py-5" alt="ProductAltImage" />
