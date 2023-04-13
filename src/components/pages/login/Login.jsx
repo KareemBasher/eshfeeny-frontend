@@ -52,7 +52,7 @@ const Login = ({ changeLoggedUser }) => {
       if (type === 'user') result = await verifyLogin(email, password)
       else if (type === 'pharmacy') result = await pharmacyVerifyLogin(email, password)
       if (result) {
-        changeLoggedUser(result._id)
+        changeLoggedUser(result._id, type)
         setError(false)
         if (type === 'user') window.location.href = '/home'
         else if (type === 'pharmacy') window.location.href = '/pharmacy'
