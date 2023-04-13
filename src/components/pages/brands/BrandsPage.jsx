@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 /*    Components    */
 import UserNavigation from '../../common/UserNavigation'
-import PageEmpty from '../../common/PageEmpty'
 import ProductContainer from '../../common/ProductContainer'
 /*       Icons       */
 import Arrow from '../../../assets/common/Arrow.svg'
