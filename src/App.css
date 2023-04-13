@@ -9,6 +9,17 @@ html {
   background-color: #FDFDFF;
 }
 
+html::-webkit-scrollbar {
+  width: 6px;
+  padding: 3px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+  border-radius: 5px;
+
+}
+
 section::-webkit-scrollbar {
   display: none;
 }
