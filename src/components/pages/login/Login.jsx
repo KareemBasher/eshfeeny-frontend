@@ -12,6 +12,8 @@ import ErrorPage from '../../common/ErrorPage'
 /*         Illustration and images         */
 import LoginVectorError from '../../../assets/loginPage/LoginVectorError.svg'
 import LoginVector from '../../../assets/loginPage/LoginVector.svg'
+import PharmacyLogin from '../../../assets/loginPage/PharmacyLogin.svg'
+import ManufacturerLogin from '../../../assets/loginPage/ManufacturerLogin.svg'
 
 /*         API         */
 import { verifyLogin } from '../../../utils/usersAPI'
@@ -26,10 +28,15 @@ const Login = ({ changeLoggedUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
+  const [vector, setVector] = useState('')
 
   useEffect(() => {
     setEmail('')
     setPassword('')
+
+    if (type === 'user') setVector(LoginVector)
+    else if (type === 'pharmacy') setVector(PharmacyLogin)
+    else if (type === 'manufacturer') setVector(ManufacturerLogin)
   }, [])
 
   const handleInput = (value, name) => {
@@ -93,7 +100,7 @@ const Login = ({ changeLoggedUser }) => {
           </div>
 
           <div className="flex flex-row-reverse items-center justify-between">
-            <Link to="/forgotPassword">
+            <Link to={`/forgotPassword/${type}`}>
               <span className="text-[14px] text-[#868484] underline float-left">
                 هل نسيت كلمة السر؟
               </span>
@@ -126,11 +133,7 @@ const Login = ({ changeLoggedUser }) => {
         </div>
 
         <div className="w-4/12">
-          <img
-            src={error?.all ? LoginVectorError : LoginVector}
-            draggable="false"
-            alt="login vector"
-          />
+          <img src={error?.all ? LoginVectorError : vector} draggable="false" alt="login vector" />
         </div>
       </div>
     </div>

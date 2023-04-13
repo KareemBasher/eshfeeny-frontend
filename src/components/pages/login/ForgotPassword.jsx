@@ -1,24 +1,40 @@
 /*         Hooks         */
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 /*         Components         */
 import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
+import ErrorPage from '../../common/ErrorPage'
 
 /*         Illustration and images         */
 import Logo from '../../../assets/common/Logo.svg'
 import LoginVectorError from '../../../assets/loginPage/LoginVectorError.svg'
-import LoginVector from '../../../assets/loginPage/LoginVector.svg'
+import UserOTP from '../../../assets/loginPage/UserOTP.svg'
+import PharmacyOTP from '../../../assets/loginPage/PharmacyOTP.svg'
+import ManufacturerOTP from '../../../assets/loginPage/ManufacturerOTP.svg'
 
 /*         API         */
 import { checkUserEmail } from '../../../utils/usersAPI'
 
 const ForgotPassword = () => {
+  const { type } = useParams()
+
+  if (type !== 'user' && type !== 'pharmacy' && type !== 'manufacturer') {
+    return <ErrorPage />
+  }
+
   const [email, setEmail] = useState('')
   const [error, setError] = useState(false)
+  const [vector, setVector] = useState('')
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (type === 'user') setVector(UserOTP)
+    else if (type === 'pharmacy') setVector(PharmacyOTP)
+    else if (type === 'manufacturer') setVector(ManufacturerOTP)
+  }, [])
 
   const handleInput = (email) => {
     setEmail(email)
@@ -93,7 +109,7 @@ const ForgotPassword = () => {
         </div>
 
         <div className="w-4/12">
-          <img src={error ? LoginVectorError : LoginVector} draggable="false" alt="login vector" />
+          <img src={error ? LoginVectorError : vector} draggable="false" alt="login vector" />
         </div>
       </div>
     </div>
