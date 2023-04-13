@@ -57,7 +57,7 @@ function App() {
         element={<CategoryPage loggedInUser={loggedInUser} />}
       />
       <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
-      <Route path="/forgotPassword/" element={<ForgotPassword />} />
+      <Route path="/forgotPassword/:type" element={<ForgotPassword />} />
       <Route path="/forgotPassword/verify/:email" element={<VerifyCode />} />
       <Route
         path="/searchResults/:searchResults"
