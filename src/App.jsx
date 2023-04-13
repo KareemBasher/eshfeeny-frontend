@@ -27,6 +27,7 @@ import Map from './components/pages/Map'
 import AddCard from './components/pages/insurance/AddCard'
 import CategoryPage from './components/pages/CategoryPage/CategoryPage'
 import ErrorPage from './components/common/ErrorPage'
+import Pharmacy from './components/pages/Pharmacy/Pharmacy'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -86,6 +87,7 @@ function App() {
       <Route path="/location/" element={<Map loggedInUser={loggedInUser} />} />
       <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
       <Route path="/*" element={<ErrorPage loggedInUser={loggedInUser} />} />
+      <Route path="/pharmacy" element={<Pharmacy loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
