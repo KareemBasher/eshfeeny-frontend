@@ -29,14 +29,19 @@ import AddCard from './components/pages/insurance/AddCard'
 import CategoryPage from './components/pages/categoryPage/CategoryPage'
 import ErrorPage from './components/common/ErrorPage'
 import Pharmacy from './components/pages/pharmacy/Pharmacy'
+import UserProtectedRoutes from './UserProtectedRoutes'
+import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
   const [loggedInUser, setLoggedUser] = useState(cookies.loggedUser)
+  const [loggedInUserType, setLoggedInUserType] = useState(cookies.loggedInUserType)
 
-  const changeLoggedInUser = (user) => {
+  const changeLoggedInUser = (user, type) => {
     setLoggedUser(user)
+    setLoggedInUserType(type)
     setCookie('loggedUser', user, { path: '/' })
+    setCookie('loggedInUserType', type, { path: '/' })
   }
 
   return (
@@ -47,49 +52,63 @@ function App() {
         path="/"
         element={loggedInUser ? <Navigate to="/home" /> : <Navigate to="/landingPage" />}
       />
-      <Route path="/favorites" element={<Favourites loggedInUser={loggedInUser} />} />
       <Route path="/login/:type" element={<Login changeLoggedUser={changeLoggedInUser} />} />
-      <Route path="/cart" element={<Cart loggedInUser={loggedInUser} />} />
-      <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
-      <Route path="/products/type/:type" element={<CategoryPage loggedInUser={loggedInUser} />} />
-      <Route
-        path="/products/type/:type/category/:category"
-        element={<CategoryPage loggedInUser={loggedInUser} />}
-      />
-      <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
+
+      {/* User protected routes */}
+      <Route element={<UserProtectedRoutes loggedInUser={loggedInUser} type={loggedInUserType} />}>
+        <Route path="/favorites" element={<Favourites loggedInUser={loggedInUser} />} />
+        <Route path="/cart" element={<Cart loggedInUser={loggedInUser} />} />
+        <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
+        <Route path="/products/type/:type" element={<CategoryPage loggedInUser={loggedInUser} />} />
+        <Route
+          path="/products/type/:type/category/:category"
+          element={<CategoryPage loggedInUser={loggedInUser} />}
+        />
+        <Route
+          path="/searchResults/:searchResults"
+          element={<SearchResults loggedInUser={loggedInUser} />}
+        />
+        <Route
+          path="/searchResults/"
+          element={<SearchResults loggedInUser={loggedInUser} empty={true} />}
+        />
+        <Route path="/profile/" element={<Profile loggedInUser={loggedInUser} />} />
+        <Route
+          exact
+          path="/alternatives/:id"
+          element={<AlternativesPage loggedInUser={loggedInUser} />}
+        />
+        <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
+        <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
+        <Route
+          path="/insuranceCompanies"
+          element={<InsuranceCompanies loggedInUser={loggedInUser} />}
+        />
+        <Route
+          path="/insuranceCompanies/:id"
+          element={<CompanyPage loggedInUser={loggedInUser} />}
+        />
+        <Route
+          path="/insuranceCards/:companyId"
+          element={<InsuranceCardPage loggedInUser={loggedInUser} />}
+        />
+        <Route path="/location/:id" element={<Map loggedInUser={loggedInUser} />} />
+        <Route path="/location/" element={<Map loggedInUser={loggedInUser} />} />
+        <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
+      </Route>
+      {/* User protected routes */}
+
+      {/* Pharmacy protected routes */}
+      <Route element={<PharmacyProtectedRoutes loggedInUser={loggedInUser} type="pharmacy" />}>
+        <Route path="/pharmacy" element={<Pharmacy loggedInUser={loggedInUser} />} />
+      </Route>
+      {/* Pharmacy protected routes */}
+
+      <Route path="/*" element={<ErrorPage loggedInUser={loggedInUser} />} />
       <Route path="/forgotPassword/:type" element={<ForgotPassword />} />
       <Route path="/forgotPassword/verify/:email" element={<VerifyCode />} />
-      <Route
-        path="/searchResults/:searchResults"
-        element={<SearchResults loggedInUser={loggedInUser} />}
-      />
-      <Route
-        path="/searchResults/"
-        element={<SearchResults loggedInUser={loggedInUser} empty={true} />}
-      />
-      <Route
-        exact
-        path="/alternatives/:id"
-        element={<AlternativesPage loggedInUser={loggedInUser} />}
-      />
-      <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
-      <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
       <Route path="/signup/:type" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
-      <Route
-        path="/insuranceCompanies"
-        element={<InsuranceCompanies loggedInUser={loggedInUser} />}
-      />
-      <Route path="/insuranceCompanies/:id" element={<CompanyPage loggedInUser={loggedInUser} />} />
-      <Route
-        path="/insuranceCards/:companyId"
-        element={<InsuranceCardPage loggedInUser={loggedInUser} />}
-      />
       <Route path="/newPassword/:code" element={<NewPassword />} />
-      <Route path="/location/:id" element={<Map loggedInUser={loggedInUser} />} />
-      <Route path="/location/" element={<Map loggedInUser={loggedInUser} />} />
-      <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
-      <Route path="/*" element={<ErrorPage loggedInUser={loggedInUser} />} />
-      <Route path="/pharmacy" element={<Pharmacy loggedInUser={loggedInUser} />} />
     </Routes>
   )
 }
