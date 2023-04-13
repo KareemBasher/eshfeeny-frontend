@@ -56,9 +56,10 @@ const PharmacyNavigation = ({ loggedInUser }) => {
     }
     getItems()
   }, [cartItems, favouriteItems])
+
   return (
     <>
-      <div className="flex mx-32 2xl:mx-52 py-7 justify-center">
+      <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30">
         <LogoScript />
         <SearchBar onGetData={searchResult} query={query} />
         <RoundButton
