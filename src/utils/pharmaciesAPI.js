@@ -21,7 +21,7 @@ export const getAvailable = async (products) => {
 }
 
 // Verify login for pharmacy
-export const verifyLogin = async (email, password) => {
+export const pharmacyVerifyLogin = async (email, password) => {
   try {
     if (email === '' || password === '') throw new Error('Please enter an email and password.')
     const result = await fetch(apiURL + '/pharmacies/verify', {
