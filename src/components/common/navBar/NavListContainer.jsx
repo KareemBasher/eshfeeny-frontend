@@ -14,11 +14,11 @@ const NavListContainer = () => {
 
   return (
     <div>
-      <div className="border-y w-full">
+      <div className="border-y w-full relative bg-[#fdfdff] z-20">
         <NavList handleShowOverlay={handleShowOverlay} handleHideOverlay={handleHideOverlay} />
       </div>
       <div
-        className={`${black ? 'absolute' : 'hidden'} bg-black opacity-50 h-full w-full z-10`}
+        className={`${black ? 'fixed' : 'hidden'} inset-0 bg-black opacity-50 h-full w-full z-10`}
       ></div>
     </div>
   )
