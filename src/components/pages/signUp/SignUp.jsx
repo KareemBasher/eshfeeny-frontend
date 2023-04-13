@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+/*     Assets      */
+import SignupVector from '../../../assets/common/SignupVector.svg'
+/*     Components      */
 import CredentialsInput from '../../common/CredentialsInput'
 import WelcomeLogo from '../../common/WelcomeLogo'
 import WideButton from '../../common/WideButton'
 import AlternateSignin from '../../common/AlternateSignin'
-import SignupVector from '../../../assets/common/SignupVector.svg'
+import ErrorPage from '../../common/ErrorPage'
+/*     API      */
 import { createUser } from '../../../utils/usersAPI'
 
 const SignUp = ({ changeLoggedUser }) => {
+  const { type } = useParams()
+
+  if (type !== 'user' && type !== 'pharmacy' && type !== 'manufacturer') {
+    return <ErrorPage />
+  }
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')

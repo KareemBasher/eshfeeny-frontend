@@ -1,12 +1,13 @@
 /*         Hooks         */
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 /*         Components         */
 import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
 import AlternateSignin from '../../common/AlternateSignin'
 import WelcomeLogo from '../../common/WelcomeLogo'
+import ErrorPage from '../../common/ErrorPage'
 
 /*         Illustration and images         */
 import LoginVectorError from '../../../assets/loginPage/LoginVectorError.svg'
@@ -16,6 +17,12 @@ import LoginVector from '../../../assets/loginPage/LoginVector.svg'
 import { verifyLogin } from '../../../utils/usersAPI'
 
 const Login = ({ changeLoggedUser }) => {
+  const { type } = useParams()
+
+  if (type !== 'user' && type !== 'pharmacy' && type !== 'manufacturer') {
+    return <ErrorPage />
+  }
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
