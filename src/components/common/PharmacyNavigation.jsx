@@ -78,9 +78,9 @@ const PharmacyNavigation = ({ loggedInUser }) => {
         <RoundButton
           onGetLogo={PharmacyProducts}
           onGetText="منتجاتى"
-          onGetPath={`/PharmacyProducts`}
+          onGetPath={`/pharmacyProducts`}
           onGetCartLength={cartItems}
-          active={location.pathname === '/PharmacyProducts'}
+          active={location.pathname === '/pharmacyProducts'}
         />
         <RoundButton
           onGetLogo={Person}
