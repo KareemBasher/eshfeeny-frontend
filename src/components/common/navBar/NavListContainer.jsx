@@ -3,12 +3,15 @@ import NavList from './NavList'
 
 const NavListContainer = () => {
   const [black, setBlack] = useState(false)
+
   const handleShowOverlay = () => {
     setBlack(true)
   }
+
   const handleHideOverlay = () => {
     setBlack(false)
   }
+
   return (
     <div>
       <div className="border-y w-full">
