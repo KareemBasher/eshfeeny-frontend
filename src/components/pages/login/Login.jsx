@@ -17,6 +17,7 @@ import ManufacturerLogin from '../../../assets/loginPage/ManufacturerLogin.svg'
 
 /*         API         */
 import { verifyLogin } from '../../../utils/usersAPI'
+import { pharmacyVerifyLogin } from '../../../utils/pharmaciesAPI'
 
 const Login = ({ changeLoggedUser }) => {
   const { type } = useParams()
@@ -47,11 +48,15 @@ const Login = ({ changeLoggedUser }) => {
   const handleSubmit = async () => {
     if (password.length < 8) setError({ password: true })
     else {
-      const result = await verifyLogin(email, password)
+      let result
+      if (type === 'user') result = await verifyLogin(email, password)
+      else if (type === 'pharmacy') result = await pharmacyVerifyLogin(email, password)
       if (result) {
         changeLoggedUser(result._id)
         setError(false)
-        window.location.href = '/home'
+        if (type === 'user') window.location.href = '/home'
+        else if (type === 'pharmacy') window.location.href = '/pharmacy'
+        else if (type === 'manufacturer') window.location.href = '/manufacturer'
       } else {
         setError({ all: true })
       }
