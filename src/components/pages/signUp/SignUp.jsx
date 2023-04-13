@@ -82,7 +82,7 @@ const SignUp = ({ changeLoggedUser }) => {
       if (result === 'User already exists') setError((prev) => ({ ...prev, emailExists: true }))
       else {
         setError((prev) => ({ ...prev, userExists: false }))
-        changeLoggedUser(result._id)
+        changeLoggedUser(result._id, type)
         window.location.href = '/home'
       }
     }
