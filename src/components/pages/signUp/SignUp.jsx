@@ -26,11 +26,19 @@ const SignUp = ({ changeLoggedUser }) => {
   const [checkPassword, setCheckPassowrd] = useState('')
   const [error, setError] = useState({})
   const [vector, setVector] = useState('')
+  const [placeHolder, setPlaceHolder] = useState('')
 
   useEffect(() => {
-    if (type === 'user') setVector(SignupVector)
-    else if (type === 'pharmacy') setVector(PharmacyLogin)
-    else if (type === 'manufacturer') setVector(ManufacturerLogin)
+    if (type === 'user') {
+      setVector(SignupVector)
+      setPlaceHolder('اسم المستخدم')
+    } else if (type === 'pharmacy') {
+      setVector(PharmacyLogin)
+      setPlaceHolder('اسم الصيدلية')
+    } else if (type === 'manufacturer') {
+      setVector(ManufacturerLogin)
+      setPlaceHolder('اسم المصنع')
+    }
   }, [])
 
   const handleInput = (value, name) => {
@@ -114,7 +122,7 @@ const SignUp = ({ changeLoggedUser }) => {
             <div className="text-right flex flex-col items-start justify-start mb-5">
               <CredentialsInput
                 name={'name'}
-                placeHolder={'اسم المستخدم'}
+                placeHolder={placeHolder}
                 type={'text'}
                 value={name}
                 handleInput={handleInput}
