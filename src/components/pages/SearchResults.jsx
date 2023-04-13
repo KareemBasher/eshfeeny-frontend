@@ -36,7 +36,7 @@ const SearchResults = ({ loggedInUser, empty }) => {
             onGetLogo={AlternativeLogo}
           />
         ) : (
-          <div className="mr-28 2xl:mr-52">
+          <div className="mr-32 2xl:mr-52">
             <div className="text-right text-[28px] my-10">نتائج البحث</div>
             <ol className="flex flex-wrap justify-start -mr-2">
               {products?.map((product) => (
