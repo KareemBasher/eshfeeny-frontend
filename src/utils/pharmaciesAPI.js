@@ -19,3 +19,21 @@ export const getAvailable = async (products) => {
     console.log('Could not get available pharmacies.')
   }
 }
+
+// Verify login for pharmacy
+export const verifyLogin = async (email, password) => {
+  try {
+    if (email === '' || password === '') throw new Error('Please enter an email and password.')
+    const result = await fetch(apiURL + '/pharmacies/verify', {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email, password: password })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not verify login.')
+  }
+}
