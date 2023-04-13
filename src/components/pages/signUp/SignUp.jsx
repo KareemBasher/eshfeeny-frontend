@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 /*     Assets      */
 import SignupVector from '../../../assets/common/SignupVector.svg'
+import PharmacyLogin from '../../../assets/loginPage/PharmacyLogin.svg'
+import ManufacturerLogin from '../../../assets/loginPage/ManufacturerLogin.svg'
 /*     Components      */
 import CredentialsInput from '../../common/CredentialsInput'
 import WelcomeLogo from '../../common/WelcomeLogo'
@@ -23,6 +25,13 @@ const SignUp = ({ changeLoggedUser }) => {
   const [password, setPassword] = useState('')
   const [checkPassword, setCheckPassowrd] = useState('')
   const [error, setError] = useState({})
+  const [vector, setVector] = useState('')
+
+  useEffect(() => {
+    if (type === 'user') setVector(SignupVector)
+    else if (type === 'pharmacy') setVector(PharmacyLogin)
+    else if (type === 'manufacturer') setVector(ManufacturerLogin)
+  }, [])
 
   const handleInput = (value, name) => {
     if (name === 'name') setName(value)
@@ -181,7 +190,7 @@ const SignUp = ({ changeLoggedUser }) => {
         </div>
 
         <div>
-          <img draggable="false" src={SignupVector} alt="login vector" />
+          <img draggable="false" src={vector} alt="login vector" />
         </div>
       </div>
     </>
