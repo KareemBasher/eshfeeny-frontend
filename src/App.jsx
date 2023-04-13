@@ -10,7 +10,8 @@ import Login from './components/pages/login/Login'
 import Cart from './components/pages/cart/Cart'
 import ProductPage from './components/pages/productPage/ProductPage'
 import Profile from './components/pages/profile/Profile'
-import LandingPage from './components/pages/LandingPage'
+import LandingPage from './components/pages/onBoarding/LandingPage'
+import SigninOptions from './components/pages/onBoarding/SigninOptions'
 import Favourites from './components/pages/favourites/Favourites'
 import ForgotPassword from './components/pages/login/ForgotPassword'
 import VerifyCode from './components/pages/login/VerifyCode'
@@ -41,12 +42,13 @@ function App() {
   return (
     <Routes>
       <Route path="/landingPage" element={<LandingPage />} />
+      <Route path="/landingPage/:type" element={<SigninOptions />} />
       <Route
         path="/"
         element={loggedInUser ? <Navigate to="/home" /> : <Navigate to="/landingPage" />}
       />
       <Route path="/favorites" element={<Favourites loggedInUser={loggedInUser} />} />
-      <Route path="/login" element={<Login changeLoggedUser={changeLoggedInUser} />} />
+      <Route path="/login/:type" element={<Login changeLoggedUser={changeLoggedInUser} />} />
       <Route path="/cart" element={<Cart loggedInUser={loggedInUser} />} />
       <Route path="/product/:id" element={<ProductPage loggedInUser={loggedInUser} />} />
       <Route path="/products/type/:type" element={<CategoryPage loggedInUser={loggedInUser} />} />
@@ -72,7 +74,7 @@ function App() {
       />
       <Route path="/home" element={<Main loggedInUser={loggedInUser} />} />
       <Route path="/prescription" element={<Prescription loggedInUser={loggedInUser} />} />
-      <Route path="/signup" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
+      <Route path="/signup/:type" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
       <Route
         path="/insuranceCompanies"
         element={<InsuranceCompanies loggedInUser={loggedInUser} />}
