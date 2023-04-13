@@ -41,7 +41,7 @@ const SigninOptions = () => {
         </Link>
 
         {type === 'user' && (
-          <Link className="text-[#949495] underline underline-offset-4" to={`/signup/${type}`}>
+          <Link className="text-[#949495] underline underline-offset-4" to={`/home`}>
             تصفح كضيف
           </Link>
         )}
