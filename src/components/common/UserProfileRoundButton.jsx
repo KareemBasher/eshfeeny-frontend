@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const UserProfileRoundButton = ({ loggedInUser, logout }) => {
   const [userName, setUserName] = useState('')
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(true)
 
   useEffect(() => {
     if (loggedInUser) {
@@ -51,13 +51,19 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
       {showMenu && (
         <div
           onMouseLeave={() => handleShowMenuHover(false)}
-          className="w-[240px] px-2 flex flex-col justify-center absolute top-full shadow-md rounded-[10px] bg-[#FDFDFF]"
+          className="w-[240px] py-5 flex flex-col justify-center absolute top-full border rounded-[10px] bg-[#FDFDFF]"
         >
-          <Link to="/profile" className="my-5 flex items-center">
+          <Link
+            to="/profile"
+            className="px-2 py-3 flex items-center hover:bg-[#eff6ff] border-r-2 border-transparent hover:border-r-2 hover:border-[#0583F2]"
+          >
             <img className="ml-2" draggable="false" src={Person} alt="Profile" />
             <p>الملف الشخصي</p>
           </Link>
-          <button onClick={() => handleLogout()} className="my-5 flex items-center">
+          <button
+            onClick={() => handleLogout()}
+            className="px-2 py-3 flex items-center text-[#EB1D36] hover:bg-[#eff6ff] border-r-2 border-transparent hover:border-r-2 hover:border-[#0583F2]"
+          >
             <img className="w-6 mr-[6px] ml-3" draggable="false" src={Logout} alt="Logout" />
             <p>تسجيل الخروج</p>
           </button>
