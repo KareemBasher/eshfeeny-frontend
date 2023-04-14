@@ -65,16 +65,16 @@ const PharmacyNavigation = ({ loggedInUser }) => {
         <RoundButton
           onGetLogo={HeartDark}
           onGetText="المفضلة"
-          onGetPath="/favorites"
+          onGetPath="/pharmacyFavorites"
           onGetCartLength={favouriteItems}
-          active={location.pathname === '/favorites'}
+          active={location.pathname === '/pharmacyFavorites'}
         />
         <RoundButton
           onGetLogo={CartDark}
           onGetText="العربة"
-          onGetPath="/cart"
+          onGetPath="/pharmacyCart"
           onGetCartLength={cartItems}
-          active={location.pathname === '/cart'}
+          active={location.pathname === '/pharmacyCart'}
         />
         <RoundButton
           onGetLogo={PharmacyProducts}
@@ -86,9 +86,9 @@ const PharmacyNavigation = ({ loggedInUser }) => {
         <RoundButton
           onGetLogo={Person}
           onGetText="حسابي"
-          onGetPath="/profile"
+          onGetPath="/pharmacyProfile"
           onGetCartLength={0}
-          active={location.pathname === '/profile'}
+          active={location.pathname === '/pharmacyProfile'}
         />
       </div>
       <NavListContainer />
