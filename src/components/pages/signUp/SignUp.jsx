@@ -12,6 +12,7 @@ import AlternateSignin from '../../common/AlternateSignin'
 import ErrorPage from '../../common/ErrorPage'
 /*     API      */
 import { createUser } from '../../../utils/usersAPI'
+import { createPharmacy } from '../../../utils/pharmaciesAPI'
 
 const SignUp = ({ changeLoggedUser }) => {
   const { type } = useParams()
@@ -85,13 +86,18 @@ const SignUp = ({ changeLoggedUser }) => {
     const validCredentials = await inputValidation()
 
     if (validCredentials) {
-      const result = await createUser(name, email, password)
+      let result
+      if (type === 'user') result = await createUser(name, email, password)
+      else if (type === 'pharmacy') result = await createPharmacy(name, email, password)
 
       if (result === 'User already exists') setError((prev) => ({ ...prev, emailExists: true }))
       else {
         setError((prev) => ({ ...prev, userExists: false }))
         changeLoggedUser(result._id, type)
-        window.location.href = '/home'
+
+        if (type === 'user') window.location.href = '/home'
+        else if (type === 'pharmacy') window.location.href = '/pharmacy'
+        else if (type === 'manufacturer') window.location.href = '/manufacturer'
       }
     }
   }
