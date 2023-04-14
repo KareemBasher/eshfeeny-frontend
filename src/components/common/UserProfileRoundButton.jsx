@@ -10,7 +10,7 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
   const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
-    if (loggedInUser) {
+    if (loggedInUser !== '6439bd5e1c12d023717e2be5') {
       const getUserData = async () => {
         const data = await getUser(loggedInUser)
         const firstName = data.name.split(' ')[0]
@@ -42,13 +42,16 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
         </div>
 
         <div>
-          <Link className="text-[20px] px-3" to={'/profile'}>
+          <Link
+            className="text-[20px] px-3"
+            to={`${loggedInUser === '6439bd5e1c12d023717e2be5' ? '/login/user' : '/profile'}`}
+          >
             {userName ? userName : 'تسجيل الدخول'}
           </Link>
         </div>
       </div>
 
-      {showMenu && (
+      {loggedInUser !== '6439bd5e1c12d023717e2be5' && showMenu && (
         <div
           onMouseLeave={() => handleShowMenuHover(false)}
           className="w-[240px] py-5 flex flex-col justify-center absolute top-full border rounded-[10px] bg-[#FDFDFF]"
