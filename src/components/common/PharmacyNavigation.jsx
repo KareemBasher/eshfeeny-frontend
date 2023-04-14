@@ -10,8 +10,6 @@ import HeartDark from '../../assets/common/HeartDark.svg'
 import CartDark from '../../assets/common/CartDark.svg'
 import Person from '../../assets/common/Person.svg'
 import PharmacyProducts from '../../assets/common/PharmacyProducts.svg'
-/*      API      */
-import { getCartProducts, getFavoriteProducts } from '../../utils/productsAPI'
 
 const PharmacyNavigation = ({ loggedInUser }) => {
   const [query, setQuery] = useState('')
@@ -47,15 +45,15 @@ const PharmacyNavigation = ({ loggedInUser }) => {
   const [cartItems, setCartItems] = useState(0)
   const [favouriteItems, setFavouriteItems] = useState(0)
 
-  useEffect(() => {
-    const getItems = async () => {
-      const cart = await getCartProducts(loggedInUser)
-      const favourite = await getFavoriteProducts(loggedInUser)
-      setCartItems(cart.cart.length ? cart.cart.length : 0)
-      setFavouriteItems(favourite.length ? favourite.length : 0)
-    }
-    getItems()
-  }, [cartItems, favouriteItems])
+  // useEffect(() => {
+  //   const getItems = async () => {
+  //     const cart = await getCartProducts(loggedInUser)
+  //     const favourite = await getFavoriteProducts(loggedInUser)
+  //     setCartItems(cart.cart.length ? cart.cart.length : 0)
+  //     setFavouriteItems(favourite.length ? favourite.length : 0)
+  //   }
+  //   getItems()
+  // }, [cartItems, favouriteItems])
 
   return (
     <>
