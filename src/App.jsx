@@ -99,7 +99,9 @@ function App() {
       {/* User protected routes */}
 
       {/* Pharmacy protected routes */}
-      <Route element={<PharmacyProtectedRoutes loggedInUser={loggedInUser} type="pharmacy" />}>
+      <Route
+        element={<PharmacyProtectedRoutes loggedInUser={loggedInUser} type={loggedInUserType} />}
+      >
         <Route path="/pharmacy" element={<Pharmacy loggedInUser={loggedInUser} />} />
       </Route>
       {/* Pharmacy protected routes */}
