@@ -31,6 +31,7 @@ import ErrorPage from './components/common/ErrorPage'
 import Pharmacy from './components/pages/pharmacy/Pharmacy'
 import UserProtectedRoutes from './UserProtectedRoutes'
 import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
+import PharmacyCart from './components/pages/pharmacy/PharmacyCart'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -101,6 +102,7 @@ function App() {
       {/* Pharmacy protected routes */}
       <Route element={<PharmacyProtectedRoutes loggedInUser={loggedInUser} type="pharmacy" />}>
         <Route path="/pharmacy" element={<Pharmacy loggedInUser={loggedInUser} />} />
+        <Route path="/pharmacyCart" element={<PharmacyCart loggedInUser={loggedInUser} />} />
       </Route>
       {/* Pharmacy protected routes */}
 
