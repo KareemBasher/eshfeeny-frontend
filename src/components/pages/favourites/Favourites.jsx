@@ -8,7 +8,7 @@ import HeartLight from '../../../assets/common/HeartLight.svg'
 /*     API     */
 import * as ProductsAPI from '../../../utils/productsAPI'
 
-const Favourites = ({ loggedInUser }) => {
+const Favourites = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
   const [favoriteProductsIDs, setFavouriteProductsIDs] = useState([])
 
@@ -26,7 +26,7 @@ const Favourites = ({ loggedInUser }) => {
 
   return (
     <>
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       <div>
         {items.length ? (
           <FavouritesContent

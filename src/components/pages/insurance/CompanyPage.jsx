@@ -9,7 +9,7 @@ import MonthlyMedicine from '../../../assets/insuranceCompanies/MonthlyMedicine.
 /*         API         */
 import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
 
-const CompanyPage = ({ loggedInUser }) => {
+const CompanyPage = ({ loggedInUser, logout }) => {
   const [company, setCompany] = useState('')
   const { id } = useParams()
 
@@ -25,7 +25,7 @@ const CompanyPage = ({ loggedInUser }) => {
   return (
     <div>
       <div>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
       <div className="flex flex-col mt-16 mr-24">

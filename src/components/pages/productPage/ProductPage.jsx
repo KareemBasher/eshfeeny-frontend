@@ -13,7 +13,7 @@ import HeartFill from '../../../assets/productPage/HeartFill.svg'
 import { getProduct, getFavoriteProducts } from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
-const ProductPage = ({ loggedInUser }) => {
+const ProductPage = ({ loggedInUser, logout }) => {
   const [showButton, setShowButton] = useState(true)
 
   const handleButton = () => {
@@ -61,7 +61,7 @@ const ProductPage = ({ loggedInUser }) => {
 
   return (
     <div>
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="pt-8 text-[16px] text-blue">
         <div className="flex justify-start mr-32 2xl:mr-52">
           <Link to="/home" className="hover:underline">

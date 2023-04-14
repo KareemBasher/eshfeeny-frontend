@@ -9,7 +9,7 @@ import Arrow from '../../../assets/common/Arrow.svg'
 /*       API        */
 import { getBrand, getFavoriteProducts } from '../../../utils/productsAPI'
 
-const BrandsPage = ({ loggedInUser }) => {
+const BrandsPage = ({ loggedInUser, logout }) => {
   const { brand } = useParams()
 
   const [products, setProducts] = useState([])
@@ -27,7 +27,7 @@ const BrandsPage = ({ loggedInUser }) => {
 
   return (
     <div>
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="pt-8 mr-32 2xl:mr-52 text-[16px] text-blue">
         <div className="flex justify-start">
           <Link to="/home" className="hover:underline">

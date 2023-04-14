@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 /*         API         */
 import { getInsuranceCompanies } from '../../../utils/insuranceCompaniesAPI'
 
-const InsuranceCompanies = ({ loggedInUser }) => {
+const InsuranceCompanies = ({ loggedInUser, logout }) => {
   const [companies, setCompanies] = useState([])
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const InsuranceCompanies = ({ loggedInUser }) => {
   return (
     <div>
       <div>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
       <div className="flex flex-col text-right mt-16 mr-24">
         <div>

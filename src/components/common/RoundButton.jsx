@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const RoundButton = ({ onGetLogo, onGetText, onGetPath, onGetCartLength }) => {
   return (
-    <div className="flex mr-5 min-w-fit">
+    <div className="flex mr-5 min-w-fit items-center">
       <Link
         to={onGetPath}
         className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative"

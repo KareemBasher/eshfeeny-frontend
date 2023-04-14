@@ -3,11 +3,11 @@ import UserNavigation from './UserNavigation'
 import PharmacyNavigation from './PharmacyNavigation'
 import Error from '../../assets/common/Error.svg'
 
-const ErrorPage = ({ loggedInUser, type }) => {
+const ErrorPage = ({ loggedInUser, type, logout }) => {
   return (
     <div>
       {loggedInUser && type === 'user' ? (
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       ) : (
         <PharmacyNavigation loggedInUser={loggedInUser} />
       )}

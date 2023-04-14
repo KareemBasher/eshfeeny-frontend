@@ -11,7 +11,14 @@ import GetImage from '../../../assets/insuranceCompanies/GetImage.svg'
 import Plus from '../../../assets/insuranceCompanies/Plus.svg'
 import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
 
-const GetInsuranceCardImg = ({ loggedInUser, companyId, cardName, userName, cardNumber }) => {
+const GetInsuranceCardImg = ({
+  loggedInUser,
+  companyId,
+  cardName,
+  userName,
+  cardNumber,
+  logout
+}) => {
   const [company, setCompany] = useState('')
   // eslint-disable-next-line no-unused-vars
   const [dragActive, setDragActive] = useState(false)
@@ -106,7 +113,7 @@ const GetInsuranceCardImg = ({ loggedInUser, companyId, cardName, userName, card
   return (
     <div>
       <div>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
       <div className="flex justify-around mt-20">

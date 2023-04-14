@@ -9,7 +9,7 @@ import { getMany, getFavoriteProducts } from '../../utils/productsAPI'
 /*       Icons       */
 import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
 
-const SearchResults = ({ loggedInUser, empty }) => {
+const SearchResults = ({ loggedInUser, empty, logout }) => {
   const params = useParams()
 
   const [products, setProducts] = useState([])
@@ -28,7 +28,7 @@ const SearchResults = ({ loggedInUser, empty }) => {
   return (
     <>
       <div>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
         {empty ? (
           <PageEmpty
             onGetTitle="نتائج البحث"
