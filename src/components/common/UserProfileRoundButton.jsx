@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 const UserProfileRoundButton = ({ loggedInUser, logout }) => {
   const [userName, setUserName] = useState('')
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(true)
 
   useEffect(() => {
     if (loggedInUser) {
