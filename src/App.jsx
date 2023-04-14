@@ -55,7 +55,10 @@ function App() {
   return (
     <Routes>
       <Route path="/landingPage" element={<LandingPage />} />
-      <Route path="/landingPage/:type" element={<SigninOptions />} />
+      <Route
+        path="/landingPage/:type"
+        element={<SigninOptions changeLoggedInUser={changeLoggedInUser} />}
+      />
       <Route
         path="/"
         element={loggedInUser ? <Navigate to="/home" /> : <Navigate to="/landingPage" />}
