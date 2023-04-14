@@ -54,3 +54,13 @@ export const createPharmacy = async (name, email, password) => {
     console.log(`Could not add pharmacy.`)
   }
 }
+
+// Get pharmacy data
+export const getPharmacy = async (id) => {
+  try {
+    const result = await fetch(apiURL + `/pharmacies/${id}`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get pharmacy with id ${id}.`)
+  }
+}
