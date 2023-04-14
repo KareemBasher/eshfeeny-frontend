@@ -31,6 +31,7 @@ import ErrorPage from './components/common/ErrorPage'
 import Pharmacy from './components/pages/pharmacy/Pharmacy'
 import UserProtectedRoutes from './UserProtectedRoutes'
 import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
+import Brands from './components/pages/brands/BrandsPage'
 
 function App() {
   const [cookies, setCookie] = useCookies(['loggedUser'])
@@ -95,6 +96,7 @@ function App() {
         <Route path="/location/:id" element={<Map loggedInUser={loggedInUser} />} />
         <Route path="/location/" element={<Map loggedInUser={loggedInUser} />} />
         <Route path="/addCard/:id" element={<AddCard loggedInUser={loggedInUser} />} />
+        <Route path="/brands/:brand" element={<Brands loggedInUser={loggedInUser} />} />
       </Route>
       {/* User protected routes */}
 
