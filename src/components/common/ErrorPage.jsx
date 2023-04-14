@@ -1,11 +1,16 @@
 import React from 'react'
 import UserNavigation from './UserNavigation'
+import PharmacyNavigation from './PharmacyNavigation'
 import Error from '../../assets/common/Error.svg'
 
-const ErrorPage = ({ loggedInUser }) => {
+const ErrorPage = ({ loggedInUser, type }) => {
   return (
     <div>
-      {loggedInUser && <UserNavigation loggedInUser={loggedInUser} />}
+      {loggedInUser && type === 'user' ? (
+        <UserNavigation loggedInUser={loggedInUser} />
+      ) : (
+        <PharmacyNavigation loggedInUser={loggedInUser} />
+      )}
       <div></div>
       <div className="flex flex-col items-center my-20">
         <div>

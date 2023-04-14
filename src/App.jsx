@@ -108,7 +108,10 @@ function App() {
       </Route>
       {/* Pharmacy protected routes */}
 
-      <Route path="/*" element={<ErrorPage loggedInUser={loggedInUser} />} />
+      <Route
+        path="/*"
+        element={<ErrorPage loggedInUser={loggedInUser} type={loggedInUserType} />}
+      />
       <Route path="/forgotPassword/:type" element={<ForgotPassword />} />
       <Route path="/forgotPassword/verify/:email" element={<VerifyCode />} />
       <Route path="/signup/:type" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
