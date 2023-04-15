@@ -54,7 +54,7 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
           className="w-[240px] py-5 flex flex-col justify-center absolute top-full border rounded-[10px] bg-[#FDFDFF]"
         >
           <Link
-            to="/profile"
+            to="/pharmacyProfile"
             className="px-2 py-3 flex items-center hover:bg-[#eff6ff] border-r-2 border-transparent hover:border-r-2 hover:border-[#0583F2]"
           >
             <img className="ml-2" draggable="false" src={Person} alt="Profile" />
