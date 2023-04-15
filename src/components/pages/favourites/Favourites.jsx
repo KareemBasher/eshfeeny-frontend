@@ -40,6 +40,7 @@ const Favourites = ({ loggedInUser }) => {
             onGetLogo={HeartLight}
             onGetText="لا توجد أي منتجات مفضلة لديك"
             onGetTitle="المنتجات المفضلة"
+            onGetPath="./home"
           />
         )}
       </div>

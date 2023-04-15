@@ -36,7 +36,12 @@ const Cart = ({ loggedInUser }) => {
             onRemoveItem={removeFromCart}
           />
         ) : (
-          <PageEmpty onGetTitle="سلة التسوق" onGetLogo={CartLight} onGetText="عربة التسوق فارغة " />
+          <PageEmpty
+            onGetTitle="سلة التسوق"
+            onGetLogo={CartLight}
+            onGetText="عربة التسوق فارغة "
+            onGetPath="./home"
+          />
         )}
       </div>
     </>

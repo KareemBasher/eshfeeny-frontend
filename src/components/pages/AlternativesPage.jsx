@@ -69,6 +69,7 @@ const AlternativesPage = ({ loggedInUser }) => {
             onGetTitle="البديل"
             onGetText="لا يوجد بديل لهذا الدواء "
             onGetLogo={AlternativeLogo}
+            onGetPath="./home"
           />
         ) : (
           <div className="mr-32 2xl:mr-52">

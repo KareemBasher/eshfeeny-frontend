@@ -45,16 +45,6 @@ const PharmacyNavigation = ({ loggedInUser }) => {
   const [cartItems, setCartItems] = useState(0)
   const [favouriteItems, setFavouriteItems] = useState(0)
 
-  // useEffect(() => {
-  //   const getItems = async () => {
-  //     const cart = await getCartProducts(loggedInUser)
-  //     const favourite = await getFavoriteProducts(loggedInUser)
-  //     setCartItems(cart.cart.length ? cart.cart.length : 0)
-  //     setFavouriteItems(favourite.length ? favourite.length : 0)
-  //   }
-  //   getItems()
-  // }, [cartItems, favouriteItems])
-
   return (
     <>
       <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30">
@@ -63,7 +53,7 @@ const PharmacyNavigation = ({ loggedInUser }) => {
         <RoundButton
           onGetLogo={HeartDark}
           onGetText="المفضلة"
-          onGetPath="/pharmacyFavorites"
+          onGetPath="/pharmacyFavourits"
           onGetCartLength={favouriteItems}
           active={location.pathname === '/pharmacyFavorites'}
         />
