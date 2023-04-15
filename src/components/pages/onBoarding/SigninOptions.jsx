@@ -3,11 +3,16 @@ import { useParams, Link } from 'react-router-dom'
 import Logo from '../../../assets/common/Logo.svg'
 import ErrorPage from '../../common/ErrorPage'
 
-const SigninOptions = () => {
+const SigninOptions = ({ changeLoggedInUser }) => {
   const { type } = useParams()
 
   if (type !== 'user' && type !== 'pharmacy' && type !== 'manufacturer') {
     return <ErrorPage />
+  }
+
+  const handleGuestLogin = () => {
+    changeLoggedInUser('6439bd5e1c12d023717e2be5', 'user')
+    window.location.href = '/home'
   }
 
   return (
@@ -41,9 +46,12 @@ const SigninOptions = () => {
         </Link>
 
         {type === 'user' && (
-          <Link className="text-[#949495] underline underline-offset-4" to={`/home`}>
+          <button
+            onClick={() => handleGuestLogin()}
+            className="text-[#949495] underline underline-offset-4"
+          >
             تصفح كضيف
-          </Link>
+          </button>
         )}
       </div>
     </div>

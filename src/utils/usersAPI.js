@@ -4,7 +4,7 @@ const headers = {
   Accept: 'application/json'
 }
 
-// Add a product to favorites
+// Create a new user
 export const createUser = async (name, email, password) => {
   try {
     const result = await fetch(apiURL + `/users`, {

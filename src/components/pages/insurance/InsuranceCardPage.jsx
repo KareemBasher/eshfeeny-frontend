@@ -11,7 +11,7 @@ import { Link, useParams } from 'react-router-dom'
 import { getInsuranceCards } from '../../../utils/usersAPI'
 import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
 
-const InsuranceCardPage = ({ loggedInUser }) => {
+const InsuranceCardPage = ({ loggedInUser, logout }) => {
   const [card, setCard] = useState([])
   const { companyId } = useParams('')
   const [company, setCompany] = useState('')
@@ -42,7 +42,7 @@ const InsuranceCardPage = ({ loggedInUser }) => {
   return (
     <div>
       <div>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
       {!card?.length ? (

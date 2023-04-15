@@ -37,3 +37,30 @@ export const pharmacyVerifyLogin = async (email, password) => {
     console.log('Could not verify login.')
   }
 }
+
+// Create a new pharmacy
+export const createPharmacy = async (name, email, password) => {
+  try {
+    const result = await fetch(apiURL + `/pharmacies`, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: name, email: email, password: password })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not add pharmacy.`)
+  }
+}
+
+// Get pharmacy data
+export const getPharmacy = async (id) => {
+  try {
+    const result = await fetch(apiURL + `/pharmacies/${id}`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get pharmacy with id ${id}.`)
+  }
+}

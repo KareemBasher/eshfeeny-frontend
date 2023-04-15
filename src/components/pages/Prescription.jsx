@@ -3,11 +3,11 @@ import React from 'react'
 import UserNavigation from '../common/UserNavigation'
 import ImageDroper from '../common/ImageDroper'
 
-const Prescription = ({ loggedInUser }) => {
+const Prescription = ({ loggedInUser, logout }) => {
   return (
     <>
       <div>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
       <div className="flex flex-col items-center w-full my-16">

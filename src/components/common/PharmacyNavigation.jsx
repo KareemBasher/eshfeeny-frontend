@@ -5,13 +5,13 @@ import LogoScript from './LogoScript'
 import SearchBar from './SearchBar'
 import RoundButton from './RoundButton'
 import NavListContainer from './navBar/NavListContainer'
+import PharmacyProfileRoundButton from './PharmacyProfileRoundButton'
 /*       Icons        */
 import HeartDark from '../../assets/common/HeartDark.svg'
 import CartDark from '../../assets/common/CartDark.svg'
-import Person from '../../assets/common/Person.svg'
 import PharmacyProducts from '../../assets/common/PharmacyProducts.svg'
 
-const PharmacyNavigation = ({ loggedInUser }) => {
+const PharmacyNavigation = ({ loggedInUser, logout }) => {
   const [query, setQuery] = useState('')
   const location = useLocation()
 
@@ -71,13 +71,7 @@ const PharmacyNavigation = ({ loggedInUser }) => {
           onGetCartLength={cartItems}
           active={location.pathname === '/pharmacyProducts'}
         />
-        <RoundButton
-          onGetLogo={Person}
-          onGetText="حسابي"
-          onGetPath="/pharmacyProfile"
-          onGetCartLength={0}
-          active={location.pathname === '/pharmacyProfile'}
-        />
+        <PharmacyProfileRoundButton loggedInUser={loggedInUser} logout={logout} />
       </div>
       <NavListContainer />
     </>

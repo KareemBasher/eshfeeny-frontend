@@ -8,7 +8,7 @@ import * as UsersAPI from '../../../utils/usersAPI'
 
 import ChangePassword from './ChangePassword'
 
-const Profile = ({ loggedInUser }) => {
+const Profile = ({ loggedInUser, logout }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [user, setUser] = useState({})
 
@@ -26,7 +26,7 @@ const Profile = ({ loggedInUser }) => {
 
   return (
     <>
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       {isOpen ? (
         <ChangePassword toggleModal={toggleModal} user={user ? user : {}} />
       ) : (

@@ -12,7 +12,7 @@ import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
 import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
 import GetInsuranceCardImg from './GetInsuranceCardImg'
 
-const AddCard = ({ loggedInUser }) => {
+const AddCard = ({ loggedInUser, logout }) => {
   const { id } = useParams()
   const [cardNumber, setCardNumber] = useState('')
   const [userName, setUserName] = useState('')
@@ -72,7 +72,7 @@ const AddCard = ({ loggedInUser }) => {
       {!nextPage ? (
         <>
           <div>
-            <UserNavigation />
+            <UserNavigation loggedInUser={loggedInUser} logout={logout} />
           </div>
           <div className="flex justify-around mt-10">
             <div>

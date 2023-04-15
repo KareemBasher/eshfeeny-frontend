@@ -10,7 +10,7 @@ import Arrow from '../../../assets/common/Arrow.svg'
 /*     API     */
 import { getCategory, getType, getFavoriteProducts } from '../../../utils/productsAPI'
 
-const CategoryPage = ({ loggedInUser }) => {
+const CategoryPage = ({ loggedInUser, logout }) => {
   const { category, type } = useParams()
 
   let result = 12
@@ -44,7 +44,7 @@ const CategoryPage = ({ loggedInUser }) => {
 
   return (
     <div>
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="flex justify-start mr-32 2xl:mr-52 mt-8">
         <Link to="/home" className="hover:underline text-blue">
           الرئيسية

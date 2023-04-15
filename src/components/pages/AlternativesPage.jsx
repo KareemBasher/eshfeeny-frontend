@@ -11,7 +11,7 @@ import { getUser } from '../../utils/usersAPI'
 import Arrow from '../../assets/common/Arrow.svg'
 import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
 
-const AlternativesPage = ({ loggedInUser }) => {
+const AlternativesPage = ({ loggedInUser, logout }) => {
   const params = useParams()
   const [product, setProduct] = useState({})
   const [alternative, setAlternative] = useState([])
@@ -36,7 +36,7 @@ const AlternativesPage = ({ loggedInUser }) => {
   return (
     <>
       <div>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
         <div className="pt-8 mr-32 2xl:mr-52 text-[16px] text-lightBlue">
           <div className="flex justify-start">
             <Link to="/home" className="hover:underline">

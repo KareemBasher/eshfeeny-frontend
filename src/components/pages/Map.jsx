@@ -10,7 +10,7 @@ import UserNavigation from '../common/UserNavigation'
 import { getAvailable } from '../../utils/pharmaciesAPI'
 import { getCartProducts } from '../../utils/productsAPI'
 
-const Map = ({ loggedInUser }) => {
+const Map = ({ loggedInUser, logout }) => {
   const [pharmacies, setPharmacies] = useState([])
   const [cartProducts, setCartProducts] = useState([])
 
@@ -36,7 +36,7 @@ const Map = ({ loggedInUser }) => {
   if (!isLoaded || !cartProducts)
     return (
       <>
-        <UserNavigation loggedInUser={loggedInUser} />
+        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
         <PageEmpty
           onGetTitle={'اقرب صيدلية'}
           onGetText="لم يتم العثور علي منتجاتك"
@@ -48,7 +48,7 @@ const Map = ({ loggedInUser }) => {
   30.591012255008604, 32.267342084616594
   return (
     <div className="pb-20 2xl:pb-0">
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
         <h1>أقرب صيدلية</h1>
       </div>

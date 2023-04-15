@@ -9,7 +9,7 @@ import CartLight from '../../../assets/common/CartLight.svg'
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
 
-const Cart = ({ loggedInUser }) => {
+const Cart = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
   useEffect(() => {
     const updateItems = async () => {
@@ -26,7 +26,7 @@ const Cart = ({ loggedInUser }) => {
 
   return (
     <>
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       <div>
         {items.length ? (
           <CartContent

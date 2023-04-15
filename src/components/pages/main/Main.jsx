@@ -6,10 +6,10 @@ import AddContainer from './AddContainer'
 import CategoryItems from './CategoryItems'
 import Brands from './Brands'
 
-const Main = ({ loggedInUser }) => {
+const Main = ({ loggedInUser, logout }) => {
   return (
     <div>
-      <UserNavigation loggedInUser={loggedInUser} />
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
 
       <div className="2xl:mx-28">
         <ImageSlider />
