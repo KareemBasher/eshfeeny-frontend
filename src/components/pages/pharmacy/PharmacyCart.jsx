@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+/*    components    */
 import PageEmpty from '../../common/PageEmpty'
 import PharmacyNavigation from '../../common/PharmacyNavigation'
-import CartLight from '../../../assets/common/CartLight.svg'
 import PharmacyCartContent from './PharmacyCartContent'
+/*    Icons    */
+import CartLight from '../../../assets/common/CartLight.svg'
 
 const PharmacyCart = ({ loggedInUser }) => {
   const [items, setItems] = useState([])
@@ -12,6 +14,7 @@ const PharmacyCart = ({ loggedInUser }) => {
       <div>
         <PharmacyNavigation />
       </div>
+
       <div>
         {items.length ? (
           <div>

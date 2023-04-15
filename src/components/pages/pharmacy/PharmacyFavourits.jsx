@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+/*    Components    */
 import PharmacyNavigation from '../../common/PharmacyNavigation'
 import PageEmpty from '../../common/PageEmpty'
 import PharmacyFavouritesContent from './PharmacyFavouritesContent'
+/*    Icons    */
 import HeartLight from '../../../assets/common/HeartLight.svg'
 
 const PharmacyFavourits = ({ loggedInUser }) => {
@@ -12,6 +14,7 @@ const PharmacyFavourits = ({ loggedInUser }) => {
       <div>
         <PharmacyNavigation />
       </div>
+
       <div>
         <div>
           {items.length ? (
