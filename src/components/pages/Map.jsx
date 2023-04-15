@@ -41,6 +41,7 @@ const Map = ({ loggedInUser, logout }) => {
           onGetTitle={'اقرب صيدلية'}
           onGetText="لم يتم العثور علي منتجاتك"
           onGetLogo={LocationPageEmpty}
+          onGetPath="./home"
         />
       </>
     )

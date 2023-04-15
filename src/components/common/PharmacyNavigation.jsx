@@ -10,8 +10,6 @@ import PharmacyProfileRoundButton from './PharmacyProfileRoundButton'
 import HeartDark from '../../assets/common/HeartDark.svg'
 import CartDark from '../../assets/common/CartDark.svg'
 import PharmacyProducts from '../../assets/common/PharmacyProducts.svg'
-/*      API      */
-import { getCartProducts, getFavoriteProducts } from '../../utils/productsAPI'
 
 const PharmacyNavigation = ({ loggedInUser, logout }) => {
   const [query, setQuery] = useState('')
@@ -47,16 +45,6 @@ const PharmacyNavigation = ({ loggedInUser, logout }) => {
   const [cartItems, setCartItems] = useState(0)
   const [favouriteItems, setFavouriteItems] = useState(0)
 
-  useEffect(() => {
-    const getItems = async () => {
-      const cart = await getCartProducts(loggedInUser)
-      const favourite = await getFavoriteProducts(loggedInUser)
-      setCartItems(cart.cart.length ? cart.cart.length : 0)
-      setFavouriteItems(favourite.length ? favourite.length : 0)
-    }
-    getItems()
-  }, [cartItems, favouriteItems])
-
   return (
     <>
       <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30">
@@ -65,16 +53,16 @@ const PharmacyNavigation = ({ loggedInUser, logout }) => {
         <RoundButton
           onGetLogo={HeartDark}
           onGetText="المفضلة"
-          onGetPath="/favorites"
+          onGetPath="/pharmacyFavourits"
           onGetCartLength={favouriteItems}
-          active={location.pathname === '/favorites'}
+          active={location.pathname === '/pharmacyFavorites'}
         />
         <RoundButton
           onGetLogo={CartDark}
           onGetText="العربة"
-          onGetPath="/cart"
+          onGetPath="/pharmacyCart"
           onGetCartLength={cartItems}
-          active={location.pathname === '/cart'}
+          active={location.pathname === '/pharmacyCart'}
         />
         <RoundButton
           onGetLogo={PharmacyProducts}

@@ -31,6 +31,8 @@ import ErrorPage from './components/common/ErrorPage'
 import Pharmacy from './components/pages/pharmacy/Pharmacy'
 import UserProtectedRoutes from './UserProtectedRoutes'
 import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
+import PharmacyCart from './components/pages/pharmacy/PharmacyCart'
+import PharmacyFavourits from './components/pages/pharmacy/PharmacyFavourits'
 import Brands from './components/pages/brands/BrandsPage'
 
 function App() {
@@ -129,6 +131,15 @@ function App() {
       {/* User protected routes */}
 
       {/* Pharmacy protected routes */}
+      <Route element={<PharmacyProtectedRoutes loggedInUser={loggedInUser} type="pharmacy" />}>
+        <Route
+          path="/pharmacy"
+          element={<Pharmacy loggedInUser={loggedInUser} logout={logout} />}
+        />
+        <Route path="/pharmacyCart" element={<PharmacyCart loggedInUser={loggedInUser} />} />
+        <Route
+          path="/pharmacyFavourits"
+          element={<PharmacyFavourits loggedInUser={loggedInUser} />}
       <Route
         element={<PharmacyProtectedRoutes loggedInUser={loggedInUser} type={loggedInUserType} />}
       >
