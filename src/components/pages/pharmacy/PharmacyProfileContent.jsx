@@ -28,8 +28,9 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
   const handlePhoneChange = (phone) => {
     setPhoneNumber(phone)
   }
-  const handleAddressChange = (address) => {
-    setAddress(address)
+
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value)
   }
 
   return (
