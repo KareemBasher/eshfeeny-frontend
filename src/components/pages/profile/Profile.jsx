@@ -2,7 +2,7 @@
 import UserNavigation from '../../common/UserNavigation'
 import ProfileContent from './ProfileContent'
 /*        Hooks       */
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 /*        API       */
 import * as UsersAPI from '../../../utils/usersAPI'
 

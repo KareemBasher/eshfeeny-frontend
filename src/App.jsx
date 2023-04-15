@@ -136,16 +136,13 @@ function App() {
           path="/pharmacy"
           element={<Pharmacy loggedInUser={loggedInUser} logout={logout} />}
         />
-        <Route path="/pharmacyCart" element={<PharmacyCart loggedInUser={loggedInUser} />} />
+        <Route
+          path="/pharmacyCart"
+          element={<PharmacyCart loggedInUser={loggedInUser} logout={logout} />}
+        />
         <Route
           path="/pharmacyFavourits"
-          element={<PharmacyFavourits loggedInUser={loggedInUser} />}
-      <Route
-        element={<PharmacyProtectedRoutes loggedInUser={loggedInUser} type={loggedInUserType} />}
-      >
-        <Route
-          path="/pharmacy"
-          element={<Pharmacy loggedInUser={loggedInUser} logout={logout} />}
+          element={<PharmacyFavourits loggedInUser={loggedInUser} logout={logout} />}
         />
       </Route>
       {/* Pharmacy protected routes */}

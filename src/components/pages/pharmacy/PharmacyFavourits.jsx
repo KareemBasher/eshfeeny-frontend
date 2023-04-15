@@ -6,13 +6,13 @@ import PharmacyFavouritesContent from './PharmacyFavouritesContent'
 /*    Icons    */
 import HeartLight from '../../../assets/common/HeartLight.svg'
 
-const PharmacyFavourits = ({ loggedInUser }) => {
+const PharmacyFavourits = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
 
   return (
     <div>
       <div>
-        <PharmacyNavigation />
+        <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
       <div>

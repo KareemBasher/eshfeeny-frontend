@@ -6,13 +6,13 @@ import PharmacyCartContent from './PharmacyCartContent'
 /*    Icons    */
 import CartLight from '../../../assets/common/CartLight.svg'
 
-const PharmacyCart = ({ loggedInUser }) => {
+const PharmacyCart = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
 
   return (
     <div>
       <div>
-        <PharmacyNavigation />
+        <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
       <div>
