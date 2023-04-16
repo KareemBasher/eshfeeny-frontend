@@ -20,7 +20,8 @@ const SearchResults = ({ loggedInUser, empty, logout }) => {
       setProducts(await getMany(params.searchResults))
       setFavouriteProducts(await getFavoriteProducts(loggedInUser))
     }
-    getProducts()
+
+    if (params.searchResults) getProducts()
   }, [params])
 
   const favoriteProductsIDs = favouriteProducts.map((product) => product._id)
