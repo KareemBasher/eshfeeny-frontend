@@ -1,5 +1,6 @@
 import React from 'react'
 import WideButton from './WideButton'
+
 const PageEmpty = ({ onGetLogo, onGetText, onGetTitle, onGetPath }) => {
   return (
     <div>
@@ -15,7 +16,7 @@ const PageEmpty = ({ onGetLogo, onGetText, onGetTitle, onGetPath }) => {
       <div>
         <WideButton
           content="اذهب للتسوق الان"
-          handleOnClick={() => (window.location = onGetPath)}
+          handleOnClick={() => (window.location.href = onGetPath)}
         />
       </div>
     </div>
