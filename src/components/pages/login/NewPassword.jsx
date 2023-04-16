@@ -10,7 +10,7 @@ import SignupVector from '../../../assets/common/SignupVector.svg'
 /*         API         */
 import { updatePassword, checkUserEmail } from '../../../utils/usersAPI'
 
-const NewPassword = () => {
+const NewPassword = ({ type }) => {
   const [newPassword, setNewPassword] = useState('')
   const [checkPassword, setCheckPassword] = useState('')
   const [error, setError] = useState(false)
@@ -24,7 +24,7 @@ const NewPassword = () => {
     const checkEmail = async () => {
       const response = await checkUserEmail(email)
       if (response === 'false') {
-        window.location.href = '/login'
+        window.location.href = `/login/${type}`
       } else {
         setUser(response)
       }
@@ -34,7 +34,7 @@ const NewPassword = () => {
   }, [])
 
   if (code !== codeFromStorage) {
-    window.location.href = '/login'
+    window.location.href = `/login/${type}`
   }
 
   const handleInput = (value, name) => {
@@ -64,7 +64,7 @@ const NewPassword = () => {
       updatePassword(user._id, newPassword)
       sessionStorage.removeItem('resetPasswordCode')
       sessionStorage.removeItem('resetPasswordEmail')
-      window.location.href = '/login'
+      window.location.href = '/login/'
     }
   }
 
