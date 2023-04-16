@@ -34,6 +34,7 @@ const SearchResults = ({ loggedInUser, empty, logout }) => {
             onGetTitle="نتائج البحث"
             onGetText="لم يتم العثور على المنتج"
             onGetLogo={AlternativeLogo}
+            onGetPath="/home"
           />
         ) : (
           <div className="mr-32 2xl:mr-52">
