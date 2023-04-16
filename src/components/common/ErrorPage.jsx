@@ -6,10 +6,12 @@ import Error from '../../assets/common/Error.svg'
 const ErrorPage = ({ loggedInUser, type, logout }) => {
   return (
     <div>
-      {loggedInUser && type === 'user' ? (
+      {loggedInUser && type === 'user' && (
         <UserNavigation loggedInUser={loggedInUser} logout={logout} />
-      ) : (
-        <PharmacyNavigation loggedInUser={loggedInUser} />
+      )}
+
+      {loggedInUser && type === 'pharmacy' && (
+        <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       )}
       <div></div>
       <div className="flex flex-col items-center my-20">
