@@ -10,13 +10,15 @@ import SignupVector from '../../../assets/common/SignupVector.svg'
 /*         API         */
 import { updatePassword, checkUserEmail } from '../../../utils/usersAPI'
 
-const NewPassword = ({ type }) => {
+const NewPassword = () => {
   const [newPassword, setNewPassword] = useState('')
   const [checkPassword, setCheckPassword] = useState('')
   const [error, setError] = useState(false)
   const [user, setUser] = useState({})
 
-  const code = useParams().code
+  const params = useParams()
+  const code = params.code
+  const type = params.type
   const codeFromStorage = sessionStorage.getItem('resetPasswordCode')
   const email = sessionStorage.getItem('resetPasswordEmail')
 

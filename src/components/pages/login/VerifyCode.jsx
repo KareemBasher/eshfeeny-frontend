@@ -35,7 +35,7 @@ const VerifyCode = () => {
       sessionStorage.setItem('resetPasswordCode', code)
       sessionStorage.setItem('resetPasswordEmail', params.email)
 
-      window.location.href = `/newPassword/${code}`
+      window.location.href = `/newPassword/${code}/${params.type}`
       setError(false)
     } else {
       setEmailSent(false)

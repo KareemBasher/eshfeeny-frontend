@@ -157,9 +157,9 @@ function App() {
         element={<ErrorPage loggedInUser={loggedInUser} type={loggedInUserType} />}
       />
       <Route path="/forgotPassword/:type" element={<ForgotPassword />} />
-      <Route path="/forgotPassword/verify/:email" element={<VerifyCode />} />
+      <Route path="/forgotPassword/verify/:email/:type" element={<VerifyCode />} />
       <Route path="/signup/:type" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
-      <Route path="/newPassword/:code" element={<NewPassword type={loggedInUserType} />} />
+      <Route path="/newPassword/:code/:type" element={<NewPassword />} />
     </Routes>
   )
 }

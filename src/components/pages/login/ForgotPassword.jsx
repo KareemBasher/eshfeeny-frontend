@@ -46,7 +46,7 @@ const ForgotPassword = () => {
       const result = await checkUserEmail(email)
       if (result) {
         setError(false)
-        navigate(`/forgotPassword/verify/${email}`)
+        navigate(`/forgotPassword/verify/${email}/${type}`)
       } else {
         setError(true)
       }
