@@ -159,7 +159,7 @@ function App() {
       <Route path="/forgotPassword/:type" element={<ForgotPassword />} />
       <Route path="/forgotPassword/verify/:email" element={<VerifyCode />} />
       <Route path="/signup/:type" element={<SignUp changeLoggedUser={changeLoggedInUser} />} />
-      <Route path="/newPassword/:code" element={<NewPassword />} />
+      <Route path="/newPassword/:code" element={<NewPassword type={loggedInUserType} />} />
     </Routes>
   )
 }
