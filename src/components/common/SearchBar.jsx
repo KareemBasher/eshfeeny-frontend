@@ -126,8 +126,13 @@ const SearchBar = ({ onGetData, query }) => {
     const searchResult = await imageSearch(imageURL)
     setLoading(false)
     setDragActive(false)
-    const IDs = searchResult.map((item) => item._id)
-    navigate(`/searchResults/${IDs.join('&')}`)
+
+    if (searchResult) {
+      const IDs = searchResult.map((item) => item._id)
+      navigate(`/searchResults/${IDs.join('&')}`)
+    } else {
+      navigate(`/searchResults/`)
+    }
   }
 
   const handleInputClick = () => {
