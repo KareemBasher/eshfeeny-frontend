@@ -199,7 +199,7 @@ const SignUp = ({ changeLoggedUser }) => {
           </div>
 
           <div className="w-full flex justify-center relative">
-            <AlternateSignin state={'signup'} />
+            <AlternateSignin state={'signup'} type={type} />
           </div>
         </div>
 

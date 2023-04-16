@@ -133,7 +133,7 @@ const Login = ({ changeLoggedUser }) => {
           </div>
 
           <div className="w-full flex justify-center relative">
-            <AlternateSignin state={'login'} />
+            <AlternateSignin state={'login'} type={type} />
           </div>
         </div>
 

@@ -4,7 +4,7 @@ import google from '../../assets/common/Google logo.svg'
 import apple from '../../assets/common/Apple.svg'
 import { Link } from 'react-router-dom'
 
-const AlternateSignin = ({ state }) => {
+const AlternateSignin = ({ state, type }) => {
   return (
     <div className="w-full">
       <div className="w-full flex items-center justify-center opacity-80">
@@ -31,14 +31,14 @@ const AlternateSignin = ({ state }) => {
         {state === 'login' ? (
           <div>
             <span>ليس لديك حساب؟</span>
-            <Link to="/signup">
+            <Link to={`/signup/${type}`}>
               <span className="mx-1 text-blue underline">انشئ حساب</span>
             </Link>
           </div>
         ) : (
           <div>
             <span>لديك حساب بالفعل؟</span>
-            <Link to="/login">
+            <Link to={`/login/${type}`}>
               <span className="mx-1 text-blue underline">سجل دخول</span>
             </Link>
           </div>
