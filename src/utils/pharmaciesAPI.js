@@ -150,3 +150,20 @@ export const decrementQuantity = async (userID, productID) => {
     console.log(`Could not decrement quantity.`)
   }
 }
+
+// Upate pharmacy name, email, and/or phone number
+export const updatePharmacy = async (id, name, email, phone, address) => {
+  try {
+    const result = await fetch(apiURL + `/pharmacies/${id}/profile`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: name, email: email, phoneNumber: phone, address: address })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not update pharmacy.')
+  }
+}
