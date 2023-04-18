@@ -45,18 +45,18 @@ const ProfileContent = ({ user, toggleModal }) => {
   return (
     <div>
       {/* /* title */}
-      <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
+      <div className="text-right text-[28px] mt-10 mr-32 2xl:mr-52">
         <p>الملف الشخصى</p>
       </div>
       {/* inputs */}
 
-      <div className="flex  justify-center mb-20">
-        <div className="flex flex-col justify-center border rounded-[10px] w-[904px] h-[500px]">
+      <div className="flex  justify-start mr-[150] mb-20">
+        <div className="flex flex-col justify-center w-[904px] h-[500px]">
           <div className="flex flex-row justify-around ">
-            <div className=" ">
+            <div className="mx-10">
               <label className=" text-2xl flex my-5 justify-start">الأسم</label>
               <input
-                className="w-96 h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
+                className="w-[472px] h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
                 type="text"
                 value={name}
                 onChange={(e) => handleNameChange(e)}
@@ -67,7 +67,7 @@ const ProfileContent = ({ user, toggleModal }) => {
               <label className="text-2xl flex justify-start my-5">البريد الالكترونى</label>
               <input
                 dir="ltr"
-                className="w-96 h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
+                className="w-[472px] h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
                 type="text"
                 value={email}
                 onChange={(e) => handleEmailChange(e)}
@@ -76,7 +76,7 @@ const ProfileContent = ({ user, toggleModal }) => {
           </div>
 
           <div className="flex flex-row justify-around">
-            <div className="flex flex-col justify-start my-10">
+            <div className="flex flex-col justify-start my-10 mx-10">
               <label className="text-2xl text-right my-5">رقم الهاتف</label>
 
               <PhoneInputContent phoneNumber={phoneNumber} handlePhoneChange={handlePhoneChange} />
@@ -93,7 +93,7 @@ const ProfileContent = ({ user, toggleModal }) => {
                   />
                 </div>
                 <div
-                  className={`w-96 h-14 relative flex items-center shadow-sm border border-[#949495] px-4 rounded-[10px] ${
+                  className={`w-[472px] h-14 relative flex items-center shadow-sm border border-[#949495] px-4 rounded-[10px] ${
                     boxOpen && 'border-[#0597F2]'
                   }`}
                   onClick={() => handleSelectBox()}
@@ -101,7 +101,7 @@ const ProfileContent = ({ user, toggleModal }) => {
                   {gender ? gender : 'اختر'}
 
                   <div
-                    className={`overflow-clip w-96 absolute -left-px top-[91%] flex flex-col items-start border border-t-0 border-[#949495] rounded-[10px] rounded-t-none ${
+                    className={`overflow-clip w-[472px] absolute -left-px top-[91%] flex flex-col items-start border border-t-0 border-[#949495] rounded-[10px] rounded-t-none ${
                       !boxOpen && 'hidden'
                     }`}
                   >
