@@ -34,14 +34,14 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col mx-20">
       {/* /* title */}
-      <div className="text-right text-[28px] mt-10 mr-32 2xl:mr-52">
+      <div className="text-right text-[28px] mt-10">
         <p>الملف الشخصى</p>
       </div>
       {/* inputs */}
 
-      <div className="flex  justify-start mr-[150px] mb-20">
+      <div className="flex  justify-start  mx-5 mb-20">
         <div className="flex flex-col justify-center  w-[904px] h-[500px]">
           <div className="flex flex-row justify-around ">
             <div className="mx-10">
