@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 /*    Components    */
 import CredentialsInput from '../../common/CredentialsInput'
 /*    icon    */
-import CloseButton from '../../../assets/common/CloseButton.svg'
 
 const PharmacyChangePassword = ({ toggleModal }) => {
   const [oldPassword, setOldPassword] = useState('')
@@ -31,19 +30,14 @@ const PharmacyChangePassword = ({ toggleModal }) => {
 
   const handleSubmit = () => {
     checkNewPassword()
+    // toggleModal()
   }
   return (
-    <div className="my-20">
-      <div className="flex flex-wrap justify-center items-center">
-        <div className="border rounded-[10px] flex flex-col justify-center py-5 px-5 w-[1040px]">
+    <div className="mx-20">
+      <div className="flex flex-wrap justify-start items-center">
+        <div className="flex flex-col justify-center py-5 px-5 w-[1040px]">
           <div className="my-5 grid-flow-col grid w-full">
-            <p className="text-[28px] inline justify-self-end">تغيير كلمة المرور</p>
-            <button
-              onClick={() => toggleModal()}
-              className="text-[28px] text-[#4D4D4D] justify-self-end"
-            >
-              <img draggable="false" src={CloseButton} alt="closeButton" />
-            </button>
+            <p className="text-[28px] inline text-start mr-5">تغيير كلمة المرور</p>
           </div>
           <div className="flex flex-col">
             <div className="w-[450px] my-5 mx-5 flex flex-col items-start">
