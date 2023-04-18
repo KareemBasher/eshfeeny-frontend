@@ -33,7 +33,7 @@ const PharmacyChangePassword = ({ toggleModal }) => {
     // toggleModal()
   }
   return (
-    <div className="mx-20">
+    <div className="mx-56 mt-2">
       <div className="flex flex-wrap justify-start items-center">
         <div className="flex flex-col justify-center py-5 px-5 w-[1040px]">
           <div className="my-5 grid-flow-col grid w-full">
