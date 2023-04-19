@@ -58,7 +58,7 @@ const changePassword = ({ toggleModal, user }) => {
       <div className="flex flex-wrap justify-start items-center">
         <div className="flex flex-col justify-center py-5 px-5 w-[1040px]">
           {passwordChanged ? (
-            <div className="flex flex-col justify-center items-center m-10">
+            <div className="flex flex-col items-center justify-center mr-96 mt-28">
               <img draggable="false" src={CheckCircle} alt="Password changed" />
               <p className="text-[24px]">تم تغيير كلمة المرور الخاصة بك بنجاح</p>
             </div>
