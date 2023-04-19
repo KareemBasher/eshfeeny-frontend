@@ -33,7 +33,7 @@ const PharmacyChangePassword = ({ toggleModal }) => {
     // toggleModal()
   }
   return (
-    <div className="mx-20">
+    <div className="mx-56 mt-2">
       <div className="flex flex-wrap justify-start items-center">
         <div className="flex flex-col justify-center py-5 px-5 w-[1040px]">
           <div className="my-5 grid-flow-col grid w-full">
@@ -88,10 +88,17 @@ const PharmacyChangePassword = ({ toggleModal }) => {
           <div className="flex justify-center">
             <button
               disabled={oldPassword.length < 1}
-              className="bg-lightBlue text-white disabled:bg-[#E5E5E5] rounded-[10px] disabled:text-[#8d8d8d] text-[22px] py-4 px-10 m-5 mt-12"
+              className="bg-lightBlue text-white disabled:bg-[#E5E5E5] rounded-[10px] disabled:text-[#8d8d8d] text-[22px] py-2 px-10 m-5 mt-12"
               onClick={() => handleSubmit()}
             >
               تغيير كلمة المرور
+            </button>
+
+            <button
+              onClick={() => toggleModal()}
+              className="text-[24px] py-2 w-[223px] m-5 mt-12 border-opacity-50 border border-black  rounded-[10px] "
+            >
+              إلغاء
             </button>
           </div>
         </div>
