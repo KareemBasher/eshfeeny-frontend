@@ -33,8 +33,9 @@ const SearchResults = ({ loggedInUser, empty, logout }) => {
         {empty ? (
           <PageEmpty
             onGetTitle="نتائج البحث"
-            onGetText="لم يتم العثور على المنتج"
             onGetLogo={AlternativeLogo}
+            onGetText1="لم يتم العثور على المنتج"
+            onGetButtonText="اذهب للتسوق الان"
             onGetPath="/home"
           />
         ) : (

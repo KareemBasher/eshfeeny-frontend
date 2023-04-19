@@ -24,7 +24,8 @@ const PharmacyCart = ({ loggedInUser, logout }) => {
           <PageEmpty
             onGetTitle="سلة التسوق"
             onGetLogo={CartLight}
-            onGetText="عربة التسوق فارغة "
+            onGetText1="عربة التسوق فارغة "
+            onGetButtonText="اذهب للتسوق الان"
             onGetPath="/pharmacy"
           />
         )}

@@ -28,7 +28,8 @@ const PharmacyFavourits = ({ loggedInUser, logout }) => {
           ) : (
             <PageEmpty
               onGetLogo={HeartLight}
-              onGetText="لا توجد أي منتجات مفضلة لديك"
+              onGetText1="لا توجد أي منتجات مفضلة لديك"
+              onGetButtonText="اذهب للتسوق الان"
               onGetTitle="المنتجات المفضلة"
               onGetPath="/pharmacy"
             />
