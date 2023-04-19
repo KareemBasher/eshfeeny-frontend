@@ -55,9 +55,9 @@ const changePassword = ({ toggleModal, user }) => {
   }
 
   return (
-    <div className="my-20">
-      <div className="flex flex-wrap justify-center items-center">
-        <div className="border rounded-[10px] flex flex-col justify-center py-5 px-5 w-[1040px]">
+    <div className="mx-56 mt-2">
+      <div className="flex flex-wrap justify-start items-center">
+        <div className="flex flex-col justify-center py-5 px-5 w-[1040px]">
           {passwordChanged ? (
             <div className="flex flex-col justify-center items-center m-10">
               <img draggable="false" src={CheckCircle} alt="Password changed" />
@@ -66,13 +66,7 @@ const changePassword = ({ toggleModal, user }) => {
           ) : (
             <>
               <div className="my-5 grid-flow-col grid w-full">
-                <p className="text-[28px] inline justify-self-end">تغيير كلمة المرور</p>
-                <button
-                  onClick={() => toggleModal()}
-                  className="text-[28px] text-[#4D4D4D] justify-self-end"
-                >
-                  <img draggable="false" src={CloseButton} alt="closeButton" />
-                </button>
+                <p className="text-[28px] inline text-start mr-5">تغيير كلمة المرور</p>
               </div>
               <div className="flex flex-col">
                 <div className="w-[450px] my-5 mx-5 flex flex-col items-start">
@@ -128,6 +122,12 @@ const changePassword = ({ toggleModal, user }) => {
                   onClick={() => handleSubmit()}
                 >
                   تغيير كلمة المرور
+                </button>
+                <button
+                  onClick={() => toggleModal()}
+                  className="text-[24px] py-2 w-[223px] m-5 mt-12 border-opacity-50 border border-black  rounded-[10px] "
+                >
+                  إلغاء
                 </button>
               </div>
             </>
