@@ -30,32 +30,20 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
     setShowMenu(!showMenu)
   }
 
-  const handleShowMenuHover = (value) => {
-    setShowMenu(value)
-  }
-
   return (
-    <div className="flex mr-5 min-w-fit items-center relative">
-      <div onMouseEnter={() => handleShowMenuHover(true)} className="flex items-center">
-        <div className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative">
+    <div className="flex mr-5 min-w-fit items-center relative" onClick={() => handleShowMenu()}>
+      <div className="flex items-center">
+        <div className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative cursor-pointer">
           <img className="self-center" draggable="false" src={Person} alt="RadialButton" />
         </div>
 
         <div>
-          <Link
-            className="text-[20px] px-3"
-            to={`${loggedInUser === '6439bd5e1c12d023717e2be5' ? '/login/user' : '/profile'}`}
-          >
-            {userName ? userName : 'تسجيل الدخول'}
-          </Link>
+          <p className="text-[20px] px-3 cursor-pointer">{userName ? userName : 'تسجيل الدخول'}</p>
         </div>
       </div>
 
       {loggedInUser !== '6439bd5e1c12d023717e2be5' && showMenu && (
-        <div
-          onMouseLeave={() => handleShowMenuHover(false)}
-          className="w-[240px] py-5 flex flex-col justify-center absolute top-full border rounded-[10px] bg-[#FDFDFF]"
-        >
+        <div className="w-[240px] py-5 flex flex-col justify-center absolute top-full border rounded-[10px] bg-[#FDFDFF]">
           <Link
             to="/profile"
             className="px-2 py-3 flex items-center hover:bg-[#eff6ff] border-r-2 border-transparent hover:border-r-2 hover:border-[#0583F2]"
@@ -74,9 +62,9 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
       )}
 
       {userName && (
-        <div onClick={() => handleShowMenu()}>
+        <div>
           <img
-            className={`${showMenu && 'rotate-180'} transition-all`}
+            className={`${showMenu && 'rotate-180'} transition-all cursor-pointer`}
             draggable="false"
             src={ArrowDown}
             alt="Down arrow"
