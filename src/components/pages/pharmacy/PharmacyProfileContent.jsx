@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 /*    Components    */
 import PhoneInputContent from '../profile/PhoneInputContent'
+import { updatePharmacy } from '../../../utils/pharmaciesAPI'
 
 const PharmacyProfileContent = ({ user, toggleModal }) => {
   const [name, setName] = useState('')
@@ -31,6 +32,13 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
 
   const handleAddressChange = (e) => {
     setAddress(e.target.value)
+  }
+
+  const handleSubmit = async () => {
+    if (name.length !== 0 && email.length !== 0) {
+      const res = await updatePharmacy(user._id, name, email, phoneNumber, address)
+      console.log(res)
+    }
   }
 
   return (
@@ -89,7 +97,7 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
           <div className="flex flex-row justify-center">
             <button
               className="text-[24px] text-white bg-blue rounded-[10px] m-5 w-[223px] h-[58px]"
-              //   onClick={() => handleSubmit()}
+              onClick={() => handleSubmit()}
             >
               حفظ التغيير
             </button>
