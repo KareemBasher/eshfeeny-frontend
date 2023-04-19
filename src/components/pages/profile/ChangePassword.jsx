@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import CredentialsInput from '../../common/CredentialsInput'
-import CloseButton from '../../../assets/common/CloseButton.svg'
 import CheckCircle from '../../../assets/common/CheckCircle.svg'
 import { updatePassword, verifyLogin } from '../../../utils/usersAPI'
 
@@ -55,7 +54,7 @@ const changePassword = ({ toggleModal, user }) => {
   }
 
   return (
-    <div className="mx-56 mt-2">
+    <div className="mx-[6.5rem] 2xl:mx-[13.5rem] mt-2">
       <div className="flex flex-wrap justify-start items-center">
         <div className="flex flex-col justify-center py-5 px-5 w-[1040px]">
           {passwordChanged ? (
