@@ -3,6 +3,7 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 /*        Assets         */
 import LocationPageEmpty from '../../assets/common/LocationPageEmpty.svg'
 import UserLocation from '../../assets/common/UserLocation.svg'
+import GuestLogo from '../../assets/common/AlternativeLogo.svg'
 /*    Components    */
 import PageEmpty from '../common/PageEmpty'
 import UserNavigation from '../common/UserNavigation'
@@ -39,7 +40,8 @@ const Map = ({ loggedInUser, logout }) => {
         <UserNavigation loggedInUser={loggedInUser} logout={logout} />
         <PageEmpty
           onGetTitle={'اقرب صيدلية'}
-          onGetText="لم يتم العثور علي منتجاتك"
+          onGetText1="لم يتم العثور علي منتجاتك"
+          onGetButtonText="اذهب للتسوق الان"
           onGetLogo={LocationPageEmpty}
           onGetPath="./home"
         />
@@ -49,38 +51,53 @@ const Map = ({ loggedInUser, logout }) => {
   return (
     <div className="pb-20 2xl:pb-0">
       <UserNavigation loggedInUser={loggedInUser} logout={logout} />
-      <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
-        <h1>أقرب صيدلية</h1>
-      </div>
-      <div className="h-[70vh] flex justify-center">
-        <div className="w-[80%] border-2 rounded-[10px] shadow-sm hover:shadow-xl transition-all duration-300">
-          <GoogleMap
-            options={{
-              styles: [
-                { elementType: 'labels', featureType: 'poi', stylers: [{ visibility: 'off' }] }
-              ]
-            }}
-            zoom={18}
-            center={{ lat: 30.591012255008604, lng: 32.267342084616594 }}
-            mapContainerStyle={{ height: '100%', borderRadius: '10px' }}
-          >
-            <Marker
-              icon={UserLocation}
-              title="موقعك"
-              position={{ lat: 30.591105239159777, lng: 32.26764605875071 }}
-            />
-
-            {pharmacies.map((pharmacy) => (
-              <Marker
-                key={pharmacy._id}
-                position={{ lat: pharmacy.geoLocation.lat, lng: pharmacy.geoLocation.lng }}
-                icon={pharmacyMarker}
-                title={pharmacy.name}
-              />
-            ))}
-          </GoogleMap>
+      {loggedInUser === '6439bd5e1c12d023717e2be5' ? (
+        <div>
+          <PageEmpty
+            onGetTitle="أقرب صيدلية"
+            onGetLogo={GuestLogo}
+            onGetText1="أنت الان في وضع الضيف"
+            onGetText2="الرجاء تسجيل الدخول للاستمتاع بالمميزات"
+            onGetButtonText="تسجل الدخول"
+            onGetPath="./login/user"
+          />
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">
+            <h1>أقرب صيدلية</h1>
+          </div>
+          <div className="h-[70vh] flex justify-center">
+            <div className="w-[80%] border-2 rounded-[10px] shadow-sm hover:shadow-xl transition-all duration-300">
+              <GoogleMap
+                options={{
+                  styles: [
+                    { elementType: 'labels', featureType: 'poi', stylers: [{ visibility: 'off' }] }
+                  ]
+                }}
+                zoom={18}
+                center={{ lat: 30.591012255008604, lng: 32.267342084616594 }}
+                mapContainerStyle={{ height: '100%', borderRadius: '10px' }}
+              >
+                <Marker
+                  icon={UserLocation}
+                  title="موقعك"
+                  position={{ lat: 30.591105239159777, lng: 32.26764605875071 }}
+                />
+
+                {pharmacies.map((pharmacy) => (
+                  <Marker
+                    key={pharmacy._id}
+                    position={{ lat: pharmacy.geoLocation.lat, lng: pharmacy.geoLocation.lng }}
+                    icon={pharmacyMarker}
+                    title={pharmacy.name}
+                  />
+                ))}
+              </GoogleMap>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

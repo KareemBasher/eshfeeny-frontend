@@ -5,6 +5,7 @@ import PageEmpty from '../../common/PageEmpty'
 import CartContent from './CartContent'
 /*    Icons    */
 import CartLight from '../../../assets/common/CartLight.svg'
+import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
 /*     API     */
 import * as ProductsAPI from '../../../utils/productsAPI'
 import * as UsersAPI from '../../../utils/usersAPI'
@@ -27,23 +28,37 @@ const Cart = ({ loggedInUser, logout }) => {
   return (
     <>
       <UserNavigation loggedInUser={loggedInUser} logout={logout} />
-      <div>
-        {items.length ? (
-          <CartContent
-            onGetItems={items}
-            OnGetTitle="سلة التسوق"
-            loggedInUser={loggedInUser}
-            onRemoveItem={removeFromCart}
-          />
-        ) : (
+      {loggedInUser === '6439bd5e1c12d023717e2be5' ? (
+        <div>
           <PageEmpty
             onGetTitle="سلة التسوق"
-            onGetLogo={CartLight}
-            onGetText="عربة التسوق فارغة "
-            onGetPath="./home"
+            onGetLogo={GuestLogo}
+            onGetText1="أنت الان في وضع الضيف"
+            onGetText2="الرجاء تسجيل الدخول للاستمتاع بالمميزات"
+            onGetButtonText="تسجل الدخول"
+            onGetPath="./login/user"
           />
-        )}
-      </div>
+        </div>
+      ) : (
+        <div>
+          {items.length ? (
+            <CartContent
+              onGetItems={items}
+              OnGetTitle="سلة التسوق"
+              loggedInUser={loggedInUser}
+              onRemoveItem={removeFromCart}
+            />
+          ) : (
+            <PageEmpty
+              onGetTitle="سلة التسوق"
+              onGetLogo={CartLight}
+              onGetText1="عربة التسوق فارغة "
+              onGetButtonText="اذهب للتسوق الان"
+              onGetPath="./home"
+            />
+          )}
+        </div>
+      )}
     </>
   )
 }
