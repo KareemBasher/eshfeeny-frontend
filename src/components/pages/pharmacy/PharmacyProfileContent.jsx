@@ -36,8 +36,7 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
 
   const handleSubmit = async () => {
     if (name.length !== 0 && email.length !== 0) {
-      const res = await updatePharmacy(user._id, name, email, phoneNumber, address)
-      console.log(res)
+      await updatePharmacy(user._id, name, email, phoneNumber, address)
     }
   }
 
