@@ -1,7 +1,14 @@
 import React from 'react'
 import WideButton from './WideButton'
 
-const PageEmpty = ({ onGetLogo, onGetText, onGetTitle, onGetPath }) => {
+const PageEmpty = ({
+  onGetLogo,
+  onGetText1,
+  onGetText2,
+  onGetTitle,
+  onGetPath,
+  onGetButtonText
+}) => {
   return (
     <div>
       <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">{onGetTitle}</div>
@@ -11,11 +18,12 @@ const PageEmpty = ({ onGetLogo, onGetText, onGetTitle, onGetPath }) => {
         </div>
       </div>
       <div className="m-5 text-[26px]">
-        <p>{onGetText}</p>
+        <p>{onGetText1}</p>
+        {onGetText1 === 'أنت الان في وضع الضيف' && <p className="py-5">{onGetText2}</p>}
       </div>
       <div>
         <WideButton
-          content="اذهب للتسوق الان"
+          content={onGetButtonText}
           handleOnClick={() => (window.location.href = onGetPath)}
         />
       </div>

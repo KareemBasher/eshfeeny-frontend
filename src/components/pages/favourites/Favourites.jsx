@@ -5,6 +5,7 @@ import PageEmpty from '../../common/PageEmpty'
 import FavouritesContent from './FavouritesContent'
 /*    Icons    */
 import HeartLight from '../../../assets/common/HeartLight.svg'
+import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
 /*     API     */
 import * as ProductsAPI from '../../../utils/productsAPI'
 
@@ -27,23 +28,37 @@ const Favourites = ({ loggedInUser, logout }) => {
   return (
     <>
       <UserNavigation loggedInUser={loggedInUser} logout={logout} />
-      <div>
-        {items.length ? (
-          <FavouritesContent
-            onGetTitle="المنتجات المفضلة"
-            onGetItems={items}
-            loggedInUser={loggedInUser}
-            favorites={favoriteProductsIDs}
-          />
-        ) : (
+      {loggedInUser === '6439bd5e1c12d023717e2be5' ? (
+        <div>
           <PageEmpty
-            onGetLogo={HeartLight}
-            onGetText="لا توجد أي منتجات مفضلة لديك"
-            onGetTitle="المنتجات المفضلة"
-            onGetPath="./home"
+            onGetTitle="سلة التسوق"
+            onGetLogo={GuestLogo}
+            onGetText1="أنت الان في وضع الضيف"
+            onGetText2="الرجاء تسجيل الدخول للاستمتاع بالمميزات"
+            onGetButtonText="تسجل الدخول"
+            onGetPath="./login/user"
           />
-        )}
-      </div>
+        </div>
+      ) : (
+        <div>
+          {items.length ? (
+            <FavouritesContent
+              onGetTitle="المنتجات المفضلة"
+              onGetItems={items}
+              loggedInUser={loggedInUser}
+              favorites={favoriteProductsIDs}
+            />
+          ) : (
+            <PageEmpty
+              onGetTitle="المنتجات المفضلة"
+              onGetLogo={HeartLight}
+              onGetText1="لا توجد أي منتجات مفضلة لديك"
+              onGetButtonText="اذهب للتسوق الان"
+              onGetPath="./home"
+            />
+          )}
+        </div>
+      )}
     </>
   )
 }

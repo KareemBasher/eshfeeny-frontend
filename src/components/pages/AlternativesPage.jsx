@@ -67,8 +67,9 @@ const AlternativesPage = ({ loggedInUser, logout }) => {
         {!alternative.length ? (
           <PageEmpty
             onGetTitle="البديل"
-            onGetText="لا يوجد بديل لهذا الدواء "
             onGetLogo={AlternativeLogo}
+            onGetText1="لا يوجد بديل لهذا الدواء "
+            onGetButtonText="اذهب للتسوق الان"
             onGetPath="./home"
           />
         ) : (
