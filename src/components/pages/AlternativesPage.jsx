@@ -70,7 +70,7 @@ const AlternativesPage = ({ loggedInUser, logout }) => {
             onGetLogo={AlternativeLogo}
             onGetText1="لا يوجد بديل لهذا الدواء "
             onGetButtonText="اذهب للتسوق الان"
-            onGetPath="./home"
+            onGetPath="/home"
           />
         ) : (
           <div className="mr-32 2xl:mr-52">
