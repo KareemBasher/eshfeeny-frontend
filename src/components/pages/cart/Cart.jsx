@@ -54,7 +54,7 @@ const Cart = ({ loggedInUser, logout }) => {
               onGetLogo={CartLight}
               onGetText1="عربة التسوق فارغة "
               onGetButtonText="اذهب للتسوق الان"
-              onGetPath="./home"
+              onGetPath="/home"
             />
           )}
         </div>
