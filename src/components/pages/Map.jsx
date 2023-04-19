@@ -43,7 +43,7 @@ const Map = ({ loggedInUser, logout }) => {
           onGetText1="لم يتم العثور علي منتجاتك"
           onGetButtonText="اذهب للتسوق الان"
           onGetLogo={LocationPageEmpty}
-          onGetPath="./home"
+          onGetPath="/home"
         />
       </>
     )
