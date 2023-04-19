@@ -118,7 +118,7 @@ const changePassword = ({ toggleModal, user }) => {
               <div className="flex justify-center">
                 <button
                   disabled={oldPassword.length < 1}
-                  className="bg-lightBlue text-white disabled:bg-[#E5E5E5] rounded-[10px] disabled:text-[#8d8d8d] text-[22px] py-4 px-10 m-5 mt-12"
+                  className="bg-lightBlue text-white disabled:bg-[#E5E5E5] rounded-[10px] disabled:text-[#8d8d8d] text-[22px] py-2 px-10 m-5 mt-12"
                   onClick={() => handleSubmit()}
                 >
                   تغيير كلمة المرور
