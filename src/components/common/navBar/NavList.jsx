@@ -47,7 +47,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الأم و الطفل"
-          onGetSubItems={['لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']}
+          onGetSubItems={['لبن الاطفال', 'الحفاظات و الكريمات', 'العناية بالأم']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
