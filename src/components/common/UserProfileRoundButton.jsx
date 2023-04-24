@@ -30,13 +30,13 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
     setShowMenu(!showMenu)
   }
 
-  const handleShowMenuHover = (value) => {
-    setShowMenu(value)
-  }
+  // const handleShowMenuHover = (value) => {
+  //   setShowMenu(!value)
+  // }
 
   return (
     <div className="flex mr-5 min-w-fit items-center relative">
-      <div onMouseEnter={() => handleShowMenuHover(true)} className="flex items-center">
+      <div className="flex items-center">
         <div className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative">
           <img className="self-center" draggable="false" src={Person} alt="RadialButton" />
         </div>
@@ -53,7 +53,7 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
 
       {loggedInUser !== '6439bd5e1c12d023717e2be5' && showMenu && (
         <div
-          onMouseLeave={() => handleShowMenuHover(false)}
+          // onMouseLeave={() => handleShowMenuHover(false)}
           className="w-[240px] py-5 flex flex-col justify-center absolute top-full border rounded-[10px] bg-[#FDFDFF]"
         >
           <Link
