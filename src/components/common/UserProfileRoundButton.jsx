@@ -6,7 +6,7 @@ import { getUser } from '../../utils/usersAPI'
 import { Link } from 'react-router-dom'
 
 const UserProfileRoundButton = ({ loggedInUser, logout }) => {
-  const [userName, setUserName] = useState('')
+  const [userName, setUserName] = useState(''
   const [showMenu, setShowMenu] = useState(false)
 
   useEffect(() => {
