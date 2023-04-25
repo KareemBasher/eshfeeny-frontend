@@ -13,7 +13,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
             'البرد و السعال',
             'مسكنات',
             'الحروق البسيطة',
-            'الحموضة و سوء الهضم',
+            'الحموضة وسوء الهضم',
             'الكحة',
             'المغص',
             'امساك',
@@ -35,13 +35,13 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="منتجات الرجال"
-          onGetSubItems={['جل الحلاقة', 'مزيل العرق', 'مستلزمات الحلاقة']}
+          onGetSubItems={['جل الحلاقة', 'مزيل العرق للرجال', 'مستلزمات الحلاقة']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="منتجات المرأة"
-          onGetSubItems={['إزالة الشعر', 'مزيل العرق', 'فوط صحية']}
+          onGetSubItems={['إزالة الشعر', 'مزيل العرق للسيدات', 'فوط صحية']}
         />
         <NavListItems
           handleShowOverlay={handleShowOverlay}
@@ -60,7 +60,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
             'غسول الوجه',
             'ماسكات الوجه',
             'مزيل المكياج',
-            'بلسم الشعر ',
+            'بلسم الشعر',
             'شامبو'
           ]}
         />
