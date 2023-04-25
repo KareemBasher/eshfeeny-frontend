@@ -89,19 +89,19 @@ const Brands = () => {
         <div className="flex w-full pb-7 overflow-x-auto brands container justify-between">
           <ol className="flex justify-between">
             <li>
-              <BrandsPictures onGetImage={Image1} onGetPath="جارنير" />
+              <BrandsPictures onGetImage={Image1} onGetPath="garnier" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image2} onGetPath="ڤيتشي" />
+              <BrandsPictures onGetImage={Image2} onGetPath="vichy" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image3} onGetPath="بامبرز" />
+              <BrandsPictures onGetImage={Image3} onGetPath="pampers" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image4} onGetPath="بيز لاين" />
+              <BrandsPictures onGetImage={Image4} onGetPath="beesline" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image5} onGetPath="أكس" />
+              <BrandsPictures onGetImage={Image5} onGetPath="axe" />
             </li>
           </ol>
         </div>
