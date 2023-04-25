@@ -33,19 +33,30 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
   return (
     <div className="flex mr-5 min-w-fit items-center relative" onClick={() => handleShowMenu()}>
       <div className="flex items-center">
-        <div className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative cursor-pointer">
-          <img className="self-center" draggable="false" src={Person} alt="RadialButton" />
-        </div>
-
-        <div>
-          {userName ? (
-            <p className="text-[20px] px-3 cursor-pointer">{userName}</p>
-          ) : (
-            <Link to="/login/user" className="text-[20px] px-3 cursor-pointer">
-              تسجيل الدخول
+        {userName ? (
+          <>
+            <div className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative cursor-pointer">
+              <img className="self-center" draggable="false" src={Person} alt="RadialButton" />
+            </div>
+            <div>
+              <p className="text-[20px] px-3 cursor-pointer">{userName}</p>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login/user"
+              className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative cursor-pointer"
+            >
+              <img className="self-center" draggable="false" src={Person} alt="RadialButton" />
             </Link>
-          )}
-        </div>
+            <div>
+              <Link to="/login/user" className="text-[20px] px-3 cursor-pointer">
+                تسجيل الدخول
+              </Link>
+            </div>
+          </>
+        )}
       </div>
 
       {loggedInUser !== '6439bd5e1c12d023717e2be5' && showMenu && (
