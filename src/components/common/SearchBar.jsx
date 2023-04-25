@@ -242,6 +242,7 @@ const SearchBar = ({ onGetData, query }) => {
             type="text"
             placeholder="ما الذي تبحث عنه؟"
             onChange={onGetData}
+            autoComplete="off"
           />
 
           <button className="px-5" onClick={() => setDragActive(true)}>
