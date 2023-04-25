@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import QuantityControllerCart from './QuantityControllerCart'
+import QuantityControllerCart from '../cart/QuantityControllerCart'
 import CloseButton from '../../../assets/common/CloseButton.svg'
 
 const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) => {
