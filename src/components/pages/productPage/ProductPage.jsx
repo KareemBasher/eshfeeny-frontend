@@ -179,6 +179,7 @@ const ProductPage = ({ loggedInUser, logout }) => {
           onGetUseCases={product.useCases}
           onGetUsage={product.usage}
           onGetSideEffects={product.sideEffects}
+          onGetWarning={product.warning}
         />
       </div>
     </div>
