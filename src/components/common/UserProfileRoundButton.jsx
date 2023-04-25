@@ -38,7 +38,13 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
         </div>
 
         <div>
-          <p className="text-[20px] px-3 cursor-pointer">{userName ? userName : 'تسجيل الدخول'}</p>
+          {userName ? (
+            <p className="text-[20px] px-3 cursor-pointer">{userName}</p>
+          ) : (
+            <Link to="/login/user" className="text-[20px] px-3 cursor-pointer">
+              تسجيل الدخول
+            </Link>
+          )}
         </div>
       </div>
 
