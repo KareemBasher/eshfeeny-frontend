@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 /*        Assets         */
 import LocationPageEmpty from '../../../assets/common/LocationPageEmpty.svg'
@@ -18,6 +18,15 @@ const Map = ({ loggedInUser, logout }) => {
   const [cartProducts, setCartProducts] = useState([])
   const [selected, setSelected] = useState(null)
   const [userCoords, setUserCoords] = useState()
+
+  const onMapClick = useCallback((e) => {
+    setUserCoords({ lat: e.latLng.lat(), lng: e.latLng.lng() })
+  }, [])
+
+  const mapRef = useRef()
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map
+  }, [])
 
   useEffect(() => {
     const getData = async () => {
@@ -47,8 +56,6 @@ const Map = ({ loggedInUser, logout }) => {
           options
         )
       }
-
-      console.log(userCoords)
     }
 
     getData()
@@ -81,7 +88,7 @@ const Map = ({ loggedInUser, logout }) => {
     googleMapsApiKey: gcpKey
   })
 
-  if (!isLoaded || !cartProducts)
+  if (!isLoaded || !cartProducts) {
     return (
       <>
         <UserNavigation loggedInUser={loggedInUser} logout={logout} />
@@ -94,6 +101,7 @@ const Map = ({ loggedInUser, logout }) => {
         />
       </>
     )
+  }
 
   return (
     <div className="pb-20 2xl:pb-0">
@@ -128,8 +136,21 @@ const Map = ({ loggedInUser, logout }) => {
                 zoom={userCoords ? 15 : 9}
                 center={userCoords ? userCoords : { lat: 30.031461, lng: 31.290479 }}
                 mapContainerStyle={{ height: '100%', borderRadius: '10px' }}
+                onClick={(e) => onMapClick(e)}
+                onLoad={onMapLoad}
               >
-                {userCoords && <Marker icon={UserLocation} title="موقعك" position={userCoords} />}
+                {userCoords && (
+                  <Marker
+                    icon={{
+                      url: UserLocation,
+                      scaledSize: new window.google.maps.Size(40, 40),
+                      origin: new window.google.maps.Point(0, 0),
+                      anchor: new window.google.maps.Point(20, 40)
+                    }}
+                    title="موقعك"
+                    position={userCoords}
+                  />
+                )}
 
                 {pharmacies.map((pharmacy) => (
                   <Marker
