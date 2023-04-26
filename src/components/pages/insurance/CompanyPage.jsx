@@ -42,7 +42,7 @@ const CompanyPage = ({ loggedInUser, logout }) => {
             </Link>
           </div>
           <div className="w-[608px] h-[348px] hover:shadow-xl transition-all duration-300 shadow-sm border rounded-[15px] flex flex-col">
-            <Link>
+            <Link to={`/prescription`}>
               <img draggable="false" className="m-2" src={AddPrescriptionImage} alt="" />
               <p className="mt-16 text-[26px]">أضف صورة الروشتة</p>
             </Link>
