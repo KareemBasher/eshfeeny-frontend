@@ -158,7 +158,8 @@ const ProductPage = ({ loggedInUser, logout }) => {
           <p className="text-lightBlue py-3 pb-5">{product.price} جنيه</p>
           {showButton && (
             <button
-              className="text-white bg-orange rounded-[10px] w-[400px] h-[56px]"
+              disabled={loggedInUser === '6439bd5e1c12d023717e2be5'}
+              className="text-white bg-orange rounded-[10px] w-[400px] h-[56px] disabled:bg-[#e5e5e5] disabled:text-[#939393]"
               onClick={handleButton}
             >
               أضف الى العربة

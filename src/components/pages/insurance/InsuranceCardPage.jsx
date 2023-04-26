@@ -46,8 +46,12 @@ const InsuranceCardPage = ({ loggedInUser, logout }) => {
       </div>
 
       {!card?.length ? (
-        <div className=" mt-16 mr-24">
-          <div className="flex flex-col items-center mt-20">
+        <div>
+          <div className="flex justify-start items-center my-10 mr-32 2xl:mr-52">
+            <p className="text-[26px] text-right ml-10">{company.name}</p>
+            <img className="h-16" draggable="false" src={company.logo} alt="Company image" />
+          </div>
+          <div className="flex flex-col items-center">
             <div className="mb-10">
               <img src={InsuranceCardImg} alt="InsuranceCardImg" />
             </div>
@@ -67,11 +71,11 @@ const InsuranceCardPage = ({ loggedInUser, logout }) => {
         </div>
       ) : (
         <>
-          <div className="text-right mt-16 mr-24 text-[26px]">
+          <div className="text-right text-[26px] my-10 mr-32 2xl:mr-52">
             <p>أختر كارت</p>
           </div>
 
-          <div className="relative mr-24">
+          <div className="relative mr-32 2xl:mr-52">
             <div className=" flex justify-center">
               <div className="absolute">{message ? <ConfrimRequest /> : null}</div>
             </div>
@@ -79,7 +83,7 @@ const InsuranceCardPage = ({ loggedInUser, logout }) => {
               <div key={number}>
                 <div
                   onClick={() => handelMessage(number)}
-                  className={`border rounded-[10px]  my-5 mt-10 w-[997px] ${
+                  className={`border rounded-[10px] mb-5 w-[997px] ${
                     clickedDiv === number && 'bg-[#FFE5CC] border-[#F99D1C]'
                   }`}
                 >

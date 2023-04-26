@@ -24,11 +24,8 @@ const CompanyPage = ({ loggedInUser, logout }) => {
 
   return (
     <div>
-      <div>
-        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
-      </div>
-
-      <div className="flex flex-col mt-16 mr-24">
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
+      <div className="flex flex-col mt-16 mr-32 2xl:mr-52">
         <div className="mb-16 flex justify-start items-center">
           <p className="text-[26px] text-right ml-10">{company.name}</p>
           <img className="h-16" draggable="false" src={company.logo} alt="Company image" />
