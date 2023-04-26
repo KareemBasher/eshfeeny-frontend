@@ -28,7 +28,7 @@ const InsuranceCompanies = ({ loggedInUser, logout }) => {
       {loggedInUser === '6439bd5e1c12d023717e2be5' ? (
         <div>
           <PageEmpty
-            onGetTitle="سلة التسوق"
+            onGetTitle="أختر شركة التأمين"
             onGetLogo={GuestLogo}
             onGetText1="أنت الان في وضع الضيف"
             onGetText2="الرجاء تسجيل الدخول للاستمتاع بالمميزات"
