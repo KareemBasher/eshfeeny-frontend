@@ -94,23 +94,3 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
 }
 
 export default ProductContainer
-
-// {
-//   showButton && (
-//     <button
-//       className="my-1 h-[40px] px-10 mb-4 rounded-[10px] text-white bg-orange"
-//       onClick={handleHideButton}
-//     >
-//       أضف الى العربة
-//     </button>
-//   )
-// }
-// {
-//   !showButton && (
-//     <QuantityController
-//       handleHideComponent={handleShowButton}
-//       onGetUserID={loggedInUser}
-//       onGetProductID={onGetProduct._id}
-//     />
-//   )
-// }

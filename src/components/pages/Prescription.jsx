@@ -22,9 +22,9 @@ const Prescription = ({ loggedInUser, logout }) => {
           />
         </div>
       ) : (
-        <div className="flex flex-col items-center w-full my-16">
-          <div className="w-full flex justify-start px-20">
-            <p className="text-right text-[26px]">الروشتة</p>
+        <div className="flex flex-col items-center">
+          <div className="w-full flex justify-start">
+            <p className="text-right text-[26px] mt-10 mr-32 2xl:mr-52">الروشتة</p>
           </div>
 
           <div>

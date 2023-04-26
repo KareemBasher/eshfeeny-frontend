@@ -37,18 +37,8 @@ const InsuranceCompanies = ({ loggedInUser, logout }) => {
           />
         </div>
       ) : (
-        <div className="flex flex-col text-right mt-16 mr-24">
-          <div>
-            <div className="flex justify-start mb-10">
-              <Link to="/home" className="hover:underline text-lightBlue">
-                الرئيسية
-              </Link>
-
-              <img src={Arrow} draggable="false" className="mx-2" alt="Arrow" />
-              <p className="text-[#1F1F1F]">كارت التامين</p>
-            </div>
-          </div>
-          <div className="mb-14">
+        <div className="flex flex-col text-right mr-32 2xl:mr-52">
+          <div className="my-10">
             <p className="text-[26px]">أختر شركة التأمين</p>
           </div>
 
