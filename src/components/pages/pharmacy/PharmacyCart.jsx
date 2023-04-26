@@ -39,7 +39,7 @@ const PharmacyCart = ({ loggedInUser, logout }) => {
               onGetLogo={GuestLogo}
               onGetText1="أنت الان في وضع الضيف"
               onGetText2="الرجاء تسجيل الدخول للاستمتاع بالمميزات"
-              onGetButtonText="تسجل الدخول"
+              onGetButtonText="تسجيل الدخول"
               onGetPath="./login/pahrmacy"
             />
           </div>
