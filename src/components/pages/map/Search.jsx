@@ -2,7 +2,7 @@ import React from 'react'
 import usePlacesAutoComplete, { getGeocode, getLatLng } from 'use-places-autocomplete'
 
 const Search = () => {
-    const searchPlaces = () => {
+  const searchPlaces = () => {
     const {
       ready,
       value,
@@ -16,9 +16,7 @@ const Search = () => {
       }
     })
   }
-  return (
-    <div>Search</div>
-  )
+  return <div>Search</div>
 }
 
 export default Search
