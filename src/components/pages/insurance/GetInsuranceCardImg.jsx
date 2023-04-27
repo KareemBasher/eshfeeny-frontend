@@ -112,15 +112,13 @@ const GetInsuranceCardImg = ({
 
   return (
     <div>
-      <div>
-        <UserNavigation loggedInUser={loggedInUser} logout={logout} />
-      </div>
+      <UserNavigation loggedInUser={loggedInUser} logout={logout} />
 
-      <div className="flex justify-around mt-20">
-        <div className="flex flex-col  ">
+      <div className="flex">
+        <div className="flex flex-col mr-32 2xl:mr-52">
           <div className="text-right">
-            <div className="flex items-center mb-10">
-              <p className="text-[26px] text-right ml-10">{company.name}</p>
+            <div className="flex items-center my-10">
+              <p className="text-[26px] text-right ml-10">بيانات الكارت</p>
               <img className="h-16" draggable="false" src={company.logo} alt="Company image" />
             </div>
             <div className="text-[22px]">
@@ -181,7 +179,7 @@ const GetInsuranceCardImg = ({
           </div>
         </div>
 
-        <div className="">
+        <div className="flex w-full justify-end pl-24 2xl:pl-44 mt-14">
           <img src={InsuranceAddCard} alt="" />
         </div>
       </div>

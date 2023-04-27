@@ -71,17 +71,15 @@ const AddCard = ({ loggedInUser, logout }) => {
     <div>
       {!nextPage ? (
         <>
-          <div>
-            <UserNavigation loggedInUser={loggedInUser} logout={logout} />
-          </div>
-          <div className="flex justify-around mt-10">
+          <UserNavigation loggedInUser={loggedInUser} logout={logout} />
+          <div className="flex">
             <div>
-              <div className=" w-[472px] flex flex-col text-right mb-16">
-                <div className="mb-16 flex justify-start items-center">
-                  <p className="text-[26px] text-right ml-10">{company.name}</p>
+              <div className="w-[472px] flex flex-col text-right mr-32 2xl:mr-52">
+                <div className="flex justify-start items-center my-10">
+                  <p className="text-[26px] text-right ml-10">بيانات الكارت</p>
                   <img className="h-16" draggable="false" src={company.logo} alt="Company image" />
                 </div>
-                <div className="mt-2">
+                <div>
                   <div className="mb-10">
                     <p className="text-[24px] mb-5">رقم الكارت</p>
                     <CredentialsInput
@@ -118,7 +116,7 @@ const AddCard = ({ loggedInUser, logout }) => {
                 </div>
               </div>
             </div>
-            <div className="mt-14">
+            <div className="flex w-full justify-end pl-24 2xl:pl-44 mt-14">
               <img src={InsuranceAddCard} alt="" />
             </div>
           </div>

@@ -21,7 +21,8 @@
     "react-icons": "^4.8.0",
     "react-phone-input-2": "^2.15.1",
     "react-phone-number-input": "^3.2.19",
-    "react-router-dom": "^6.8.1"
+    "react-router-dom": "^6.8.1",
+    "use-places-autocomplete": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

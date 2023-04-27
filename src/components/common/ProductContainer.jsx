@@ -40,11 +40,13 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
         className="w-[22px] box-border mr-3 mt-5"
         onClick={() => (itemInFavorites ? handleRemove() : handleAdd())}
       >
-        <img
-          draggable="false"
-          src={itemInFavorites ? HeartFill : HeartEmpty}
-          alt={itemInFavorites ? 'Remove from favorites' : 'add to favorites'}
-        />
+        {loggedInUser !== '6439bd5e1c12d023717e2be5' && (
+          <img
+            draggable="false"
+            src={itemInFavorites ? HeartFill : HeartEmpty}
+            alt={itemInFavorites ? 'Remove from favorites' : 'add to favorites'}
+          />
+        )}
       </button>
       <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[30%]">
         <img src={onGetProduct?.images} draggable="false" alt="Product" />
@@ -59,20 +61,31 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
         </Link>
         <p className="text-lightBlue my-3">{onGetProduct.price} جنيه</p>
         <div className="flex justify-center">
-          {showButton && (
+          {loggedInUser === '6439bd5e1c12d023717e2be5' ? (
             <button
               className="my-1 h-[40px] px-10 mb-4 rounded-[10px] text-white bg-orange"
-              onClick={handleHideButton}
+              onClick={() => (window.location.href = '/cart')}
             >
               أضف الى العربة
             </button>
-          )}
-          {!showButton && (
-            <QuantityController
-              handleHideComponent={handleShowButton}
-              onGetUserID={loggedInUser}
-              onGetProductID={onGetProduct._id}
-            />
+          ) : (
+            <div>
+              {showButton && (
+                <button
+                  className="my-1 h-[40px] px-10 mb-4 rounded-[10px] text-white bg-orange"
+                  onClick={handleHideButton}
+                >
+                  أضف الى العربة
+                </button>
+              )}
+              {!showButton && (
+                <QuantityController
+                  handleHideComponent={handleShowButton}
+                  onGetUserID={loggedInUser}
+                  onGetProductID={onGetProduct._id}
+                />
+              )}
+            </div>
           )}
         </div>
       </div>
