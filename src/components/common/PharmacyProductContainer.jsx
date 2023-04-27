@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import HeartEmpty from '../../assets/common/HeartYellowEmpty.svg'
 import HeartFill from '../../assets/common/HeartYellow.svg'
 /*       Component       */
-import QuantityController from './QuantityController'
+import PharmacyQuantityController from './PharmacyQuantityController'
 /*       API       */
 import * as PharmacyAPI from '../../utils/pharmaciesAPI'
 
@@ -80,7 +80,7 @@ const PharmacyProductContainer = ({ onGetProduct, loggedInUser, favorites }) => 
                 </button>
               )}
               {!showButton && (
-                <QuantityController
+                <PharmacyQuantityController
                   handleHideComponent={handleShowButton}
                   onGetUserID={loggedInUser}
                   onGetProductID={onGetProduct._id}

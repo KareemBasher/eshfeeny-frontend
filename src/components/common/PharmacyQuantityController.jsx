@@ -7,7 +7,7 @@ import RemoveButton from '../../assets/common/DeleteButton.svg'
 import * as ProductsAPI from '../../utils/productsAPI'
 import * as PharmacyAPI from '../../utils/pharmaciesAPI'
 
-const PharmacyQuantityContriller = ({ handleHideComponent, onGetUserID, onGetProductID }) => {
+const PharmacyQuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }) => {
   const [baseQuantity, setBaseQuantity] = useState('0') //value in data base
   const [modifiedQuantity, setModifiedQuantity] = useState(0) //shown value
 
@@ -83,4 +83,4 @@ const PharmacyQuantityContriller = ({ handleHideComponent, onGetUserID, onGetPro
   )
 }
 
-export default PharmacyQuantityContriller
+export default PharmacyQuantityController
