@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PharmacyCartItems from './PharmacyCartItems'
-import WideButton from '../../common/WideButton'
+import WideButton from '../../../common/WideButton'
 
 const PharmacyCartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveItem }) => {
   const [price, setPrice] = useState('55')

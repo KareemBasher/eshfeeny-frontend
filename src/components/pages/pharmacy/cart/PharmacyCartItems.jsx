@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import QuantityControllerCart from '../cart/QuantityControllerCart'
-import CloseButton from '../../../assets/common/CloseButton.svg'
+import PharmacyQuantityCart from './PharmacyQuantityCart'
+import CloseButton from '../../../../assets/common/CloseButton.svg'
 
 const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) => {
   const [price, setPrice] = useState(product.price * quantity)
@@ -24,7 +24,7 @@ const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) =>
       </Link>
 
       <div className="flex h-full flex-col items-start justify-around text-[18px]">
-        <QuantityControllerCart
+        <PharmacyQuantityCart
           loggedInUser={loggedInUser}
           onGetQuantity={quantity}
           productID={product._id}
