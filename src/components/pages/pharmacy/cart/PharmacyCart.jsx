@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 /*    components    */
-import PageEmpty from '../../common/PageEmpty'
-import PharmacyNavigation from '../../common/PharmacyNavigation'
+import PageEmpty from '../../../common/PageEmpty'
+import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyCartContent from './PharmacyCartContent'
 /*    Icons    */
-import CartLight from '../../../assets/common/CartLight.svg'
-import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
+import CartLight from '../../../../assets/common/CartLight.svg'
+import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
 /*    API    */
-import * as PharmacyAPI from '../../../utils/pharmaciesAPI'
+import * as PharmacyAPI from '../../../../utils/pharmaciesAPI'
 
 const PharmacyCart = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])

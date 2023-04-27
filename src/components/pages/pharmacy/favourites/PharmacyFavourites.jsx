@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 /*    Components    */
-import PharmacyNavigation from '../../common/PharmacyNavigation'
-import PageEmpty from '../../common/PageEmpty'
+import PharmacyNavigation from '../../../common/PharmacyNavigation'
+import PageEmpty from '../../../common/PageEmpty'
 import PharmacyFavouritesContent from './PharmacyFavouritesContent'
 /*    Icons    */
-import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
-import HeartLight from '../../../assets/common/HeartLight.svg'
+import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
+import HeartLight from '../../../../assets/common/HeartLight.svg'
 
 const PharmacyFavourits = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([''])
   const [favoritesId, setFavouriteId] = useState([])
+
+  //useEffect to get products from Pharmacyapi
 
   return (
     <>
