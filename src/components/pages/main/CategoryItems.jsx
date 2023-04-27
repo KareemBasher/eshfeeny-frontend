@@ -8,11 +8,11 @@ import ArrowOrange from '../../../assets/mainPage/ArrowOrange.svg'
 import RightArrow from '../../../assets/mainPage/RightArrow.svg'
 import LeftArrow from '../../../assets/mainPage/LeftArrow.svg'
 /*       API        */
-import { getCategory, getFavoriteProducts } from '../../../utils/productsAPI'
+import { getType, getCategory, getFavoriteProducts } from '../../../utils/productsAPI'
 import { useState } from 'react'
 
-const CategoryItems = ({ onGetTitle, onGetType, loggedInUser }) => {
-  const container = document.querySelector(`.${onGetTitle}`)
+const CategoryItems = ({ onGetTitle, onGetType, onGetCategory, onGetContainer, loggedInUser }) => {
+  const container = document.querySelector(`.${onGetContainer}`)
 
   const handleLeft = () => {
     let scrollAmount = 0
@@ -41,11 +41,19 @@ const CategoryItems = ({ onGetTitle, onGetType, loggedInUser }) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      setProducts(await getCategory(onGetTitle))
+      if (onGetCategory === 'get type') {
+        setProducts(await getType(onGetType))
+      } else {
+        setProducts(await getCategory(onGetCategory))
+      }
       setFavouriteProducts(await getFavoriteProducts(loggedInUser))
     }
     getProducts()
   }, [])
+
+  if (products.length > 12) {
+    setProducts(products.slice(0, 12))
+  }
 
   const [overflow, setOverflow] = useState(false)
 
@@ -67,7 +75,7 @@ const CategoryItems = ({ onGetTitle, onGetType, loggedInUser }) => {
       <div className="flex justify-between">
         <p className="text-right text-[26px] pb-3">{onGetTitle}</p>
         <Link
-          to={`/products/type/${onGetType}/category/${onGetTitle}`}
+          to={`/products/type/${onGetType}/category/${onGetCategory}`}
           className="flex border border-orange py-3 px-5 rounded-[10px]"
         >
           <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
@@ -82,19 +90,19 @@ const CategoryItems = ({ onGetTitle, onGetType, loggedInUser }) => {
               className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
               onClick={handleRight}
             >
-              <img src={RightArrow} />
+              <img src={RightArrow} draggable="false" />
             </button>
             {/*    Left Arrow    */}
             <button
               className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
               onClick={handleLeft}
             >
-              <img src={LeftArrow} />
+              <img src={LeftArrow} draggable="false" />
             </button>
           </>
         )}
         {/*      Products     */}
-        <div className={`flex w-full pb-7 overflow-x-auto ${onGetTitle} container`}>
+        <div className={`flex w-full pb-7 overflow-x-auto ${onGetContainer} container`}>
           <ol className="flex justify-between">
             {products.map((product) => (
               <li key={product._id}>
