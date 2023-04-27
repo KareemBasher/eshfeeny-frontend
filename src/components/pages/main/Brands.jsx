@@ -9,10 +9,14 @@ import RightArrow from '../../../assets/mainPage/RightArrow.svg'
 import LeftArrow from '../../../assets/mainPage/LeftArrow.svg'
 /*       Images        */
 import Image1 from '../../../assets/brands/Garnier.png'
-import Image2 from '../../../assets/brands/VICHY.png'
+import Image2 from '../../../assets/brands/Listerine.png'
 import Image3 from '../../../assets/brands/Pampers.png'
 import Image4 from '../../../assets/brands/Beesline.png'
-import Image5 from '../../../assets/brands/AXE.png'
+import Image5 from '../../../assets/brands/LA ROCHE POSAY.png'
+import Image6 from '../../../assets/brands/CleanClear.png'
+import Image7 from '../../../assets/brands/Dove.png'
+import Image8 from '../../../assets/brands/HerbalEssences.png'
+import Image9 from '../../../assets/brands/LOreal Paris.png'
 
 const Brands = () => {
   const container = document.querySelector('.brands')
@@ -89,19 +93,31 @@ const Brands = () => {
         <div className="flex w-full pb-7 overflow-x-auto brands container justify-between">
           <ol className="flex justify-between">
             <li>
-              <BrandsPictures onGetImage={Image1} onGetPath="garnier" />
+              <BrandsPictures onGetImage={Image1} onGetPath="Garnier" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image2} onGetPath="vichy" />
+              <BrandsPictures onGetImage={Image7} onGetPath="Dove" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image3} onGetPath="pampers" />
+              <BrandsPictures onGetImage={Image4} onGetPath="Beesline" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image4} onGetPath="beesline" />
+              <BrandsPictures onGetImage={Image5} onGetPath="LA ROCHE POSAY" />
             </li>
             <li>
-              <BrandsPictures onGetImage={Image5} onGetPath="axe" />
+              <BrandsPictures onGetImage={Image3} onGetPath="Pampers" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image2} onGetPath="Listerine" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image6} onGetPath="Clean Clear" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image8} onGetPath="Herbal Essences" />
+            </li>
+            <li>
+              <BrandsPictures onGetImage={Image9} onGetPath="L'Oréal Paris" />
             </li>
           </ol>
         </div>
