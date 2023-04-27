@@ -15,9 +15,27 @@ const Main = ({ loggedInUser, logout }) => {
         <ImageSlider />
         <AddContainer />
 
-        <CategoryItems onGetTitle="الكحة" onGetType="الأدوية" loggedInUser={loggedInUser} />
-        <CategoryItems onGetTitle="المغص" onGetType="الأدوية" loggedInUser={loggedInUser} />
-        <CategoryItems onGetTitle="امساك" onGetType="الأدوية" loggedInUser={loggedInUser} />
+        <CategoryItems
+          onGetTitle="احتياجات الصيف"
+          onGetType="العناية بالبشرة و الشعر"
+          onGetCategory="get type"
+          onGetContainer="one"
+          loggedInUser={loggedInUser}
+        />
+        <CategoryItems
+          onGetTitle="لصحة أفضل"
+          onGetType="الأدوية"
+          onGetCategory="الفيتامينات و المكملات الغذائية"
+          onGetContainer="two"
+          loggedInUser={loggedInUser}
+        />
+        <CategoryItems
+          onGetTitle="بديل للسكر"
+          onGetType="الأدوية"
+          onGetCategory="بديل للسكر"
+          onGetContainer="three"
+          loggedInUser={loggedInUser}
+        />
         <Brands />
       </div>
     </div>
