@@ -74,13 +74,23 @@ const CategoryItems = ({ onGetTitle, onGetType, onGetCategory, onGetContainer, l
     <div className="mx-36">
       <div className="flex justify-between">
         <p className="text-right text-[26px] pb-3">{onGetTitle}</p>
-        <Link
-          to={`/products/type/${onGetType}/category/${onGetCategory}`}
-          className="flex border border-orange py-3 px-5 rounded-[10px]"
-        >
-          <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
-          <img src={ArrowOrange} draggable="false" className="pr-2" />
-        </Link>
+        {onGetCategory === 'get type' ? (
+          <Link
+            to={`/products/type/${onGetType}`}
+            className="flex border border-orange py-3 px-5 rounded-[10px]"
+          >
+            <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
+            <img src={ArrowOrange} draggable="false" className="pr-2" />
+          </Link>
+        ) : (
+          <Link
+            to={`/products/type/${onGetType}/category/${onGetCategory}`}
+            className="flex border border-orange py-3 px-5 rounded-[10px]"
+          >
+            <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
+            <img src={ArrowOrange} draggable="false" className="pr-2" />
+          </Link>
+        )}
       </div>
       <div className="flex relative">
         {overflow && (
