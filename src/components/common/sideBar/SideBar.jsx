@@ -63,10 +63,11 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory }) => {
       category: ['كل العناية بالاسنان', 'العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']
     }
   ]
+
   return (
-    <div className="flex flex-col min-w-[262px] h-full border rounded-[10px] my-10 text-right whitespace-nowrap">
-      <p className="text-[22px] pt-5 pr-2">الأقسام</p>
-      <div className="list-books-content">
+    <div className="flex flex-col h-auto min-w-[262px] border py-6 rounded-[10px] my-8 text-right whitespace-nowrap">
+      <p className="text-[22px] pr-2">الأقسام</p>
+      <div>
         {data.map(({ title, category }) => {
           return (
             <div key={title}>
