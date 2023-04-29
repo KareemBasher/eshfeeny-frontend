@@ -5,10 +5,17 @@ import UserNavigation from '../../common/UserNavigation'
 import SideBar from '../../common/sideBar/SideBar'
 import ProductContainer from '../../common/ProductContainer'
 import Pagination from './Pagination'
+import BrandCounter from './BrandCounter'
 /*     Icons     */
 import Arrow from '../../../assets/common/Arrow.svg'
 /*     API     */
-import { getCategory, getType, getFavoriteProducts } from '../../../utils/productsAPI'
+import {
+  getCategory,
+  getType,
+  getFavoriteProducts,
+  getBrands,
+  getBrandCounts
+} from '../../../utils/productsAPI'
 
 const CategoryPage = ({ loggedInUser, logout }) => {
   const { category, type } = useParams()
@@ -22,19 +29,46 @@ const CategoryPage = ({ loggedInUser, logout }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [productsPerPage] = useState(result)
   const [favoriteProductsIDs, setFavoriteProductsIDs] = useState([])
+  const [brandCounts, setBrandCounts] = useState([])
+  const [selectedBrands, setSelectedBrands] = useState([])
 
   useEffect(() => {
     const getProducts = async () => {
       if (category) {
         setProducts(await getCategory(category))
+        setBrandCounts(await getBrandCounts('category', category))
       } else {
         setProducts(await getType(type))
+        setBrandCounts(await getBrandCounts('type', type))
       }
+
+      setSelectedBrands([])
       const favourites = await getFavoriteProducts(loggedInUser)
       setFavoriteProductsIDs(favourites.map((product) => product._id))
     }
+
     getProducts()
   }, [category, type])
+
+  useEffect(() => {
+    const getProducts = async () => {
+      if (selectedBrands.length !== 0) {
+        const res = await getBrands(selectedBrands)
+        console.log(res)
+        setProducts(await getBrands(selectedBrands))
+      } else {
+        if (category) {
+          setProducts(await getCategory(category))
+          setBrandCounts(await getBrandCounts('category', category))
+        } else {
+          setProducts(await getType(type))
+          setBrandCounts(await getBrandCounts('type', type))
+        }
+      }
+    }
+
+    getProducts()
+  }, [selectedBrands])
 
   const lastProductIndex = currentPage * productsPerPage
   const firstProductIndex = lastProductIndex - productsPerPage
@@ -63,14 +97,24 @@ const CategoryPage = ({ loggedInUser, logout }) => {
         )}
       </div>
       <div className="flex mr-32 2xl:mr-52">
-        <SideBar onGetActiveType={type} onGetActiveCategory={category} />
+        <div className="flex flex-col">
+          <SideBar onGetActiveType={type} onGetActiveCategory={category} />
+          {brandCounts.length > 0 && (
+            <BrandCounter
+              brandCounts={brandCounts}
+              selectedBrands={selectedBrands}
+              handleSelectedBrand={setSelectedBrands}
+            />
+          )}
+        </div>
+
         <div className="w-full mr-4">
           {category ? (
             <div className="text-right text-[28px] mt-10 mb-3 mr-8">{category}</div>
           ) : (
             <div className="text-right text-[28px] mt-10 mb-3 mr-8">كل {type}</div>
           )}
-          {products.length > 1 && (
+          {products.length >= 1 && (
             <>
               <ol className="flex flex-wrap justify-start -mr-2">
                 {currentProducts?.map((product) => (
