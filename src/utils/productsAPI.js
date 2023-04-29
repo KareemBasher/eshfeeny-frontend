@@ -188,3 +188,32 @@ export const getBrand = async (brand) => {
     console.log(`Could not get product from brand ${brand} from API.`)
   }
 }
+
+// Get all product from certain brands
+export const getBrands = async (brands) => {
+  try {
+    const result = await fetch(apiURL + `/products/brand/collective/brands`, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ brands: brands })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get product from brands ${brands} from API.`)
+  }
+}
+
+// Get brands and their product counts for a category or a type
+export const getBrandCounts = async (category_type, value) => {
+  try {
+    const result = await fetch(apiURL + `/products/brandCounts/${category_type}/${value}`, {
+      headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get brands and their product counts from API.`)
+  }
+}
