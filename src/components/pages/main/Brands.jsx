@@ -78,14 +78,14 @@ const Brands = () => {
               className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -right-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
               onClick={handleRight}
             >
-              <img src={RightArrow} />
+              <img src={RightArrow} draggable="false" />
             </button>
             {/*    Left Arrow    */}
             <button
               className="flex absolute justify-center items-center self-center min-w-[42px] min-h-[42px] -left-[42px] bg-[#f5f5f581] rounded-full shadow-md cursor-pointer hover:opacity-60"
               onClick={handleLeft}
             >
-              <img src={LeftArrow} />
+              <img src={LeftArrow} draggable="false" />
             </button>
           </>
         )}
