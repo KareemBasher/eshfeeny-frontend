@@ -1,4 +1,6 @@
+/*     HOOKS      */
 import React, { useState } from 'react'
+/*     components      */
 import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyProductContent from './PharmacyProductContent'
 import Img from './img.png'
@@ -13,7 +15,7 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
       quantity: 4
     }
   ])
-  console.log()
+
   return (
     <div>
       <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />

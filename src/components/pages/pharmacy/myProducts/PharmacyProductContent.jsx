@@ -1,4 +1,5 @@
 import React from 'react'
+/*     components     */
 import PharmacyProductItems from './PharmacyProductItems'
 
 const PharmacyProductContent = ({ items }) => {
