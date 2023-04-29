@@ -33,7 +33,8 @@ import UserProtectedRoutes from './UserProtectedRoutes'
 import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
 import PharmacyCart from './components/pages/pharmacy/cart/PharmacyCart'
 import PharmacyFavourits from './components/pages/pharmacy/favourites/PharmacyFavourites'
-import Brands from './components/pages/brands/BrandsPage'
+import Brands from './components/pages/brands/BrandPage'
+import BrandsList from './components/pages/brands/BrandsList'
 import PharmacyProfile from './components/pages/pharmacy/PharmacyProfile'
 
 function App() {
@@ -123,6 +124,10 @@ function App() {
         <Route
           path="/addCard/:id"
           element={<AddCard loggedInUser={loggedInUser} logout={logout} />}
+        />
+        <Route
+          path="/brands"
+          element={<BrandsList loggedInUser={loggedInUser} logout={logout} />}
         />
         <Route
           path="/brands/:brand"
