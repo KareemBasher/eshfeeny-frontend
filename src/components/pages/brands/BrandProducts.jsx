@@ -9,7 +9,7 @@ import Arrow from '../../../assets/common/Arrow.svg'
 /*       API        */
 import { getBrand, getFavoriteProducts } from '../../../utils/productsAPI'
 
-const BrandPage = ({ loggedInUser, logout }) => {
+const BrandProducts = ({ loggedInUser, logout }) => {
   const { brand } = useParams()
 
   const [products, setProducts] = useState([])
@@ -59,4 +59,4 @@ const BrandPage = ({ loggedInUser, logout }) => {
   )
 }
 
-export default BrandPage
+export default BrandProducts
