@@ -24,7 +24,7 @@ export const getProduct = async (id) => {
   }
 }
 
-// Get a single product using the id
+// Add a product
 export const addProduct = async (product) => {
   try {
     const result = await fetch(apiURL + `/products/`, {
@@ -33,7 +33,7 @@ export const addProduct = async (product) => {
         ...headers,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(product)
+      body: JSON.stringify({ product: product })
     })
     if (result.status === 200) return result.json()
   } catch (error) {
