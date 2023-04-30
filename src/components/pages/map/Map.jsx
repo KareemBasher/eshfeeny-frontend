@@ -2,13 +2,14 @@ import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 /*        Assets         */
 import LocationPageEmpty from '../../../assets/common/LocationPageEmpty.svg'
-import UserLocation from '../../../assets/common/UserLocation.svg'
+import UserLocation from '../../../assets/map/UserLocation.svg'
 import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
+import MapPin from '../../../assets/map/MapPin.svg'
 /*    Components    */
 import PageEmpty from '../../common/PageEmpty'
 import UserNavigation from '../../common/UserNavigation'
 import mapStyle from './mapStyle'
-import pharmacyMarker from './markers'
+import InfoWindowComponent from './InfoWindowComponent'
 /*    API    */
 import { getAvailable } from '../../../utils/pharmaciesAPI'
 import { getCartProducts } from '../../../utils/productsAPI'
@@ -143,9 +144,9 @@ const Map = ({ loggedInUser, logout }) => {
                   <Marker
                     icon={{
                       url: UserLocation,
-                      scaledSize: new window.google.maps.Size(40, 40),
+                      scaledSize: new window.google.maps.Size(100, 100),
                       origin: new window.google.maps.Point(0, 0),
-                      anchor: new window.google.maps.Point(20, 40)
+                      anchor: new window.google.maps.Point(50, 30)
                     }}
                     title="موقعك"
                     position={userCoords}
@@ -157,9 +158,10 @@ const Map = ({ loggedInUser, logout }) => {
                     key={pharmacy._id}
                     position={{ lat: pharmacy.geoLocation.lat, lng: pharmacy.geoLocation.lng }}
                     icon={{
-                      url: pharmacyMarker,
+                      url: MapPin,
+                      scaledSize: new window.google.maps.Size(50, 50),
                       origin: new window.google.maps.Point(0, 0),
-                      anchor: new window.google.maps.Point(15, 15)
+                      anchor: new window.google.maps.Point(25, 50)
                     }}
                     title={pharmacy.name}
                     onClick={() => {
@@ -170,22 +172,22 @@ const Map = ({ loggedInUser, logout }) => {
 
                 {selected && (
                   <InfoWindow
+                    options={{
+                      pixelOffset: new window.google.maps.Size(0, -55)
+                    }}
                     onCloseClick={() => {
                       setSelected(null)
                     }}
-                    position={{ lat: selected.geoLocation.lat, lng: selected.geoLocation.lng }}
+                    position={{
+                      lat: selected.geoLocation.lat,
+                      lng: selected.geoLocation.lng
+                    }}
                   >
-                    <div className="mr-[30px] font-cairo">
-                      <p className="text-[25px]">صيدلية {selected.name}</p>
-                      <p className="text-[18px]">العنوان: {selected.address}</p>
-                      <p className="text-[18px]">الهاتف: {selected.phoneNumber}</p>
-                      <p className="text-[18px]">
-                        المسافة:
-                        <span className="text-lightBlue">
-                          {' ' + calculateDistance(userCoords, selected.geoLocation)}
-                        </span>
-                      </p>
-                    </div>
+                    <InfoWindowComponent
+                      selected={selected}
+                      calculateDistance={calculateDistance}
+                      userCoords={userCoords}
+                    />
                   </InfoWindow>
                 )}
               </GoogleMap>
