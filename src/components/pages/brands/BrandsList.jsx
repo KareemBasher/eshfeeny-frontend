@@ -4,7 +4,7 @@ import BrandsPictures from '../user/main/BrandsPictures'
 /*       Images        */
 import LaRoche from '../../../assets/brands/LA ROCHE POSAY.png'
 import Beesline from '../../../assets/brands/Beesline.png'
-import Bobana from '../../../assets/brands/bobana.png'
+import Bobana from '../../../assets/brands/Bobana.png'
 import CloseUp from '../../../assets/brands/Close_up.png'
 import Eva from '../../../assets/brands/eva.png'
 import LorealParis from '../../../assets/brands/LOreal Paris.png'
