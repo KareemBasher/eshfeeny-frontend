@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import PhoneInputContent from './PhoneInputContent'
+import PhoneInputContent from './PhoneInputContent'
 import './Option.css'
 import { updateUser } from '../../../../utils/usersAPI'
 import ArrowDown from '../../../../assets/common/ArrowDown.svg'
@@ -28,9 +28,9 @@ const ProfileContent = ({ user, toggleModal }) => {
     setEmail(e.target.value)
   }
 
-  // const handlePhoneChange = (phone) => {
-  //   setPhoneNumber(phone)
-  // }
+  const handlePhoneChange = (phone) => {
+    setPhoneNumber(phone)
+  }
 
   const handleSelectBox = () => {
     setBoxOpen(!boxOpen)
@@ -79,7 +79,7 @@ const ProfileContent = ({ user, toggleModal }) => {
             <div className="flex flex-col justify-start my-10 mx-10">
               <label className="text-2xl text-right my-5">رقم الهاتف</label>
 
-              {/* <PhoneInputContent phoneNumber={phoneNumber} handlePhoneChange={handlePhoneChange} /> */}
+              <PhoneInputContent phoneNumber={phoneNumber} handlePhoneChange={handlePhoneChange} />
             </div>
             <div className="flex flex-col justify-start my-10">
               <label className="text-2xl flex flex-start my-5">الجنس</label>

@@ -9,11 +9,11 @@ const PhoneInputContent = ({ phoneNumber, handlePhoneChange }) => {
 
   return (
     <div dir="ltr">
-      <PhoneInput
+      {/* <PhoneInput
         country={'eg'}
         value={phoneNumber}
         onChange={(phone) => handlePhoneChange(phone)}
-      />
+      /> */}
     </div>
   )
 }
