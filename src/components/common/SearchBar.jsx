@@ -29,7 +29,7 @@ const useOutsideHook = (ref, handler) => {
   }, [ref])
 }
 
-const SearchBar = ({ onGetData, query }) => {
+const SearchBar = ({ onGetType, onGetData, query }) => {
   const ref = useRef(null)
   const [data, setData] = useState([])
   const [resultsOpen, setResultsOpen] = useState(true)

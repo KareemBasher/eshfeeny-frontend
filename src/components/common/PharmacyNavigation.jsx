@@ -49,7 +49,7 @@ const PharmacyNavigation = ({ loggedInUser, logout }) => {
     <>
       <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30">
         <LogoScript home="/pharmacy" />
-        <SearchBar onGetData={searchResult} query={query} />
+        <SearchBar onGetType="pharmacy" onGetData={searchResult} query={query} />
         <RoundButton
           onGetLogo={HeartDark}
           onGetText="المفضلة"
