@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 /*    Components    */
 import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PageEmpty from '../../../common/PageEmpty'
@@ -7,11 +7,23 @@ import PharmacyFavouritesContent from './PharmacyFavouritesContent'
 import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
 import HeartLight from '../../../../assets/common/HeartLight.svg'
 
+import * as ProductsAPI from '../../../../utils/productsAPI'
+
 const PharmacyFavourits = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([''])
   const [favoritesId, setFavouriteId] = useState([])
 
-  //useEffect to get products from Pharmacyapi
+  useEffect(() => {
+    const updateItems = async () => {
+      const result = await ProductsAPI.getFavoriteProductsPharmacy(loggedInUser)
+      if (result) {
+        const IDs = result.map((product) => product._id)
+        setFavouriteId(IDs)
+      }
+      setItems(result ? result : [])
+    }
+    updateItems()
+  }, [])
 
   return (
     <>
@@ -24,7 +36,7 @@ const PharmacyFavourits = ({ loggedInUser, logout }) => {
             onGetText1="أنت الان في وضع الضيف"
             onGetText2="الرجاء تسجيل الدخول للاستمتاع بالمميزات"
             onGetButtonText="تسجيل الدخول"
-            onGetPath="./login/user"
+            onGetPath="./login/pharmacy"
           />
         </div>
       ) : (
@@ -42,7 +54,7 @@ const PharmacyFavourits = ({ loggedInUser, logout }) => {
               onGetLogo={HeartLight}
               onGetText1="لا توجد أي منتجات مفضلة لديك"
               onGetButtonText="اذهب للتسوق الان"
-              onGetPath="/home"
+              onGetPath="/pharmacy"
             />
           )}
         </div>
