@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 /*        Assets         */
-import LocationPageEmpty from '../../../assets/common/LocationPageEmpty.svg'
-import UserLocation from '../../../assets/map/UserLocation.svg'
-import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
-import MapPin from '../../../assets/map/MapPin.svg'
+import LocationPageEmpty from '../../../../assets/common/LocationPageEmpty.svg'
+import UserLocation from '../../../../assets/map/UserLocation.svg'
+import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
+import MapPin from '../../../../assets/map/MapPin.svg'
 /*    Components    */
-import PageEmpty from '../../common/PageEmpty'
-import UserNavigation from '../../common/UserNavigation'
+import PageEmpty from '../../../common/PageEmpty'
+import UserNavigation from '../../../common/UserNavigation'
 import mapStyle from './mapStyle'
 import InfoWindowComponent from './InfoWindowComponent'
 /*    API    */
-import { getAvailable } from '../../../utils/pharmaciesAPI'
-import { getCartProducts } from '../../../utils/productsAPI'
+import { getAvailable } from '../../../../utils/pharmaciesAPI'
+import { getCartProducts } from '../../../../utils/productsAPI'
 
 const Map = ({ loggedInUser, logout }) => {
   const [pharmacies, setPharmacies] = useState([])

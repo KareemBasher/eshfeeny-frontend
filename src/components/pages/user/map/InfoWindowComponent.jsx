@@ -1,8 +1,8 @@
 import React from 'react'
-import InfoWindowPharmacy from '../../../assets/map/InfoWindowPharmacy.svg'
-import InfoWindowLocation from '../../../assets/map/InfoWindowLocation.svg'
-import InfoWindowPhone from '../../../assets/map/InfoWindowPhone.svg'
-import InfoWindowDistance from '../../../assets/map/InfoWindowDistance.svg'
+import InfoWindowPharmacy from '../../../../assets/map/InfoWindowPharmacy.svg'
+import InfoWindowLocation from '../../../../assets/map/InfoWindowLocation.svg'
+import InfoWindowPhone from '../../../../assets/map/InfoWindowPhone.svg'
+import InfoWindowDistance from '../../../../assets/map/InfoWindowDistance.svg'
 
 const InfoWindowComponent = ({ selected, calculateDistance, userCoords }) => {
   return (
