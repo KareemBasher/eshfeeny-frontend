@@ -201,3 +201,13 @@ export const addProduct = async (pharmacyId, productId, quantity) => {
     console.log('Could not add product.')
   }
 }
+
+// Get cart items for a pharmacy
+export const getCart = async (id) => {
+  try {
+    const result = await fetch(apiURL + `/pharmacies/${id}/cart`, { headers: headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get cart for pharmacy with id ${id}.`)
+  }
+}
