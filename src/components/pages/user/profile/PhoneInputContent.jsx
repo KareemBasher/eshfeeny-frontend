@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import PhoneInput from 'react-phone-input-2'
+import PI from 'react-phone-input-2'
+const ReactPhoneInput = PI.default ? PI.default : PI
 import 'react-phone-input-2/lib/style.css'
 import './PhoneInputContent.css'
 
@@ -9,11 +10,11 @@ const PhoneInputContent = ({ phoneNumber, handlePhoneChange }) => {
 
   return (
     <div dir="ltr">
-      {/* <PhoneInput
+      <ReactPhoneInput
         country={'eg'}
         value={phoneNumber}
         onChange={(phone) => handlePhoneChange(phone)}
-      /> */}
+      />
     </div>
   )
 }
