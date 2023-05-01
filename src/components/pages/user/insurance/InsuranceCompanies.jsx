@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 /*         component imports         */
-import UserNavigation from '../../common/UserNavigation'
-import PageEmpty from '../../common/PageEmpty'
-import Arrow from '../../../assets/common/Arrow.svg'
+import UserNavigation from '../../../common/UserNavigation'
+import PageEmpty from '../../../common/PageEmpty'
 /*    Icons    */
-import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
+import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
 /*         Hooks        */
 import { Link } from 'react-router-dom'
 /*         API         */
-import { getInsuranceCompanies } from '../../../utils/insuranceCompaniesAPI'
+import { getInsuranceCompanies } from '../../../../utils/insuranceCompaniesAPI'
 
 const InsuranceCompanies = ({ loggedInUser, logout }) => {
   const [companies, setCompanies] = useState([])

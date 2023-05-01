@@ -2,14 +2,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 /*    components    */
-import UserNavigation from '../../common/UserNavigation'
-import CredentialsInput from '../../common/CredentialsInput'
-import WideButton from '../../common/WideButton'
+import UserNavigation from '../../../common/UserNavigation'
+import CredentialsInput from '../../../common/CredentialsInput'
+import WideButton from '../../../common/WideButton'
 /*    API   */
-import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
+import { getInsuranceCompany } from '../../../../utils/insuranceCompaniesAPI'
 
 /*    Icons    */
-import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
+import InsuranceAddCard from '../../../../assets/insuranceCompanies/InsuranceAddCard.svg'
 import GetInsuranceCardImg from './GetInsuranceCardImg'
 
 const AddCard = ({ loggedInUser, logout }) => {

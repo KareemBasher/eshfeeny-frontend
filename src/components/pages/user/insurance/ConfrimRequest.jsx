@@ -1,5 +1,5 @@
 import React from 'react'
-import CheckCircle from '../../../assets/insuranceCompanies/CheckCircle.svg'
+import CheckCircle from '../../../../assets/insuranceCompanies/CheckCircle.svg'
 const ConfrimRequest = () => {
   return (
     <div className="flex  justify-center items-center bg-white">

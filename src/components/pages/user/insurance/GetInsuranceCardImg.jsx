@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 /*    Components    */
-import UserNavigation from '../../common/UserNavigation'
-import WideButton from '../../common/WideButton'
+import UserNavigation from '../../../common/UserNavigation'
+import WideButton from '../../../common/WideButton'
 /*    API    */
-import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
-import { uploadImage } from '../../../utils/dashboard'
-import { addInsuranceCard } from '../../../utils/usersAPI'
+import { getInsuranceCompany } from '../../../../utils/insuranceCompaniesAPI'
+import { uploadImage } from '../../../../utils/dashboard'
+import { addInsuranceCard } from '../../../../utils/usersAPI'
 /*    Icons    */
-import GetImage from '../../../assets/insuranceCompanies/GetImage.svg'
-import Plus from '../../../assets/insuranceCompanies/Plus.svg'
-import InsuranceAddCard from '../../../assets/insuranceCompanies/InsuranceAddCard.svg'
+import GetImage from '../../../../assets/insuranceCompanies/GetImage.svg'
+import Plus from '../../../../assets/insuranceCompanies/Plus.svg'
+import InsuranceAddCard from '../../../../assets/insuranceCompanies/InsuranceAddCard.svg'
 
 const GetInsuranceCardImg = ({
   loggedInUser,

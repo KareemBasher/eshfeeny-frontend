@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 /*         component imports         */
-import UserNavigation from '../../common/UserNavigation'
+import UserNavigation from '../../../common/UserNavigation'
 import ConfrimRequest from './ConfrimRequest'
 /*         image imports         */
-import InsuranceCardImg from '../../../assets/insuranceCompanies/InsuranceCardImg.svg'
-import Plus from '../../../assets/insuranceCompanies/Plus.svg'
+import InsuranceCardImg from '../../../../assets/insuranceCompanies/InsuranceCardImg.svg'
+import Plus from '../../../../assets/insuranceCompanies/Plus.svg'
 /*        HOOKS         */
 import { Link, useParams } from 'react-router-dom'
 /*         API       */
-import { getInsuranceCards } from '../../../utils/usersAPI'
-import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
+import { getInsuranceCards } from '../../../../utils/usersAPI'
+import { getInsuranceCompany } from '../../../../utils/insuranceCompaniesAPI'
 
 const InsuranceCardPage = ({ loggedInUser, logout }) => {
   const [card, setCard] = useState([])

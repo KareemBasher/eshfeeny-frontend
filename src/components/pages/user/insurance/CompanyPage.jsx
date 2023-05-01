@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 /*         Hooks        */
 import { Link, useParams } from 'react-router-dom'
 /*         component imports         */
-import UserNavigation from '../../common/UserNavigation'
+import UserNavigation from '../../../common/UserNavigation'
 /*         images imports         */
-import AddPrescriptionImage from '../../../assets/insuranceCompanies/AddPrescriptionImage.png'
-import MonthlyMedicine from '../../../assets/insuranceCompanies/MonthlyMedicine.png'
+import AddPrescriptionImage from '../../../../assets/insuranceCompanies/AddPrescriptionImage.png'
+import MonthlyMedicine from '../../../../assets/insuranceCompanies/MonthlyMedicine.png'
 /*         API         */
-import { getInsuranceCompany } from '../../../utils/insuranceCompaniesAPI'
+import { getInsuranceCompany } from '../../../../utils/insuranceCompaniesAPI'
 
 const CompanyPage = ({ loggedInUser, logout }) => {
   const [company, setCompany] = useState('')
