@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 /*    Components    */
-import UserNavigation from '../../common/UserNavigation'
-import QuantityController from '../../pages/productPage/QuantityControllerProductDetails'
+import UserNavigation from '../../../common/UserNavigation'
+import QuantityController from './QuantityControllerProductDetails'
 import ProductDetails from './ProductDetails'
 /*       Icons       */
-import Arrow from '../../../assets/common/Arrow.svg'
-import Alternative from '../../../assets/common/Alternative.svg'
-import HeartEmpty from '../../../assets/productPage/HeartEmpty.svg'
-import HeartFill from '../../../assets/productPage/HeartFill.svg'
+import Arrow from '../../../../assets/common/Arrow.svg'
+import Alternative from '../../../../assets/common/Alternative.svg'
+import HeartEmpty from '../../../../assets/productPage/HeartEmpty.svg'
+import HeartFill from '../../../../assets/productPage/HeartFill.svg'
 /*       API       */
-import { getProduct, getFavoriteProducts } from '../../../utils/productsAPI'
-import * as UsersAPI from '../../../utils/usersAPI'
+import { getProduct, getFavoriteProducts } from '../../../../utils/productsAPI'
+import * as UsersAPI from '../../../../utils/usersAPI'
 
 const ProductPage = ({ loggedInUser, logout }) => {
   const [showButton, setShowButton] = useState(true)

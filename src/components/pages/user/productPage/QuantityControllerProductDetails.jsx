@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 /*      Icons      */
-import IncrementButton from '../../../assets/common/AddButton.svg'
-import DecrementButton from '../../../assets/common/DecrementButton.svg'
+import IncrementButton from '../../../../assets/common/AddButton.svg'
+import DecrementButton from '../../../../assets/common/DecrementButton.svg'
 /*     API      */
-import * as ProductsAPI from '../../../utils/productsAPI'
-import * as UsersAPI from '../../../utils/usersAPI'
+import * as ProductsAPI from '../../../../utils/productsAPI'
+import * as UsersAPI from '../../../../utils/usersAPI'
 
 const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }) => {
   const [baseQuantity, setBaseQuantity] = useState('0') //value in data base

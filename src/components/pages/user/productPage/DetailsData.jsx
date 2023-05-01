@@ -1,6 +1,6 @@
 import React from 'react'
 /*     Icons      */
-import Bullet from '../../../assets/common/ListBullet.svg'
+import Bullet from '../../../../assets/common/ListBullet.svg'
 
 const DetailsData = ({ Title, Data }) => {
   return (
