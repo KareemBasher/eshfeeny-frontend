@@ -10,15 +10,15 @@ import HeartLight from '../../../../assets/common/HeartLight.svg'
 import * as ProductsAPI from '../../../../utils/productsAPI'
 
 const PharmacyFavourits = ({ loggedInUser, logout }) => {
-  const [items, setItems] = useState([''])
-  const [favoritesId, setFavouriteId] = useState([])
+  const [items, setItems] = useState([])
+  const [favoritesId, setFavouritesId] = useState([])
 
   useEffect(() => {
     const updateItems = async () => {
       const result = await ProductsAPI.getFavoriteProductsPharmacy(loggedInUser)
       if (result) {
         const IDs = result.map((product) => product._id)
-        setFavouriteId(IDs)
+        setFavouritesId(IDs)
       }
       setItems(result ? result : [])
     }

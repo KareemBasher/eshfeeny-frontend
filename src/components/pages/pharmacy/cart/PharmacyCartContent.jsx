@@ -8,7 +8,7 @@ const PharmacyCartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveIte
   return (
     <div>
       <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">{OnGetTitle}</div>
-      <div className="flex">
+      <div className="flex justify-around">
         <div>
           <ol className="flex flex-col mb-16">
             {onGetItems.map(({ product, quantity }) => (

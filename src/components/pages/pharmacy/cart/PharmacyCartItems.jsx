@@ -23,7 +23,7 @@ const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) =>
         </p>
       </Link>
 
-      <div className="flex h-full flex-col items-start justify-around text-[18px]">
+      <div className="flex h-full flex-col items-start justify-around text-[18px] mx-9">
         <PharmacyQuantityCart
           loggedInUser={loggedInUser}
           onGetQuantity={quantity}
