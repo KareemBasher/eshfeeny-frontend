@@ -130,6 +130,20 @@ export const getFavoriteProducts = async (userId) => {
   }
 }
 
+// Get products from a pharmacy's favorites list
+export const getFavoriteProductsPharmacy = async (pharmacyId) => {
+  try {
+    const result = await fetch(apiURL + `/products/pharmacy/${pharmacyId}/favorites`, {
+      headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(
+      `Could not get products from favorites for pharmacy with id ${pharmacyId} from API.`
+    )
+  }
+}
+
 // Get products that have a certain active ingredient
 export const getAlternatives = async (id) => {
   try {
@@ -153,7 +167,7 @@ export const getMany = async (IDs) => {
   }
 }
 
-// Get products from a users favorites list
+// Get products from a users cart list
 export const getCartProducts = async (userId) => {
   try {
     const result = await fetch(apiURL + `/users/${userId}/cart`, {
@@ -175,6 +189,20 @@ export const checkCart = async (userId, productId) => {
   } catch (error) {
     console.log(
       `Could not check if product with id ${productId} is in cart for user with id ${userId}.`
+    )
+  }
+}
+
+// Check if an item is in the cart of a pharmacy
+export const checkCartPharmacy = async (pharmacyId, productId) => {
+  try {
+    const result = await fetch(apiURL + `/products/pharmacy/${pharmacyId}/cart/${productId}`, {
+      headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(
+      `Could not check if product with id ${productId} is in cart for pharmacy with id ${pharmacyId}.`
     )
   }
 }
@@ -215,5 +243,15 @@ export const getBrandCounts = async (category_type, value) => {
     if (result.status === 200) return result.json()
   } catch (error) {
     console.log(`Could not get brands and their product counts from API.`)
+  }
+}
+
+// Get all product from a pharmacy
+export const getPharmacyProducts = async (pharmacyId) => {
+  try {
+    const result = await fetch(apiURL + `/products/pharmacy/${pharmacyId}`, { headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get products from pharmacy ${pharmacyId} from API.`)
   }
 }

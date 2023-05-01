@@ -184,3 +184,20 @@ export const updatePassword = async (id, password) => {
     console.log('Could not update password.')
   }
 }
+
+// Add a new product to pharmacy
+export const addProduct = async (pharmacyId, productId, quantity) => {
+  try {
+    const result = await fetch(apiURL + `/pharmacies/${pharmacyId}/addProduct`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: productId, quantity: quantity })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log('Could not add product.')
+  }
+}
