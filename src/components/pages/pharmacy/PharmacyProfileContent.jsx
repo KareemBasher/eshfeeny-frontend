@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 /*    Components    */
-import PhoneInputContent from '../profile/PhoneInputContent'
+import PhoneInputContent from '../user/profile/PhoneInputContent'
 import { updatePharmacy } from '../../../utils/pharmaciesAPI'
 
 const PharmacyProfileContent = ({ user, toggleModal }) => {

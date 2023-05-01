@@ -1,10 +1,10 @@
 /*        Components       */
-import UserNavigation from '../../common/UserNavigation'
+import UserNavigation from '../../../common/UserNavigation'
 import ProfileContent from './ProfileContent'
 /*        Hooks       */
 import React, { useEffect, useState } from 'react'
 /*        API       */
-import * as UsersAPI from '../../../utils/usersAPI'
+import * as UsersAPI from '../../../../utils/usersAPI'
 
 import ChangePassword from './ChangePassword'
 

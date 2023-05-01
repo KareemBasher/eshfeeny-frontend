@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PhoneInputContent from './PhoneInputContent'
 import './Option.css'
-import { updateUser } from '../../../utils/usersAPI'
-import ArrowDown from '../../../assets/common/ArrowDown.svg'
+import { updateUser } from '../../../../utils/usersAPI'
+import ArrowDown from '../../../../assets/common/ArrowDown.svg'
 
 const ProfileContent = ({ user, toggleModal }) => {
   const [name, setName] = useState('')

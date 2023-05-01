@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import CredentialsInput from '../../common/CredentialsInput'
-import CheckCircle from '../../../assets/common/CheckCircle.svg'
-import { updatePassword, verifyLogin } from '../../../utils/usersAPI'
+import CredentialsInput from '../../../common/CredentialsInput'
+import CheckCircle from '../../../../assets/common/CheckCircle.svg'
+import { updatePassword, verifyLogin } from '../../../../utils/usersAPI'
 
 const changePassword = ({ toggleModal, user }) => {
   const [oldPassword, setOldPassword] = useState('')
