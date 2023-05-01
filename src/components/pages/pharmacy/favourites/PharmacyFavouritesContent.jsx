@@ -8,7 +8,7 @@ const PharmacyFavouritesContent = ({ onGetTitle, onGetItems, loggedInUser, favor
       <div className="text-right text-[28px] my-10">{onGetTitle}</div>
       <ol className="flex flex-wrap justify-start -mr-2">
         {onGetItems.map((product) => (
-          <li key={product._id}>
+          <li key={Math.random()}>
             <PharmacyProductContainer
               onGetProduct={product}
               loggedInUser={loggedInUser}
