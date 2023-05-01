@@ -1,15 +1,14 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 /*      Components       */
-import ProductContainer from '../../common/ProductContainer'
+import ProductContainer from '../../../common/ProductContainer'
 /*       Icons       */
-import ArrowOrange from '../../../assets/mainPage/ArrowOrange.svg'
-import RightArrow from '../../../assets/mainPage/RightArrow.svg'
-import LeftArrow from '../../../assets/mainPage/LeftArrow.svg'
+import ArrowOrange from '../../../../assets/mainPage/ArrowOrange.svg'
+import RightArrow from '../../../../assets/mainPage/RightArrow.svg'
+import LeftArrow from '../../../../assets/mainPage/LeftArrow.svg'
 /*       API        */
-import { getType, getCategory, getFavoriteProducts } from '../../../utils/productsAPI'
-import { useState } from 'react'
+import { getType, getCategory, getFavoriteProducts } from '../../../../utils/productsAPI'
 
 const CategoryItems = ({ onGetTitle, onGetType, onGetCategory, onGetContainer, loggedInUser }) => {
   const container = document.querySelector(`.${onGetContainer}`)

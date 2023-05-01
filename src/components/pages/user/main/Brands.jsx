@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom'
 /*      Components     */
 import BrandsPictures from './BrandsPictures'
 /*       Icons       */
-import ArrowOrange from '../../../assets/mainPage/ArrowOrange.svg'
-import RightArrow from '../../../assets/mainPage/RightArrow.svg'
-import LeftArrow from '../../../assets/mainPage/LeftArrow.svg'
+import ArrowOrange from '../../../../assets/mainPage/ArrowOrange.svg'
+import RightArrow from '../../../../assets/mainPage/RightArrow.svg'
+import LeftArrow from '../../../../assets/mainPage/LeftArrow.svg'
 /*       Images        */
-import Image1 from '../../../assets/brands/Garnier.png'
-import Image2 from '../../../assets/brands/Listerine.png'
-import Image3 from '../../../assets/brands/Pampers.png'
-import Image4 from '../../../assets/brands/Beesline.png'
-import Image5 from '../../../assets/brands/LA ROCHE POSAY.png'
-import Image6 from '../../../assets/brands/CleanClear.png'
-import Image7 from '../../../assets/brands/Dove.png'
-import Image8 from '../../../assets/brands/HerbalEssences.png'
-import Image9 from '../../../assets/brands/LOreal Paris.png'
+import Image1 from '../../../../assets/brands/Garnier.png'
+import Image2 from '../../../../assets/brands/Listerine.png'
+import Image3 from '../../../../assets/brands/Pampers.png'
+import Image4 from '../../../../assets/brands/Beesline.png'
+import Image5 from '../../../../assets/brands/LA ROCHE POSAY.png'
+import Image6 from '../../../../assets/brands/CleanClear.png'
+import Image7 from '../../../../assets/brands/Dove.png'
+import Image8 from '../../../../assets/brands/HerbalEssences.png'
+import Image9 from '../../../../assets/brands/LOreal Paris.png'
 
 const Brands = () => {
   const container = document.querySelector('.brands')

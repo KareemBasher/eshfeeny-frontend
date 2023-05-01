@@ -1,6 +1,6 @@
 import React from 'react'
 /*        Components        */
-import UserNavigation from '../../common/UserNavigation'
+import UserNavigation from '../../../common/UserNavigation'
 import ImageSlider from './ImageSlider'
 import AddContainer from './AddContainer'
 import CategoryItems from './CategoryItems'

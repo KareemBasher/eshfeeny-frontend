@@ -1,6 +1,6 @@
 import React from 'react'
 /*      Components     */
-import BrandsPictures from '../main/BrandsPictures'
+import BrandsPictures from '../user/main/BrandsPictures'
 /*       Images        */
 import LaRoche from '../../../assets/brands/LA ROCHE POSAY.png'
 import Beesline from '../../../assets/brands/Beesline.png'

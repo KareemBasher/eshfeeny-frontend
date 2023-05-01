@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 /*       Icons       */
-import InsuranceImage from '../../../assets/mainPage/InsuranceImage.svg'
+import InsuranceImage from '../../../../assets/mainPage/InsuranceImage.svg'
 
 const InsuranceCard = () => {
   return (
