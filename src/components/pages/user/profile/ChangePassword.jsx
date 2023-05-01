@@ -3,7 +3,7 @@ import CredentialsInput from '../../../common/CredentialsInput'
 import CheckCircle from '../../../../assets/common/CheckCircle.svg'
 import { updatePassword, verifyLogin } from '../../../../utils/usersAPI'
 
-const changePassword = ({ toggleModal, user }) => {
+const ChangePassword = ({ toggleModal, user }) => {
   const [oldPassword, setOldPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -137,4 +137,4 @@ const changePassword = ({ toggleModal, user }) => {
   )
 }
 
-export default changePassword
+export default ChangePassword
