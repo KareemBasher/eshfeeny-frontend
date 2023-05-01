@@ -115,7 +115,11 @@ const SearchBar = ({ onGetType, onGetData, query }) => {
       setLoading(false)
       setDragActive(false)
       const IDs = searchResult.map((item) => item._id)
-      navigate(`/searchResults/${IDs.join('&')}`)
+      if (onGetType === 'pharmacy') {
+        navigate(`/pharmacySearchResults/${IDs.join('&')}`)
+      } else {
+        navigate(`/searchResults/${IDs.join('&')}`)
+      }
     }
   }
 
@@ -267,7 +271,10 @@ const SearchBar = ({ onGetType, onGetData, query }) => {
                     key={_id}
                     className="w-full flex justify-start items-center pr-7 border-b py-2"
                   >
-                    <Link to={`/product/${_id}`} onClick={() => setResultsOpen(false)}>
+                    <Link
+                      to={onGetType === 'pharmacy' ? `/pharmacyProduct/${_id}` : `/product/${_id}`}
+                      onClick={() => setResultsOpen(false)}
+                    >
                       <div className="flex h-[80px]">
                         <img draggable="false" src={images} className="" alt="Product" />
                         <div className="flex flex-col items-start mx-5">
