@@ -52,7 +52,7 @@ const PharmacyProductContainer = ({ onGetProduct, loggedInUser, favorites }) => 
       <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[30%]">
         <img src={onGetProduct?.images} draggable="false" alt="Product" />
       </Link>
-      <div className="text-right px-3 text-[18px]">
+      <div className="flex flex-col justify-between text-right px-3 text-[18px]">
         <Link to={`/product/${onGetProduct._id}`}>
           <p>
             {onGetProduct.nameAr}
@@ -61,6 +61,9 @@ const PharmacyProductContainer = ({ onGetProduct, loggedInUser, favorites }) => 
           </p>
         </Link>
         <p className="text-lightBlue my-3">{onGetProduct.price} جنيه</p>
+        <p className="mb-1">
+          المصنع : <span className="text-blue">{onGetProduct.manufacturer}</span>
+        </p>
         <div className="flex justify-center">
           {loggedInUser === '6439bd5e1c12d023717e2be5' ? (
             <button
