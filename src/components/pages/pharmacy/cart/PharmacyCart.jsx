@@ -12,13 +12,13 @@ import * as PharmacyAPI from '../../../../utils/pharmaciesAPI'
 const PharmacyCart = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
 
-  // useEffect(() => {
-  //   const updateItems = async () => {
-  //     const result = await PharmacyAPI.getCartProducts(loggedInUser)
-  //     setItems(result?.cart ? result.cart : [])
-  //   }
-  //   updateItems()
-  // }, [])
+  useEffect(() => {
+    const updateItems = async () => {
+      const result = await PharmacyAPI.getCart(loggedInUser)
+      setItems(result?.cart ? result.cart : [])
+    }
+    updateItems()
+  }, [])
 
   const removeFromCart = (ID, productID) => {
     PharmacyAPI.removeFromCart(ID, productID)
@@ -58,7 +58,7 @@ const PharmacyCart = ({ loggedInUser, logout }) => {
                 onGetLogo={CartLight}
                 onGetText1="عربة التسوق فارغة "
                 onGetButtonText="اذهب للتسوق الان"
-                onGetPath="/home"
+                onGetPath="/pharmacy"
               />
             )}
           </div>
