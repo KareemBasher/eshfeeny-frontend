@@ -25,14 +25,14 @@ const Profile = ({ loggedInUser, logout }) => {
   }
 
   return (
-    <>
+    <div>
       <UserNavigation loggedInUser={loggedInUser} logout={logout} />
       {isOpen ? (
         <ChangePassword toggleModal={toggleModal} user={user ? user : {}} />
       ) : (
         <ProfileContent toggleModal={toggleModal} user={user ? user : {}} />
       )}
-    </>
+    </div>
   )
 }
 
