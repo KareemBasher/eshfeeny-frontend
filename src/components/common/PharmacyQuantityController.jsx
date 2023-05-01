@@ -13,7 +13,7 @@ const PharmacyQuantityController = ({ handleHideComponent, onGetUserID, onGetPro
 
   useEffect(() => {
     const itemQuantity = async () => {
-      const checkQuantity = await ProductsAPI.checkCart(onGetUserID, onGetProductID)
+      const checkQuantity = await ProductsAPI.checkCartPharmacy(onGetUserID, onGetProductID)
       if (checkQuantity) {
         setBaseQuantity(checkQuantity)
         setModifiedQuantity(checkQuantity)
