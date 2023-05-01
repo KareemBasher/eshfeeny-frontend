@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 /*    Components    */
-import UserNavigation from '../../common/UserNavigation'
-import PageEmpty from '../../common/PageEmpty'
+import UserNavigation from '../../../common/UserNavigation'
+import PageEmpty from '../../../common/PageEmpty'
 import FavouritesContent from './FavouritesContent'
 /*    Icons    */
-import HeartLight from '../../../assets/common/HeartLight.svg'
-import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
+import HeartLight from '../../../../assets/common/HeartLight.svg'
+import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
 /*     API     */
-import * as ProductsAPI from '../../../utils/productsAPI'
+import * as ProductsAPI from '../../../../utils/productsAPI'
 
 const Favourites = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])

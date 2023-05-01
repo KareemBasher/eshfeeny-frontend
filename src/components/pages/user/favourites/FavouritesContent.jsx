@@ -1,6 +1,6 @@
 import React from 'react'
 /*     Components      */
-import ProductContainer from '../../common/ProductContainer'
+import ProductContainer from '../../../common/ProductContainer'
 
 const FavouritesContent = ({ onGetTitle, onGetItems, loggedInUser, favorites }) => {
   return (
