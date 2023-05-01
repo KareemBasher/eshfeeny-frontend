@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react'
-/*    Components    */
-import PhoneInputContent from '../user/profile/PhoneInputContent'
-import { updatePharmacy } from '../../../utils/pharmaciesAPI'
+import PhoneInputContent from './PhoneInputContent'
+import './Option.css'
+import { updateUser } from '../../../../utils/usersAPI'
+import ArrowDown from '../../../../assets/common/ArrowDown.svg'
 
-const PharmacyProfileContent = ({ user, toggleModal }) => {
+const ProfileContent = ({ user, toggleModal }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [address, setAddress] = useState('')
+  const [gender, setGender] = useState('')
+  const [boxOpen, setBoxOpen] = useState(false)
 
   useEffect(() => {
     if (user.name && user.email) {
       setName(user.name)
       setEmail(user.email)
       setPhoneNumber(user?.phoneNumber)
-      setAddress(user?.address)
+      setGender(user?.gender)
     }
   }, [user])
 
@@ -30,26 +32,26 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
     setPhoneNumber(phone)
   }
 
-  const handleAddressChange = (e) => {
-    setAddress(e.target.value)
+  const handleSelectBox = () => {
+    setBoxOpen(!boxOpen)
   }
 
   const handleSubmit = async () => {
     if (name.length !== 0 && email.length !== 0) {
-      await updatePharmacy(user._id, name, email, phoneNumber, address)
+      await updateUser(user._id, name, email, phoneNumber, gender)
     }
   }
 
   return (
-    <div className="flex flex-col mx-64 mt-2">
+    <div className="flex flex-col mr-36 2xl:mx-64 mt-2">
       {/* /* title */}
       <div className="text-right text-[28px] mt-10">
         <p>الملف الشخصى</p>
       </div>
       {/* inputs */}
 
-      <div className="flex  justify-start  mx-5 mb-20">
-        <div className="flex flex-col justify-center  w-[904px] h-[500px]">
+      <div className="flex  justify-start mx-5">
+        <div className="flex flex-col justify-center w-[904px] h-[500px]">
           <div className="flex flex-row justify-around ">
             <div className="mx-10">
               <label className=" text-2xl flex my-5 justify-start">الأسم</label>
@@ -76,18 +78,49 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
           <div className="flex flex-row justify-around">
             <div className="flex flex-col justify-start my-10 mx-10">
               <label className="text-2xl text-right my-5">رقم الهاتف</label>
+
               <PhoneInputContent phoneNumber={phoneNumber} handlePhoneChange={handlePhoneChange} />
             </div>
-
             <div className="flex flex-col justify-start my-10">
-              <label className="text-2xl flex flex-start my-5">العنوان</label>
+              <label className="text-2xl flex flex-start my-5">الجنس</label>
               <div className="relative">
-                <input
-                  className="w-[472px] h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
-                  type="text"
-                  value={address}
-                  onChange={(e) => handleAddressChange(e)}
-                ></input>
+                <div className="absolute left-0 py-4 mx-5 pointer-events-none">
+                  <img
+                    draggable="false"
+                    className={`w-[20px] transition-all ${boxOpen && 'rotate-180'}`}
+                    src={ArrowDown}
+                    alt="arrowDown"
+                  />
+                </div>
+                <div
+                  className={`w-[472px] h-14 relative flex items-center shadow-sm border border-[#949495] px-4 rounded-[10px] ${
+                    boxOpen && 'border-[#0597F2]'
+                  }`}
+                  onClick={() => handleSelectBox()}
+                >
+                  {gender ? gender : 'اختر'}
+
+                  <div
+                    className={`overflow-clip w-[472px] absolute -left-px top-[91%] flex flex-col items-start border border-t-0 border-[#949495] rounded-[10px] rounded-t-none ${
+                      !boxOpen && 'hidden'
+                    }`}
+                  >
+                    <div className="w-full py-4" />
+                    <div
+                      className="w-full bg-white text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-t-[10px]"
+                      onClick={() => setGender('ذكر')}
+                    >
+                      ذكر
+                    </div>
+                    <div
+                      name="انثي"
+                      className="w-full bg-white text-right cursor-pointer hover:bg-[#eff6ff] px-5 py-3 rounded-b-[10px]"
+                      onClick={() => setGender('انثى')}
+                    >
+                      انثى
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -95,13 +128,13 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
           {/* buttons */}
           <div className="flex flex-row justify-center">
             <button
-              className="text-[24px] text-white bg-blue rounded-[10px] m-5 w-[223px] h-[58px]"
+              className="text-[24px] text-white bg-blue rounded-[10px] m-5 w-[193px] h-[58px]"
               onClick={() => handleSubmit()}
             >
               حفظ التغيير
             </button>
 
-            <div className="text-[24px] py-2 border-opacity-50 border border-black w-[223px] h-[58px] rounded-[10px] m-5">
+            <div className="text-[24px] py-2 border-opacity-50 border border-black w-[193px] h-[58px] rounded-[10px] m-5">
               <button onClick={() => toggleModal()}>تغيير كلمة السر</button>
             </div>
           </div>
@@ -111,4 +144,4 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
   )
 }
 
-export default PharmacyProfileContent
+export default ProfileContent

@@ -1,7 +1,7 @@
 import React from 'react'
 import PharmacyNavigation from '../../common/PharmacyNavigation'
 import PharmacyAds from './PharmacyAds'
-import Brands from '../main/Brands'
+import Brands from '../user/main/Brands'
 
 const Pharmacy = ({ loggedInUser, logout }) => {
   return (
