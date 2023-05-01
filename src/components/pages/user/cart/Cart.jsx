@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 /*    Components    */
-import UserNavigation from '../../common/UserNavigation'
-import PageEmpty from '../../common/PageEmpty'
+import UserNavigation from '../../../common/UserNavigation'
+import PageEmpty from '../../../common/PageEmpty'
 import CartContent from './CartContent'
 /*    Icons    */
-import CartLight from '../../../assets/common/CartLight.svg'
-import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
+import CartLight from '../../../../assets/common/CartLight.svg'
+import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
 /*     API     */
-import * as ProductsAPI from '../../../utils/productsAPI'
-import * as UsersAPI from '../../../utils/usersAPI'
+import * as ProductsAPI from '../../../../utils/productsAPI'
+import * as UsersAPI from '../../../../utils/usersAPI'
 
 const Cart = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])

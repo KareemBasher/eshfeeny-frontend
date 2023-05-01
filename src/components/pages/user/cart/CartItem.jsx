@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import QuantityControllerCart from './QuantityControllerCart'
-import CloseButton from '../../../assets/common/CloseButton.svg'
 import { Link } from 'react-router-dom'
+import QuantityControllerCart from './QuantityControllerCart'
+import CloseButton from '../../../../assets/common/CloseButton.svg'
 
 const CartItem = ({ product, loggedInUser, quantity, onRemoveItem }) => {
   const [price, setPrice] = useState(product.price * quantity)

@@ -1,6 +1,6 @@
 import React from 'react'
-import CartItem from './CartItem'
 import { Link } from 'react-router-dom'
+import CartItem from './CartItem'
 
 const CartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveItem }) => {
   return (

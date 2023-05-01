@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 /*      Icons      */
-import IncrementButton from '../../../assets/common/AddButton.svg'
-import DecrementButton from '../../../assets/common/DecrementButton.svg'
-import DecrementDisabledButton from '../../../assets/common/DecrementDisabledButton.svg'
+import IncrementButton from '../../../../assets/common/AddButton.svg'
+import DecrementButton from '../../../../assets/common/DecrementButton.svg'
+import DecrementDisabledButton from '../../../../assets/common/DecrementDisabledButton.svg'
 /*     API      */
-import * as UsersAPI from '../../../utils/usersAPI'
+import * as UsersAPI from '../../../../utils/usersAPI'
 
 const QuantityController = ({ onGetQuantity, loggedInUser, productID, updatePrice }) => {
   const [quantity, setQuantity] = useState(onGetQuantity)
