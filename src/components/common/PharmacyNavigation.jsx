@@ -10,6 +10,8 @@ import PharmacyProfileRoundButton from './PharmacyProfileRoundButton'
 import HeartDark from '../../assets/common/HeartDark.svg'
 import CartDark from '../../assets/common/CartDark.svg'
 import PharmacyProducts from '../../assets/common/PharmacyProducts.svg'
+import * as ProductsAPI from '../../utils/productsAPI'
+import * as PharmcyAPI from '../../utils/pharmaciesAPI'
 
 const PharmacyNavigation = ({ loggedInUser, logout }) => {
   const [query, setQuery] = useState('')
@@ -44,6 +46,17 @@ const PharmacyNavigation = ({ loggedInUser, logout }) => {
 
   const [cartItems, setCartItems] = useState(0)
   const [favouriteItems, setFavouriteItems] = useState(0)
+
+  useEffect(() => {
+    const getItems = async () => {
+      const cart = await PharmcyAPI.getCart(loggedInUser)
+      const favourite = await ProductsAPI.getFavoriteProductsPharmacy(loggedInUser)
+      setCartItems(cart.cart.length ? cart.cart.length : 0)
+      setFavouriteItems(favourite.length ? favourite.length : 0)
+    }
+    getItems()
+  }, [cartItems, favouriteItems])
+
 
   return (
     <>
