@@ -13,7 +13,6 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
     const updateItems = async () => {
       const result = await ProductAPI.getPharmacyProducts(loggedInUser)
       setItems(result ? result : [])
-      console.log(result)
     }
     updateItems()
   }, [])
