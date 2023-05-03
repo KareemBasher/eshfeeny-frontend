@@ -11,7 +11,7 @@ import HeartEmpty from '../../../../assets/productPage/HeartEmpty.svg'
 import HeartFill from '../../../../assets/productPage/HeartFill.svg'
 /*       API       */
 import { getProduct, getFavoriteProductsPharmacy } from '../../../../utils/productsAPI'
-import * as UsersAPI from '../../../../utils/usersAPI'
+import { removeFromFavorites, addToFavorites } from '../../../../utils/pharmaciesAPI'
 
 const ProductPage = ({ loggedInUser, logout }) => {
   const [showButton, setShowButton] = useState(true)
@@ -51,12 +51,12 @@ const ProductPage = ({ loggedInUser, logout }) => {
 
   const handleRemove = async (userID, productID) => {
     setShowFavouriteButton(!showFavouriteButton)
-    await UsersAPI.removeFromFavorites(userID, productID)
+    await removeFromFavorites(userID, productID)
   }
 
   const handleAdd = async (userID, productID) => {
     setShowFavouriteButton(!showFavouriteButton)
-    await UsersAPI.addToFavorites(userID, productID)
+    await addToFavorites(userID, productID)
   }
 
   return (
