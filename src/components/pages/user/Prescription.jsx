@@ -1,10 +1,10 @@
 import React from 'react'
 /*    Components    */
-import UserNavigation from '../common/UserNavigation'
-import ImageDroper from '../common/ImageDroper'
-import PageEmpty from '../common/PageEmpty'
+import UserNavigation from '../../common/UserNavigation'
+import ImageDroper from '../../common/ImageDroper'
+import PageEmpty from '../../common/PageEmpty'
 /*    Icons    */
-import GuestLogo from '../../assets/common/AlternativeLogo.svg'
+import GuestLogo from '../../../assets/common/AlternativeLogo.svg'
 
 const Prescription = ({ loggedInUser, logout }) => {
   return (

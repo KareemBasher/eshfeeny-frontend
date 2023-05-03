@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 /*     Components     */
-import UserNavigation from '../common/UserNavigation'
-import PageEmpty from '../common/PageEmpty'
-import ProductContainer from '../common/ProductContainer'
+import UserNavigation from '../../common/UserNavigation'
+import PageEmpty from '../../common/PageEmpty'
+import ProductContainer from '../../common/ProductContainer'
 /*        API        */
-import { getMany, getFavoriteProducts } from '../../utils/productsAPI'
+import { getMany, getFavoriteProducts } from '../../../utils/productsAPI'
 /*       Icons       */
-import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
+import AlternativeLogo from '../../../assets/common/AlternativeLogo.svg'
 
 const SearchResults = ({ loggedInUser, empty, logout }) => {
   const params = useParams()

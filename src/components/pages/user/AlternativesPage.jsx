@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 /*    Components    */
-import UserNavigation from '../common/UserNavigation'
-import PageEmpty from '../common/PageEmpty'
-import ProductContainer from '../common/ProductContainer'
+import UserNavigation from '../../common/UserNavigation'
+import PageEmpty from '../../common/PageEmpty'
+import ProductContainer from '../../common/ProductContainer'
 /*       API       */
-import { getAlternatives, getProduct } from '../../utils/productsAPI'
-import { getUser } from '../../utils/usersAPI'
+import { getAlternatives, getProduct } from '../../../utils/productsAPI'
+import { getUser } from '../../../utils/usersAPI'
 /*       Icons       */
-import Arrow from '../../assets/common/Arrow.svg'
-import AlternativeLogo from '../../assets/common/AlternativeLogo.svg'
+import Arrow from '../../../assets/common/Arrow.svg'
+import AlternativeLogo from '../../../assets/common/AlternativeLogo.svg'
 
 const AlternativesPage = ({ loggedInUser, logout }) => {
   const params = useParams()
