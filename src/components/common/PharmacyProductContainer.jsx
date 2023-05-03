@@ -49,11 +49,11 @@ const PharmacyProductContainer = ({ onGetProduct, loggedInUser, favorites }) => 
           />
         )}
       </button>
-      <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[30%]">
+      <Link to={`/pharmacyProduct/${onGetProduct._id}`} className="flex justify-center max-h-[30%]">
         <img src={onGetProduct?.images} draggable="false" alt="Product" />
       </Link>
       <div className="flex flex-col justify-between text-right px-3 text-[18px]">
-        <Link to={`/product/${onGetProduct._id}`}>
+        <Link to={`/pharmacyProduct/${onGetProduct._id}`}>
           <p>
             {onGetProduct.nameAr}
             {onGetProduct.volume ? ` | ${onGetProduct.volume}` : ''}
