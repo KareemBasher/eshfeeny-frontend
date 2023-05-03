@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PharmacyCartItems from './PharmacyCartItems'
 import WideButton from '../../../common/WideButton'
 
-const PharmacyCartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveItem }) => {
-  const [price, setPrice] = useState('55')
-  const [total, setTotal] = useState()
-
+const PharmacyCartContent = ({
+  onGetItems,
+  onGetTotal,
+  OnGetTitle,
+  loggedInUser,
+  onRemoveItem,
+  click,
+  setClick
+}) => {
   return (
     <div>
       <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">{OnGetTitle}</div>
@@ -19,6 +24,8 @@ const PharmacyCartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveIte
                   loggedInUser={loggedInUser}
                   quantity={quantity}
                   onRemoveItem={onRemoveItem}
+                  click={click}
+                  setClick={setClick}
                 />
               </li>
             ))}
@@ -27,7 +34,7 @@ const PharmacyCartContent = ({ onGetItems, OnGetTitle, loggedInUser, onRemoveIte
         <div className="w-[333px] h-[188px] border rounded-[10px] p-5">
           <div className="flex text-[26px] justify-between">
             <p>الاجمالي</p>
-            <p className="text-[#0583F2]">{price} جنيه</p>
+            <p className="text-[#0583F2]">{onGetTotal} جنيه</p>
           </div>
           <div className="pt-10">
             <WideButton content="إتمام الطلب" />

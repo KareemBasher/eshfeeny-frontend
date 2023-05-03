@@ -6,7 +6,14 @@ import DecrementDisabledButton from '../../../../assets/common/DecrementDisabled
 /*     API      */
 import * as PharmacyAPI from '../../../../utils/pharmaciesAPI'
 
-const PharmacyQuantityCart = ({ onGetQuantity, loggedInUser, productID, updatePrice }) => {
+const PharmacyQuantityCart = ({
+  onGetQuantity,
+  loggedInUser,
+  productID,
+  updatePrice,
+  click,
+  setClick
+}) => {
   const [quantity, setQuantity] = useState(onGetQuantity)
 
   const increment = async (userID, productID) => {
@@ -14,6 +21,7 @@ const PharmacyQuantityCart = ({ onGetQuantity, loggedInUser, productID, updatePr
     const newQuantity = quantity + 1
     setQuantity(newQuantity)
     updatePrice(newQuantity)
+    setClick(click + 1)
   }
 
   const decrement = async (e, userID, productID) => {
@@ -24,6 +32,7 @@ const PharmacyQuantityCart = ({ onGetQuantity, loggedInUser, productID, updatePr
       const newQuantity = quantity - 1
       setQuantity(newQuantity)
       updatePrice(newQuantity)
+      setClick(click + 1)
     }
   }
 
