@@ -4,7 +4,7 @@ import IncrementButton from '../../../../assets/common/AddButton.svg'
 import DecrementButton from '../../../../assets/common/DecrementButton.svg'
 import DecrementDisabledButton from '../../../../assets/common/DecrementDisabledButton.svg'
 /*     API      */
-import * as PharmacyAPI from '../../../../utils/usersAPI'
+import * as PharmacyAPI from '../../../../utils/pharmaciesAPI'
 
 const PharmacyQuantityCart = ({ onGetQuantity, loggedInUser, productID, updatePrice }) => {
   const [quantity, setQuantity] = useState(onGetQuantity)
