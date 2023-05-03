@@ -5,7 +5,6 @@ import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyCartContent from './PharmacyCartContent'
 /*    Icons    */
 import CartLight from '../../../../assets/common/CartLight.svg'
-import GuestLogo from '../../../../assets/common/AlternativeLogo.svg'
 /*    API    */
 import * as PharmacyAPI from '../../../../utils/pharmaciesAPI'
 
@@ -21,6 +20,7 @@ const PharmacyCart = ({ loggedInUser, logout }) => {
     }
     updateItems()
   }, [])
+
   useEffect(() => {
     const updateItems = async () => {
       const result = await PharmacyAPI.getCart(loggedInUser)
@@ -37,44 +37,27 @@ const PharmacyCart = ({ loggedInUser, logout }) => {
 
   return (
     <div>
-      <div>
-        <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
-      </div>
+      <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
 
       <div>
-        {loggedInUser === '6439bd5e1c12d023717e2be5' ? (
-          <div>
-            <PageEmpty
-              onGetTitle="سلة التسوق"
-              onGetLogo={GuestLogo}
-              onGetText1="أنت الان في وضع الضيف"
-              onGetText2="الرجاء تسجيل الدخول للاستمتاع بالمميزات"
-              onGetButtonText="تسجيل الدخول"
-              onGetPath="./login/pahrmacy"
-            />
-          </div>
+        {items.length ? (
+          <PharmacyCartContent
+            onGetItems={items}
+            onGetTotal={totalPrice}
+            OnGetTitle="سلة التسوق"
+            loggedInUser={loggedInUser}
+            onRemoveItem={removeFromCart}
+            click={click}
+            setClick={setClick}
+          />
         ) : (
-          <div>
-            {items.length ? (
-              <PharmacyCartContent
-                onGetItems={items}
-                onGetTotal={totalPrice}
-                OnGetTitle="سلة التسوق"
-                loggedInUser={loggedInUser}
-                onRemoveItem={removeFromCart}
-                click={click}
-                setClick={setClick}
-              />
-            ) : (
-              <PageEmpty
-                onGetTitle="سلة التسوق"
-                onGetLogo={CartLight}
-                onGetText1="عربة التسوق فارغة "
-                onGetButtonText="اذهب للتسوق الان"
-                onGetPath="/pharmacy"
-              />
-            )}
-          </div>
+          <PageEmpty
+            onGetTitle="سلة التسوق"
+            onGetLogo={CartLight}
+            onGetText1="عربة التسوق فارغة "
+            onGetButtonText="اذهب للتسوق الان"
+            onGetPath="/pharmacy"
+          />
         )}
       </div>
     </div>
