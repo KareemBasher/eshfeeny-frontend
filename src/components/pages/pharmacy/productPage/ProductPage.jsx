@@ -10,7 +10,7 @@ import Alternative from '../../../../assets/common/Alternative.svg'
 import HeartEmpty from '../../../../assets/productPage/HeartEmpty.svg'
 import HeartFill from '../../../../assets/productPage/HeartFill.svg'
 /*       API       */
-import { getProduct, getFavoriteProducts } from '../../../../utils/productsAPI'
+import { getProduct, getFavoriteProductsPharmacy } from '../../../../utils/productsAPI'
 import * as UsersAPI from '../../../../utils/usersAPI'
 
 const ProductPage = ({ loggedInUser, logout }) => {
@@ -29,7 +29,7 @@ const ProductPage = ({ loggedInUser, logout }) => {
   useEffect(() => {
     const getDetails = async () => {
       setProduct(await getProduct(params.id))
-      setFavouriteProducts(await getFavoriteProducts(loggedInUser))
+      setFavouriteProducts(await getFavoriteProductsPharmacy(loggedInUser))
     }
     getDetails()
     setShowButton(true)

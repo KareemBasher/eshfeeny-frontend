@@ -3,21 +3,21 @@ import React, { useEffect, useState } from 'react'
 import IncrementButton from '../../../../assets/common/AddButton.svg'
 import DecrementButton from '../../../../assets/common/DecrementButton.svg'
 /*     API      */
-import * as ProductsAPI from '../../../../utils/productsAPI'
-import * as UsersAPI from '../../../../utils/usersAPI'
+import { checkCartPharmacy } from '../../../../utils/productsAPI'
+import * as PharmacyAPI from '../../../../utils/pharmaciesAPI'
 
 const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }) => {
   const [baseQuantity, setBaseQuantity] = useState('0') //value in data base
   const [modifiedQuantity, setModifiedQuantity] = useState(0) //shown value
   useEffect(() => {
     const itemQuantity = async () => {
-      const checkQuantity = await ProductsAPI.checkCart(onGetUserID, onGetProductID)
+      const checkQuantity = await checkCartPharmacy(onGetUserID, onGetProductID)
       if (checkQuantity) {
         setBaseQuantity(checkQuantity)
         setModifiedQuantity(checkQuantity)
       } else {
-        await UsersAPI.addToCart(onGetUserID, onGetProductID)
-        const quantity = await ProductsAPI.checkCart(onGetUserID, onGetProductID)
+        await PharmacyAPI.addToCart(onGetUserID, onGetProductID)
+        const quantity = await checkCartPharmacy(onGetUserID, onGetProductID)
         setModifiedQuantity(quantity)
         setBaseQuantity(quantity)
       }
@@ -26,17 +26,17 @@ const QuantityController = ({ handleHideComponent, onGetUserID, onGetProductID }
   }, [])
   const increment = async (userID, productID) => {
     setModifiedQuantity(modifiedQuantity + 1)
-    await UsersAPI.incrementQuantity(userID, productID)
+    await PharmacyAPI.incrementQuantity(userID, productID)
     setBaseQuantity(baseQuantity + 1)
   }
   const decrement = async (userID, productID) => {
     setModifiedQuantity(modifiedQuantity - 1)
-    await UsersAPI.decrementQuantity(userID, productID)
+    await PharmacyAPI.decrementQuantity(userID, productID)
     setBaseQuantity(baseQuantity - 1)
   }
   const removeFromCart = async (userID, productID) => {
     handleHideComponent()
-    await UsersAPI.removeFromCart(userID, productID)
+    await PharmacyAPI.removeFromCart(userID, productID)
   }
   return (
     <div className="flex justify-start">
