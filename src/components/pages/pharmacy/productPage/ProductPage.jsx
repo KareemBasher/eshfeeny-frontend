@@ -6,7 +6,6 @@ import QuantityController from './QuantityControllerProductDetails'
 import ProductDetails from './ProductDetails'
 /*       Icons       */
 import Arrow from '../../../../assets/common/Arrow.svg'
-import Alternative from '../../../../assets/common/Alternative.svg'
 import HeartEmpty from '../../../../assets/productPage/HeartEmpty.svg'
 import HeartFill from '../../../../assets/productPage/HeartFill.svg'
 /*       API       */
@@ -107,7 +106,7 @@ const ProductPage = ({ loggedInUser, logout }) => {
             />
           </div>
         </div>
-        {/*     Favourite and Alternative buttons     */}
+        {/*     Favourite button    */}
         <div className="flex flex-col">
           {/*     Favourites Heart     */}
           <div className="flex mb-5 group relative">
@@ -137,16 +136,6 @@ const ProductPage = ({ loggedInUser, logout }) => {
               </div>
             )}
           </div>
-          {/*     Alternative     */}
-          <Link
-            to={`/alternatives/${product._id}/`}
-            className="flex justify-center items-center w-[38px] h-[38px] shadow-md rounded-full bg-[#F7F7F7] group relative"
-          >
-            <span className="absolute bg-[#e7e7e7] px-[10px] py-[5px] left-[130%] rounded-[10px] opacity-0 group-hover:opacity-100 transition ease-in delay-500 duration-200">
-              البديل
-            </span>
-            <img draggable="false" src={Alternative} alt="AltProduct" />
-          </Link>
         </div>
         {/*     Left Section        */}
         <div className="flex flex-col text-right text-[24px] pr-5">
