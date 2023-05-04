@@ -1,11 +1,13 @@
 import React from 'react'
 /*     components     */
-import PharmacyProductItems from './PharmacyProductItems'
+import MyProductContainer from './MyProductContainer'
 
 const PharmacyProductContent = ({ items }) => {
   return (
-    <div>
-      <PharmacyProductItems items={items} />
+    <div className="flex flex-wrap">
+      {items.map((item) => (
+        <MyProductContainer product={item} key={item._id} />
+      ))}
     </div>
   )
 }

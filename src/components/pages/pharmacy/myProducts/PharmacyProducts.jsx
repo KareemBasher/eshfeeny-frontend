@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 /*     components      */
 import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyProductContent from './PharmacyProductContent'
-import Img from './img.png'
 import * as ProductAPI from '../../../../utils/productsAPI'
+import SideBar from './sideBar/SideBar'
 
 const PharmacyProducts = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
@@ -16,10 +16,14 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
     }
     updateItems()
   }, [])
+
   return (
     <div>
       <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
-      <PharmacyProductContent items={items} />
+      <div className="flex mx-32">
+        <SideBar />
+        <PharmacyProductContent items={items} />
+      </div>
     </div>
   )
 }
