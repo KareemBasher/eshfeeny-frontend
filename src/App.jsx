@@ -15,10 +15,10 @@ import SigninOptions from './components/pages/onBoarding/SigninOptions'
 import Favourites from './components/pages/user/favourites/Favourites'
 import ForgotPassword from './components/pages/login/ForgotPassword'
 import VerifyCode from './components/pages/login/VerifyCode'
-import AlternativesPage from './components/pages/AlternativesPage'
-import SearchResults from './components/pages/SearchResults'
+import AlternativesPage from './components/pages/user/AlternativesPage'
+import SearchResults from './components/pages/user/SearchResults'
 import Main from './components/pages/user/main/Main'
-import Prescription from './components/pages/Prescription'
+import Prescription from './components/pages/user/Prescription'
 import SignUp from './components/pages/signUp/SignUp'
 import InsuranceCompanies from './components/pages/user/insurance/InsuranceCompanies'
 import CompanyPage from './components/pages/user/insurance/CompanyPage'
@@ -37,6 +37,7 @@ import Brands from './components/pages/brands/BrandProducts'
 import BrandsList from './components/pages/brands/BrandsPage'
 import PharmacyProfile from './components/pages/pharmacy/PharmacyProfile'
 import PharmacyProducts from './components/pages/pharmacy/myProducts/PharmacyProducts'
+import PharmacyProductPage from './components/pages/pharmacy/productPage/ProductPage'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedUser'])
@@ -158,6 +159,12 @@ function App() {
         <Route
           path="/pharmacyProducts"
           element={<PharmacyProducts loggedInUser={loggedInUser} logout={logout} />}
+        />
+        <Route
+          path="/pharmacyProduct/:id"
+          element={
+            <PharmacyProductPage loggedInUser={loggedInUser} logout={logout} type="pharmacy" />
+          }
         />
       </Route>
       {/* Pharmacy protected routes */}

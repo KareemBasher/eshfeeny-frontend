@@ -126,7 +126,7 @@ const ImageDroper = ({ title, buttonTitle }) => {
               ) : (
                 <div
                   onClick={handleInputClick}
-                  className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10 py-8"
+                      className="h-[250px] rounded-[10px] border-2 border-lightBlue border-dashed flex flex-col items-center justify-around my-10 py-8 cursor-pointer"
                 >
                   <img
                     className="w-[70px]"

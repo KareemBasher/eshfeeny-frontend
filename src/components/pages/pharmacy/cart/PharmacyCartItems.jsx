@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PharmacyQuantityCart from './PharmacyQuantityCart'
 import CloseButton from '../../../../assets/common/CloseButton.svg'
 
-const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) => {
+const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem, click, setClick }) => {
   const [price, setPrice] = useState(product.price * quantity)
 
   const updatePrice = (quantity) => {
@@ -12,10 +12,16 @@ const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) =>
 
   return (
     <div className="flex justify-evenly px-20 text-right border-b mt-5 h-32 w-full">
-      <Link to={`/product/${product._id}`} className="flex items-center justify-center w-[150px]">
+      <Link
+        to={`/pharmacyProduct/${product._id}`}
+        className="flex items-center justify-center w-[150px]"
+      >
         <img src={product?.images} draggable="false" className="max-h-[80%]" alt="Product" />
       </Link>
-      <Link to={`/product/${product._id}`} className="text-[20px] flex items-center w-[250px]">
+      <Link
+        to={`/pharmacyProduct/${product._id}`}
+        className="text-[20px] flex items-center w-[250px]"
+      >
         <p>
           {product.nameAr}
           {product.volume ? ` | ${product.volume}` : ''}
@@ -29,6 +35,8 @@ const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) =>
           onGetQuantity={quantity}
           productID={product._id}
           updatePrice={updatePrice}
+          click={click}
+          setClick={setClick}
         />
       </div>
 
