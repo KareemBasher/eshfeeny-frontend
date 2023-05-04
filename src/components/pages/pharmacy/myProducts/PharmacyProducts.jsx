@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 /*     components      */
 import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyProductContent from './PharmacyProductContent'
-import Img from './img.png'
 import * as ProductAPI from '../../../../utils/productsAPI'
 
 const PharmacyProducts = ({ loggedInUser, logout }) => {
