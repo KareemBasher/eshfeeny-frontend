@@ -23,12 +23,14 @@ const PharmacyProductContent = ({ items }) => {
       {currentProducts.map((item) => (
         <MyProductContainer product={item} key={item._id} />
       ))}
-      <Pagination
-        totalProducts={items?.length}
-        productsPerPage={productsPerPage}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
+      <div className="w-full ml-32">
+        <Pagination
+          totalProducts={items?.length}
+          productsPerPage={productsPerPage}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      </div>
     </div>
   )
 }

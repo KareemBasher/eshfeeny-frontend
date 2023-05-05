@@ -12,11 +12,13 @@ const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) =
   return (
     <div>
       {pageNumbers.length > 1 && (
-        <ul className="flex justify-end items-center py-10 pl-7 2xl:pl-[195px]">
+        <ul className="flex justify-end items-center py-10 pl-7 2xl:pl-0">
+          {/*   Right Arrow   */}
           <img
+            onClick={() => paginate(currentPage - 1)}
             draggable="false"
             src={Arrow}
-            className="ml-1 opacity-70 rotate-180 w-[24px] h-[24px]"
+            className="ml-1 opacity-70 rotate-180 w-[24px] h-[24px] cursor-pointer"
             alt="Arrow"
           />
           {pageNumbers.map((number) => (
@@ -35,10 +37,12 @@ const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) =
               </div>
             </li>
           ))}
+          {/*   Left Arrow   */}
           <img
+            onClick={() => paginate(currentPage + 1)}
             draggable="false"
             src={Arrow}
-            className="mr-1 opacity-70 w-[24px] h-[24px]"
+            className="mr-1 opacity-70 w-[24px] h-[24px] cursor-pointer"
             alt="Arrow"
           />
         </ul>
