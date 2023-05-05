@@ -1,11 +1,12 @@
 import React from 'react'
-import NavListItems from '../NavListItems'
+import NavListItems from './NavListItems'
 
-const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
+const NavList = ({ handleShowOverlay, handleHideOverlay, onGetType }) => {
   return (
     <div className="2xl:mx-8 relative">
       <div className="flex mx-28 2xl:mx-36 justify-evenly text-[20px]">
         <NavListItems
+          onGetType={onGetType}
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الأدوية"
@@ -27,30 +28,35 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           ]}
         />
         <NavListItems
+          onGetType={onGetType}
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الحمايه من الفيروسات"
           onGetSubItems={['تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']}
         />
         <NavListItems
+          onGetType={onGetType}
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="منتجات الرجال"
           onGetSubItems={['جل الحلاقة', 'مزيل العرق للرجال', 'مستلزمات الحلاقة']}
         />
         <NavListItems
+          onGetType={onGetType}
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="منتجات المرأة"
           onGetSubItems={['إزالة الشعر', 'مزيل العرق للسيدات', 'فوط صحية']}
         />
         <NavListItems
+          onGetType={onGetType}
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="الأم و الطفل"
           onGetSubItems={['لبن الاطفال', 'الحفاظات و الكريمات', 'العناية بالأم']}
         />
         <NavListItems
+          onGetType={onGetType}
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="العناية بالبشرة و الشعر"
@@ -66,6 +72,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay }) => {
           ]}
         />
         <NavListItems
+          onGetType={onGetType}
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetTitle="العناية بالاسنان"

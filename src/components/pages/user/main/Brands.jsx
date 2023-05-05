@@ -8,17 +8,29 @@ import ArrowOrange from '../../../../assets/mainPage/ArrowOrange.svg'
 import RightArrow from '../../../../assets/mainPage/RightArrow.svg'
 import LeftArrow from '../../../../assets/mainPage/LeftArrow.svg'
 /*       Images        */
-import Image1 from '../../../../assets/brands/Garnier.png'
-import Image2 from '../../../../assets/brands/Listerine.png'
-import Image3 from '../../../../assets/brands/Pampers.png'
-import Image4 from '../../../../assets/brands/Beesline.png'
-import Image5 from '../../../../assets/brands/LA ROCHE POSAY.png'
-import Image6 from '../../../../assets/brands/CleanClear.png'
-import Image7 from '../../../../assets/brands/Dove.png'
-import Image8 from '../../../../assets/brands/HerbalEssences.png'
-import Image9 from '../../../../assets/brands/LOreal Paris.png'
+import Garnier from '../../../../assets/brands/Garnier.png'
+import Dove from '../../../../assets/brands/Dove.png'
+import Beesline from '../../../../assets/brands/Beesline.png'
+import LaRoche from '../../../../assets/brands/LA ROCHE POSAY.png'
+import Pampers from '../../../../assets/brands/Pampers.png'
+import Listering from '../../../../assets/brands/Listerine.png'
+import CleanClear from '../../../../assets/brands/CleanClear.png'
+import HerbalEssences from '../../../../assets/brands/HerbalEssences.png'
+import LorealParis from '../../../../assets/brands/LOreal Paris.png'
 
-const Brands = () => {
+const Brands = ({ onGetType }) => {
+  const brands = [
+    { name: 'Garnier', image: Garnier },
+    { name: 'Dove', image: Dove },
+    { name: 'Beesline', image: Beesline },
+    { name: 'LA ROCHE POSAY', image: LaRoche },
+    { name: 'Pampers', image: Pampers },
+    { name: 'Listerine', image: Listering },
+    { name: 'Clean Clear', image: CleanClear },
+    { name: 'Herbal Essences', image: HerbalEssences },
+    { name: "L'Oréal Paris", image: LorealParis }
+  ]
+
   const container = document.querySelector('.brands')
 
   const handleLeft = () => {
@@ -65,7 +77,10 @@ const Brands = () => {
     <div className="mx-36">
       <div className="flex justify-between">
         <p className="text-right text-[26px] pb-3">{title}</p>
-        <Link to="/brands" className="flex border border-orange py-3 px-5 rounded-[10px]">
+        <Link
+          to={onGetType === 'pharmacy' ? `/pharmacyBrands` : `/brands`}
+          className="flex border border-orange py-3 px-5 rounded-[10px]"
+        >
           <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
           <img src={ArrowOrange} draggable="false" className="pr-2" />
         </Link>
@@ -92,33 +107,11 @@ const Brands = () => {
         {/*      Brands     */}
         <div className="flex w-full pb-7 overflow-x-auto brands container justify-between">
           <ol className="flex justify-between">
-            <li>
-              <BrandsPictures onGetImage={Image1} onGetPath="Garnier" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image7} onGetPath="Dove" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image4} onGetPath="Beesline" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image5} onGetPath="LA ROCHE POSAY" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image3} onGetPath="Pampers" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image2} onGetPath="Listerine" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image6} onGetPath="Clean Clear" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image8} onGetPath="Herbal Essences" />
-            </li>
-            <li>
-              <BrandsPictures onGetImage={Image9} onGetPath="L'Oréal Paris" />
-            </li>
+            {brands.map(({ name, image }) => (
+              <li key={name}>
+                <BrandsPictures onGetPath={name} onGetImage={image} onGetType={onGetType} />
+              </li>
+            ))}
           </ol>
         </div>
       </div>
