@@ -24,7 +24,7 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
     <div className="h-fit">
       <div
         onClick={showItemsHandler}
-        className={`flex items-center h-12 pr-1  hover:text-blue hover:underline ${
+        className={`flex items-center h-12 pr-1  hover:text-blue ${
           showItems ? 'text-blue text-[20px]' : 'text-black'
         }`}
       >
@@ -54,7 +54,7 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
                         ? `/products/type/${onGetTitle}`
                         : `/products/type/${onGetTitle}/category/${category}`
                     }
-                    className="hover:text-blue hover:underline pr-3"
+                    className="hover:text-blue pr-3"
                   >
                     {category}
                   </Link>
@@ -67,7 +67,7 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
                         ? `/products/type/${onGetTitle}`
                         : `/products/type/${onGetTitle}/category/${category}`
                     }
-                    className="hover:text-blue hover:underline pr-3"
+                    className="hover:text-blue pr-3"
                   >
                     {category}
                   </Link>

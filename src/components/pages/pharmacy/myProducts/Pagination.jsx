@@ -1,6 +1,6 @@
 import React from 'react'
 /*     Icons     */
-import Arrow from '../../../assets/common/Arrow.svg'
+import Arrow from '../../../../assets/common/Arrow.svg'
 
 const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) => {
   const pageNumbers = []
@@ -12,7 +12,7 @@ const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) =
   return (
     <div>
       {pageNumbers.length > 1 && (
-        <ul className="flex justify-end items-center py-10 pl-7 2xl:pl-[195px]">
+        <ul className="flex justify-end items-center py-10 pl-7 2xl:pl-0">
           {/*   Right Arrow   */}
           <img
             onClick={() => paginate(currentPage - 1)}

@@ -102,7 +102,7 @@ const ForgotPassword = () => {
 
           <div>
             <span>لديك حساب بالفعل؟</span>
-            <Link to="/login">
+            <Link to={type === 'pharmacy' ? '/login/pharmacy' : type === 'user' && '/login/user'}>
               <span className="mx-1 text-blue underline">سجل دخول</span>
             </Link>
           </div>
