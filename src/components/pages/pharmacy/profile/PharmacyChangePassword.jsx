@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 /*    Components    */
-import CredentialsInput from '../../common/CredentialsInput'
+import CredentialsInput from '../../../common/CredentialsInput'
 /*    API    */
-import { pharmacyVerifyLogin, updatePassword } from '../../../utils/pharmaciesAPI'
+import { pharmacyVerifyLogin, updatePassword } from '../../../../utils/pharmaciesAPI'
 /*    icons    */
-import CheckCircle from '../../../assets/common/CheckCircle.svg'
+import CheckCircle from '../../../../assets/common/CheckCircle.svg'
 const PharmacyChangePassword = ({ toggleModal, user }) => {
   const [oldPassword, setOldPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
