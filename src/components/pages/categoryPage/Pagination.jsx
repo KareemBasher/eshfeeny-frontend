@@ -2,7 +2,7 @@ import React from 'react'
 /*     Icons     */
 import Arrow from '../../../assets/common/Arrow.svg'
 
-const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
+const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) => {
   const pageNumbers = []
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
@@ -23,7 +23,11 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
             <li key={number}>
               <div className="flex justify-center items-center text-[#676767B2] text-opacity-70 text-[18px] w-[30px]">
                 <button
-                  className="flex justify-center items-center w-[21px] h-[21px] rounded-full focus:text-lightBlue focus:bg-[#EFF6FF]"
+                  className={
+                    currentPage === number
+                      ? `flex justify-center items-center w-[21px] h-[21px] rounded-full text-lightBlue bg-[#EFF6FF]`
+                      : `flex justify-center items-center w-[21px] h-[21px] rounded-full`
+                  }
                   onClick={() => paginate(number)}
                 >
                   {number}

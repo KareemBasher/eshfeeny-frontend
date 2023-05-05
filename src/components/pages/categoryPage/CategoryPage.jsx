@@ -133,6 +133,7 @@ const CategoryPage = ({ loggedInUser, logout }) => {
             totalProducts={products?.length}
             productsPerPage={productsPerPage}
             paginate={paginate}
+            currentPage={currentPage}
           />
         </div>
       </div>
