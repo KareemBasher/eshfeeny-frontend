@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 /*    Components    */
-import PhoneInputContent from '../user/profile/PhoneInputContent'
-import { updatePharmacy } from '../../../utils/pharmaciesAPI'
+import PhoneInputContent from '../../user/profile/PhoneInputContent'
+import { updatePharmacy } from '../../../../utils/pharmaciesAPI'
 
 const PharmacyProfileContent = ({ user, toggleModal }) => {
   const [name, setName] = useState('')

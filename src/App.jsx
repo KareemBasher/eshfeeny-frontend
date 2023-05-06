@@ -35,7 +35,7 @@ import PharmacyCart from './components/pages/pharmacy/cart/PharmacyCart'
 import PharmacyFavourits from './components/pages/pharmacy/favourites/PharmacyFavourites'
 import Brands from './components/pages/brands/BrandProducts'
 import BrandsList from './components/pages/brands/BrandsPage'
-import PharmacyProfile from './components/pages/pharmacy/PharmacyProfile'
+import PharmacyProfile from './components/pages/pharmacy/profile/PharmacyProfile'
 import PharmacyProducts from './components/pages/pharmacy/myProducts/PharmacyProducts'
 import PharmacyProductPage from './components/pages/pharmacy/productPage/ProductPage'
 

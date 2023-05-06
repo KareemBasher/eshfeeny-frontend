@@ -57,7 +57,6 @@ const PharmacyNavigation = ({ loggedInUser, logout }) => {
     getItems()
   }, [cartItems, favouriteItems])
 
-
   return (
     <>
       <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30">
@@ -86,7 +85,7 @@ const PharmacyNavigation = ({ loggedInUser, logout }) => {
         />
         <PharmacyProfileRoundButton loggedInUser={loggedInUser} logout={logout} />
       </div>
-      <NavListContainer />
+      <NavListContainer onGetType="pharmacy" />
     </>
   )
 }

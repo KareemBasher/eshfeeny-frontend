@@ -1,7 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const NavListItems = ({ onGetTitle, onGetSubItems, handleShowOverlay, handleHideOverlay }) => {
+const NavListItems = ({
+  onGetTitle,
+  onGetSubItems,
+  handleShowOverlay,
+  handleHideOverlay,
+  onGetType
+}) => {
+  console.log(onGetType)
   return (
     <div
       className="group relative z-20"
@@ -9,14 +16,26 @@ const NavListItems = ({ onGetTitle, onGetSubItems, handleShowOverlay, handleHide
       onMouseOut={() => handleHideOverlay()}
     >
       <div className="flex items-center h-12  group-hover:border-b-blue group-hover:border-b-[2px]">
-        <Link to={`/products/type/${onGetTitle}`}>{onGetTitle}</Link>
+        <Link
+          to={
+            onGetType === 'pharmacy'
+              ? `/pharmacyProducts/type/${onGetTitle}`
+              : `/products/type/${onGetTitle}`
+          }
+        >
+          {onGetTitle}
+        </Link>
       </div>
       <div className="hidden group-hover:flex justify-start whitespace-nowrap min-w-fit h-fit absolute bg-[#FDFDFF] top-full border-t">
         <ol className="w-full text-[16px]">
           {onGetSubItems.map((subItem) => (
             <li key={subItem} className="flex justify-start items-center px-5 py-2">
               <Link
-                to={`/products/type/${onGetTitle}/category/${subItem}`}
+                to={
+                  onGetType === 'pharmacy'
+                    ? `/pharmacyProducts/type/${onGetTitle}/category/${subItem}`
+                    : `/products/type/${onGetTitle}/category/${subItem}`
+                }
                 className="hover:text-blue"
               >
                 {subItem}

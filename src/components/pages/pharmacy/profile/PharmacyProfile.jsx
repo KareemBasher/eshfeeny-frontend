@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 /*    Components    */
-import PharmacyNavigation from '../../common/PharmacyNavigation'
+import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyProfileContent from './PharmacyProfileContent'
 import PharmacyChangePassword from './PharmacyChangePassword'
 /*    API    */
-import * as PharmaciesApi from '../../../utils/pharmaciesAPI'
+import * as PharmaciesApi from '../../../../utils/pharmaciesAPI'
 
 const PharmacyProfile = ({ loggedInUser, logout }) => {
   const [isOpen, setIsOpen] = useState(false)

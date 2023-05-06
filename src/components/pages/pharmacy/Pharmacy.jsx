@@ -9,7 +9,7 @@ const Pharmacy = ({ loggedInUser, logout }) => {
       <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="2xl:mx-28">
         <PharmacyAds />
-        <Brands />
+        <Brands onGetType="pharmacy" />
       </div>
     </div>
   )
