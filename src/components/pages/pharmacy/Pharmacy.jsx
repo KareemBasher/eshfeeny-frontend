@@ -18,7 +18,7 @@ const Pharmacy = ({ loggedInUser, logout }) => {
           loggedInUser={loggedInUser}
         />
         <PharmacyCategoryItems
-          onGetTitle="عروض لا تفوتك"
+          onGetTitle="منتجات قد تهمك"
           onGetType="الأدوية"
           onGetCategory="الفيتامينات و المكملات الغذائية"
           onGetContainer="two"

@@ -21,7 +21,7 @@ const PharmacyCategoryItems = ({
   const container = document.querySelector(`.${onGetContainer}`)
   const [products, setProducts] = useState([])
   const [favouriteProducts, setFavouriteProducts] = useState([])
-  const favoriteProductsIDs = favouriteProducts?.map((product) => product._id)
+  const favoriteProductsIDs = favouriteProducts.map((product) => product._id)
   const [overflow, setOverflow] = useState(false)
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const PharmacyCategoryItems = ({
       } else {
         setProducts(await ProductsAPI.getCategory(onGetCategory))
       }
-      setFavouriteProducts(await ProductsAPI.getFavoriteProducts(loggedInUser))
+      setFavouriteProducts(await ProductsAPI.getFavoriteProductsPharmacy(loggedInUser))
     }
     getProducts()
   }, [])
@@ -61,7 +61,6 @@ const PharmacyCategoryItems = ({
   if (products.length > 12) {
     setProducts(products.slice(0, 12))
   }
-
 
   useEffect(() => {
     const isOverflown = (element) => {
