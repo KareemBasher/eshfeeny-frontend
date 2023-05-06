@@ -63,16 +63,16 @@ const ProductPage = ({ loggedInUser, logout }) => {
       <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="pt-8 text-[16px] text-blue">
         <div className="flex justify-start mr-32 2xl:mr-52">
-          <Link to="/home" className="hover:underline">
+          <Link to="/pharmacy" className="hover:underline">
             الرئيسية
           </Link>
           <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
-          <Link to={`/products/type/${product.type}`} className="hover:underline">
+          <Link to={`/pharmacyProducts/type/${product.type}`} className="hover:underline">
             {product.type}
           </Link>
           <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
           <Link
-            to={`/products/type/${product.type}/category/${product.category}`}
+            to={`/pharmacyProducts/type/${product.type}/category/${product.category}`}
             className="hover:underline"
           >
             {product.category}
