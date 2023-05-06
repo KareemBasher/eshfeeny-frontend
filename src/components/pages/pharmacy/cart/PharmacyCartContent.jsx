@@ -14,9 +14,10 @@ const PharmacyCartContent = ({
   return (
     <div>
       <div className="text-right text-[28px] my-10 mr-32 2xl:mr-52">{OnGetTitle}</div>
-      <div className="flex justify-around">
+
+      <div className="flex justify-start mx-48">
         <div>
-          <ol className="flex flex-col mb-16">
+          <ol>
             {onGetItems.map(({ product, quantity }) => (
               <li key={product._id}>
                 <PharmacyCartItems
@@ -31,7 +32,7 @@ const PharmacyCartContent = ({
             ))}
           </ol>
         </div>
-        <div className="w-[333px] h-[188px] border rounded-[10px] p-5">
+        <div className="w-[333px] h-[188px] border rounded-[10px] mt-5 p-5 mr-5">
           <div className="flex text-[26px] justify-between">
             <p>الاجمالي</p>
             <p className="text-[#0583F2]">{onGetTotal} جنيه</p>
