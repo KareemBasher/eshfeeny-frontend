@@ -1,10 +1,10 @@
 import React from 'react'
-import CategorySelector from './CategorySelector'
+import TypeSelector from './TypeSelector'
 
-const SideBar = () => {
+const SideBar = ({ selectedType, changeSelectedType }) => {
   return (
     <div className="mt-4 ml-1">
-      <CategorySelector />
+      <TypeSelector changeSelectedType={changeSelectedType} selectedType={selectedType} />
     </div>
   )
 }

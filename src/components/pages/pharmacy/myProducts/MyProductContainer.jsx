@@ -6,9 +6,9 @@ const MyProductContainer = ({ product }) => {
     <div className="flex flex-col justify-evenly rounded-[10px] hover:shadow-xl transition-all duration-300 shadow-sm w-[240px] h-[340px] border-[#E7E7E7] border-[0.8px] mx-2 my-4">
       <Link
         to={`/pharmacyProduct/${product._id}`}
-        className="h-1/2 w-full flex items-center justify-center"
+        className="h-1/2 flex items-center justify-center"
       >
-        <img src={product?.images} className="h-3/4" draggable="false" alt="Product" />
+        <img src={product?.images} className="h-1/2" draggable="false" alt="Product" />
       </Link>
       <div className="flex flex-col justify-end text-right px-3 pb-3 text-[18px]">
         <Link to={`/pharmacyProduct/${product._id}`}>
