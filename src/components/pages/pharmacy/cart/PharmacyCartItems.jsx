@@ -11,7 +11,7 @@ const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem, clic
   }
 
   return (
-    <div className="flex justify-between px-20 text-right border rounded-[10px] shadow-sm mt-5 h-32 w-[1227px]">
+    <div className="flex justify-between 2xl:px-20 text-right border rounded-[10px] shadow-sm mt-5 h-32 2xl:w-[1227px]">
       <Link to={`/product/${product._id}`} className="flex items-center justify-center w-[150px]">
         <img src={product?.images} draggable="false" className="max-h-[80%]" alt="Product" />
       </Link>
@@ -38,7 +38,7 @@ const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem, clic
         <p className="text-lightBlue text-[24px]">{price} جنيه</p>
       </div>
 
-      <button onClick={() => onRemoveItem(loggedInUser, product._id)}>
+      <button onClick={() => onRemoveItem(loggedInUser, product._id)} className="pl-2 2xl:pl-0">
         <img src={CloseButton} draggable="false" alt="Remove from cart" />
       </button>
     </div>
