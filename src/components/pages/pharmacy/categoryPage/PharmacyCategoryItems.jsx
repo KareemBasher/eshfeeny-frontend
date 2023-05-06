@@ -53,8 +53,6 @@ const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
   useEffect(() => {
     const getProducts = async () => {
       if (selectedBrands.length !== 0) {
-        const res = await getBrands(selectedBrands)
-        console.log(res)
         setProducts(await getBrands(selectedBrands))
       } else {
         if (category) {

@@ -8,7 +8,6 @@ const NavListItems = ({
   handleHideOverlay,
   onGetType
 }) => {
-  console.log(onGetType)
   return (
     <div
       className="group relative z-20"
