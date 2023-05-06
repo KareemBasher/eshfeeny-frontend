@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PharmacyQuantityCart from './PharmacyQuantityCart'
 import CloseButton from '../../../../assets/common/CloseButton.svg'
 
-const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) => {
+const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem, click, setClick }) => {
   const [price, setPrice] = useState(product.price * quantity)
 
   const updatePrice = (quantity) => {
@@ -29,6 +29,8 @@ const PharmacyCartItems = ({ product, loggedInUser, quantity, onRemoveItem }) =>
           onGetQuantity={quantity}
           productID={product._id}
           updatePrice={updatePrice}
+          click={click}
+          setClick={setClick}
         />
       </div>
 
