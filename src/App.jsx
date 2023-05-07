@@ -33,12 +33,14 @@ import UserProtectedRoutes from './UserProtectedRoutes'
 import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
 import PharmacyCart from './components/pages/pharmacy/cart/PharmacyCart'
 import PharmacyFavourits from './components/pages/pharmacy/favourites/PharmacyFavourites'
-import Brands from './components/pages/brands/BrandProducts'
+import BrandProducts from './components/pages/brands/BrandProducts'
 import BrandsList from './components/pages/brands/BrandsPage'
 import PharmacyProfile from './components/pages/pharmacy/profile/PharmacyProfile'
 import PharmacyProducts from './components/pages/pharmacy/myProducts/PharmacyProducts'
 import PharmacyProductPage from './components/pages/pharmacy/productPage/ProductPage'
 import PharmacyCategoryPage from './components/pages/pharmacy/categoryPage/PharmacyCategoryItems'
+import PharmacyBrandProducts from './components/pages/pharmacy/brands/BrandProducts'
+import PharmacyBrandsList from './components/pages/pharmacy/brands/BrandsPage'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedUser'])
@@ -134,7 +136,7 @@ function App() {
         />
         <Route
           path="/brands/:brand"
-          element={<Brands loggedInUser={loggedInUser} logout={logout} />}
+          element={<BrandProducts loggedInUser={loggedInUser} logout={logout} />}
         />
       </Route>
       {/* User protected routes */}
@@ -174,6 +176,14 @@ function App() {
         <Route
           path="/pharmacyProducts/type/:type/category/:category"
           element={<PharmacyCategoryPage loggedInUser={loggedInUser} logout={logout} />}
+        />
+        <Route
+          path="/pharmacyBrands"
+          element={<PharmacyBrandsList loggedInUser={loggedInUser} logout={logout} />}
+        />
+        <Route
+          path="/pharmacyBrands/:brand"
+          element={<PharmacyBrandProducts loggedInUser={loggedInUser} logout={logout} />}
         />
       </Route>
       {/* Pharmacy protected routes */}
