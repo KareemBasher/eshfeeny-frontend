@@ -1,5 +1,5 @@
 import React from 'react'
-import CheckMark from '../../../assets/common/CheckMark.svg'
+import CheckMark from '../../../../assets/common/CheckMark.svg'
 
 const BrandCounter = ({ brandCounts, selectedBrands, handleSelectedBrand }) => {
   const handleOnClick = (brand) => {

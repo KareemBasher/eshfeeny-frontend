@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom'
 /*    Icons    */
 import Arrow from '../../../assets/common/Arrow.svg'
 
-const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetCategory }) => {
+const SideBarItems = ({
+  onGetTitle,
+  onGetActiveType,
+  onGetActiveCategory,
+  onGetCategory,
+  onGetType
+}) => {
   const [showItems, setShowItems] = useState(false)
 
   const showItemsHandler = () => {
@@ -51,7 +57,11 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
                   <Link
                     to={
                       category.includes('كل')
-                        ? `/products/type/${onGetTitle}`
+                        ? onGetType === 'pharmacy'
+                          ? `/pharmacyProducts/type/${onGetTitle}`
+                          : `/products/type/${onGetTitle}`
+                        : onGetType === 'pharmacy'
+                        ? `/pharmacyProducts/type/${onGetTitle}/category/${category}`
                         : `/products/type/${onGetTitle}/category/${category}`
                     }
                     className="hover:text-blue pr-3"
@@ -64,7 +74,11 @@ const SideBarItems = ({ onGetTitle, onGetActiveType, onGetActiveCategory, onGetC
                   <Link
                     to={
                       category.includes('كل')
-                        ? `/products/type/${onGetTitle}`
+                        ? onGetType === 'pharmacy'
+                          ? `/pharmacyProducts/type/${onGetTitle}`
+                          : `/products/type/${onGetTitle}`
+                        : onGetType === 'pharmacy'
+                        ? `/pharmacyProducts/type/${onGetTitle}/category/${category}`
                         : `/products/type/${onGetTitle}/category/${category}`
                     }
                     className="hover:text-blue pr-3"

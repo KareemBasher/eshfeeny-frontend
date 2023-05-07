@@ -1,6 +1,6 @@
 import React from 'react'
 /*     Icons     */
-import Arrow from '../../../assets/common/Arrow.svg'
+import Arrow from '../../../../assets/common/Arrow.svg'
 
 const Pagination = ({ productsPerPage, totalProducts, paginate, currentPage }) => {
   const pageNumbers = []
