@@ -13,11 +13,16 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
 
   useEffect(() => {
     const updateItems = async () => {
-      if (selectedCategory !== '') {
-        const products = await ProductAPI.getCategory(selectedCategory)
-        setItems(products)
-      } else if (selectedType !== 'كل المنتجات') {
-        const products = await ProductAPI.getType(selectedType)
+      const products = await ProductAPI.getPharmacyProducts(loggedInUser)
+      setItems(products ? products : [])
+    }
+    updateItems()
+  }, [])
+
+  useEffect(() => {
+    const updateItems = async () => {
+      if (selectedType !== 'كل المنتجات') {
+        const products = await ProductAPI.getTypePharmacy(loggedInUser, selectedType)
         setItems(products)
       } else {
         const products = await ProductAPI.getPharmacyProducts(loggedInUser)
@@ -25,7 +30,20 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
       }
     }
     updateItems()
-  }, [selectedType, selectedCategory])
+  }, [selectedType])
+
+  useEffect(() => {
+    const updateItems = async () => {
+      if (selectedCategory !== '') {
+        const products = await ProductAPI.getCategoryPharmacy(loggedInUser, selectedCategory)
+        setItems(products)
+      } else {
+        const products = await ProductAPI.getPharmacyProducts(loggedInUser)
+        setItems(products ? products : [])
+      }
+    }
+    updateItems()
+  }, [selectedCategory])
 
   const changeSelectedType = (value) => {
     setSelectedType(value)
