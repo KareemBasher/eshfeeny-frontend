@@ -24,9 +24,11 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
       if (selectedType !== 'كل المنتجات') {
         const products = await ProductAPI.getTypePharmacy(loggedInUser, selectedType)
         setItems(products)
+        setSelectedCategories([])
       } else {
         const products = await ProductAPI.getPharmacyProducts(loggedInUser)
         setItems(products ? products : [])
+        setSelectedCategories([])
       }
     }
     updateItems()
