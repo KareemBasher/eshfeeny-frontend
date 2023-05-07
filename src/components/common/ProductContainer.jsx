@@ -8,7 +8,7 @@ import QuantityController from './QuantityController'
 /*     API     */
 import * as UsersAPI from '../../utils/usersAPI'
 
-const ProductContainer = ({ onGetProduct, loggedInUser, favorites, onGetType }) => {
+const ProductContainer = ({ onGetProduct, loggedInUser, favorites }) => {
   const [showButton, setShowButton] = useState(true)
   const [itemInFavorites, setItemInFavorites] = useState(false)
 
@@ -48,24 +48,11 @@ const ProductContainer = ({ onGetProduct, loggedInUser, favorites, onGetType }) 
           />
         )}
       </button>
-      <Link
-        to={
-          onGetType === 'pharmacy'
-            ? `/pharmacyProduct/${onGetProduct._id}`
-            : `/product/${onGetProduct._id}`
-        }
-        className="flex justify-center max-h-[30%]"
-      >
+      <Link to={`/product/${onGetProduct._id}`} className="flex justify-center max-h-[30%]">
         <img src={onGetProduct?.images} draggable="false" alt="Product" />
       </Link>
       <div className="text-right px-3 text-[18px]">
-        <Link
-          to={
-            onGetType === 'pharmacy'
-              ? `/pharmacyProduct/${onGetProduct._id}`
-              : `/product/${onGetProduct._id}`
-          }
-        >
+        <Link to={`/product/${onGetProduct._id}`}>
           <p>
             {onGetProduct.nameAr}
             {onGetProduct.volume ? ` | ${onGetProduct.volume}` : ''}
