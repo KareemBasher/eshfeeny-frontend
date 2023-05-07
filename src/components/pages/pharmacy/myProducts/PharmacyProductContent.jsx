@@ -19,7 +19,7 @@ const PharmacyProductContent = ({ items }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <div className="flex flex-wrap">
+    <div className="h-fit flex flex-wrap">
       {currentProducts.map((item) => (
         <MyProductContainer product={item} key={item._id} />
       ))}

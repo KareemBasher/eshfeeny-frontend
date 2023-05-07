@@ -9,7 +9,7 @@ import SideBar from './sideBar/SideBar'
 const PharmacyProducts = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
   const [selectedType, setSelectedType] = useState('كل المنتجات')
-  const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedCategories, setSelectedCategories] = useState([])
 
   useEffect(() => {
     const updateItems = async () => {
@@ -34,8 +34,8 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
 
   useEffect(() => {
     const updateItems = async () => {
-      if (selectedCategory !== '') {
-        const products = await ProductAPI.getCategoryPharmacy(loggedInUser, selectedCategory)
+      if (selectedCategories.length > 0) {
+        const products = await ProductAPI.getCategoryPharmacy(loggedInUser, selectedCategories)
         setItems(products)
       } else {
         const products = await ProductAPI.getPharmacyProducts(loggedInUser)
@@ -43,21 +43,26 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
       }
     }
     updateItems()
-  }, [selectedCategory])
+  }, [selectedCategories])
 
   const changeSelectedType = (value) => {
     setSelectedType(value)
   }
 
-  const changeSelectedCategory = (value) => {
-    setSelectedCategory(value)
+  const changeSelectedCategories = (value) => {
+    setSelectedCategories(value)
   }
 
   return (
     <div>
       <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="flex mx-32">
-        <SideBar changeSelectedType={changeSelectedType} selectedType={selectedType} />
+        <SideBar
+          changeSelectedType={changeSelectedType}
+          changeSelectedCategories={changeSelectedCategories}
+          selectedType={selectedType}
+          selectedCategories={selectedCategories}
+        />
         <PharmacyProductContent items={items} />
       </div>
     </div>
