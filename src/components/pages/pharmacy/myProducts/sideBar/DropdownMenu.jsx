@@ -1,12 +1,17 @@
 import React from 'react'
 
-const DopdownMenu = ({ items, changeSelected }) => {
+const DropdownMenu = ({ items, changeSelected, handleDropDown }) => {
+  const handleClick = (e) => {
+    changeSelected(e.target.value)
+    handleDropDown()
+  }
+
   return (
     <div className="w-full top-full left-0 border rounded-[10px] mt-2 text-right">
       <option
         className="cursor-pointer bg-none py-3 px-3 my-2 text-[17px] border-r-[2px] border-transparent hover:border-lightBlue hover:border-r-[2px]"
         value={'كل المنتجات'}
-        onClick={(e) => changeSelected(e.target.value)}
+        onClick={(e) => handleClick(e)}
       >
         كل المنتجات
       </option>
@@ -15,7 +20,7 @@ const DopdownMenu = ({ items, changeSelected }) => {
           className="cursor-pointer bg-none py-3 px-3 my-2 text-[17px] border-r-[2px] border-transparent hover:border-lightBlue hover:border-r-[2px]"
           key={item}
           value={item}
-          onClick={(e) => changeSelected(e.target.value)}
+          onClick={(e) => handleClick(e)}
         >
           {item}
         </option>
@@ -24,4 +29,4 @@ const DopdownMenu = ({ items, changeSelected }) => {
   )
 }
 
-export default DopdownMenu
+export default DropdownMenu
