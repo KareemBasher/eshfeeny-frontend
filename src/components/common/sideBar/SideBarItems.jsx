@@ -8,7 +8,8 @@ const SideBarItems = ({
   onGetActiveType,
   onGetActiveCategory,
   onGetCategory,
-  onGetType
+  onGetType,
+  setCurrentPage
 }) => {
   const [showItems, setShowItems] = useState(false)
 
@@ -81,6 +82,7 @@ const SideBarItems = ({
                         ? `/pharmacyProducts/type/${onGetTitle}/category/${category}`
                         : `/products/type/${onGetTitle}/category/${category}`
                     }
+                    onClick={() => setCurrentPage(1)}
                     className="hover:text-blue pr-3"
                   >
                     {category}

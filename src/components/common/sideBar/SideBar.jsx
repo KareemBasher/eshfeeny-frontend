@@ -1,6 +1,6 @@
 import SideBarItems from './SideBarItems'
 
-const SideBar = ({ onGetActiveType, onGetActiveCategory, onGetType }) => {
+const SideBar = ({ onGetActiveType, onGetActiveCategory, onGetType, setCurrentPage }) => {
   const data = [
     {
       type: 'medicine',
@@ -77,6 +77,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory, onGetType }) => {
                 onGetActiveType={onGetActiveType}
                 onGetActiveCategory={onGetActiveCategory}
                 onGetType={onGetType}
+                setCurrentPage={setCurrentPage}
               />
             </div>
           )
