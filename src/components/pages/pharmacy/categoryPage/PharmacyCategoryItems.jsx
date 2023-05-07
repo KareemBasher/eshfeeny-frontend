@@ -96,7 +96,12 @@ const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
       </div>
       <div className="flex mr-32 2xl:mr-52">
         <div className="flex flex-col">
-          <SideBar onGetActiveType={type} onGetActiveCategory={category} onGetType="pharmacy" />
+          <SideBar
+            onGetActiveType={type}
+            onGetActiveCategory={category}
+            onGetType="pharmacy"
+            setCurrentPage={setCurrentPage}
+          />
           {brandCounts.length > 0 && (
             <BrandCounter
               brandCounts={brandCounts}
@@ -114,7 +119,7 @@ const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
           )}
           {products.length >= 1 && (
             <>
-              <ol className="flex flex-wrap justify-start -mr-2">
+              <ol className="flex flex-wrap justify-start">
                 {currentProducts?.map((product) => (
                   <li key={product._id}>
                     <ProductContainer

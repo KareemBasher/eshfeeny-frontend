@@ -79,7 +79,7 @@ const PharmacyCategoryItems = ({
         <p className="text-right text-[26px] pb-3">{onGetTitle}</p>
         {onGetCategory === 'get type' ? (
           <Link
-            to={`/pharmacyProduct/type/${onGetType}`}
+            to={`/pharmacyProducts/type/${onGetType}`}
             className="flex border border-orange py-3 px-5 rounded-[10px]"
           >
             <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
@@ -87,7 +87,7 @@ const PharmacyCategoryItems = ({
           </Link>
         ) : (
           <Link
-            to={`/pharmacyProduct/type/${onGetType}/category/${onGetCategory}`}
+            to={`/pharmacyProducts/type/${onGetType}/category/${onGetCategory}`}
             className="flex border border-orange py-3 px-5 rounded-[10px]"
           >
             <p className="text-left text-orange text-[22px] whitespace-nowrap">عرض الكل</p>
