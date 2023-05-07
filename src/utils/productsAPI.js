@@ -255,3 +255,25 @@ export const getPharmacyProducts = async (pharmacyId) => {
     console.log(`Could not get products from pharmacy ${pharmacyId} from API.`)
   }
 }
+
+// Get all product from a type
+export const getTypePharmacy = async (id, type) => {
+  try {
+    const result = await fetch(apiURL + `/products/pharmacy/${id}/type/${type}`, { headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get product from type ${type} from API.`)
+  }
+}
+
+// Get all product from a category
+export const getCategoryPharmacy = async (id, category) => {
+  try {
+    const result = await fetch(apiURL + `/products/pharmacy/${id}/category/${category}`, {
+      headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get product from type ${category} from API.`)
+  }
+}
