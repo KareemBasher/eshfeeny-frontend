@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ArrowDown from '../../../../../assets/common/ArrowDown.svg'
 import types from './types'
-import DopdownMenu from './DopdownMenu'
+import DropdownMenu from './DropdownMenu'
 
 const TypeSelector = ({ selectedType, changeSelectedType }) => {
   const [dropDownOpen, setDropDownOpen] = useState(false)
@@ -27,7 +27,13 @@ const TypeSelector = ({ selectedType, changeSelectedType }) => {
         />
       </div>
 
-      {dropDownOpen && <DopdownMenu items={typesList} changeSelected={changeSelectedType} />}
+      {dropDownOpen && (
+        <DropdownMenu
+          items={typesList}
+          changeSelected={changeSelectedType}
+          handleDropDown={handleDropDown}
+        />
+      )}
     </div>
   )
 }
