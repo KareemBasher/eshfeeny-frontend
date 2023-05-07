@@ -7,7 +7,7 @@ import ProductContainer from '../../../common/PharmacyProductContainer'
 import Pagination from './Pagination'
 import BrandCounter from './BrandCounter'
 /*     Icons     */
-import Arrow from '../../../assets/common/Arrow.svg'
+import Arrow from '../../../../assets/common/Arrow.svg'
 /*     API     */
 import {
   getCategory,
@@ -15,7 +15,7 @@ import {
   getFavoriteProductsPharmacy,
   getBrands,
   getBrandCounts
-} from '../../../utils/productsAPI'
+} from '../../../../utils/productsAPI'
 
 const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
   const { category, type } = useParams()
@@ -78,13 +78,13 @@ const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
     <div>
       <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       <div className="flex justify-start mr-32 2xl:mr-52 mt-8">
-        <Link to="/home" className="hover:underline text-blue">
+        <Link to="/pharmacy" className="hover:underline text-blue">
           الرئيسية
         </Link>
         <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
         {category ? (
           <>
-            <Link to={`/products/type/${type}`} className="hover:underline text-blue">
+            <Link to={`/pharmacyProducts/type/${type}`} className="hover:underline text-blue">
               {type}
             </Link>
             <img draggable="false" src={Arrow} className="mx-2" alt="Arrow" />
@@ -96,7 +96,7 @@ const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
       </div>
       <div className="flex mr-32 2xl:mr-52">
         <div className="flex flex-col">
-          <SideBar onGetActiveType={type} onGetActiveCategory={category} />
+          <SideBar onGetActiveType={type} onGetActiveCategory={category} onGetType="pharmacy" />
           {brandCounts.length > 0 && (
             <BrandCounter
               brandCounts={brandCounts}
