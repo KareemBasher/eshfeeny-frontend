@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 /*    Components    */
 import PharmacyNavigation from '../../../common/PharmacyNavigation'
-import ProductContainer from '../../../common/ProductContainer'
+import PharmacyProductContainer from '../../../common/PharmacyProductContainer'
 /*       Icons       */
 import Arrow from '../../../../assets/common/Arrow.svg'
 /*       API        */
@@ -46,11 +46,10 @@ const BrandProducts = ({ loggedInUser, logout }) => {
         <ol className="flex flex-wrap justify-start -mr-2">
           {products?.map((product) => (
             <li key={product._id}>
-              <ProductContainer
+              <PharmacyProductContainer
                 onGetProduct={product}
                 loggedInUser={loggedInUser}
                 favorites={favoriteProductsIDs}
-                onGetType="pharmacy"
               />
             </li>
           ))}
