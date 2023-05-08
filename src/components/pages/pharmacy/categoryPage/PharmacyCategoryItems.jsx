@@ -20,7 +20,7 @@ import {
 const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
   const { category, type } = useParams()
 
-  let result = 12
+  let result = 9
   if (innerWidth === 1920) {
     result = 15
   }
@@ -76,7 +76,11 @@ const PharmacyCategoryItems = ({ loggedInUser, logout }) => {
 
   return (
     <div>
-      <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
+      <PharmacyNavigation
+        loggedInUser={loggedInUser}
+        logout={logout}
+        setCurrentPage={setCurrentPage}
+      />
       <div className="flex justify-start mr-32 2xl:mr-52 mt-8">
         <Link to="/pharmacy" className="hover:underline text-blue">
           الرئيسية

@@ -1,83 +1,87 @@
 import React from 'react'
 import NavListItems from './NavListItems'
 
-const NavList = ({ handleShowOverlay, handleHideOverlay, onGetType }) => {
+const NavList = ({ handleShowOverlay, handleHideOverlay, onGetType, setCurrentPage }) => {
+  const data = [
+    {
+      type: 'medicine',
+      title: 'الأدوية',
+      category: [
+        'كل الأدوية',
+        'البرد و السعال',
+        'مسكنات',
+        'الحروق البسيطة',
+        'الحموضة وسوء الهضم',
+        'الكحة',
+        'المغص',
+        'امساك',
+        'صحة المرأة',
+        'عناية الفم',
+        'مسكنات الالام الموضعية',
+        'مضادات حيوية موضعية',
+        'الفيتامينات و المكملات الغذائية',
+        'بديل للسكر'
+      ]
+    },
+    {
+      type: 'viruses',
+      title: 'الحمايه من الفيروسات',
+      category: ['كل الحمايه من الفيروسات', 'تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']
+    },
+    {
+      type: 'menProducts',
+      title: 'منتجات الرجال',
+      category: ['كل منتجات الرجال', 'جل الحلاقة', 'مزيل العرق للرجال', 'مستلزمات الحلاقة']
+    },
+    {
+      type: 'womenProducts',
+      title: 'منتجات المرأة',
+      category: ['كل منتجات المرأة', 'إزالة الشعر', 'مزيل العرق للسيدات', 'فوط صحية']
+    },
+    {
+      type: 'mothers',
+      title: 'الأم و الطفل',
+      category: ['كل الأم و الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
+    },
+    {
+      type: 'skinCare',
+      title: 'العناية بالبشرة و الشعر',
+      category: [
+        'كل العناية بالبشرة و الشعر',
+        'الحماية من الشمس',
+        'العناية باليد و القدم',
+        'تفتيح البشرة',
+        'غسول الوجه',
+        'ماسكات الوجه',
+        'مزيل المكياج',
+        'بلسم الشعر',
+        'شامبو'
+      ]
+    },
+    {
+      type: 'dentalHealth',
+      title: 'العناية بالاسنان',
+      category: ['كل العناية بالاسنان', 'العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']
+    }
+  ]
+
   return (
     <div className="2xl:mx-8 relative">
       <div className="flex mx-28 2xl:mx-36 justify-evenly text-[20px]">
-        <NavListItems
-          onGetType={onGetType}
-          handleShowOverlay={handleShowOverlay}
-          handleHideOverlay={handleHideOverlay}
-          onGetTitle="الأدوية"
-          onGetSubItems={[
-            'البرد و السعال',
-            'مسكنات',
-            'الحروق البسيطة',
-            'الحموضة وسوء الهضم',
-            'الكحة',
-            'المغص',
-            'امساك',
-            'تقوية المناعة',
-            'صحة المرأة',
-            'عناية الفم',
-            'مسكنات الالام الموضعية',
-            'مضادات حيوية موضعية',
-            'الفيتامينات و المكملات الغذائية',
-            'بديل للسكر'
-          ]}
-        />
-        <NavListItems
-          onGetType={onGetType}
-          handleShowOverlay={handleShowOverlay}
-          handleHideOverlay={handleHideOverlay}
-          onGetTitle="الحمايه من الفيروسات"
-          onGetSubItems={['تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']}
-        />
-        <NavListItems
-          onGetType={onGetType}
-          handleShowOverlay={handleShowOverlay}
-          handleHideOverlay={handleHideOverlay}
-          onGetTitle="منتجات الرجال"
-          onGetSubItems={['جل الحلاقة', 'مزيل العرق للرجال', 'مستلزمات الحلاقة']}
-        />
-        <NavListItems
-          onGetType={onGetType}
-          handleShowOverlay={handleShowOverlay}
-          handleHideOverlay={handleHideOverlay}
-          onGetTitle="منتجات المرأة"
-          onGetSubItems={['إزالة الشعر', 'مزيل العرق للسيدات', 'فوط صحية']}
-        />
-        <NavListItems
-          onGetType={onGetType}
-          handleShowOverlay={handleShowOverlay}
-          handleHideOverlay={handleHideOverlay}
-          onGetTitle="الأم و الطفل"
-          onGetSubItems={['لبن الاطفال', 'الحفاظات و الكريمات', 'العناية بالأم']}
-        />
-        <NavListItems
-          onGetType={onGetType}
-          handleShowOverlay={handleShowOverlay}
-          handleHideOverlay={handleHideOverlay}
-          onGetTitle="العناية بالبشرة و الشعر"
-          onGetSubItems={[
-            'الحماية من الشمس',
-            'العناية باليد و القدم',
-            'تفتيح البشرة',
-            'غسول الوجه',
-            'ماسكات الوجه',
-            'مزيل المكياج',
-            'بلسم الشعر',
-            'شامبو'
-          ]}
-        />
-        <NavListItems
-          onGetType={onGetType}
-          handleShowOverlay={handleShowOverlay}
-          handleHideOverlay={handleHideOverlay}
-          onGetTitle="العناية بالاسنان"
-          onGetSubItems={['العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']}
-        />
+        {data.map(({ title, category }) => {
+          return (
+            <div key={title}>
+              <NavListItems
+                onGetType={onGetType}
+                handleShowOverlay={handleShowOverlay}
+                handleHideOverlay={handleHideOverlay}
+                onGetTitle={title}
+                onGetSubItems={category}
+                setCurrentPage={setCurrentPage}
+              />
+            </div>
+          )
+        })}
       </div>
     </div>
   )

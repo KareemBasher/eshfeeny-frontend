@@ -13,7 +13,7 @@ import PharmacyProducts from '../../assets/common/PharmacyProducts.svg'
 import * as ProductsAPI from '../../utils/productsAPI'
 import * as PharmcyAPI from '../../utils/pharmaciesAPI'
 
-const PharmacyNavigation = ({ loggedInUser, logout }) => {
+const PharmacyNavigation = ({ loggedInUser, logout, setCurrentPage }) => {
   const [query, setQuery] = useState('')
   const location = useLocation()
 
@@ -85,7 +85,7 @@ const PharmacyNavigation = ({ loggedInUser, logout }) => {
         />
         <PharmacyProfileRoundButton loggedInUser={loggedInUser} logout={logout} />
       </div>
-      <NavListContainer onGetType="pharmacy" />
+      <NavListContainer onGetType="pharmacy" setCurrentPage={setCurrentPage} />
     </>
   )
 }

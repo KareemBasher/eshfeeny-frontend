@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NavList from './NavList'
 
-const NavListContainer = ({ onGetType }) => {
+const NavListContainer = ({ onGetType, setCurrentPage }) => {
   const [black, setBlack] = useState(false)
 
   const handleShowOverlay = () => {
@@ -19,6 +19,7 @@ const NavListContainer = ({ onGetType }) => {
           handleShowOverlay={handleShowOverlay}
           handleHideOverlay={handleHideOverlay}
           onGetType={onGetType}
+          setCurrentPage={setCurrentPage}
         />
       </div>
       <div
