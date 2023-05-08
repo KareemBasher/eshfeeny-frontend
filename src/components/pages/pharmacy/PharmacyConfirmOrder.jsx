@@ -1,12 +1,15 @@
 import React from 'react'
+/*      Hooks    */
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+/*      Components     */
 import PharmacyNavigation from '../../common/PharmacyNavigation'
+import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
-import { getCart } from '../../../utils/pharmaciesAPI'
+/*      icons     */
 import ConfirmPayment from '../../../assets/common/ConfirmPayment.svg'
 import Warning from '../../../assets/common/Warning.svg'
-import CredentialsInput from '../../common/CredentialsInput'
+/*      API     */
+import { getCart } from '../../../utils/pharmaciesAPI'
 
 const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
   const [total, setTotal] = useState()
@@ -58,6 +61,7 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
       <div>
         <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
+
       <div className="flex justify-center mr-20">
         <div>
           <div className="flex flex-col items-start text-right mt-10 ">
