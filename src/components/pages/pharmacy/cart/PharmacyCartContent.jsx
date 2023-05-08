@@ -1,6 +1,7 @@
 import React from 'react'
 import PharmacyCartItems from './PharmacyCartItems'
 import WideButton from '../../../common/WideButton'
+import { Link } from 'react-router-dom'
 
 const PharmacyCartContent = ({
   onGetItems,
@@ -38,7 +39,9 @@ const PharmacyCartContent = ({
             <p className="text-[#0583F2]">{onGetTotal} جنيه</p>
           </div>
           <div className="pt-10">
-            <WideButton content="إتمام الطلب" />
+            <Link to="/pharmacyConfirm">
+              <WideButton content="إتمام الطلب" />
+            </Link>
           </div>
         </div>
       </div>
