@@ -6,7 +6,8 @@ const NavListItems = ({
   onGetSubItems,
   handleShowOverlay,
   handleHideOverlay,
-  onGetType
+  onGetType,
+  setCurrentPage
 }) => {
   return (
     <div
@@ -21,6 +22,7 @@ const NavListItems = ({
               ? `/pharmacyProducts/type/${onGetTitle}`
               : `/products/type/${onGetTitle}`
           }
+          onClick={() => setCurrentPage(1)}
         >
           {onGetTitle}
         </Link>
@@ -35,6 +37,7 @@ const NavListItems = ({
                     ? `/pharmacyProducts/type/${onGetTitle}/category/${subItem}`
                     : `/products/type/${onGetTitle}/category/${subItem}`
                 }
+                onClick={() => setCurrentPage(1)}
                 className="hover:text-blue"
               >
                 {subItem}
