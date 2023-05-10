@@ -1,8 +1,12 @@
 import React from 'react'
+/*       components       */
+import ManufacturerNavigation from '../../../common/ManufacturerNavigation'
 
-const manufacturer = () => {
+const manufacturer = ({ loggedInUser, logout }) => {
   return (
-    <div>manufacturer</div>
+    <div>
+      <ManufacturerNavigation loggedInUser={loggedInUser} logout={logout} />
+    </div>
   )
 }
 
