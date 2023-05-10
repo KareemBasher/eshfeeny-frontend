@@ -1,13 +1,15 @@
 import React from 'react'
 import TypeSelector from './TypeSelector'
 import CategorySelector from './CategorySelector'
+import AddProduct from './AddProduct'
 import FilterIcon from '../../../../../assets/pharmacyProducts/FilterIcon.svg'
 
 const SideBar = ({
   selectedType,
   selectedCategories,
   changeSelectedType,
-  changeSelectedCategories
+  changeSelectedCategories,
+  loggedInUser
 }) => {
   return (
     <div className="mt-4 ml-1">
@@ -25,6 +27,7 @@ const SideBar = ({
           />
         </>
       )}
+      <AddProduct loggedInUser={loggedInUser} />
     </div>
   )
 }

@@ -65,6 +65,7 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
           changeSelectedCategories={changeSelectedCategories}
           selectedType={selectedType}
           selectedCategories={selectedCategories}
+          loggedInUser={loggedInUser}
         />
         <PharmacyProductContent items={items} />
       </div>

@@ -9,6 +9,9 @@ module.exports = {
         lightBlue: '#0597F2',
         orange: '#F89D1C',
         offWhite: '#fdfdff'
+      },
+      backgroundImage: {
+        searchIcon: "url('./src/assets/common/SearchIcon.svg')"
       }
     },
     fontFamily: {
