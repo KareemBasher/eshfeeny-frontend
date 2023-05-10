@@ -42,6 +42,9 @@ import PharmacyCategoryPage from './components/pages/pharmacy/categoryPage/Pharm
 import PharmacyBrandProducts from './components/pages/pharmacy/brands/BrandProducts'
 import PharmacyBrandsList from './components/pages/pharmacy/brands/BrandsPage'
 import PharmacyConfirmOrder from './components/pages/pharmacy/PharmacyConfirmOrder'
+/*   Manufacturer   */
+import ManufacturerProtectedRoutes from './ManufacturerProtectedRoutes'
+import Manufacturer from './components/pages/manufacturer/main/manufacturer'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedUser'])
@@ -192,6 +195,17 @@ function App() {
         />
       </Route>
       {/* Pharmacy protected routes */}
+
+      {/* Manufacturer protected routes */}
+      <Route
+        element={<ManufacturerProtectedRoutes loggedInUser={loggedInUser} type="manufacturer" />}
+      >
+        <Route
+          path="/manufacturer"
+          element={<Manufacturer loggedInUser={loggedInUser} logout={logout} />}
+        />
+      </Route>
+      {/* Manufacturer protected routes */}
 
       <Route
         path="/*"

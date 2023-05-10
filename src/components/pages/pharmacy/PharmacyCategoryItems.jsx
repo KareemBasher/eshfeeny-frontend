@@ -39,8 +39,8 @@ const PharmacyCategoryItems = ({
   const handleLeft = () => {
     let scrollAmount = 0
     const slideTimer = setInterval(() => {
-      container.scrollLeft -= 25
-      scrollAmount += 10
+      container.scrollLeft -= 22
+      scrollAmount += 9
       if (scrollAmount >= 100) {
         window.clearInterval(slideTimer)
       }
@@ -50,8 +50,8 @@ const PharmacyCategoryItems = ({
   const handleRight = () => {
     let scrollAmount = 0
     const slideTimer = setInterval(() => {
-      container.scrollLeft += 25
-      scrollAmount += 10
+      container.scrollLeft += 22
+      scrollAmount += 9
       if (scrollAmount >= 100) {
         window.clearInterval(slideTimer)
       }
