@@ -13,7 +13,7 @@ const TypeSelector = ({ selectedType, changeSelectedType }) => {
   }
 
   return (
-    <div className="">
+    <div>
       <div
         className="w-[250px] flex justify-between cursor-pointer text-[20px] text-right p-3 border rounded-[10px]"
         onClick={() => handleDropDown()}
