@@ -1,10 +1,11 @@
-/*     HOOKS      */
+/*     Hooks      */
 import React, { useState, useEffect } from 'react'
-/*     components      */
+/*     Components      */
 import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyProductContent from './PharmacyProductContent'
-import * as ProductAPI from '../../../../utils/productsAPI'
 import SideBar from './sideBar/SideBar'
+/*     API      */
+import * as ProductAPI from '../../../../utils/productsAPI'
 
 const PharmacyProducts = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
@@ -39,8 +40,8 @@ const PharmacyProducts = ({ loggedInUser, logout }) => {
       if (selectedCategories.length > 0) {
         const products = await ProductAPI.getCategoryPharmacy(loggedInUser, selectedCategories)
         setItems(products)
-      } else {
-        const products = await ProductAPI.getPharmacyProducts(loggedInUser)
+      } else if (selectedType !== 'كل المنتجات') {
+        const products = await ProductAPI.getTypePharmacy(loggedInUser, selectedType)
         setItems(products ? products : [])
       }
     }
