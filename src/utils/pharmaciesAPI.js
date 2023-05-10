@@ -211,3 +211,15 @@ export const getCart = async (id) => {
     console.log(`Could not get cart for pharmacy with id ${id}.`)
   }
 }
+
+// Check if a pharmacy already has a certain product
+export const checkProduct = async (pharmacyId, productId) => {
+  try {
+    const result = await fetch(apiURL + `/pharmacies/${pharmacyId}/checkProduct/${productId}`, {
+      headers: headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not check product ${productId} for pharmacy with id ${pharmacyId}.`)
+  }
+}
