@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import PharmacyNavigation from '../../common/PharmacyNavigation'
 import CredentialsInput from '../../common/CredentialsInput'
 import WideButton from '../../common/WideButton'
+import PharmacyConfirmRequest from './PharmacyConfirmRequest'
 /*      icons     */
 import ConfirmPayment from '../../../assets/common/ConfirmPayment.svg'
 import Warning from '../../../assets/common/Warning.svg'
@@ -18,6 +19,7 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
   const [number, setNumber] = useState('')
   const [address, setAddress] = useState('')
   const [error, setError] = useState('')
+  const [reqeust, setRequest] = useState(false)
 
   useEffect(() => {
     const getTotal = async () => {
@@ -54,6 +56,10 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
 
   const handleSubmit = () => {
     inputValidation()
+    setRequest(!reqeust)
+    setTimeout(() => {
+      setRequest(false)
+    }, 2000)
   }
 
   return (
@@ -62,7 +68,7 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
         <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
-      <div className="flex justify-center mr-20">
+      <div className="flex justify-center items-center mr-20 relative">
         <div>
           <div className="flex flex-col items-start text-right mt-10 ">
             <p className="text-[26px] mb-10">الدفع بواسطة</p>
@@ -134,12 +140,12 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
         </div>
 
         <div>
-          <div className="w-[333px] flex flex-col justify-center h-[188px] border rounded-[10px] p-5 mr-5 mt-[119px]">
+          <div className="w-[333px] flex flex-col justify-center  border rounded-[10px] p-5 mr-5 mb-[350px]">
             <div className="flex text-[26px] justify-evenly">
               <p>الاجمالي</p>
               <p className="text-[#0583F2]">{total} جنيه</p>
             </div>
-            <div className="pt-10">
+            <div className="pt-10 flex flex-col">
               {error.allData && (
                 <div className="flex">
                   <img src={Warning} alt="" />
@@ -148,11 +154,26 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
                   </span>
                 </div>
               )}
-              <WideButton content="إتمام الطلب" handleOnClick={handleSubmit} />
+
+              <div>
+                <WideButton
+                  content="إتمام الطلب"
+                  handleOnClick={handleSubmit}
+                  disabled={!address || !number || !pharmacyName}
+                />
+              </div>
             </div>
           </div>
         </div>
+        <div className="absolute">
+          {reqeust && (
+            <div>
+              <PharmacyConfirmRequest />
+            </div>
+          )}
+        </div>
       </div>
+      
     </div>
   )
 }
