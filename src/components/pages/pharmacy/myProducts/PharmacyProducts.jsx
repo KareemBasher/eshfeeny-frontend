@@ -1,10 +1,11 @@
-/*     HOOKS      */
+/*     Hooks      */
 import React, { useState, useEffect } from 'react'
-/*     components      */
+/*     Components      */
 import PharmacyNavigation from '../../../common/PharmacyNavigation'
 import PharmacyProductContent from './PharmacyProductContent'
-import * as ProductAPI from '../../../../utils/productsAPI'
 import SideBar from './sideBar/SideBar'
+/*     API      */
+import * as ProductAPI from '../../../../utils/productsAPI'
 
 const PharmacyProducts = ({ loggedInUser, logout }) => {
   const [items, setItems] = useState([])
