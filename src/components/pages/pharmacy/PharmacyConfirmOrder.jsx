@@ -173,7 +173,6 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
           )}
         </div>
       </div>
-      
     </div>
   )
 }
