@@ -13,6 +13,7 @@ import ErrorPage from '../../common/ErrorPage'
 /*     API      */
 import { createUser } from '../../../utils/usersAPI'
 import { createPharmacy } from '../../../utils/pharmaciesAPI'
+import { createManufacturer } from '../../../utils/manufacturersAPI'
 
 const SignUp = ({ changeLoggedUser }) => {
   const { type } = useParams()
@@ -89,6 +90,7 @@ const SignUp = ({ changeLoggedUser }) => {
       let result
       if (type === 'user') result = await createUser(name, email, password)
       else if (type === 'pharmacy') result = await createPharmacy(name, email, password)
+      else if (type === 'manufacturer') result = await createManufacturer(name, email, password)
 
       if (result === 'User already exists') setError((prev) => ({ ...prev, emailExists: true }))
       else {
