@@ -223,3 +223,25 @@ export const checkProduct = async (pharmacyId, productId) => {
     console.log(`Could not check product ${productId} for pharmacy with id ${pharmacyId}.`)
   }
 }
+
+export const sendOrder = async (pharmacyId, manufacturerName, product, quantity) => {
+  try {
+    const result = await fetch(
+      apiURL + `/pharmacies/${pharmacyId}/sendOrder/manufacturer/${manufacturerName}`,
+      {
+        method: 'POST',
+        headers: {
+          ...headers,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ product: product, quantity: quantity })
+      }
+    )
+
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(
+      `Could not send order with product ${product._id} for pharmacy with id ${pharmacyId} to manufacturer ${manufacturerName}.`
+    )
+  }
+}

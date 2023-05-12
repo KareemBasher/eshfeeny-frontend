@@ -282,3 +282,40 @@ export const getCategoryPharmacy = async (id, categories) => {
     console.log(`Could not get product from these categories ${categories} from API.`)
   }
 }
+
+// Get all product from a manufacturer
+export const getManufacturerProducts = async (manufacturerId) => {
+  try {
+    const result = await fetch(apiURL + `/products/manufacturer/${manufacturerId}`, { headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get products from manufacturer ${manufacturerId} from API.`)
+  }
+}
+
+// Get all product from a type
+export const getTypeManufacturer = async (id, type) => {
+  try {
+    const result = await fetch(apiURL + `/products/manufacturer/${id}/type/${type}`, { headers })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get product from type ${type} from API.`)
+  }
+}
+
+// Get all product from a category
+export const getCategoryManufacturer = async (id, categories) => {
+  try {
+    const result = await fetch(apiURL + `/products/manufacturer/${id}/category`, {
+      method: 'PATCH',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ categories: categories })
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not get product from these categories ${categories} from API.`)
+  }
+}
