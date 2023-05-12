@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+/*      Icons      */
 import Factory from '../../assets/common/Factory.svg'
 import Logout from '../../assets/common/Logout.svg'
 import ArrowDown from '../../assets/common/ArrowDown.svg'
-import { getPharmacy } from '../../utils/pharmaciesAPI'
-import { Link } from 'react-router-dom'
+/*       API       */
+import { getManufacturer } from '../../utils/manufacturersAPI'
 
 const UserProfileRoundButton = ({ loggedInUser, logout }) => {
   const [userName, setUserName] = useState('')
@@ -12,7 +14,7 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
   useEffect(() => {
     if (loggedInUser) {
       const getUserData = async () => {
-        const data = await getPharmacy(loggedInUser)
+        const data = await getManufacturer(loggedInUser)
         const firstName = data.name.split(' ')[0]
         setUserName(firstName)
       }

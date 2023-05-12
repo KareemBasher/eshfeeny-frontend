@@ -9,8 +9,7 @@ import ManufacturerProfileRoundButton from './ManufacturerProfileRoundButton'
 import Orders from '../../assets/common/Orders.svg'
 import DelayedOrders from '../../assets/common/DelayedOrders.svg'
 import FactoryProducts from '../../assets/common/PharmacyProducts.svg'
-// import * as ProductsAPI from '../../utils/productsAPI'
-// import * as PharmcyAPI from '../../utils/pharmaciesAPI'
+import * as ManufacturerAPI from '../../utils/manufacturersAPI'
 
 const ManufacturerNavigation = ({ loggedInUser, logout }) => {
   const [query, setQuery] = useState('')
@@ -43,43 +42,43 @@ const ManufacturerNavigation = ({ loggedInUser, logout }) => {
     }
   }, [])
 
-//   const [cartItems, setCartItems] = useState(0)
-//   const [favouriteItems, setFavouriteItems] = useState(0)
+  const [orders, setOrders] = useState(0)
+  const [delayedOrders, setDelayedOrders] = useState(0)
 
-//   useEffect(() => {
-//     const getItems = async () => {
-//       const cart = await PharmcyAPI.getCart(loggedInUser)
-//       const favourite = await ProductsAPI.getFavoriteProductsPharmacy(loggedInUser)
-//       setCartItems(cart.cart.length ? cart.cart.length : 0)
-//       setFavouriteItems(favourite.length ? favourite.length : 0)
-//     }
-//     getItems()
-//   }, [cartItems, favouriteItems])
+  useEffect(() => {
+    const getItems = async () => {
+      const orders = await ManufacturerAPI.getOrders(loggedInUser)
+      const delayedOrders = await ManufacturerAPI.getDelayedOrders(loggedInUser)
+      setOrders(orders.cart.length ? orders.cart.length : 0)
+      setDelayedOrders(delayedOrders.length ? delayedOrders.length : 0)
+    }
+    getItems()
+  }, [orders, delayedOrders])
 
   return (
     <>
-      <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30">
+      <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30 border">
         <LogoScript home="/manufacturer" />
         <SearchBar onGetType="manufacturer" onGetData={searchResult} query={query} />
         <RoundButton
           onGetLogo={Orders}
           onGetText="الطلبات"
           onGetPath="/orders"
-        //   onGetCartLength={favouriteItems}
+          onGetCartLength={delayedOrders}
           active={location.pathname === '/orders'}
         />
         <RoundButton
           onGetLogo={DelayedOrders}
           onGetText="الطلبات المؤجلة"
           onGetPath="/delayedOrders"
-        //   onGetCartLength={cartItems}
+          onGetCartLength={orders}
           active={location.pathname === '/delayedOrders'}
         />
         <RoundButton
           onGetLogo={FactoryProducts}
           onGetText="منتجاتى"
           onGetPath={`/factoryProducts`}
-        //   onGetCartLength={cartItems}
+          onGetCartLength={orders}
           active={location.pathname === '/factoryProducts'}
         />
         <ManufacturerProfileRoundButton loggedInUser={loggedInUser} logout={logout} />
