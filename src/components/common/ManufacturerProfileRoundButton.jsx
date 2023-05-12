@@ -50,8 +50,8 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
             to="/manufacturerProfile"
             className="px-2 py-3 flex items-center hover:bg-[#eff6ff] border-r-2 border-transparent hover:border-r-2 hover:border-[#0583F2]"
           >
-            <img className="ml-2" draggable="false" src={Factory} alt="Profile" />
-            <p>الملف الشخصي</p>
+            <img className="ml-2 mr-1.5" draggable="false" src={Factory} alt="Profile" />
+            <p>ملف المصنع</p>
           </Link>
           <button
             onClick={() => handleLogout()}
