@@ -18,6 +18,7 @@ import ManufacturerLogin from '../../../assets/loginPage/ManufacturerLogin.svg'
 /*         API         */
 import { verifyLogin } from '../../../utils/usersAPI'
 import { pharmacyVerifyLogin } from '../../../utils/pharmaciesAPI'
+import { manufacturerVerifyLogin } from '../../../utils/manufacturersAPI'
 
 const Login = ({ changeLoggedUser }) => {
   const { type } = useParams()
@@ -51,6 +52,8 @@ const Login = ({ changeLoggedUser }) => {
       let result
       if (type === 'user') result = await verifyLogin(email, password)
       else if (type === 'pharmacy') result = await pharmacyVerifyLogin(email, password)
+      else if (type === 'manufacturer') result = await manufacturerVerifyLogin(email, password)
+
       if (result) {
         changeLoggedUser(result._id, type)
         setError(false)

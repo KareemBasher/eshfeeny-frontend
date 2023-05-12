@@ -5,7 +5,7 @@ const headers = {
 }
 
 // Verify login for manufacturer
-export const verifyLogin = async (email, password) => {
+export const manufacturerVerifyLogin = async (email, password) => {
   try {
     if (email === '' || password === '') throw new Error('Please enter an email and password.')
     const result = await fetch(apiURL + '/manufacturers/verify', {
