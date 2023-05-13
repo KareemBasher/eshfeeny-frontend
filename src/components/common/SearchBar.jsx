@@ -117,10 +117,13 @@ const SearchBar = ({ onGetType, onGetData, query }) => {
       const IDs = searchResult.map((item) => item._id)
       if (onGetType === 'pharmacy') {
         navigate(`/pharmacySearchResults/${IDs.join('&')}`)
+      } else if (onGetType === 'manufacturer') {
+        navigate(`/manufacturerSearchResults/${IDs.join('&')}`)
       } else {
         navigate(`/searchResults/${IDs.join('&')}`)
       }
     }
+    setResultsOpen(false)
   }
 
   const handleSearch = async () => {
@@ -133,10 +136,15 @@ const SearchBar = ({ onGetType, onGetData, query }) => {
 
     if (searchResult) {
       const IDs = searchResult.map((item) => item._id)
-      navigate(`/searchResults/${IDs.join('&')}`)
-    } else {
-      navigate(`/searchResults/`)
+      if (onGetType === 'pharmacy') {
+        navigate(`/pharmacySearchResults/${IDs.join('&')}`)
+      } else if (onGetType === 'manufacturer') {
+        navigate(`/manufacturerSearchResults/${IDs.join('&')}`)
+      } else {
+        navigate(`/searchResults/${IDs.join('&')}`)
+      }
     }
+    setResultsOpen(false)
   }
 
   const handleInputClick = () => {
