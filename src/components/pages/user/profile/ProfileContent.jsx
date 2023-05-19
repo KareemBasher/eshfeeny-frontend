@@ -43,7 +43,7 @@ const ProfileContent = ({ user, toggleModal }) => {
   }
 
   return (
-    <div className="flex flex-col mr-36 2xl:mx-64 mt-2">
+    <div className="flex flex-col mr-48 2xl:mx-64 mt-2">
       {/* /* title */}
       <div className="text-right text-[28px] mt-10">
         <p>الملف الشخصى</p>

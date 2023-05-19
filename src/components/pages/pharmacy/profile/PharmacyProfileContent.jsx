@@ -41,7 +41,7 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
   }
 
   return (
-    <div className="flex flex-col mx-64 mt-2">
+    <div className="flex flex-col mx-48 2xl:mx-64 mt-2">
       {/* /* title */}
       <div className="text-right text-[28px] mt-10">
         <p>الملف الشخصى</p>

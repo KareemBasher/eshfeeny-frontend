@@ -57,7 +57,7 @@ const ManufacturerChangePassword = ({ toggleModal, user }) => {
   }
 
   return (
-    <div className="mx-56 mt-2">
+    <div className="mx-[9.5rem] 2xl:mx-56 mt-2">
       <div className="flex flex-wrap items-start">
         <div className="flex flex-col justify-center py-5 px-5 w-[1040px]">
           {passwordChanged ? (
