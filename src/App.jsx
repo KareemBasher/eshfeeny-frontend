@@ -45,6 +45,7 @@ import PharmacyConfirmOrder from './components/pages/pharmacy/PharmacyConfirmOrd
 /*   Manufacturer   */
 import ManufacturerProtectedRoutes from './ManufacturerProtectedRoutes'
 import Manufacturer from './components/pages/manufacturer/main/manufacturer'
+import ManufacturerProfile from './components/pages/manufacturer/profile/ManufacturerProfile'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedUser'])
@@ -203,6 +204,10 @@ function App() {
         <Route
           path="/manufacturer"
           element={<Manufacturer loggedInUser={loggedInUser} logout={logout} />}
+        />
+        <Route
+          path="/manufacturerProfile"
+          element={<ManufacturerProfile loggedInUser={loggedInUser} logout={logout} />}
         />
       </Route>
       {/* Manufacturer protected routes */}
