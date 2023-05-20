@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 /*    Components    */
 import PhoneInputContent from '../../user/profile/PhoneInputContent'
-import { updatePharmacy } from '../../../../utils/pharmaciesAPI'
+import { updateManufacturer } from '../../../../utils/manufacturersAPI'
 
-const PharmacyProfileContent = ({ user, toggleModal }) => {
+const ManufacturerProfileContent = ({ user, toggleModal }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -36,7 +36,7 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
 
   const handleSubmit = async () => {
     if (name.length !== 0 && email.length !== 0) {
-      await updatePharmacy(user._id, name, email, phoneNumber, address)
+      await updateManufacturer(user._id, name, email, phoneNumber, address)
     }
   }
 
@@ -111,4 +111,4 @@ const PharmacyProfileContent = ({ user, toggleModal }) => {
   )
 }
 
-export default PharmacyProfileContent
+export default ManufacturerProfileContent
