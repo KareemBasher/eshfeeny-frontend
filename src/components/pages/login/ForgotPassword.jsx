@@ -71,7 +71,7 @@ const ForgotPassword = () => {
     <div>
       <div className="flex h-[25vh] items-center justify-center">
         <img src={Logo} draggable="false" className="mx-5 w-[44px]" alt="Logo" />
-        <span className="text-[24px]">مرحبا بك في تطبيق إشفينى </span>
+        <span className="text-[24px]">مرحبا بك في تطبيق ميدفايندر </span>
       </div>
       <div className="flex h-[75vh] justify-around">
         <div className="m-10 w-[472px] flex flex-col">

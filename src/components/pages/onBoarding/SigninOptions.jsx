@@ -18,17 +18,17 @@ const SigninOptions = ({ changeLoggedInUser }) => {
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <img className="w-[306px]" draggable="false" src={Logo} alt="Logo" />
-      <p className="text-[28px] my-10">مرحبا بك في تطبيق إشفينى</p>
+      <p className="text-[28px] my-10">مرحبا بك في تطبيق ميدفايندر</p>
 
       {type === 'pharmacy' && (
         <p className="text-[24px] mb-10">
-          لو مخزنك فاضي تقدر الأن من خلال إشفينى تتابع مخزونك و تتواصل مباشرةً مع المصنعين
+          لو مخزنك فاضي تقدر الأن من خلال ميدفايندر تتابع مخزونك و تتواصل مباشرةً مع المصنعين
         </p>
       )}
 
       {type === 'manufacturer' && (
         <p className="text-[24px] mb-10">
-          تقدر الأن من خلال إشفينى تستقبل كل طلباتك من الصيدليات و تتابع مخزونك
+          تقدر الأن من خلال ميدفايندر تستقبل كل طلباتك من الصيدليات و تتابع مخزونك
         </p>
       )}
 
