@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 /*    Components    */
 import CredentialsInput from '../../../common/CredentialsInput'
 /*    API    */
-import { pharmacyVerifyLogin, updatePassword } from '../../../../utils/pharmaciesAPI'
+import { manufacturerVerifyLogin, updatePassword } from '../../../../utils/manufacturersAPI'
 /*    icons    */
 import CheckCircle from '../../../../assets/common/CheckCircle.svg'
-const PharmacyChangePassword = ({ toggleModal, user }) => {
+
+const ManufacturerChangePassword = ({ toggleModal, user }) => {
   const [oldPassword, setOldPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -19,7 +20,7 @@ const PharmacyChangePassword = ({ toggleModal, user }) => {
   }
 
   const checkOldPassword = async () => {
-    const result = await pharmacyVerifyLogin(user.email, oldPassword)
+    const result = await manufacturerVerifyLogin(user.email, oldPassword)
     if (result) {
       setError((prev) => ({ ...prev, old: false }))
       return true
@@ -139,4 +140,4 @@ const PharmacyChangePassword = ({ toggleModal, user }) => {
   )
 }
 
-export default PharmacyChangePassword
+export default ManufacturerChangePassword
