@@ -27,3 +27,4 @@ a `.env` file that includes:
 * `VITE_IMGBB_API_KEY` IMGBB API Key.
 * `VITE_IMGBB_URL` IMGBB uploads URL.
 * `VITE_GOOGLE_CLOUD_API_KEY` Google Cloud API key for using Google Maps JavaScript API.
+
