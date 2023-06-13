@@ -68,7 +68,7 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
         <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
-      <div className="flex justify-center items-center mr-20 relative">
+      <div className="flex justify-center items-center relative">
         <div>
           <div className="flex flex-col items-start text-right mt-10 ">
             <p className="text-[26px] mb-10">الدفع بواسطة</p>
@@ -94,7 +94,7 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
           <div className="flex flex-col text-right mt-5">
             <p className="text-[26px] mb-5">أدخل البيانات</p>
             <div className="w-[1147px] border flex justify-start rounded-[10px] h-[521px] text-right">
-              <div className=" flex flex-col justify-evenly text-right h-full pr-10">
+              <div className=" flex flex-col justify-evenly text-right h-full">
                 <div className="w-[472px]">
                   <p className="text-[24px] mb-5">أسم الصيدلية</p>
                   <CredentialsInput

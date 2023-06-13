@@ -12,7 +12,7 @@ const SideBar = ({
   loggedInUser
 }) => {
   return (
-    <div className="mt-4 ml-1">
+    <div className="mt-4 ml-1 2xl:mr-[4.5rem]">
       <TypeSelector changeSelectedType={changeSelectedType} selectedType={selectedType} />
       {selectedType !== 'كل المنتجات' && (
         <>
