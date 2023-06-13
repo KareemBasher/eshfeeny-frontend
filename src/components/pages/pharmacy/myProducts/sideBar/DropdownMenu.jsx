@@ -1,8 +1,9 @@
 import React from 'react'
 
-const DropdownMenu = ({ items, changeSelected, handleDropDown }) => {
+const DropdownMenu = ({ items, changeSelected, handleDropDown, setCurrentPage }) => {
   const handleClick = (e) => {
     changeSelected(e.target.value)
+    setCurrentPage(1)
     handleDropDown()
   }
 
