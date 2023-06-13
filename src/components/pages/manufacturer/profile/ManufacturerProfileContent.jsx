@@ -52,7 +52,7 @@ const ManufacturerProfileContent = ({ user, toggleModal }) => {
         <div className="flex flex-col justify-center  w-[904px] h-[500px]">
           <div className="flex flex-row justify-around ">
             <div className="mx-10">
-              <label className=" text-2xl flex my-5 justify-start">الأسم</label>
+              <label className=" text-2xl flex my-5 justify-start">أسم المصنع</label>
               <input
                 className="w-[472px] h-14 shadow-sm border border-[#949495] focus:border-lightBlue rounded-[10px] px-4 outline-none"
                 type="text"

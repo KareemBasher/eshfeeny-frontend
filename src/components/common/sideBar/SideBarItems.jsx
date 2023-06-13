@@ -52,7 +52,7 @@ const SideBarItems = ({
                 <li
                   key={category}
                   className={
-                    'flex justify-start items-center px-5 py-2  bg-[#EFF6FF] border border-y-0 border-l-0 border-r-[2px] border-r-lightBlue'
+                    'flex justify-start items-center px-5 py-2 bg-[#EFF6FF] border border-y-0 border-l-0 border-r-[2px] border-r-lightBlue'
                   }
                 >
                   <Link

@@ -9,6 +9,7 @@ import ManufacturerProfileRoundButton from './ManufacturerProfileRoundButton'
 import Orders from '../../assets/common/Orders.svg'
 import DelayedOrders from '../../assets/common/DelayedOrders.svg'
 import FactoryProducts from '../../assets/common/PharmacyProducts.svg'
+/*        API        */
 import * as ManufacturerAPI from '../../utils/manufacturersAPI'
 
 const ManufacturerNavigation = ({ loggedInUser, logout }) => {
@@ -49,8 +50,8 @@ const ManufacturerNavigation = ({ loggedInUser, logout }) => {
     const getItems = async () => {
       const orders = await ManufacturerAPI.getOrders(loggedInUser)
       const delayedOrders = await ManufacturerAPI.getDelayedOrders(loggedInUser)
-      setOrders(orders.cart.length ? orders.cart.length : 0)
-      setDelayedOrders(delayedOrders.length ? delayedOrders.length : 0)
+      setOrders(orders.orders ? orders.orders : 0)
+      setDelayedOrders(delayedOrders.delayedOrders ? delayedOrders.delayedOrders : 0)
     }
     getItems()
   }, [orders, delayedOrders])

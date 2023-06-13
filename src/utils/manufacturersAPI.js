@@ -69,7 +69,7 @@ export const updateManufacturer = async (id, name, email, phone, address) => {
 // Update manufacturer password
 export const updatePassword = async (id, password) => {
   try {
-    const result = await fetch(apiURL + `/manufacturer/${id}/password`, {
+    const result = await fetch(apiURL + `/manufacturers/${id}/password`, {
       method: 'PATCH',
       headers: {
         ...headers,
