@@ -15,23 +15,23 @@ const manufacturer = ({ loggedInUser, logout }) => {
 
       <ManufacturerCategoryItems
         onGetTitle="الأكثر مبيعا"
-        onGetType="null"
-        onGetCategory="مسكنات"
+        onGetType={false}
+        onGetCategory={['الحموضة وسوء الهضم', 'الفيتامينات و المكملات الغذائية']}
         onGetContainer="one"
         loggedInUser={loggedInUser}
       />
       <ManufacturerCategoryItems
         onGetTitle="العروض الأسبوعية"
-        onGetType="null"
-        onGetCategory="الكحة"
+        onGetType={null}
+        onGetCategory={['المغص', 'مسكنات']}
         onGetContainer="two"
         loggedInUser={loggedInUser}
       />
       <ManufacturerCategoryItems
         onGetTitle="قرب لانتهاء الصلاحية"
-        onGetType="الأدوية"
-        onGetCategory="مسكنات"
-        onGetContainer="three"
+        onGetType={null}
+        onGetCategory={['المغص', 'امساك']}
+        onGetContainer="tree"
         loggedInUser={loggedInUser}
       />
     </div>
