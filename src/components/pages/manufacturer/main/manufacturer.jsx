@@ -8,16 +8,21 @@ const manufacturer = ({ loggedInUser, logout }) => {
   return (
     <div>
       <ManufacturerNavigation loggedInUser={loggedInUser} logout={logout} />
+
+      <div className="mx-32 2xl:mx-52 my-10">
+        <Chart />
+      </div>
+
       <ManufacturerCategoryItems
         onGetTitle="الأكثر مبيعا"
-        onGetType="الحمايه من الفيروسات"
-        onGetCategory="تقوية المناعة"
+        onGetType="null"
+        onGetCategory="مسكنات"
         onGetContainer="one"
         loggedInUser={loggedInUser}
       />
       <ManufacturerCategoryItems
         onGetTitle="العروض الأسبوعية"
-        onGetType="الأدوية"
+        onGetType="null"
         onGetCategory="الكحة"
         onGetContainer="two"
         loggedInUser={loggedInUser}
@@ -26,13 +31,9 @@ const manufacturer = ({ loggedInUser, logout }) => {
         onGetTitle="قرب لانتهاء الصلاحية"
         onGetType="الأدوية"
         onGetCategory="مسكنات"
-        onGetContainer="two"
+        onGetContainer="three"
         loggedInUser={loggedInUser}
       />
-
-      <div className="mx-32 2xl:mx-52 my-10">
-        <Chart />
-      </div>
     </div>
   )
 }
