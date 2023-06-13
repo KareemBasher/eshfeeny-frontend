@@ -3,7 +3,7 @@ import ArrowDown from '../../../../../assets/common/ArrowDown.svg'
 import types from './types'
 import DropdownMenu from './DropdownMenu'
 
-const TypeSelector = ({ selectedType, changeSelectedType }) => {
+const TypeSelector = ({ selectedType, changeSelectedType, setCurrentPage }) => {
   const [dropDownOpen, setDropDownOpen] = useState(false)
 
   const typesList = types.map((type) => type.type)
@@ -32,6 +32,7 @@ const TypeSelector = ({ selectedType, changeSelectedType }) => {
           items={typesList}
           changeSelected={changeSelectedType}
           handleDropDown={handleDropDown}
+          setCurrentPage={setCurrentPage}
         />
       )}
     </div>
