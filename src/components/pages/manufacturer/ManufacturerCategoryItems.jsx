@@ -22,10 +22,10 @@ const ManufacturerCategoryItems = ({
 
   useEffect(() => {
     const getProducts = async () => {
-      if (onGetCategory) {
+      if (onGetType !== 'null') {
         setProducts(await ProductsAPI.getTypeManufacturer(loggedInUser, onGetType))
       } else {
-        setProducts(await ProductsAPI.getCategoryManufacturer(loggedInUser, onGetCategory))
+        setProducts(await ProductsAPI.getCategoryManufacturer(loggedInUser, [onGetCategory]))
       }
     }
     getProducts()

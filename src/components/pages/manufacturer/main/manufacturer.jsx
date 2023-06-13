@@ -15,7 +15,7 @@ const manufacturer = ({ loggedInUser, logout }) => {
 
       <ManufacturerCategoryItems
         onGetTitle="الأكثر مبيعا"
-        onGetType={false}
+        onGetType={null}
         onGetCategory={['الحموضة وسوء الهضم', 'الفيتامينات و المكملات الغذائية']}
         onGetContainer="one"
         loggedInUser={loggedInUser}
