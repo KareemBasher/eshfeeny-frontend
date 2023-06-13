@@ -68,14 +68,14 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
         <PharmacyNavigation loggedInUser={loggedInUser} logout={logout} />
       </div>
 
-      <div className="flex justify-center items-center relative">
+      <div className="flex justify-start mr-32 2xl:mr-52">
         <div>
-          <div className="flex flex-col items-start text-right mt-10 ">
+          <div className="flex flex-col items-start mt-10">
             <p className="text-[26px] mb-10">الدفع بواسطة</p>
-            <div className="relative flex items-center justify-end">
+            <div className="flex items-center justify-end">
               <button
                 onClick={() => onCheckHandler()}
-                className={`text-[20px]  w-[1147px] border rounded-[10px] text-right p-3 ${
+                className={`text-[20px] w-[700px] 2xl:w-[1050px] border rounded-[10px] text-right p-3 ${
                   check && `border-[#0583F2] text-blue`
                 }`}
               >
@@ -83,18 +83,18 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
               </button>
               {check && (
                 <img
-                  className="absolute w-[31px] flex items-end ml-5"
+                  className="absolute w-[31px] items-end ml-5"
                   src={ConfirmPayment}
-                  alt=""
+                  alt="Confirm_Payment"
                 />
               )}
             </div>
           </div>
 
           <div className="flex flex-col text-right mt-5">
-            <p className="text-[26px] mb-5">أدخل البيانات</p>
-            <div className="w-[1147px] border flex justify-start rounded-[10px] h-[521px] text-right">
-              <div className=" flex flex-col justify-evenly text-right h-full">
+            <p className="text-[26px] my-5">أدخل البيانات</p>
+            <div className="2xl:w-[1147px] border flex justify-start rounded-[10px] h-[521px] text-right">
+              <div className=" flex flex-col justify-evenly text-right h-full mr-8">
                 <div className="w-[472px]">
                   <p className="text-[24px] mb-5">أسم الصيدلية</p>
                   <CredentialsInput
@@ -140,8 +140,8 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
         </div>
 
         <div>
-          <div className="w-[333px] flex flex-col justify-center  border rounded-[10px] p-5 mr-5 mb-[350px]">
-            <div className="flex text-[26px] justify-evenly">
+          <div className="w-[333px] h-[188px] border rounded-[10px] mt-20 p-5 mr-52 2xl:mr-2">
+            <div className="flex text-[26px] justify-between">
               <p>الاجمالي</p>
               <p className="text-[#0583F2]">{total} جنيه</p>
             </div>
@@ -158,7 +158,7 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
               <div>
                 <WideButton
                   content="إتمام الطلب"
-                  handleOnClick={handleSubmit}
+                  handleOnClick={() => handleSubmit()}
                   disabled={!address || !number || !pharmacyName}
                 />
               </div>
