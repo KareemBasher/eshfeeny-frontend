@@ -7,7 +7,6 @@ const NavList = ({ handleShowOverlay, handleHideOverlay, onGetType, setCurrentPa
       type: 'medicine',
       title: 'الأدوية',
       category: [
-        'كل الأدوية',
         'البرد و السعال',
         'مسكنات',
         'الحروق البسيطة',
@@ -26,28 +25,27 @@ const NavList = ({ handleShowOverlay, handleHideOverlay, onGetType, setCurrentPa
     {
       type: 'viruses',
       title: 'الحمايه من الفيروسات',
-      category: ['كل الحمايه من الفيروسات', 'تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']
+      category: ['تقوية المناعة', 'كمامات و قفازات طبية', 'مطهرات اليد']
     },
     {
       type: 'menProducts',
       title: 'منتجات الرجال',
-      category: ['كل منتجات الرجال', 'جل الحلاقة', 'مزيل العرق للرجال', 'مستلزمات الحلاقة']
+      category: ['جل الحلاقة', 'مزيل العرق للرجال', 'مستلزمات الحلاقة']
     },
     {
       type: 'womenProducts',
       title: 'منتجات المرأة',
-      category: ['كل منتجات المرأة', 'إزالة الشعر', 'مزيل العرق للسيدات', 'فوط صحية']
+      category: ['إزالة الشعر', 'مزيل العرق للسيدات', 'فوط صحية']
     },
     {
       type: 'mothers',
       title: 'الأم و الطفل',
-      category: ['كل الأم و الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
+      category: ['لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
     },
     {
       type: 'skinCare',
       title: 'العناية بالبشرة و الشعر',
       category: [
-        'كل العناية بالبشرة و الشعر',
         'الحماية من الشمس',
         'العناية باليد و القدم',
         'تفتيح البشرة',
@@ -61,7 +59,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay, onGetType, setCurrentPa
     {
       type: 'dentalHealth',
       title: 'العناية بالاسنان',
-      category: ['كل العناية بالاسنان', 'العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']
+      category: ['العناية بالفم', 'فرشاة الأسنان', 'معجون الأسنان']
     }
   ]
 
