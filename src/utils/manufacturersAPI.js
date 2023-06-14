@@ -134,3 +134,32 @@ export const getDelayedOrders = async (id) => {
     console.log(`could not get delayed orders for manufacturer with id ${id}`)
   }
 }
+
+// Delay an order
+export const delayOrder = async (manufacturerId, orderId) => {
+  try {
+    const result = await fetch(apiURL + `/manufacturers/${manufacturerId}/delayOrder/${orderId}`, {
+      method: 'PATCH',
+      headers: headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not delay order ${orderId} for manufacturer with id ${manufacturerId}.`)
+  }
+}
+
+// Undelay an order
+export const undelayOrder = async (manufacturerId, orderId) => {
+  try {
+    const result = await fetch(
+      apiURL + `/manufacturers/${manufacturerId}/undelayOrder/${orderId}`,
+      {
+        method: 'PATCH',
+        headers: headers
+      }
+    )
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not undelay order ${orderId} for manufacturer with id ${manufacturerId}.`)
+  }
+}
