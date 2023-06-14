@@ -46,3 +46,7 @@ input[type="password"] {
 input[type="password"]::placeholder {
   font-family: 'Cairo', sans-serif;
 }
+
+table, th, td {
+  border: 1px solid #DADADA;
+}
