@@ -34,9 +34,9 @@ const ManufacturerCategoryItems = ({
   const handleLeft = () => {
     let scrollAmount = 0
     const slideTimer = setInterval(() => {
-      container.scrollLeft -= 22
-      scrollAmount += 9
-      if (scrollAmount >= 100) {
+      container.scrollLeft -= 20
+      scrollAmount += 8
+      if (scrollAmount >= 101.5) {
         window.clearInterval(slideTimer)
       }
     }, 25)
@@ -45,9 +45,9 @@ const ManufacturerCategoryItems = ({
   const handleRight = () => {
     let scrollAmount = 0
     const slideTimer = setInterval(() => {
-      container.scrollLeft += 22
-      scrollAmount += 9
-      if (scrollAmount >= 100) {
+      container.scrollLeft += 20
+      scrollAmount += 8
+      if (scrollAmount >= 101.5) {
         window.clearInterval(slideTimer)
       }
     }, 25)
