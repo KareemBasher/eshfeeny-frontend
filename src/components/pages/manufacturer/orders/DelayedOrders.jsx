@@ -7,7 +7,7 @@ const DelayedOrders = ({ loggedInUser, logout }) => {
   return (
     <div>
       <ManufacturerNavigation loggedInUser={loggedInUser} logout={logout} />
-      <Orders />
+      <Orders onGetTitle="الطلبات المؤجلة" />
     </div>
   )
 }
