@@ -9,11 +9,16 @@ const SideBar = ({
   selectedCategories,
   changeSelectedType,
   changeSelectedCategories,
-  loggedInUser
+  loggedInUser,
+  setCurrentPage
 }) => {
   return (
     <div className="mt-4 ml-1 2xl:mr-[4.5rem]">
-      <TypeSelector changeSelectedType={changeSelectedType} selectedType={selectedType} />
+      <TypeSelector
+        changeSelectedType={changeSelectedType}
+        selectedType={selectedType}
+        setCurrentPage={setCurrentPage}
+      />
       {selectedType !== 'كل المنتجات' && (
         <>
           <div className="flex mt-5 px-3">

@@ -58,7 +58,7 @@ const AddProduct = ({ loggedInUser }) => {
       ) : (
         <button
           onClick={() => handleOnClick()}
-          className="h-[50px] w-[250px] flex items-center justify-center my-5 border rounded-[10px] border-lightBlue"
+          className="h-[55px] w-[250px] flex items-center justify-center my-5 py-1 border rounded-[10px] border-lightBlue"
         >
           <img className="h-3/4 ml-3" draggable="false" src={AddProductVector} alt="Add product" />
           <p className="text-[20px]">أضف منتج جديد</p>
