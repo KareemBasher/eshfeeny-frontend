@@ -64,7 +64,7 @@ const ManufacturerNavigation = ({ loggedInUser, logout }) => {
         <RoundButton
           onGetLogo={Orders}
           onGetText="الطلبات"
-          onGetPath="/orders"
+          onGetPath="/currentOrders"
           onGetCartLength={delayedOrders}
           active={location.pathname === '/orders'}
         />
