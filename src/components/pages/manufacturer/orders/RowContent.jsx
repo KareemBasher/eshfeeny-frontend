@@ -1,4 +1,6 @@
 import React from 'react'
+/*      Icons      */
+import threeDots from '../../../../assets/manufacturer/More.svg'
 
 const RowContent = ({ data }) => {
   return (
@@ -24,7 +26,11 @@ const RowContent = ({ data }) => {
       {/*  Address   */}
       <td>{data.pharmacyAdress}</td>
       {/*  Order Status   */}
-      <td>:</td>
+      <td>
+        <button className="p-5">
+          <img src={threeDots} />
+        </button>
+      </td>
     </>
   )
 }

@@ -48,7 +48,7 @@ const Orders = ({ onGetTitle, orders }) => {
     <div className="mx-32 2xl:mx-52">
       <div className="text-right text-[28px] my-10">{onGetTitle}</div>
       <div>
-        <table className="w-full">
+        <table className="w-full mb-32">
           <tbody>
             <tr className="bg-blue text-[#F5F5F5] h-[58px]">
               <th className="w-[352px]">المنتج</th>
