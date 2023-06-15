@@ -6,7 +6,7 @@ import Orders from './Orders'
 import { getOrders } from '../../../../utils/manufacturersAPI'
 
 const CurrentOrders = ({ loggedInUser, logout }) => {
-  const [orders, setOrders] = useState(0)
+  const [orders, setOrders] = useState([])
 
   useEffect(() => {
     const getCurrentOrders = async () => {
@@ -14,12 +14,11 @@ const CurrentOrders = ({ loggedInUser, logout }) => {
     }
     getCurrentOrders()
   }, [])
-  console.log(orders)
 
   return (
     <div>
       <ManufacturerNavigation loggedInUser={loggedInUser} logout={logout} />
-      <Orders onGetTitle="الطلبات" />
+      <Orders onGetTitle="الطلبات" orders={orders.orders} />
     </div>
   )
 }
