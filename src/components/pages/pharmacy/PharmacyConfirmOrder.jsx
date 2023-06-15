@@ -10,7 +10,7 @@ import PharmacyConfirmRequest from './PharmacyConfirmRequest'
 import ConfirmPayment from '../../../assets/common/ConfirmPayment.svg'
 import Warning from '../../../assets/common/Warning.svg'
 /*      API     */
-import { getCart } from '../../../utils/pharmaciesAPI'
+import { getCart, sendOrder } from '../../../utils/pharmaciesAPI'
 
 const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
   const [total, setTotal] = useState()
@@ -20,14 +20,19 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
   const [address, setAddress] = useState('')
   const [error, setError] = useState('')
   const [reqeust, setRequest] = useState(false)
+  const [product, setProduct] = useState([])
 
   useEffect(() => {
     const getTotal = async () => {
       const result = await getCart(loggedInUser)
-      setTotal(result?.total ? result.total : [])
+
+      setTotal(result?.total ? result.total : 0)
+
+      setProduct(result?.cart ? result.cart : 0)
     }
     getTotal()
-  })
+  }, [])
+
   const onCheckHandler = () => {
     setCheck(!check)
   }
@@ -54,9 +59,16 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
     else return false
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     inputValidation()
+
+    product.map(async ({ product, quantity }) => {
+      const order = await sendOrder(loggedInUser, product.manufacturer, product, quantity)
+      console.log(order)
+    })
+
     setRequest(!reqeust)
+
     setTimeout(() => {
       setRequest(false)
     }, 2000)
@@ -159,7 +171,7 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
                 <WideButton
                   content="إتمام الطلب"
                   handleOnClick={() => handleSubmit()}
-                  disabled={!address || !number || !pharmacyName}
+                  disabled={!address || !number || !pharmacyName || !check}
                 />
               </div>
             </div>

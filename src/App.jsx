@@ -46,6 +46,7 @@ import PharmacyConfirmOrder from './components/pages/pharmacy/PharmacyConfirmOrd
 import ManufacturerProtectedRoutes from './ManufacturerProtectedRoutes'
 import Manufacturer from './components/pages/manufacturer/main/manufacturer'
 import ManufacturerProfile from './components/pages/manufacturer/profile/ManufacturerProfile'
+import ManufacturerProducts from './components/pages/manufacturer/manufacturerProducts/ManufacturerProducts'
 import ManufacturerCurrentOrders from './components/pages/manufacturer/orders/CurrentOrders'
 import ManufacturerDelayedOrders from './components/pages/manufacturer/orders/DelayedOrders'
 
@@ -212,6 +213,8 @@ function App() {
           element={<ManufacturerProfile loggedInUser={loggedInUser} logout={logout} />}
         />
         <Route
+          path="/factoryProducts"
+          element={<ManufacturerProducts loggedInUser={loggedInUser} logout={logout} />}
           path="/currentOrders"
           element={<ManufacturerCurrentOrders loggedInUser={loggedInUser} logout={logout} />}
         />

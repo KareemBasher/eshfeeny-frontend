@@ -9,6 +9,7 @@ import PlusSign from '../../../../../assets/pharmacyProducts/PlusSign.svg'
 import MinusSign from '../../../../../assets/pharmacyProducts/MinusSign.svg'
 import Confirm from '../../../../../assets/pharmacyProducts/Confirm.svg'
 import ErrorIcon from '../../../../../assets/pharmacyProducts/ErrorIcon.svg'
+import * as ManufacturerApi from '../../../../../utils/manufacturersAPI'
 
 const SearchResultItem = ({ item, loggedInUser, handleAddProduct }) => {
   const [error, setError] = useState(false)
@@ -19,7 +20,8 @@ const SearchResultItem = ({ item, loggedInUser, handleAddProduct }) => {
   const handleOnClick = async () => {
     if (!quantityControllerOpen && !addSuccess) {
       const product = await checkProduct(loggedInUser, item._id)
-      if (product) {
+      const manufacturerProduct = await ManufacturerApi.checkProduct(loggedInUser, item._id)
+      if (product || manufacturerProduct) {
         setError(true)
       } else {
         setQuantityControllerOpen(true)
@@ -39,7 +41,8 @@ const SearchResultItem = ({ item, loggedInUser, handleAddProduct }) => {
   const addProductToPharmacy = async () => {
     setError(false)
     const response = await addProduct(loggedInUser, item._id, quantity)
-    if (response) {
+    const manufacturerResponse = await ManufacturerApi.addProduct(loggedInUser, item._id, quantity)
+    if (response || manufacturerResponse) {
       setAddSuccess(true)
       setQuantityControllerOpen(false)
     }
