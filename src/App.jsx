@@ -215,9 +215,12 @@ function App() {
         <Route
           path="/factoryProducts"
           element={<ManufacturerProducts loggedInUser={loggedInUser} logout={logout} />}
+        />
+        <Route
           path="/currentOrders"
           element={<ManufacturerCurrentOrders loggedInUser={loggedInUser} logout={logout} />}
         />
+
         <Route
           path="/DelayedOrders"
           element={<ManufacturerDelayedOrders loggedInUser={loggedInUser} logout={logout} />}
