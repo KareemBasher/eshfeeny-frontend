@@ -18,7 +18,7 @@ const CurrentOrders = ({ loggedInUser, logout }) => {
   return (
     <div>
       <ManufacturerNavigation loggedInUser={loggedInUser} logout={logout} />
-      <Orders onGetTitle="الطلبات" orders={orders.orders} />
+      <Orders onGetTitle="الطلبات" orders={orders.orders} loggedInUser={loggedInUser} />
     </div>
   )
 }

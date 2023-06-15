@@ -5,7 +5,7 @@ import RowContent from './RowContent'
 import { getPharmacy } from '../../../../utils/pharmaciesAPI'
 import { getProduct } from '../../../../utils/productsAPI'
 
-const Orders = ({ onGetTitle, orders }) => {
+const Orders = ({ onGetTitle, orders, loggedInUser }) => {
   const [tableOrders, setTableOrders] = useState([])
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const Orders = ({ onGetTitle, orders }) => {
             {tableOrders &&
               tableOrders.map((order) => (
                 <tr key={order.key}>
-                  <RowContent data={order} />
+                  <RowContent data={order} manufacturerId={loggedInUser} />
                 </tr>
               ))}
           </tbody>

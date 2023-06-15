@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+/*     Components    */
+import PopUp from './PopUp'
 /*      Icons      */
-import threeDots from '../../../../assets/manufacturer/More.svg'
+import ThreeDots from '../../../../assets/manufacturer/More.svg'
 
-const RowContent = ({ data }) => {
+const RowContent = ({ data, manufacturerId }) => {
+  const [popUp, setPopUp] = useState(false)
+
+  const handlePopup = () => {
+    setPopUp(!popUp)
+  }
+
   return (
     <>
       {/*  Image and Name   */}
@@ -27,9 +35,10 @@ const RowContent = ({ data }) => {
       <td>{data.pharmacyAdress}</td>
       {/*  Order Status   */}
       <td>
-        <button className="p-5">
-          <img src={threeDots} />
+        <button className="p-5" onClick={() => handlePopup()}>
+          <img src={ThreeDots} />
         </button>
+        {popUp && <PopUp onGetHandlePopup={handlePopup} />}
       </td>
     </>
   )
