@@ -5,7 +5,7 @@ import RowContent from './RowContent'
 import { getPharmacy } from '../../../../utils/pharmaciesAPI'
 import { getProduct } from '../../../../utils/productsAPI'
 
-const Orders = ({ onGetTitle, orders, loggedInUser }) => {
+const Orders = ({ onGetTitle, orders, loggedInUser, type, refresh, setRefresh }) => {
   const [tableOrders, setTableOrders] = useState([])
 
   useEffect(() => {
@@ -42,15 +42,13 @@ const Orders = ({ onGetTitle, orders, loggedInUser }) => {
     orderFormat()
   }, [orders])
 
-  // console.log(tableOrders)
-
   return (
     <div className="mx-32 2xl:mx-52">
       <div className="text-right text-[28px] my-10">{onGetTitle}</div>
       <div>
-        <table className="w-full mb-32">
+        <table className="w-full mb-32 2xl:text-[18px]">
           <tbody>
-            <tr className="bg-blue text-[#F5F5F5] h-[58px]">
+            <tr className="bg-blue text-[#F5F5F5] h-[58px] text-[18px] 2xl:text-[22px]">
               <th className="w-[352px]">المنتج</th>
               <th>الكمية المطلوبة</th>
               <th>السعر الكلي</th>
@@ -62,7 +60,13 @@ const Orders = ({ onGetTitle, orders, loggedInUser }) => {
             {tableOrders &&
               tableOrders.map((order) => (
                 <tr key={order.key}>
-                  <RowContent data={order} manufacturerId={loggedInUser} />
+                  <RowContent
+                    order={order}
+                    manufacturerId={loggedInUser}
+                    type={type}
+                    refresh={refresh}
+                    setRefresh={setRefresh}
+                  />
                 </tr>
               ))}
           </tbody>
