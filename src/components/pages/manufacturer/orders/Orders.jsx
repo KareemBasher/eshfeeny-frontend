@@ -59,7 +59,7 @@ const Orders = ({ onGetTitle, orders, loggedInUser, type, refresh, setRefresh })
             </tr>
             {tableOrders &&
               tableOrders.map((order) => (
-                <tr key={order.key}>
+                <tr key={order.key} className="bg-[#EFF6FF] even:bg-[#FDFDFF]">
                   <RowContent
                     order={order}
                     manufacturerId={loggedInUser}
