@@ -7,17 +7,27 @@ import { getDelayedOrders } from '../../../../utils/manufacturersAPI'
 
 const DelayedOrders = ({ loggedInUser, logout }) => {
   const [orders, setOrders] = useState([])
+  const [refresh, setRefresh] = useState(false)
 
   useEffect(() => {
-    const getCurrentOrders = async () => {
+    const getOrders = async () => {
       setOrders(await getDelayedOrders(loggedInUser))
+      setRefresh(true)
     }
-    getCurrentOrders()
-  }, [])
+    getOrders()
+  }, [refresh])
+
   return (
     <div>
       <ManufacturerNavigation loggedInUser={loggedInUser} logout={logout} />
-      <Orders onGetTitle="الطلبات المؤجلة" orders={orders.orders} />
+      <Orders
+        onGetTitle="الطلبات المؤجلة"
+        orders={orders.delayedOrders}
+        loggedInUser={loggedInUser}
+        type="delayed"
+        refresh={refresh}
+        setRefresh={setRefresh}
+      />
     </div>
   )
 }

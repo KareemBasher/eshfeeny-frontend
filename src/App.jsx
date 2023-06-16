@@ -42,6 +42,7 @@ import PharmacyCategoryPage from './components/pages/pharmacy/categoryPage/Pharm
 import PharmacyBrandProducts from './components/pages/pharmacy/brands/BrandProducts'
 import PharmacyBrandsList from './components/pages/pharmacy/brands/BrandsPage'
 import PharmacyConfirmOrder from './components/pages/pharmacy/PharmacyConfirmOrder'
+import PharmacySearchResults from './components/pages/pharmacy/SearchResults'
 /*   Manufacturer   */
 import ManufacturerProtectedRoutes from './ManufacturerProtectedRoutes'
 import Manufacturer from './components/pages/manufacturer/main/manufacturer'
@@ -198,6 +199,14 @@ function App() {
           element={<PharmacyConfirmOrder loggedInUser={loggedInUser} logout={logout} />}
         />
       </Route>
+      <Route
+        path="/pharmacySearchResults/:searchResults"
+        element={<PharmacySearchResults loggedInUser={loggedInUser} logout={logout} />}
+      />
+      <Route
+        path="/pharmacySearchResults/"
+        element={<PharmacySearchResults loggedInUser={loggedInUser} empty={true} logout={logout} />}
+      />
       {/* Pharmacy protected routes */}
 
       {/* Manufacturer protected routes */}
