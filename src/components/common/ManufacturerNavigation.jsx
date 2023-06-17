@@ -55,7 +55,7 @@ const ManufacturerNavigation = ({ loggedInUser, logout }) => {
     }
     getItems()
   }, [])
-  console.log(orders)
+
   return (
     <>
       <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30 border">
