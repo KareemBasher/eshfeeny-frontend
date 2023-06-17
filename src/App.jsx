@@ -6,50 +6,53 @@ import { useState } from 'react'
 import { useCookies } from 'react-cookie'
 
 /*         Page imports         */
-import Login from './components/pages/login/Login'
-import Cart from './components/pages/user/cart/Cart'
-import ProductPage from './components/pages/user/productPage/ProductPage'
-import Profile from './components/pages/user/profile/Profile'
 import LandingPage from './components/pages/onBoarding/LandingPage'
 import SigninOptions from './components/pages/onBoarding/SigninOptions'
-import Favourites from './components/pages/user/favourites/Favourites'
+import SignUp from './components/pages/signUp/SignUp'
+import Login from './components/pages/login/Login'
 import ForgotPassword from './components/pages/login/ForgotPassword'
 import VerifyCode from './components/pages/login/VerifyCode'
-import AlternativesPage from './components/pages/user/AlternativesPage'
-import SearchResults from './components/pages/user/SearchResults'
+import NewPassword from './components/pages/login/NewPassword'
+import ErrorPage from './components/common/ErrorPage'
+/*     User     */
 import Main from './components/pages/user/main/Main'
+import Favourites from './components/pages/user/favourites/Favourites'
+import Cart from './components/pages/user/cart/Cart'
+import Map from './components/pages/user/map/Map'
+import Profile from './components/pages/user/profile/Profile'
+import SearchResults from './components/pages/user/SearchResults'
+import ProductPage from './components/pages/user/productPage/ProductPage'
+import AlternativesPage from './components/pages/user/AlternativesPage'
 import Prescription from './components/pages/user/Prescription'
-import SignUp from './components/pages/signUp/SignUp'
 import InsuranceCompanies from './components/pages/user/insurance/InsuranceCompanies'
 import CompanyPage from './components/pages/user/insurance/CompanyPage'
 import InsuranceCardPage from './components/pages/user/insurance/InsuranceCardPage'
-import NewPassword from './components/pages/login/NewPassword'
-import Map from './components/pages/user/map/Map'
 import AddCard from './components/pages/user/insurance/AddCard'
 import CategoryPage from './components/pages/categoryPage/CategoryPage'
-import ErrorPage from './components/common/ErrorPage'
-import Pharmacy from './components/pages/pharmacy/Pharmacy'
-import UserProtectedRoutes from './UserProtectedRoutes'
-import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
-import PharmacyCart from './components/pages/pharmacy/cart/PharmacyCart'
-import PharmacyFavourits from './components/pages/pharmacy/favourites/PharmacyFavourites'
-import BrandProducts from './components/pages/brands/BrandProducts'
 import BrandsList from './components/pages/brands/BrandsPage'
-import PharmacyProfile from './components/pages/pharmacy/profile/PharmacyProfile'
+import BrandProducts from './components/pages/brands/BrandProducts'
+import UserProtectedRoutes from './UserProtectedRoutes'
+/*      Pharmacy     */
+import Pharmacy from './components/pages/pharmacy/Pharmacy'
+import PharmacyFavourits from './components/pages/pharmacy/favourites/PharmacyFavourites'
+import PharmacyCart from './components/pages/pharmacy/cart/PharmacyCart'
 import PharmacyProducts from './components/pages/pharmacy/myProducts/PharmacyProducts'
+import PharmacyProfile from './components/pages/pharmacy/profile/PharmacyProfile'
+import PharmacyBrandsList from './components/pages/pharmacy/brands/BrandsPage'
+import PharmacyBrandProducts from './components/pages/pharmacy/brands/BrandProducts'
+import PharmacySearchResults from './components/pages/pharmacy/SearchResults'
 import PharmacyProductPage from './components/pages/pharmacy/productPage/ProductPage'
 import PharmacyCategoryPage from './components/pages/pharmacy/categoryPage/PharmacyCategoryItems'
-import PharmacyBrandProducts from './components/pages/pharmacy/brands/BrandProducts'
-import PharmacyBrandsList from './components/pages/pharmacy/brands/BrandsPage'
 import PharmacyConfirmOrder from './components/pages/pharmacy/PharmacyConfirmOrder'
-import PharmacySearchResults from './components/pages/pharmacy/SearchResults'
+import PharmacyProtectedRoutes from './PharmacyProtectedRoutes'
 /*   Manufacturer   */
-import ManufacturerProtectedRoutes from './ManufacturerProtectedRoutes'
 import Manufacturer from './components/pages/manufacturer/main/manufacturer'
-import ManufacturerProfile from './components/pages/manufacturer/profile/ManufacturerProfile'
-import ManufacturerProducts from './components/pages/manufacturer/manufacturerProducts/ManufacturerProducts'
 import ManufacturerCurrentOrders from './components/pages/manufacturer/orders/CurrentOrders'
 import ManufacturerDelayedOrders from './components/pages/manufacturer/orders/DelayedOrders'
+import ManufacturerProducts from './components/pages/manufacturer/manufacturerProducts/ManufacturerProducts'
+import ManufacturerProfile from './components/pages/manufacturer/profile/ManufacturerProfile'
+import ManufacturerSearchResults from './components/pages/manufacturer/ManufacturerSearchResults'
+import ManufacturerProtectedRoutes from './ManufacturerProtectedRoutes'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedUser'])
@@ -229,12 +232,21 @@ function App() {
           path="/currentOrders"
           element={<ManufacturerCurrentOrders loggedInUser={loggedInUser} logout={logout} />}
         />
-
         <Route
           path="/DelayedOrders"
           element={<ManufacturerDelayedOrders loggedInUser={loggedInUser} logout={logout} />}
         />
       </Route>
+      <Route
+        path="/manufacturerSearchResults/:searchResults"
+        element={<ManufacturerSearchResults loggedInUser={loggedInUser} logout={logout} />}
+      />
+      <Route
+        path="/manufacturerSearchResults/"
+        element={
+          <ManufacturerSearchResults loggedInUser={loggedInUser} empty={true} logout={logout} />
+        }
+      />
       {/* Manufacturer protected routes */}
 
       <Route
