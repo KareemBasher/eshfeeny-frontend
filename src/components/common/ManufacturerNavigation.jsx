@@ -55,7 +55,7 @@ const ManufacturerNavigation = ({ loggedInUser, logout }) => {
     }
     getItems()
   }, [])
-
+  console.log(orders)
   return (
     <>
       <div className="flex px-32 2xl:px-52 py-7 justify-center relative bg-[#fdfdff] z-30 border">
@@ -65,21 +65,21 @@ const ManufacturerNavigation = ({ loggedInUser, logout }) => {
           onGetLogo={Orders}
           onGetText="الطلبات"
           onGetPath="/currentOrders"
-          onGetCartLength={delayedOrders}
+          onGetCartLength={orders.length}
           active={location.pathname === '/orders'}
         />
         <RoundButton
           onGetLogo={DelayedOrders}
           onGetText="الطلبات المؤجلة"
           onGetPath="/delayedOrders"
-          onGetCartLength={orders}
+          onGetCartLength={delayedOrders.length}
           active={location.pathname === '/delayedOrders'}
         />
         <RoundButton
           onGetLogo={FactoryProducts}
           onGetText="منتجاتى"
           onGetPath={`/factoryProducts`}
-          onGetCartLength={orders}
+          onGetCartLength={delayedOrders.length}
           active={location.pathname === '/factoryProducts'}
         />
         <ManufacturerProfileRoundButton loggedInUser={loggedInUser} logout={logout} />
