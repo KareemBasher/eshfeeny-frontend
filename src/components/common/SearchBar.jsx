@@ -257,14 +257,16 @@ const SearchBar = ({ onGetType, onGetData, query }) => {
             autoComplete="off"
           />
 
-          <button className="px-5" onClick={() => setDragActive(true)}>
-            <img
-              className="w-[32px]"
-              draggable="false"
-              src={CameraSearch}
-              alt="Search using image"
-            />
-          </button>
+          {onGetType !== 'manufacturer' && (
+            <button className="px-5" onClick={() => setDragActive(true)}>
+              <img
+                className="w-[32px]"
+                draggable="false"
+                src={CameraSearch}
+                alt="Search using image"
+              />
+            </button>
+          )}
         </div>
 
         {data.length > 0 && resultsOpen && (
