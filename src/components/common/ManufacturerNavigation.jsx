@@ -54,7 +54,7 @@ const ManufacturerNavigation = ({ loggedInUser, logout }) => {
       setDelayedOrders(delayedOrders.delayedOrders ? delayedOrders.delayedOrders : 0)
     }
     getItems()
-  }, [orders, delayedOrders])
+  }, [])
 
   return (
     <>
