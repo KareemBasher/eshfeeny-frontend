@@ -281,23 +281,42 @@ const SearchBar = ({ onGetType, onGetData, query }) => {
                     key={_id}
                     className="w-full flex justify-start items-center pr-7 border-b py-2"
                   >
-                    <Link
-                      to={onGetType === 'pharmacy' ? `/pharmacyProduct/${_id}` : `/product/${_id}`}
-                      onClick={() => setResultsOpen(false)}
-                    >
-                      <div className="flex h-[80px]">
-                        <img draggable="false" src={images} className="" alt="Product" />
-                        <div className="flex flex-col items-start mx-5">
-                          <p>
-                            {nameAr}
-                            {volume ? ` | ${volume}` : ''}
-                            {amount ? ` | ${amount}` : ''}
-                          </p>
+                    {onGetType === 'manufacturer' ? (
+                      <div>
+                        <div className="flex h-[80px]">
+                          <img draggable="false" src={images} className="" alt="Product" />
+                          <div className="flex flex-col items-start mx-5">
+                            <p>
+                              {nameAr}
+                              {volume ? ` | ${volume}` : ''}
+                              {amount ? ` | ${amount}` : ''}
+                            </p>
 
-                          <p className="text-lightBlue py-1">{price} جنيه</p>
+                            <p className="text-lightBlue py-1">{price} جنيه</p>
+                          </div>
                         </div>
                       </div>
-                    </Link>
+                    ) : (
+                      <Link
+                        to={
+                          onGetType === 'pharmacy' ? `/pharmacyProduct/${_id}` : `/product/${_id}`
+                        }
+                        onClick={() => setResultsOpen(false)}
+                      >
+                        <div className="flex h-[80px]">
+                          <img draggable="false" src={images} className="" alt="Product" />
+                          <div className="flex flex-col items-start mx-5">
+                            <p>
+                              {nameAr}
+                              {volume ? ` | ${volume}` : ''}
+                              {amount ? ` | ${amount}` : ''}
+                            </p>
+
+                            <p className="text-lightBlue py-1">{price} جنيه</p>
+                          </div>
+                        </div>
+                      </Link>
+                    )}
                   </li>
                 ))}
                 <div className="border-b" />

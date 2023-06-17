@@ -50,6 +50,7 @@ import ManufacturerProfile from './components/pages/manufacturer/profile/Manufac
 import ManufacturerProducts from './components/pages/manufacturer/manufacturerProducts/ManufacturerProducts'
 import ManufacturerCurrentOrders from './components/pages/manufacturer/orders/CurrentOrders'
 import ManufacturerDelayedOrders from './components/pages/manufacturer/orders/DelayedOrders'
+import ManufacturerSearchResults from './components/pages/manufacturer/ManufacturerSearchResults'
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['loggedUser'])
@@ -229,12 +230,21 @@ function App() {
           path="/currentOrders"
           element={<ManufacturerCurrentOrders loggedInUser={loggedInUser} logout={logout} />}
         />
-
         <Route
           path="/DelayedOrders"
           element={<ManufacturerDelayedOrders loggedInUser={loggedInUser} logout={logout} />}
         />
       </Route>
+      <Route
+        path="/manufacturerSearchResults/:searchResults"
+        element={<ManufacturerSearchResults loggedInUser={loggedInUser} logout={logout} />}
+      />
+      <Route
+        path="/manufacturerSearchResults/"
+        element={
+          <ManufacturerSearchResults loggedInUser={loggedInUser} empty={true} logout={logout} />
+        }
+      />
       {/* Manufacturer protected routes */}
 
       <Route
