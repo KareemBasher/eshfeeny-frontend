@@ -163,3 +163,16 @@ export const undelayOrder = async (manufacturerId, orderId) => {
     console.log(`Could not undelay order ${orderId} for manufacturer with id ${manufacturerId}.`)
   }
 }
+
+// Remove an order
+export const removeOrder = async (manufacturerId, orderId) => {
+  try {
+    const result = await fetch(apiURL + `/manufacturers/${manufacturerId}/removeOrder/${orderId}`, {
+      method: 'DELETE',
+      headers: headers
+    })
+    if (result.status === 200) return result.json()
+  } catch (error) {
+    console.log(`Could not remove order ${orderId} for manufacturer with id ${manufacturerId}.`)
+  }
+}
