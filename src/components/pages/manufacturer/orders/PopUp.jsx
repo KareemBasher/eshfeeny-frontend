@@ -1,25 +1,8 @@
 import React from 'react'
 /*      Icons      */
 import Close from '../../../../assets/manufacturer/Close.svg'
-/*     API     */
-import { delayOrder, undelayOrder, removeOrder } from '../../../../utils/manufacturersAPI'
 
-const PopUp = ({ onGetHandlePopup, onGetManufacturerId, order, type, refresh, setRefresh }) => {
-  const delay = () => {
-    delayOrder(onGetManufacturerId, order.key)
-    setRefresh(!refresh)
-  }
-
-  const unDelay = () => {
-    undelayOrder(onGetManufacturerId, order.key)
-    setRefresh(!refresh)
-  }
-
-  const remove = () => {
-    removeOrder(onGetManufacturerId, order.key)
-    setRefresh(!refresh)
-  }
-
+const PopUp = ({ onGetHandlePopup, onGetManufacturerId, order, type, remove, delay, unDelay }) => {
   return (
     <div className="absolute">
       <div className="bg-[#FDFDFF] relative w-28 2xl:w-40 h-fit right-28 2xl:right-40 bottom-16 shadow-lg border-[1px] rounded-">
@@ -31,7 +14,7 @@ const PopUp = ({ onGetHandlePopup, onGetManufacturerId, order, type, refresh, se
         </button>
         <div className="text-[14px] relative bottom-3">
           <button
-            onClick={() => remove()}
+            onClick={() => remove(onGetManufacturerId, order.key)}
             className="py-1 pr-2 hover:bg-[#EFF6FF] hover:border-r-2 hover:border-r-blue w-full text-right"
           >
             تأكيد الطلب
@@ -39,7 +22,7 @@ const PopUp = ({ onGetHandlePopup, onGetManufacturerId, order, type, refresh, se
           {type === 'current' && (
             <button
               className="py-1 pr-2 hover:bg-[#EFF6FF] hover:border-r-2 hover:border-r-blue w-full text-right"
-              onClick={() => delay()}
+              onClick={() => delay(onGetManufacturerId, order.key)}
             >
               تأجيل الطلب
             </button>
@@ -47,7 +30,7 @@ const PopUp = ({ onGetHandlePopup, onGetManufacturerId, order, type, refresh, se
           {type === 'delayed' && (
             <button
               className="py-1 pr-2 hover:bg-[#EFF6FF] hover:border-r-2 hover:border-r-blue w-full text-right"
-              onClick={() => unDelay()}
+              onClick={() => unDelay(onGetManufacturerId, order.key)}
             >
               إضافة الى الطلبات الجديدة
             </button>
@@ -57,7 +40,7 @@ const PopUp = ({ onGetHandlePopup, onGetManufacturerId, order, type, refresh, se
             onClick={() => remove()}
             className="py-1 pr-2 hover:bg-[#EFF6FF] hover:border-r-2 hover:border-r-blue w-full text-right text-[#EB1D36]"
           >
-            حذف المنتج
+            حذف الطلب
           </button>
         </div>
       </div>

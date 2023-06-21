@@ -8,7 +8,7 @@ import CartLight from '../../../../assets/common/CartLight.svg'
 import { getPharmacy } from '../../../../utils/pharmaciesAPI'
 import { getProduct } from '../../../../utils/productsAPI'
 
-const Orders = ({ onGetTitle, orders, loggedInUser, type, refresh, setRefresh }) => {
+const Orders = ({ onGetTitle, orders, loggedInUser, type, remove, delay, unDelay }) => {
   const [tableOrders, setTableOrders] = useState([])
 
   useEffect(() => {
@@ -24,7 +24,10 @@ const Orders = ({ onGetTitle, orders, loggedInUser, type, refresh, setRefresh })
           pharmacyData: pharmacy
         }
       })
-      const firstResult = await Promise.all(firstFormat)
+
+      let firstResult = []
+
+      if (firstFormat) firstResult = await Promise.all(firstFormat)
 
       const finalFormat = firstResult.map((order) => {
         return {
@@ -68,8 +71,9 @@ const Orders = ({ onGetTitle, orders, loggedInUser, type, refresh, setRefresh })
                       order={order}
                       manufacturerId={loggedInUser}
                       type={type}
-                      refresh={refresh}
-                      setRefresh={setRefresh}
+                      remove={remove}
+                      delay={delay}
+                      unDelay={unDelay}
                     />
                   </tr>
                 ))}

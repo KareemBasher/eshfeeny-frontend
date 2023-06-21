@@ -3,30 +3,43 @@ import React, { useEffect, useState } from 'react'
 import ManufacturerNavigation from '../../../common/ManufacturerNavigation'
 import Orders from './Orders'
 /*    API      */
-import { getDelayedOrders } from '../../../../utils/manufacturersAPI'
+import { getDelayedOrders, removeOrder, undelayOrder } from '../../../../utils/manufacturersAPI'
 
 const DelayedOrders = ({ loggedInUser, logout }) => {
   const [orders, setOrders] = useState([])
-  const [refresh, setRefresh] = useState(false)
+
+  const removeFromArray = (id) => {
+    const newOrders = orders.filter((order) => order._id !== id)
+    setOrders(newOrders)
+  }
+
+  const unDelay = (id, orderID) => {
+    undelayOrder(id, orderID)
+    removeFromArray(orderID)
+  }
+
+  const remove = (id, orderID) => {
+    removeOrder(id, orderID)
+    removeFromArray(orderID)
+  }
 
   useEffect(() => {
     const getOrders = async () => {
-      setOrders(await getDelayedOrders(loggedInUser))
-      setRefresh(true)
+      const result = await getDelayedOrders(loggedInUser)
+      setOrders(result.delayedOrders)
     }
     getOrders()
-  }, [refresh])
-
+  }, [])
   return (
     <div>
       <ManufacturerNavigation loggedInUser={loggedInUser} logout={logout} />
       <Orders
         onGetTitle="الطلبات المؤجلة"
-        orders={orders.delayedOrders}
+        orders={orders}
         loggedInUser={loggedInUser}
         type="delayed"
-        refresh={refresh}
-        setRefresh={setRefresh}
+        unDelay={unDelay}
+        remove={remove}
       />
     </div>
   )

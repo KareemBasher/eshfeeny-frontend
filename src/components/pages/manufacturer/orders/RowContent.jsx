@@ -4,7 +4,7 @@ import PopUp from './PopUp'
 /*      Icons      */
 import ThreeDots from '../../../../assets/manufacturer/More.svg'
 
-const RowContent = ({ order, manufacturerId, type, refresh, setRefresh }) => {
+const RowContent = ({ order, manufacturerId, type, remove, delay, unDelay }) => {
   const [popUp, setPopUp] = useState(false)
 
   const handlePopup = () => {
@@ -44,8 +44,9 @@ const RowContent = ({ order, manufacturerId, type, refresh, setRefresh }) => {
             onGetManufacturerId={manufacturerId}
             type={type}
             order={order}
-            refresh={refresh}
-            setRefresh={setRefresh}
+            remove={remove}
+            delay={delay}
+            unDelay={unDelay}
           />
         )}
       </td>
