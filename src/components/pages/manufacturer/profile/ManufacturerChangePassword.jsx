@@ -47,8 +47,6 @@ const ManufacturerChangePassword = ({ toggleModal, user }) => {
     const oldPasswordResult = await checkOldPassword()
     if (checkNewPassword() && oldPasswordResult) {
       const result = await updatePassword(user._id, newPassword)
-      console.log(user._id)
-      console.log(newPassword)
       if (result?.modifiedCount === 1) {
         setPasswordChanged(true)
         setTimeout(() => {
