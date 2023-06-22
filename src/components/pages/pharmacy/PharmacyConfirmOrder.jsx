@@ -10,7 +10,7 @@ import PharmacyConfirmRequest from './PharmacyConfirmRequest'
 import ConfirmPayment from '../../../assets/common/ConfirmPayment.svg'
 import Warning from '../../../assets/common/Warning.svg'
 /*      API     */
-import { getCart, sendOrder } from '../../../utils/pharmaciesAPI'
+import { getCart, sendOrder, removeFromCart } from '../../../utils/pharmaciesAPI'
 
 const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
   const [total, setTotal] = useState()
@@ -53,7 +53,9 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
 
     if (address.length === 0) errorObj.addressLength = true
     else errorObj.addressLength = false
+
     setError(errorObj)
+
     if (errorObj.pharmacyNameLength || errorObj.numberLength || errorObj.addressLength)
       errorObj.allData = true
     else return false
@@ -63,14 +65,15 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
     inputValidation()
 
     product.map(async ({ product, quantity }) => {
-      const order = await sendOrder(loggedInUser, product.manufacturer, product, quantity)
-      console.log(order)
+      await sendOrder(loggedInUser, product.manufacturer, product, quantity)
+      await removeFromCart(loggedInUser, product._id)
     })
 
     setRequest(!reqeust)
 
     setTimeout(() => {
       setRequest(false)
+      window.location.href = '/pharmacy'
     }, 2000)
   }
 
@@ -177,13 +180,8 @@ const PharmacyConfirmOrder = ({ loggedInUser, logout }) => {
             </div>
           </div>
         </div>
-        <div className="absolute">
-          {reqeust && (
-            <div>
-              <PharmacyConfirmRequest />
-            </div>
-          )}
-        </div>
+
+        {reqeust && <PharmacyConfirmRequest />}
       </div>
     </div>
   )
