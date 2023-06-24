@@ -40,7 +40,7 @@ const SideBar = ({ onGetActiveType, onGetActiveCategory, onGetType, setCurrentPa
     {
       type: 'mothers',
       title: 'الأم و الطفل',
-      category: ['كل الأم و الطفل', 'لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
+      category: ['كل الأم و الطفل', 'لبن الاطفال', 'الحفاضات و الكريمات', 'العناية بالأم']
     },
     {
       type: 'skinCare',
