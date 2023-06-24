@@ -40,7 +40,7 @@ const NavList = ({ handleShowOverlay, handleHideOverlay, onGetType, setCurrentPa
     {
       type: 'mothers',
       title: 'الأم و الطفل',
-      category: ['لبن الاطفال', 'الخفاضات و الكريمات', 'العناية بالأم']
+      category: ['لبن الاطفال', 'الحفاضات و الكريمات', 'العناية بالأم']
     },
     {
       type: 'skinCare',
