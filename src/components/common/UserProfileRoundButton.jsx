@@ -45,13 +45,13 @@ const UserProfileRoundButton = ({ loggedInUser, logout }) => {
         ) : (
           <>
             <Link
-              to="/login/user"
+              to="/landingPage"
               className="flex bg-[#F7F7F7] justify-center rounded-full shadow-md w-10 h-10 relative cursor-pointer"
             >
               <img className="self-center" draggable="false" src={Person} alt="RadialButton" />
             </Link>
             <div>
-              <Link to="/login/user" className="text-[20px] px-3 cursor-pointer">
+              <Link to="/landingPage" className="text-[20px] px-3 cursor-pointer">
                 تسجيل الدخول
               </Link>
             </div>
