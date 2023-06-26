@@ -14,6 +14,7 @@ import ForgotPassword from './components/pages/login/ForgotPassword'
 import VerifyCode from './components/pages/login/VerifyCode'
 import NewPassword from './components/pages/login/NewPassword'
 import ErrorPage from './components/common/ErrorPage'
+import Mobile from './components/pages/mobile/Mobile'
 /*     User     */
 import Main from './components/pages/user/main/Main'
 import Favourites from './components/pages/user/favourites/Favourites'
@@ -73,8 +74,11 @@ function App() {
     removeCookie('loggedInUserType', { path: '/' })
   }
 
+  if (window.innerWidth <= 800) return <Mobile />
+
   return (
     <Routes>
+      <Route path="/mobile" element={<Mobile />} />
       <Route path="/landingPage" element={<LandingPage />} />
       <Route
         path="/landingPage/:type"
